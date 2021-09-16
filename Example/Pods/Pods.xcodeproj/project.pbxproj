@@ -10,9 +10,186 @@
 		47370FB8B4B130F73F918EB6BF3B9692 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 		54BBC7CB33F2634AF4CD386B3686F22F /* Pods-ehrPatientSDK-ios_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0265783E41FDD503EB727CE1FCFAF9 /* Pods-ehrPatientSDK-ios_Tests-dummy.m */; };
 		77E55181CD9D5F702F458A579D8C08B7 /* Pods-ehrPatientSDK-ios_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CC7B2F99BD0394C5DA32D4C049647C5B /* Pods-ehrPatientSDK-ios_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7ABCB72026F392330068026D /* GETimeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB70926F392320068026D /* GETimeUtil.m */; };
+		7ABCB72126F392330068026D /* AppSignature.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB70A26F392320068026D /* AppSignature.m */; };
+		7ABCB72226F392330068026D /* GEMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB70B26F392320068026D /* GEMacros.h */; };
+		7ABCB72326F392330068026D /* GEDeviceHardware.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB70C26F392330068026D /* GEDeviceHardware.h */; };
+		7ABCB72426F392330068026D /* EHRGuid.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB70D26F392330068026D /* EHRGuid.h */; };
+		7ABCB72526F392330068026D /* GEDeviceHardware.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB70E26F392330068026D /* GEDeviceHardware.m */; };
+		7ABCB72626F392330068026D /* GERuntimeConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB70F26F392330068026D /* GERuntimeConstants.m */; };
+		7ABCB72726F392330068026D /* GETimeUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB71026F392330068026D /* GETimeUtil.h */; };
+		7ABCB72826F392330068026D /* MathUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB71126F392330068026D /* MathUtil.h */; };
+		7ABCB72926F392330068026D /* MathUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB71226F392330068026D /* MathUtil.m */; };
+		7ABCB72A26F392330068026D /* NSDictionary+JSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB71326F392330068026D /* NSDictionary+JSON.h */; };
+		7ABCB72B26F392330068026D /* NSDictionary+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB71426F392330068026D /* NSDictionary+JSON.m */; };
+		7ABCB72C26F392330068026D /* UIView+EHR.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB71526F392330068026D /* UIView+EHR.h */; };
+		7ABCB72D26F392330068026D /* EHRGuid.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB71626F392330068026D /* EHRGuid.m */; };
+		7ABCB72E26F392330068026D /* UIView+EHR.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB71726F392330068026D /* UIView+EHR.m */; };
+		7ABCB72F26F392330068026D /* GEFileUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB71826F392330068026D /* GEFileUtil.h */; };
+		7ABCB73026F392330068026D /* DateUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB71926F392330068026D /* DateUtil.h */; };
+		7ABCB73126F392330068026D /* Version.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB71A26F392330068026D /* Version.h */; };
+		7ABCB73226F392330068026D /* Version.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB71B26F392330068026D /* Version.m */; };
+		7ABCB73326F392330068026D /* GERuntimeConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB71C26F392330068026D /* GERuntimeConstants.h */; };
+		7ABCB73426F392330068026D /* GEFileUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB71D26F392330068026D /* GEFileUtil.m */; };
+		7ABCB73526F392330068026D /* DateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB71E26F392330068026D /* DateUtil.m */; };
+		7ABCB73626F392330068026D /* AppSignature.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB71F26F392330068026D /* AppSignature.h */; };
+		7ABCB73F26F392450068026D /* OfferedPrivateMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB73726F392450068026D /* OfferedPrivateMessage.h */; };
+		7ABCB74026F392450068026D /* AccessRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB73826F392450068026D /* AccessRequest.h */; };
+		7ABCB74126F392450068026D /* AccessOffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB73926F392450068026D /* AccessOffer.h */; };
+		7ABCB74226F392450068026D /* AccessState.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB73A26F392450068026D /* AccessState.h */; };
+		7ABCB74326F392450068026D /* AccessRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB73B26F392450068026D /* AccessRequest.m */; };
+		7ABCB74426F392450068026D /* AccessState.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB73C26F392450068026D /* AccessState.m */; };
+		7ABCB74526F392450068026D /* AccessOffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB73D26F392450068026D /* AccessOffer.m */; };
+		7ABCB74626F392450068026D /* OfferedPrivateMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB73E26F392450068026D /* OfferedPrivateMessage.m */; };
+		7ABCB74F26F3924D0068026D /* InsuranceNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB74726F3924D0068026D /* InsuranceNumber.m */; };
+		7ABCB75026F3924D0068026D /* HCIN.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB74826F3924D0068026D /* HCIN.m */; };
+		7ABCB75126F3924D0068026D /* PIN.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB74926F3924D0068026D /* PIN.m */; };
+		7ABCB75226F3924D0068026D /* PIN.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB74A26F3924D0068026D /* PIN.h */; };
+		7ABCB75326F3924D0068026D /* SIN.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB74B26F3924D0068026D /* SIN.h */; };
+		7ABCB75426F3924D0068026D /* SIN.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB74C26F3924D0068026D /* SIN.m */; };
+		7ABCB75526F3924D0068026D /* HCIN.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB74D26F3924D0068026D /* HCIN.h */; };
+		7ABCB75626F3924D0068026D /* InsuranceNumber.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB74E26F3924D0068026D /* InsuranceNumber.h */; };
+		7ABCB75926F392540068026D /* FactorsRequired.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB75726F392540068026D /* FactorsRequired.h */; };
+		7ABCB75A26F392540068026D /* FactorsRequired.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB75826F392540068026D /* FactorsRequired.m */; };
+		7ABCB7B126F392640068026D /* IBDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB75B26F392630068026D /* IBDeviceInfo.m */; };
+		7ABCB7B226F392640068026D /* IBDeviceInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB75C26F392630068026D /* IBDeviceInfo.h */; };
+		7ABCB7B326F392640068026D /* IBAppSummary.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB75D26F392630068026D /* IBAppSummary.h */; };
+		7ABCB7B426F392640068026D /* IBPractitionerJurisdiction.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB75E26F392630068026D /* IBPractitionerJurisdiction.h */; };
+		7ABCB7B526F392640068026D /* IBEula.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB75F26F392630068026D /* IBEula.h */; };
+		7ABCB7B626F392640068026D /* IBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB76026F392630068026D /* IBUser.m */; };
+		7ABCB7B726F392640068026D /* IBUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB76126F392630068026D /* IBUser.h */; };
+		7ABCB7B826F392640068026D /* IBUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB76226F392630068026D /* IBUserInfo.m */; };
+		7ABCB7B926F392640068026D /* IBCapability.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB76326F392630068026D /* IBCapability.h */; };
+		7ABCB7BA26F392640068026D /* IBPractitioner.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB76426F392630068026D /* IBPractitioner.h */; };
+		7ABCB7BB26F392640068026D /* IBService.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB76526F392630068026D /* IBService.m */; };
+		7ABCB7BC26F392640068026D /* PatientHealthSummary.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB76626F392630068026D /* PatientHealthSummary.h */; };
+		7ABCB7BD26F392640068026D /* PatientInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB76726F392630068026D /* PatientInfo.h */; };
+		7ABCB7BE26F392640068026D /* IBLabRequestPDFDocument.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB76826F392630068026D /* IBLabRequestPDFDocument.h */; };
+		7ABCB7BF26F392640068026D /* IBService.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB76926F392630068026D /* IBService.h */; };
+		7ABCB7C026F392640068026D /* PatientNotification.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB76A26F392630068026D /* PatientNotification.h */; };
+		7ABCB7C126F392640068026D /* IBLabRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB76B26F392630068026D /* IBLabRequest.m */; };
+		7ABCB7C226F392640068026D /* IBPractitioner.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB76C26F392630068026D /* IBPractitioner.m */; };
+		7ABCB7C326F392640068026D /* IBTelex.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB76D26F392630068026D /* IBTelex.m */; };
+		7ABCB7C426F392640068026D /* IBEula.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB76E26F392630068026D /* IBEula.m */; };
+		7ABCB7C526F392640068026D /* IBLabRequestPDFDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB76F26F392630068026D /* IBLabRequestPDFDocument.m */; };
+		7ABCB7C626F392640068026D /* IBMessageContent.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB77026F392630068026D /* IBMessageContent.h */; };
+		7ABCB7C726F392640068026D /* IBAppointment.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB77126F392630068026D /* IBAppointment.m */; };
+		7ABCB7C826F392640068026D /* IBVersion.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB77226F392630068026D /* IBVersion.h */; };
+		7ABCB7C926F392640068026D /* Record.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB77326F392630068026D /* Record.h */; };
+		7ABCB7CA26F392640068026D /* IBLabResultPDFDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB77426F392630068026D /* IBLabResultPDFDocument.m */; };
+		7ABCB7CB26F392640068026D /* IBPatientInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB77526F392630068026D /* IBPatientInfo.m */; };
+		7ABCB7CC26F392640068026D /* IBContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB77626F392630068026D /* IBContact.m */; };
+		7ABCB7CD26F392640068026D /* Patient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB77726F392630068026D /* Patient.m */; };
+		7ABCB7CE26F392640068026D /* IBVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB77826F392630068026D /* IBVersion.m */; };
+		7ABCB7CF26F392640068026D /* Record.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB77926F392630068026D /* Record.m */; };
+		7ABCB7D026F392640068026D /* IBHealthCareProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB77A26F392630068026D /* IBHealthCareProvider.h */; };
+		7ABCB7D126F392640068026D /* IBMessageContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB77B26F392630068026D /* IBMessageContent.m */; };
+		7ABCB7D226F392640068026D /* IBLabRequestTextDocument.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB77C26F392630068026D /* IBLabRequestTextDocument.h */; };
+		7ABCB7D326F392640068026D /* IBPatientContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB77D26F392630068026D /* IBPatientContact.m */; };
+		7ABCB7D426F392640068026D /* UserDeviceSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB77E26F392630068026D /* UserDeviceSettings.m */; };
+		7ABCB7D526F392640068026D /* IBLabResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB77F26F392630068026D /* IBLabResult.h */; };
+		7ABCB7D626F392640068026D /* IBDispensaryInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB78026F392630068026D /* IBDispensaryInfo.h */; };
+		7ABCB7D726F392640068026D /* PatientInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB78126F392640068026D /* PatientInfo.m */; };
+		7ABCB7D826F392640068026D /* IBMediaInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB78226F392640068026D /* IBMediaInfo.h */; };
+		7ABCB7D926F392640068026D /* IBUserCapability.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB78326F392640068026D /* IBUserCapability.h */; };
+		7ABCB7DA26F392650068026D /* IBLabRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB78426F392640068026D /* IBLabRequest.h */; };
+		7ABCB7DB26F392650068026D /* IBUserEula.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB78526F392640068026D /* IBUserEula.h */; };
+		7ABCB7DC26F392650068026D /* IBAddress.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB78626F392640068026D /* IBAddress.h */; };
+		7ABCB7DD26F392650068026D /* IBAppointment.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB78726F392640068026D /* IBAppointment.h */; };
+		7ABCB7DE26F392650068026D /* IBUserEula.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB78826F392640068026D /* IBUserEula.m */; };
+		7ABCB7DF26F392650068026D /* IBContact.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB78926F392640068026D /* IBContact.h */; };
+		7ABCB7E026F392650068026D /* IBPractitionerPractice.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB78A26F392640068026D /* IBPractitionerPractice.m */; };
+		7ABCB7E126F392650068026D /* IBAgentInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB78B26F392640068026D /* IBAgentInfo.h */; };
+		7ABCB7E226F392650068026D /* IBDispensaryInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB78C26F392640068026D /* IBDispensaryInfo.m */; };
+		7ABCB7E326F392650068026D /* IBLab.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB78D26F392640068026D /* IBLab.m */; };
+		7ABCB7E426F392650068026D /* IBPractitionerPractice.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB78E26F392640068026D /* IBPractitionerPractice.h */; };
+		7ABCB7E526F392650068026D /* IBUserService.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB78F26F392640068026D /* IBUserService.h */; };
+		7ABCB7E626F392650068026D /* IBCapability.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB79026F392640068026D /* IBCapability.m */; };
+		7ABCB7E726F392650068026D /* IBLabResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB79126F392640068026D /* IBLabResult.m */; };
+		7ABCB7E826F392650068026D /* IBMedia.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB79226F392640068026D /* IBMedia.h */; };
+		7ABCB7E926F392650068026D /* IBAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB79326F392640068026D /* IBAnnotation.m */; };
+		7ABCB7EA26F392650068026D /* IBLab.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB79426F392640068026D /* IBLab.h */; };
+		7ABCB7EB26F392650068026D /* IBAnnotation.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB79526F392640068026D /* IBAnnotation.h */; };
+		7ABCB7EC26F392650068026D /* IBLabResultTextDocument.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB79626F392640068026D /* IBLabResultTextDocument.h */; };
+		7ABCB7ED26F392650068026D /* IBHealthCareProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB79726F392640068026D /* IBHealthCareProvider.m */; };
+		7ABCB7EE26F392650068026D /* PatientHealthSummary.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB79826F392640068026D /* PatientHealthSummary.m */; };
+		7ABCB7EF26F392650068026D /* PatientNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB79926F392640068026D /* PatientNotification.m */; };
+		7ABCB7F026F392650068026D /* IBAgentInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB79A26F392640068026D /* IBAgentInfo.m */; };
+		7ABCB7F126F392650068026D /* UserDeviceSettings.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB79B26F392640068026D /* UserDeviceSettings.h */; };
+		7ABCB7F226F392650068026D /* IBLabRequestTextDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB79C26F392640068026D /* IBLabRequestTextDocument.m */; };
+		7ABCB7F326F392650068026D /* IBAppInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB79D26F392640068026D /* IBAppInfo.h */; };
+		7ABCB7F426F392650068026D /* IBUserCapability.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB79E26F392640068026D /* IBUserCapability.m */; };
+		7ABCB7F526F392650068026D /* IBAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB79F26F392640068026D /* IBAddress.m */; };
+		7ABCB7F626F392650068026D /* IBTelex.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB7A026F392640068026D /* IBTelex.h */; };
+		7ABCB7F726F392650068026D /* IBUserInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB7A126F392640068026D /* IBUserInfo.h */; };
+		7ABCB7F826F392650068026D /* IBLabResultTextDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB7A226F392640068026D /* IBLabResultTextDocument.m */; };
+		7ABCB7F926F392650068026D /* IBTelexInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB7A326F392640068026D /* IBTelexInfo.m */; };
+		7ABCB7FA26F392650068026D /* IBTelexInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB7A426F392640068026D /* IBTelexInfo.h */; };
+		7ABCB7FB26F392650068026D /* IBMessageDistribution.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB7A526F392640068026D /* IBMessageDistribution.m */; };
+		7ABCB7FC26F392650068026D /* IBPatientInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB7A626F392640068026D /* IBPatientInfo.h */; };
+		7ABCB7FD26F392650068026D /* IBAppSummary.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB7A726F392640068026D /* IBAppSummary.m */; };
+		7ABCB7FE26F392650068026D /* IBPatientContact.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB7A826F392640068026D /* IBPatientContact.h */; };
+		7ABCB7FF26F392650068026D /* Patient.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB7A926F392640068026D /* Patient.h */; };
+		7ABCB80026F392650068026D /* IBLabResultPDFDocument.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB7AA26F392640068026D /* IBLabResultPDFDocument.h */; };
+		7ABCB80126F392650068026D /* IBPractitionerJurisdiction.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB7AB26F392640068026D /* IBPractitionerJurisdiction.m */; };
+		7ABCB80226F392650068026D /* IBMessageDistribution.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB7AC26F392640068026D /* IBMessageDistribution.h */; };
+		7ABCB80326F392650068026D /* IBUserService.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB7AD26F392640068026D /* IBUserService.m */; };
+		7ABCB80426F392650068026D /* IBMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB7AE26F392640068026D /* IBMedia.m */; };
+		7ABCB80526F392650068026D /* IBMediaInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB7AF26F392640068026D /* IBMediaInfo.m */; };
+		7ABCB80626F392650068026D /* IBAppInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB7B026F392640068026D /* IBAppInfo.m */; };
+		7ABCB81326F3928E0068026D /* EHRCall.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB80726F3928E0068026D /* EHRCall.h */; };
+		7ABCB81426F3928E0068026D /* EHRServerRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB80826F3928E0068026D /* EHRServerRequest.h */; };
+		7ABCB81526F3928E0068026D /* EHRServerResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB80926F3928E0068026D /* EHRServerResponse.m */; };
+		7ABCB81626F3928E0068026D /* EHRReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB80A26F3928E0068026D /* EHRReachability.m */; };
+		7ABCB81726F3928E0068026D /* EHRServerResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB80B26F3928E0068026D /* EHRServerResponse.h */; };
+		7ABCB81826F3928E0068026D /* EHRRequestStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB80C26F3928E0068026D /* EHRRequestStatus.m */; };
+		7ABCB81926F3928E0068026D /* EHRCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB80D26F3928E0068026D /* EHRCall.m */; };
+		7ABCB81A26F3928E0068026D /* EHRApiServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB80E26F3928E0068026D /* EHRApiServer.m */; };
+		7ABCB81B26F3928E0068026D /* EHRApiServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB80F26F3928E0068026D /* EHRApiServer.h */; };
+		7ABCB81C26F3928E0068026D /* EHRRequestStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB81026F3928E0068026D /* EHRRequestStatus.h */; };
+		7ABCB81D26F3928E0068026D /* EHRReachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB81126F3928E0068026D /* EHRReachability.h */; };
+		7ABCB81E26F3928E0068026D /* EHRServerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB81226F3928E0068026D /* EHRServerRequest.m */; };
+		7ABCB83726F392970068026D /* NotificationsModelFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB81F26F392970068026D /* NotificationsModelFilter.h */; };
+		7ABCB83826F392970068026D /* PatientModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB82026F392970068026D /* PatientModel.h */; };
+		7ABCB83926F392970068026D /* MessagesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB82126F392970068026D /* MessagesModel.m */; };
+		7ABCB83A26F392970068026D /* NotificationsModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB82226F392970068026D /* NotificationsModel.h */; };
+		7ABCB83B26F392970068026D /* NotificationsModelFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB82326F392970068026D /* NotificationsModelFilter.m */; };
+		7ABCB83C26F392970068026D /* EulaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB82426F392970068026D /* EulaModel.m */; };
+		7ABCB83D26F392970068026D /* EulaModelFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB82526F392970068026D /* EulaModelFilter.h */; };
+		7ABCB83E26F392970068026D /* ContactsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB82626F392970068026D /* ContactsModel.m */; };
+		7ABCB83F26F392970068026D /* ServicesModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB82726F392970068026D /* ServicesModel.h */; };
+		7ABCB84026F392970068026D /* UserModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB82826F392970068026D /* UserModel.h */; };
+		7ABCB84126F392970068026D /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB82926F392970068026D /* UserModel.m */; };
+		7ABCB84226F392970068026D /* ContactsModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB82A26F392970068026D /* ContactsModel.h */; };
+		7ABCB84326F392970068026D /* Inbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB82B26F392970068026D /* Inbox.h */; };
+		7ABCB84426F392970068026D /* RecordsModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB82C26F392970068026D /* RecordsModel.h */; };
+		7ABCB84526F392970068026D /* NotificationsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB82D26F392970068026D /* NotificationsModel.m */; };
+		7ABCB84626F392970068026D /* ServicesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB82E26F392970068026D /* ServicesModel.m */; };
+		7ABCB84726F392970068026D /* EulaModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB82F26F392970068026D /* EulaModel.h */; };
+		7ABCB84826F392970068026D /* EulaModelFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB83026F392970068026D /* EulaModelFilter.m */; };
+		7ABCB84926F392970068026D /* ServicesModelFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB83126F392970068026D /* ServicesModelFilter.h */; };
+		7ABCB84A26F392970068026D /* RecordsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB83226F392970068026D /* RecordsModel.m */; };
+		7ABCB84B26F392970068026D /* ServicesModelFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB83326F392970068026D /* ServicesModelFilter.m */; };
+		7ABCB84C26F392970068026D /* MessagesModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB83426F392970068026D /* MessagesModel.h */; };
+		7ABCB84D26F392970068026D /* PatientModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB83526F392970068026D /* PatientModel.m */; };
+		7ABCB84E26F392970068026D /* Inbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB83626F392970068026D /* Inbox.m */; };
+		7ABCB85E26F3929F0068026D /* UserCredentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB84F26F3929F0068026D /* UserCredentials.h */; };
+		7ABCB85F26F3929F0068026D /* AppState.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB85026F3929F0068026D /* AppState.h */; };
+		7ABCB86026F3929F0068026D /* PersistenceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB85126F3929F0068026D /* PersistenceManager.m */; };
+		7ABCB86126F3929F0068026D /* SecureCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB85226F3929F0068026D /* SecureCredentials.m */; };
+		7ABCB86226F3929F0068026D /* AppPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB85326F3929F0068026D /* AppPreferences.m */; };
+		7ABCB86326F3929F0068026D /* UICKeyChainStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB85426F3929F0068026D /* UICKeyChainStore.h */; };
+		7ABCB86426F3929F0068026D /* SecureCredentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB85526F3929F0068026D /* SecureCredentials.h */; };
+		7ABCB86526F3929F0068026D /* ServiceSettings.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB85626F3929F0068026D /* ServiceSettings.h */; };
+		7ABCB86626F3929F0068026D /* AppPreferences.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB85726F3929F0068026D /* AppPreferences.h */; };
+		7ABCB86726F3929F0068026D /* PersistenceManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB85826F3929F0068026D /* PersistenceManager.h */; };
+		7ABCB86826F3929F0068026D /* UserCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB85926F3929F0068026D /* UserCredentials.m */; };
+		7ABCB86926F3929F0068026D /* ServiceSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB85A26F3929F0068026D /* ServiceSettings.m */; };
+		7ABCB86A26F3929F0068026D /* UICKeyChainStore.LICENSE.readme in Resources */ = {isa = PBXBuildFile; fileRef = 7ABCB85B26F3929F0068026D /* UICKeyChainStore.LICENSE.readme */; };
+		7ABCB86B26F3929F0068026D /* UICKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB85C26F3929F0068026D /* UICKeyChainStore.m */; };
+		7ABCB86C26F3929F0068026D /* AppState.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB85D26F3929F0068026D /* AppState.m */; };
 		7B45880EDA59D742B184824A9513D91C /* ehrPatientSDK-ios-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 733DDCFBC0709DF218E5D0E165575F59 /* ehrPatientSDK-ios-dummy.m */; };
 		9CC0AE5175C360658B80DADECDDA6D57 /* ehrPatientSDK-ios-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 160B722EFA2ED10609AD9F0B407C32CC /* ehrPatientSDK-ios-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C3DB2CF816CF2F4BA11257A2A8D8CA7C /* ReplaceMe.m in Sources */ = {isa = PBXBuildFile; fileRef = 453212F6D808D1703E577F20520BE4DE /* ReplaceMe.m */; };
 		E4345F96FE29539D759573943D7C01B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,30 +204,207 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		12E1A50C4E0001F0BD175CB71A11365D /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		12E1A50C4E0001F0BD175CB71A11365D /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		160B722EFA2ED10609AD9F0B407C32CC /* ehrPatientSDK-ios-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ehrPatientSDK-ios-umbrella.h"; sourceTree = "<group>"; };
 		2FF7244F21B329F5925A6F824FCA4B4A /* ehrPatientSDK-ios-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ehrPatientSDK-ios-prefix.pch"; sourceTree = "<group>"; };
 		30C1CCB9543EC3C79785EB75A9991A18 /* ehrPatientSDK-ios-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ehrPatientSDK-ios-Info.plist"; sourceTree = "<group>"; };
-		3E79ED857B0ED5E54DF85B0D9942E352 /* Pods_ehrPatientSDK_ios_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ehrPatientSDK_ios_Tests.framework; path = "Pods-ehrPatientSDK-ios_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E79ED857B0ED5E54DF85B0D9942E352 /* Pods_ehrPatientSDK_ios_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ehrPatientSDK_ios_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4287393F4DB6F85AF7A1C5776C61530F /* Pods-ehrPatientSDK-ios_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ehrPatientSDK-ios_Tests-Info.plist"; sourceTree = "<group>"; };
-		453212F6D808D1703E577F20520BE4DE /* ReplaceMe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ReplaceMe.m; path = "ehrPatientSDK-ios/Classes/ReplaceMe.m"; sourceTree = "<group>"; };
 		4D58965214989BE0467903769DAD4F66 /* ehrPatientSDK-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "ehrPatientSDK-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		5514AAF3C52C6CFA4095B12551F9782D /* Pods-ehrPatientSDK-ios_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ehrPatientSDK-ios_Tests.modulemap"; sourceTree = "<group>"; };
 		59B09E10646727862BC94FA07CA33C91 /* ehrPatientSDK-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "ehrPatientSDK-ios.release.xcconfig"; sourceTree = "<group>"; };
 		5D0265783E41FDD503EB727CE1FCFAF9 /* Pods-ehrPatientSDK-ios_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ehrPatientSDK-ios_Tests-dummy.m"; sourceTree = "<group>"; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		733DDCFBC0709DF218E5D0E165575F59 /* ehrPatientSDK-ios-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ehrPatientSDK-ios-dummy.m"; sourceTree = "<group>"; };
+		7ABCB70926F392320068026D /* GETimeUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GETimeUtil.m; sourceTree = "<group>"; };
+		7ABCB70A26F392320068026D /* AppSignature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppSignature.m; sourceTree = "<group>"; };
+		7ABCB70B26F392320068026D /* GEMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GEMacros.h; sourceTree = "<group>"; };
+		7ABCB70C26F392330068026D /* GEDeviceHardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GEDeviceHardware.h; sourceTree = "<group>"; };
+		7ABCB70D26F392330068026D /* EHRGuid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EHRGuid.h; sourceTree = "<group>"; };
+		7ABCB70E26F392330068026D /* GEDeviceHardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GEDeviceHardware.m; sourceTree = "<group>"; };
+		7ABCB70F26F392330068026D /* GERuntimeConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GERuntimeConstants.m; sourceTree = "<group>"; };
+		7ABCB71026F392330068026D /* GETimeUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GETimeUtil.h; sourceTree = "<group>"; };
+		7ABCB71126F392330068026D /* MathUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathUtil.h; sourceTree = "<group>"; };
+		7ABCB71226F392330068026D /* MathUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MathUtil.m; sourceTree = "<group>"; };
+		7ABCB71326F392330068026D /* NSDictionary+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+JSON.h"; sourceTree = "<group>"; };
+		7ABCB71426F392330068026D /* NSDictionary+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+JSON.m"; sourceTree = "<group>"; };
+		7ABCB71526F392330068026D /* UIView+EHR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+EHR.h"; sourceTree = "<group>"; };
+		7ABCB71626F392330068026D /* EHRGuid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EHRGuid.m; sourceTree = "<group>"; };
+		7ABCB71726F392330068026D /* UIView+EHR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+EHR.m"; sourceTree = "<group>"; };
+		7ABCB71826F392330068026D /* GEFileUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GEFileUtil.h; sourceTree = "<group>"; };
+		7ABCB71926F392330068026D /* DateUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateUtil.h; sourceTree = "<group>"; };
+		7ABCB71A26F392330068026D /* Version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Version.h; sourceTree = "<group>"; };
+		7ABCB71B26F392330068026D /* Version.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Version.m; sourceTree = "<group>"; };
+		7ABCB71C26F392330068026D /* GERuntimeConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GERuntimeConstants.h; sourceTree = "<group>"; };
+		7ABCB71D26F392330068026D /* GEFileUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GEFileUtil.m; sourceTree = "<group>"; };
+		7ABCB71E26F392330068026D /* DateUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateUtil.m; sourceTree = "<group>"; };
+		7ABCB71F26F392330068026D /* AppSignature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppSignature.h; sourceTree = "<group>"; };
+		7ABCB73726F392450068026D /* OfferedPrivateMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OfferedPrivateMessage.h; sourceTree = "<group>"; };
+		7ABCB73826F392450068026D /* AccessRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccessRequest.h; sourceTree = "<group>"; };
+		7ABCB73926F392450068026D /* AccessOffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccessOffer.h; sourceTree = "<group>"; };
+		7ABCB73A26F392450068026D /* AccessState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccessState.h; sourceTree = "<group>"; };
+		7ABCB73B26F392450068026D /* AccessRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccessRequest.m; sourceTree = "<group>"; };
+		7ABCB73C26F392450068026D /* AccessState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccessState.m; sourceTree = "<group>"; };
+		7ABCB73D26F392450068026D /* AccessOffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccessOffer.m; sourceTree = "<group>"; };
+		7ABCB73E26F392450068026D /* OfferedPrivateMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OfferedPrivateMessage.m; sourceTree = "<group>"; };
+		7ABCB74726F3924D0068026D /* InsuranceNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InsuranceNumber.m; sourceTree = "<group>"; };
+		7ABCB74826F3924D0068026D /* HCIN.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCIN.m; sourceTree = "<group>"; };
+		7ABCB74926F3924D0068026D /* PIN.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIN.m; sourceTree = "<group>"; };
+		7ABCB74A26F3924D0068026D /* PIN.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIN.h; sourceTree = "<group>"; };
+		7ABCB74B26F3924D0068026D /* SIN.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIN.h; sourceTree = "<group>"; };
+		7ABCB74C26F3924D0068026D /* SIN.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIN.m; sourceTree = "<group>"; };
+		7ABCB74D26F3924D0068026D /* HCIN.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCIN.h; sourceTree = "<group>"; };
+		7ABCB74E26F3924D0068026D /* InsuranceNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InsuranceNumber.h; sourceTree = "<group>"; };
+		7ABCB75726F392540068026D /* FactorsRequired.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FactorsRequired.h; sourceTree = "<group>"; };
+		7ABCB75826F392540068026D /* FactorsRequired.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FactorsRequired.m; sourceTree = "<group>"; };
+		7ABCB75B26F392630068026D /* IBDeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBDeviceInfo.m; sourceTree = "<group>"; };
+		7ABCB75C26F392630068026D /* IBDeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBDeviceInfo.h; sourceTree = "<group>"; };
+		7ABCB75D26F392630068026D /* IBAppSummary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBAppSummary.h; sourceTree = "<group>"; };
+		7ABCB75E26F392630068026D /* IBPractitionerJurisdiction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBPractitionerJurisdiction.h; sourceTree = "<group>"; };
+		7ABCB75F26F392630068026D /* IBEula.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBEula.h; sourceTree = "<group>"; };
+		7ABCB76026F392630068026D /* IBUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBUser.m; sourceTree = "<group>"; };
+		7ABCB76126F392630068026D /* IBUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBUser.h; sourceTree = "<group>"; };
+		7ABCB76226F392630068026D /* IBUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBUserInfo.m; sourceTree = "<group>"; };
+		7ABCB76326F392630068026D /* IBCapability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBCapability.h; sourceTree = "<group>"; };
+		7ABCB76426F392630068026D /* IBPractitioner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBPractitioner.h; sourceTree = "<group>"; };
+		7ABCB76526F392630068026D /* IBService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBService.m; sourceTree = "<group>"; };
+		7ABCB76626F392630068026D /* PatientHealthSummary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientHealthSummary.h; sourceTree = "<group>"; };
+		7ABCB76726F392630068026D /* PatientInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientInfo.h; sourceTree = "<group>"; };
+		7ABCB76826F392630068026D /* IBLabRequestPDFDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBLabRequestPDFDocument.h; sourceTree = "<group>"; };
+		7ABCB76926F392630068026D /* IBService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBService.h; sourceTree = "<group>"; };
+		7ABCB76A26F392630068026D /* PatientNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientNotification.h; sourceTree = "<group>"; };
+		7ABCB76B26F392630068026D /* IBLabRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBLabRequest.m; sourceTree = "<group>"; };
+		7ABCB76C26F392630068026D /* IBPractitioner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBPractitioner.m; sourceTree = "<group>"; };
+		7ABCB76D26F392630068026D /* IBTelex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBTelex.m; sourceTree = "<group>"; };
+		7ABCB76E26F392630068026D /* IBEula.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBEula.m; sourceTree = "<group>"; };
+		7ABCB76F26F392630068026D /* IBLabRequestPDFDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBLabRequestPDFDocument.m; sourceTree = "<group>"; };
+		7ABCB77026F392630068026D /* IBMessageContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBMessageContent.h; sourceTree = "<group>"; };
+		7ABCB77126F392630068026D /* IBAppointment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBAppointment.m; sourceTree = "<group>"; };
+		7ABCB77226F392630068026D /* IBVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBVersion.h; sourceTree = "<group>"; };
+		7ABCB77326F392630068026D /* Record.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Record.h; sourceTree = "<group>"; };
+		7ABCB77426F392630068026D /* IBLabResultPDFDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBLabResultPDFDocument.m; sourceTree = "<group>"; };
+		7ABCB77526F392630068026D /* IBPatientInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBPatientInfo.m; sourceTree = "<group>"; };
+		7ABCB77626F392630068026D /* IBContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBContact.m; sourceTree = "<group>"; };
+		7ABCB77726F392630068026D /* Patient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Patient.m; sourceTree = "<group>"; };
+		7ABCB77826F392630068026D /* IBVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBVersion.m; sourceTree = "<group>"; };
+		7ABCB77926F392630068026D /* Record.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Record.m; sourceTree = "<group>"; };
+		7ABCB77A26F392630068026D /* IBHealthCareProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBHealthCareProvider.h; sourceTree = "<group>"; };
+		7ABCB77B26F392630068026D /* IBMessageContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBMessageContent.m; sourceTree = "<group>"; };
+		7ABCB77C26F392630068026D /* IBLabRequestTextDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBLabRequestTextDocument.h; sourceTree = "<group>"; };
+		7ABCB77D26F392630068026D /* IBPatientContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBPatientContact.m; sourceTree = "<group>"; };
+		7ABCB77E26F392630068026D /* UserDeviceSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDeviceSettings.m; sourceTree = "<group>"; };
+		7ABCB77F26F392630068026D /* IBLabResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBLabResult.h; sourceTree = "<group>"; };
+		7ABCB78026F392630068026D /* IBDispensaryInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBDispensaryInfo.h; sourceTree = "<group>"; };
+		7ABCB78126F392640068026D /* PatientInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientInfo.m; sourceTree = "<group>"; };
+		7ABCB78226F392640068026D /* IBMediaInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBMediaInfo.h; sourceTree = "<group>"; };
+		7ABCB78326F392640068026D /* IBUserCapability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBUserCapability.h; sourceTree = "<group>"; };
+		7ABCB78426F392640068026D /* IBLabRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBLabRequest.h; sourceTree = "<group>"; };
+		7ABCB78526F392640068026D /* IBUserEula.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBUserEula.h; sourceTree = "<group>"; };
+		7ABCB78626F392640068026D /* IBAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBAddress.h; sourceTree = "<group>"; };
+		7ABCB78726F392640068026D /* IBAppointment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBAppointment.h; sourceTree = "<group>"; };
+		7ABCB78826F392640068026D /* IBUserEula.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBUserEula.m; sourceTree = "<group>"; };
+		7ABCB78926F392640068026D /* IBContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBContact.h; sourceTree = "<group>"; };
+		7ABCB78A26F392640068026D /* IBPractitionerPractice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBPractitionerPractice.m; sourceTree = "<group>"; };
+		7ABCB78B26F392640068026D /* IBAgentInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBAgentInfo.h; sourceTree = "<group>"; };
+		7ABCB78C26F392640068026D /* IBDispensaryInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBDispensaryInfo.m; sourceTree = "<group>"; };
+		7ABCB78D26F392640068026D /* IBLab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBLab.m; sourceTree = "<group>"; };
+		7ABCB78E26F392640068026D /* IBPractitionerPractice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBPractitionerPractice.h; sourceTree = "<group>"; };
+		7ABCB78F26F392640068026D /* IBUserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBUserService.h; sourceTree = "<group>"; };
+		7ABCB79026F392640068026D /* IBCapability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBCapability.m; sourceTree = "<group>"; };
+		7ABCB79126F392640068026D /* IBLabResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBLabResult.m; sourceTree = "<group>"; };
+		7ABCB79226F392640068026D /* IBMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBMedia.h; sourceTree = "<group>"; };
+		7ABCB79326F392640068026D /* IBAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBAnnotation.m; sourceTree = "<group>"; };
+		7ABCB79426F392640068026D /* IBLab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBLab.h; sourceTree = "<group>"; };
+		7ABCB79526F392640068026D /* IBAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBAnnotation.h; sourceTree = "<group>"; };
+		7ABCB79626F392640068026D /* IBLabResultTextDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBLabResultTextDocument.h; sourceTree = "<group>"; };
+		7ABCB79726F392640068026D /* IBHealthCareProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBHealthCareProvider.m; sourceTree = "<group>"; };
+		7ABCB79826F392640068026D /* PatientHealthSummary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientHealthSummary.m; sourceTree = "<group>"; };
+		7ABCB79926F392640068026D /* PatientNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientNotification.m; sourceTree = "<group>"; };
+		7ABCB79A26F392640068026D /* IBAgentInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBAgentInfo.m; sourceTree = "<group>"; };
+		7ABCB79B26F392640068026D /* UserDeviceSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDeviceSettings.h; sourceTree = "<group>"; };
+		7ABCB79C26F392640068026D /* IBLabRequestTextDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBLabRequestTextDocument.m; sourceTree = "<group>"; };
+		7ABCB79D26F392640068026D /* IBAppInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBAppInfo.h; sourceTree = "<group>"; };
+		7ABCB79E26F392640068026D /* IBUserCapability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBUserCapability.m; sourceTree = "<group>"; };
+		7ABCB79F26F392640068026D /* IBAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBAddress.m; sourceTree = "<group>"; };
+		7ABCB7A026F392640068026D /* IBTelex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBTelex.h; sourceTree = "<group>"; };
+		7ABCB7A126F392640068026D /* IBUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBUserInfo.h; sourceTree = "<group>"; };
+		7ABCB7A226F392640068026D /* IBLabResultTextDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBLabResultTextDocument.m; sourceTree = "<group>"; };
+		7ABCB7A326F392640068026D /* IBTelexInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBTelexInfo.m; sourceTree = "<group>"; };
+		7ABCB7A426F392640068026D /* IBTelexInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBTelexInfo.h; sourceTree = "<group>"; };
+		7ABCB7A526F392640068026D /* IBMessageDistribution.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBMessageDistribution.m; sourceTree = "<group>"; };
+		7ABCB7A626F392640068026D /* IBPatientInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBPatientInfo.h; sourceTree = "<group>"; };
+		7ABCB7A726F392640068026D /* IBAppSummary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBAppSummary.m; sourceTree = "<group>"; };
+		7ABCB7A826F392640068026D /* IBPatientContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBPatientContact.h; sourceTree = "<group>"; };
+		7ABCB7A926F392640068026D /* Patient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Patient.h; sourceTree = "<group>"; };
+		7ABCB7AA26F392640068026D /* IBLabResultPDFDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBLabResultPDFDocument.h; sourceTree = "<group>"; };
+		7ABCB7AB26F392640068026D /* IBPractitionerJurisdiction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBPractitionerJurisdiction.m; sourceTree = "<group>"; };
+		7ABCB7AC26F392640068026D /* IBMessageDistribution.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBMessageDistribution.h; sourceTree = "<group>"; };
+		7ABCB7AD26F392640068026D /* IBUserService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBUserService.m; sourceTree = "<group>"; };
+		7ABCB7AE26F392640068026D /* IBMedia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBMedia.m; sourceTree = "<group>"; };
+		7ABCB7AF26F392640068026D /* IBMediaInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBMediaInfo.m; sourceTree = "<group>"; };
+		7ABCB7B026F392640068026D /* IBAppInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBAppInfo.m; sourceTree = "<group>"; };
+		7ABCB80726F3928E0068026D /* EHRCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EHRCall.h; sourceTree = "<group>"; };
+		7ABCB80826F3928E0068026D /* EHRServerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EHRServerRequest.h; sourceTree = "<group>"; };
+		7ABCB80926F3928E0068026D /* EHRServerResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EHRServerResponse.m; sourceTree = "<group>"; };
+		7ABCB80A26F3928E0068026D /* EHRReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EHRReachability.m; sourceTree = "<group>"; };
+		7ABCB80B26F3928E0068026D /* EHRServerResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EHRServerResponse.h; sourceTree = "<group>"; };
+		7ABCB80C26F3928E0068026D /* EHRRequestStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EHRRequestStatus.m; sourceTree = "<group>"; };
+		7ABCB80D26F3928E0068026D /* EHRCall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EHRCall.m; sourceTree = "<group>"; };
+		7ABCB80E26F3928E0068026D /* EHRApiServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EHRApiServer.m; sourceTree = "<group>"; };
+		7ABCB80F26F3928E0068026D /* EHRApiServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EHRApiServer.h; sourceTree = "<group>"; };
+		7ABCB81026F3928E0068026D /* EHRRequestStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EHRRequestStatus.h; sourceTree = "<group>"; };
+		7ABCB81126F3928E0068026D /* EHRReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EHRReachability.h; sourceTree = "<group>"; };
+		7ABCB81226F3928E0068026D /* EHRServerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EHRServerRequest.m; sourceTree = "<group>"; };
+		7ABCB81F26F392970068026D /* NotificationsModelFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationsModelFilter.h; sourceTree = "<group>"; };
+		7ABCB82026F392970068026D /* PatientModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientModel.h; sourceTree = "<group>"; };
+		7ABCB82126F392970068026D /* MessagesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessagesModel.m; sourceTree = "<group>"; };
+		7ABCB82226F392970068026D /* NotificationsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationsModel.h; sourceTree = "<group>"; };
+		7ABCB82326F392970068026D /* NotificationsModelFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationsModelFilter.m; sourceTree = "<group>"; };
+		7ABCB82426F392970068026D /* EulaModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EulaModel.m; sourceTree = "<group>"; };
+		7ABCB82526F392970068026D /* EulaModelFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EulaModelFilter.h; sourceTree = "<group>"; };
+		7ABCB82626F392970068026D /* ContactsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsModel.m; sourceTree = "<group>"; };
+		7ABCB82726F392970068026D /* ServicesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServicesModel.h; sourceTree = "<group>"; };
+		7ABCB82826F392970068026D /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
+		7ABCB82926F392970068026D /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
+		7ABCB82A26F392970068026D /* ContactsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsModel.h; sourceTree = "<group>"; };
+		7ABCB82B26F392970068026D /* Inbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Inbox.h; sourceTree = "<group>"; };
+		7ABCB82C26F392970068026D /* RecordsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordsModel.h; sourceTree = "<group>"; };
+		7ABCB82D26F392970068026D /* NotificationsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationsModel.m; sourceTree = "<group>"; };
+		7ABCB82E26F392970068026D /* ServicesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServicesModel.m; sourceTree = "<group>"; };
+		7ABCB82F26F392970068026D /* EulaModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EulaModel.h; sourceTree = "<group>"; };
+		7ABCB83026F392970068026D /* EulaModelFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EulaModelFilter.m; sourceTree = "<group>"; };
+		7ABCB83126F392970068026D /* ServicesModelFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServicesModelFilter.h; sourceTree = "<group>"; };
+		7ABCB83226F392970068026D /* RecordsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordsModel.m; sourceTree = "<group>"; };
+		7ABCB83326F392970068026D /* ServicesModelFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServicesModelFilter.m; sourceTree = "<group>"; };
+		7ABCB83426F392970068026D /* MessagesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessagesModel.h; sourceTree = "<group>"; };
+		7ABCB83526F392970068026D /* PatientModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientModel.m; sourceTree = "<group>"; };
+		7ABCB83626F392970068026D /* Inbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Inbox.m; sourceTree = "<group>"; };
+		7ABCB84F26F3929F0068026D /* UserCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCredentials.h; sourceTree = "<group>"; };
+		7ABCB85026F3929F0068026D /* AppState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppState.h; sourceTree = "<group>"; };
+		7ABCB85126F3929F0068026D /* PersistenceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistenceManager.m; sourceTree = "<group>"; };
+		7ABCB85226F3929F0068026D /* SecureCredentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecureCredentials.m; sourceTree = "<group>"; };
+		7ABCB85326F3929F0068026D /* AppPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppPreferences.m; sourceTree = "<group>"; };
+		7ABCB85426F3929F0068026D /* UICKeyChainStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICKeyChainStore.h; sourceTree = "<group>"; };
+		7ABCB85526F3929F0068026D /* SecureCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecureCredentials.h; sourceTree = "<group>"; };
+		7ABCB85626F3929F0068026D /* ServiceSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceSettings.h; sourceTree = "<group>"; };
+		7ABCB85726F3929F0068026D /* AppPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppPreferences.h; sourceTree = "<group>"; };
+		7ABCB85826F3929F0068026D /* PersistenceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistenceManager.h; sourceTree = "<group>"; };
+		7ABCB85926F3929F0068026D /* UserCredentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCredentials.m; sourceTree = "<group>"; };
+		7ABCB85A26F3929F0068026D /* ServiceSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceSettings.m; sourceTree = "<group>"; };
+		7ABCB85B26F3929F0068026D /* UICKeyChainStore.LICENSE.readme */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UICKeyChainStore.LICENSE.readme; sourceTree = "<group>"; };
+		7ABCB85C26F3929F0068026D /* UICKeyChainStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICKeyChainStore.m; sourceTree = "<group>"; };
+		7ABCB85D26F3929F0068026D /* AppState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppState.m; sourceTree = "<group>"; };
 		8B4F8E10912D512913D8433FB48EF210 /* Pods-ehrPatientSDK-ios_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ehrPatientSDK-ios_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		8E29659D9362A975CC8D4168C9F9B2A3 /* Pods-ehrPatientSDK-ios_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ehrPatientSDK-ios_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		ABB9276EBCAA0D8F34732881603E0EDB /* Pods-ehrPatientSDK-ios_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ehrPatientSDK-ios_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		ADA5B681041A7357D15D7AF701653C38 /* Pods-ehrPatientSDK-ios_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ehrPatientSDK-ios_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		AE1461D75026CE4899972F44FB77424E /* ehrPatientSDK-ios.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = "ehrPatientSDK-ios.podspec"; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		AE1461D75026CE4899972F44FB77424E /* ehrPatientSDK-ios.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = "ehrPatientSDK-ios.podspec"; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		B481CC4FB6CF8AA78AE990DD64504776 /* ehrPatientSDK-ios.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "ehrPatientSDK-ios.modulemap"; sourceTree = "<group>"; };
-		B635484BF453CDDE9685CDB1CDF9D1B7 /* ehrPatientSDK_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ehrPatientSDK_ios.framework; path = "ehrPatientSDK-ios.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B635484BF453CDDE9685CDB1CDF9D1B7 /* ehrPatientSDK_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ehrPatientSDK_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFBC5291B327291486881C357108FA52 /* Pods-ehrPatientSDK-ios_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ehrPatientSDK-ios_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		CC7B2F99BD0394C5DA32D4C049647C5B /* Pods-ehrPatientSDK-ios_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ehrPatientSDK-ios_Tests-umbrella.h"; sourceTree = "<group>"; };
-		E5B520DE88B2487D9C871B371D32A521 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		E5B520DE88B2487D9C871B371D32A521 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +450,248 @@
 				73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */,
 			);
 			name = iOS;
+			sourceTree = "<group>";
+		};
+		7ABCB58326F390830068026D /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				7ABCB71F26F392330068026D /* AppSignature.h */,
+				7ABCB70A26F392320068026D /* AppSignature.m */,
+				7ABCB71926F392330068026D /* DateUtil.h */,
+				7ABCB71E26F392330068026D /* DateUtil.m */,
+				7ABCB70D26F392330068026D /* EHRGuid.h */,
+				7ABCB71626F392330068026D /* EHRGuid.m */,
+				7ABCB70C26F392330068026D /* GEDeviceHardware.h */,
+				7ABCB70E26F392330068026D /* GEDeviceHardware.m */,
+				7ABCB71826F392330068026D /* GEFileUtil.h */,
+				7ABCB71D26F392330068026D /* GEFileUtil.m */,
+				7ABCB70B26F392320068026D /* GEMacros.h */,
+				7ABCB71C26F392330068026D /* GERuntimeConstants.h */,
+				7ABCB70F26F392330068026D /* GERuntimeConstants.m */,
+				7ABCB71026F392330068026D /* GETimeUtil.h */,
+				7ABCB70926F392320068026D /* GETimeUtil.m */,
+				7ABCB71126F392330068026D /* MathUtil.h */,
+				7ABCB71226F392330068026D /* MathUtil.m */,
+				7ABCB71326F392330068026D /* NSDictionary+JSON.h */,
+				7ABCB71426F392330068026D /* NSDictionary+JSON.m */,
+				7ABCB71526F392330068026D /* UIView+EHR.h */,
+				7ABCB71726F392330068026D /* UIView+EHR.m */,
+				7ABCB71A26F392330068026D /* Version.h */,
+				7ABCB71B26F392330068026D /* Version.m */,
+			);
+			name = Util;
+			path = "ehrPatientSDK-ios/Classes/Util";
+			sourceTree = "<group>";
+		};
+		7ABCB5B226F390B30068026D /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				7ABCB80F26F3928E0068026D /* EHRApiServer.h */,
+				7ABCB80E26F3928E0068026D /* EHRApiServer.m */,
+				7ABCB80726F3928E0068026D /* EHRCall.h */,
+				7ABCB80D26F3928E0068026D /* EHRCall.m */,
+				7ABCB81126F3928E0068026D /* EHRReachability.h */,
+				7ABCB80A26F3928E0068026D /* EHRReachability.m */,
+				7ABCB81026F3928E0068026D /* EHRRequestStatus.h */,
+				7ABCB80C26F3928E0068026D /* EHRRequestStatus.m */,
+				7ABCB80826F3928E0068026D /* EHRServerRequest.h */,
+				7ABCB81226F3928E0068026D /* EHRServerRequest.m */,
+				7ABCB80B26F3928E0068026D /* EHRServerResponse.h */,
+				7ABCB80926F3928E0068026D /* EHRServerResponse.m */,
+				7ABCB5B326F390BA0068026D /* NAO */,
+			);
+			name = Network;
+			path = "ehrPatientSDK-ios/Classes/Network";
+			sourceTree = "<group>";
+		};
+		7ABCB5B326F390BA0068026D /* NAO */ = {
+			isa = PBXGroup;
+			children = (
+				7ABCB78626F392640068026D /* IBAddress.h */,
+				7ABCB78B26F392640068026D /* IBAgentInfo.h */,
+				7ABCB79526F392640068026D /* IBAnnotation.h */,
+				7ABCB79D26F392640068026D /* IBAppInfo.h */,
+				7ABCB78726F392640068026D /* IBAppointment.h */,
+				7ABCB75D26F392630068026D /* IBAppSummary.h */,
+				7ABCB76326F392630068026D /* IBCapability.h */,
+				7ABCB78926F392640068026D /* IBContact.h */,
+				7ABCB75C26F392630068026D /* IBDeviceInfo.h */,
+				7ABCB78026F392630068026D /* IBDispensaryInfo.h */,
+				7ABCB75F26F392630068026D /* IBEula.h */,
+				7ABCB77A26F392630068026D /* IBHealthCareProvider.h */,
+				7ABCB79426F392640068026D /* IBLab.h */,
+				7ABCB78426F392640068026D /* IBLabRequest.h */,
+				7ABCB76826F392630068026D /* IBLabRequestPDFDocument.h */,
+				7ABCB77C26F392630068026D /* IBLabRequestTextDocument.h */,
+				7ABCB77F26F392630068026D /* IBLabResult.h */,
+				7ABCB7AA26F392640068026D /* IBLabResultPDFDocument.h */,
+				7ABCB79626F392640068026D /* IBLabResultTextDocument.h */,
+				7ABCB79226F392640068026D /* IBMedia.h */,
+				7ABCB78226F392640068026D /* IBMediaInfo.h */,
+				7ABCB77026F392630068026D /* IBMessageContent.h */,
+				7ABCB7AC26F392640068026D /* IBMessageDistribution.h */,
+				7ABCB7A826F392640068026D /* IBPatientContact.h */,
+				7ABCB7A626F392640068026D /* IBPatientInfo.h */,
+				7ABCB76426F392630068026D /* IBPractitioner.h */,
+				7ABCB75E26F392630068026D /* IBPractitionerJurisdiction.h */,
+				7ABCB78E26F392640068026D /* IBPractitionerPractice.h */,
+				7ABCB76926F392630068026D /* IBService.h */,
+				7ABCB7A026F392640068026D /* IBTelex.h */,
+				7ABCB7A426F392640068026D /* IBTelexInfo.h */,
+				7ABCB76126F392630068026D /* IBUser.h */,
+				7ABCB78326F392640068026D /* IBUserCapability.h */,
+				7ABCB78526F392640068026D /* IBUserEula.h */,
+				7ABCB7A126F392640068026D /* IBUserInfo.h */,
+				7ABCB78F26F392640068026D /* IBUserService.h */,
+				7ABCB77226F392630068026D /* IBVersion.h */,
+				7ABCB7A926F392640068026D /* Patient.h */,
+				7ABCB76626F392630068026D /* PatientHealthSummary.h */,
+				7ABCB76726F392630068026D /* PatientInfo.h */,
+				7ABCB76A26F392630068026D /* PatientNotification.h */,
+				7ABCB77326F392630068026D /* Record.h */,
+				7ABCB79B26F392640068026D /* UserDeviceSettings.h */,
+				7ABCB79F26F392640068026D /* IBAddress.m */,
+				7ABCB79A26F392640068026D /* IBAgentInfo.m */,
+				7ABCB79326F392640068026D /* IBAnnotation.m */,
+				7ABCB7B026F392640068026D /* IBAppInfo.m */,
+				7ABCB77126F392630068026D /* IBAppointment.m */,
+				7ABCB7A726F392640068026D /* IBAppSummary.m */,
+				7ABCB79026F392640068026D /* IBCapability.m */,
+				7ABCB77626F392630068026D /* IBContact.m */,
+				7ABCB75B26F392630068026D /* IBDeviceInfo.m */,
+				7ABCB78C26F392640068026D /* IBDispensaryInfo.m */,
+				7ABCB76E26F392630068026D /* IBEula.m */,
+				7ABCB79726F392640068026D /* IBHealthCareProvider.m */,
+				7ABCB78D26F392640068026D /* IBLab.m */,
+				7ABCB76B26F392630068026D /* IBLabRequest.m */,
+				7ABCB76F26F392630068026D /* IBLabRequestPDFDocument.m */,
+				7ABCB79C26F392640068026D /* IBLabRequestTextDocument.m */,
+				7ABCB79126F392640068026D /* IBLabResult.m */,
+				7ABCB77426F392630068026D /* IBLabResultPDFDocument.m */,
+				7ABCB7A226F392640068026D /* IBLabResultTextDocument.m */,
+				7ABCB7AE26F392640068026D /* IBMedia.m */,
+				7ABCB7AF26F392640068026D /* IBMediaInfo.m */,
+				7ABCB77B26F392630068026D /* IBMessageContent.m */,
+				7ABCB7A526F392640068026D /* IBMessageDistribution.m */,
+				7ABCB77D26F392630068026D /* IBPatientContact.m */,
+				7ABCB77526F392630068026D /* IBPatientInfo.m */,
+				7ABCB76C26F392630068026D /* IBPractitioner.m */,
+				7ABCB7AB26F392640068026D /* IBPractitionerJurisdiction.m */,
+				7ABCB78A26F392640068026D /* IBPractitionerPractice.m */,
+				7ABCB76526F392630068026D /* IBService.m */,
+				7ABCB76D26F392630068026D /* IBTelex.m */,
+				7ABCB7A326F392640068026D /* IBTelexInfo.m */,
+				7ABCB76026F392630068026D /* IBUser.m */,
+				7ABCB79E26F392640068026D /* IBUserCapability.m */,
+				7ABCB78826F392640068026D /* IBUserEula.m */,
+				7ABCB76226F392630068026D /* IBUserInfo.m */,
+				7ABCB7AD26F392640068026D /* IBUserService.m */,
+				7ABCB77826F392630068026D /* IBVersion.m */,
+				7ABCB77726F392630068026D /* Patient.m */,
+				7ABCB79826F392640068026D /* PatientHealthSummary.m */,
+				7ABCB78126F392640068026D /* PatientInfo.m */,
+				7ABCB79926F392640068026D /* PatientNotification.m */,
+				7ABCB77926F392630068026D /* Record.m */,
+				7ABCB77E26F392630068026D /* UserDeviceSettings.m */,
+				7ABCB6E226F3914B0068026D /* Access */,
+				7ABCB6E326F391520068026D /* Jurisdictions */,
+				7ABCB6E426F391590068026D /* Properties */,
+			);
+			path = NAO;
+			sourceTree = "<group>";
+		};
+		7ABCB5B426F390C50068026D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7ABCB82A26F392970068026D /* ContactsModel.h */,
+				7ABCB82626F392970068026D /* ContactsModel.m */,
+				7ABCB82F26F392970068026D /* EulaModel.h */,
+				7ABCB82426F392970068026D /* EulaModel.m */,
+				7ABCB82526F392970068026D /* EulaModelFilter.h */,
+				7ABCB83026F392970068026D /* EulaModelFilter.m */,
+				7ABCB82B26F392970068026D /* Inbox.h */,
+				7ABCB83626F392970068026D /* Inbox.m */,
+				7ABCB83426F392970068026D /* MessagesModel.h */,
+				7ABCB82126F392970068026D /* MessagesModel.m */,
+				7ABCB82226F392970068026D /* NotificationsModel.h */,
+				7ABCB82D26F392970068026D /* NotificationsModel.m */,
+				7ABCB81F26F392970068026D /* NotificationsModelFilter.h */,
+				7ABCB82326F392970068026D /* NotificationsModelFilter.m */,
+				7ABCB82026F392970068026D /* PatientModel.h */,
+				7ABCB83526F392970068026D /* PatientModel.m */,
+				7ABCB82C26F392970068026D /* RecordsModel.h */,
+				7ABCB83226F392970068026D /* RecordsModel.m */,
+				7ABCB82726F392970068026D /* ServicesModel.h */,
+				7ABCB82E26F392970068026D /* ServicesModel.m */,
+				7ABCB83126F392970068026D /* ServicesModelFilter.h */,
+				7ABCB83326F392970068026D /* ServicesModelFilter.m */,
+				7ABCB82826F392970068026D /* UserModel.h */,
+				7ABCB82926F392970068026D /* UserModel.m */,
+			);
+			name = Models;
+			path = "ehrPatientSDK-ios/Classes/Models";
+			sourceTree = "<group>";
+		};
+		7ABCB5B526F390D30068026D /* AppState */ = {
+			isa = PBXGroup;
+			children = (
+				7ABCB85726F3929F0068026D /* AppPreferences.h */,
+				7ABCB85326F3929F0068026D /* AppPreferences.m */,
+				7ABCB85026F3929F0068026D /* AppState.h */,
+				7ABCB85D26F3929F0068026D /* AppState.m */,
+				7ABCB85826F3929F0068026D /* PersistenceManager.h */,
+				7ABCB85126F3929F0068026D /* PersistenceManager.m */,
+				7ABCB85526F3929F0068026D /* SecureCredentials.h */,
+				7ABCB85226F3929F0068026D /* SecureCredentials.m */,
+				7ABCB85626F3929F0068026D /* ServiceSettings.h */,
+				7ABCB85A26F3929F0068026D /* ServiceSettings.m */,
+				7ABCB85426F3929F0068026D /* UICKeyChainStore.h */,
+				7ABCB85B26F3929F0068026D /* UICKeyChainStore.LICENSE.readme */,
+				7ABCB85C26F3929F0068026D /* UICKeyChainStore.m */,
+				7ABCB84F26F3929F0068026D /* UserCredentials.h */,
+				7ABCB85926F3929F0068026D /* UserCredentials.m */,
+			);
+			name = AppState;
+			path = "ehrPatientSDK-ios/Classes/AppState";
+			sourceTree = "<group>";
+		};
+		7ABCB6E226F3914B0068026D /* Access */ = {
+			isa = PBXGroup;
+			children = (
+				7ABCB73926F392450068026D /* AccessOffer.h */,
+				7ABCB73D26F392450068026D /* AccessOffer.m */,
+				7ABCB73826F392450068026D /* AccessRequest.h */,
+				7ABCB73B26F392450068026D /* AccessRequest.m */,
+				7ABCB73A26F392450068026D /* AccessState.h */,
+				7ABCB73C26F392450068026D /* AccessState.m */,
+				7ABCB73726F392450068026D /* OfferedPrivateMessage.h */,
+				7ABCB73E26F392450068026D /* OfferedPrivateMessage.m */,
+			);
+			path = Access;
+			sourceTree = "<group>";
+		};
+		7ABCB6E326F391520068026D /* Jurisdictions */ = {
+			isa = PBXGroup;
+			children = (
+				7ABCB74D26F3924D0068026D /* HCIN.h */,
+				7ABCB74826F3924D0068026D /* HCIN.m */,
+				7ABCB74E26F3924D0068026D /* InsuranceNumber.h */,
+				7ABCB74726F3924D0068026D /* InsuranceNumber.m */,
+				7ABCB74A26F3924D0068026D /* PIN.h */,
+				7ABCB74926F3924D0068026D /* PIN.m */,
+				7ABCB74B26F3924D0068026D /* SIN.h */,
+				7ABCB74C26F3924D0068026D /* SIN.m */,
+			);
+			path = Jurisdictions;
+			sourceTree = "<group>";
+		};
+		7ABCB6E426F391590068026D /* Properties */ = {
+			isa = PBXGroup;
+			children = (
+				7ABCB75726F392540068026D /* FactorsRequired.h */,
+				7ABCB75826F392540068026D /* FactorsRequired.m */,
+			);
+			path = Properties;
 			sourceTree = "<group>";
 		};
 		B3721317FF97D660599FC85A08AB5326 /* Pod */ = {
@@ -170,7 +766,10 @@
 		F6DEF16F1DB4F25B8A14671743B5751D /* ehrPatientSDK-ios */ = {
 			isa = PBXGroup;
 			children = (
-				453212F6D808D1703E577F20520BE4DE /* ReplaceMe.m */,
+				7ABCB5B526F390D30068026D /* AppState */,
+				7ABCB5B426F390C50068026D /* Models */,
+				7ABCB5B226F390B30068026D /* Network */,
+				7ABCB58326F390830068026D /* Util */,
 				B3721317FF97D660599FC85A08AB5326 /* Pod */,
 				EDDFCECD888DCB2577AC082E5A6849C0 /* Support Files */,
 			);
@@ -185,7 +784,96 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7ABCB86326F3929F0068026D /* UICKeyChainStore.h in Headers */,
+				7ABCB7C626F392640068026D /* IBMessageContent.h in Headers */,
+				7ABCB80226F392650068026D /* IBMessageDistribution.h in Headers */,
+				7ABCB7B726F392640068026D /* IBUser.h in Headers */,
+				7ABCB7E426F392650068026D /* IBPractitionerPractice.h in Headers */,
+				7ABCB81426F3928E0068026D /* EHRServerRequest.h in Headers */,
+				7ABCB74226F392450068026D /* AccessState.h in Headers */,
+				7ABCB7EB26F392650068026D /* IBAnnotation.h in Headers */,
+				7ABCB85F26F3929F0068026D /* AppState.h in Headers */,
+				7ABCB72C26F392330068026D /* UIView+EHR.h in Headers */,
+				7ABCB7F626F392650068026D /* IBTelex.h in Headers */,
+				7ABCB7D926F392640068026D /* IBUserCapability.h in Headers */,
+				7ABCB7B226F392640068026D /* IBDeviceInfo.h in Headers */,
+				7ABCB75626F3924D0068026D /* InsuranceNumber.h in Headers */,
+				7ABCB7D226F392640068026D /* IBLabRequestTextDocument.h in Headers */,
+				7ABCB72A26F392330068026D /* NSDictionary+JSON.h in Headers */,
+				7ABCB84926F392970068026D /* ServicesModelFilter.h in Headers */,
+				7ABCB7FA26F392650068026D /* IBTelexInfo.h in Headers */,
 				9CC0AE5175C360658B80DADECDDA6D57 /* ehrPatientSDK-ios-umbrella.h in Headers */,
+				7ABCB7B326F392640068026D /* IBAppSummary.h in Headers */,
+				7ABCB84226F392970068026D /* ContactsModel.h in Headers */,
+				7ABCB86626F3929F0068026D /* AppPreferences.h in Headers */,
+				7ABCB83726F392970068026D /* NotificationsModelFilter.h in Headers */,
+				7ABCB7D626F392640068026D /* IBDispensaryInfo.h in Headers */,
+				7ABCB81726F3928E0068026D /* EHRServerResponse.h in Headers */,
+				7ABCB73126F392330068026D /* Version.h in Headers */,
+				7ABCB7B926F392640068026D /* IBCapability.h in Headers */,
+				7ABCB84326F392970068026D /* Inbox.h in Headers */,
+				7ABCB7E126F392650068026D /* IBAgentInfo.h in Headers */,
+				7ABCB81C26F3928E0068026D /* EHRRequestStatus.h in Headers */,
+				7ABCB72326F392330068026D /* GEDeviceHardware.h in Headers */,
+				7ABCB83D26F392970068026D /* EulaModelFilter.h in Headers */,
+				7ABCB84726F392970068026D /* EulaModel.h in Headers */,
+				7ABCB86426F3929F0068026D /* SecureCredentials.h in Headers */,
+				7ABCB7BE26F392640068026D /* IBLabRequestPDFDocument.h in Headers */,
+				7ABCB7B426F392640068026D /* IBPractitionerJurisdiction.h in Headers */,
+				7ABCB7C026F392640068026D /* PatientNotification.h in Headers */,
+				7ABCB7F326F392650068026D /* IBAppInfo.h in Headers */,
+				7ABCB72826F392330068026D /* MathUtil.h in Headers */,
+				7ABCB7D826F392640068026D /* IBMediaInfo.h in Headers */,
+				7ABCB7EA26F392650068026D /* IBLab.h in Headers */,
+				7ABCB75926F392540068026D /* FactorsRequired.h in Headers */,
+				7ABCB75326F3924D0068026D /* SIN.h in Headers */,
+				7ABCB7DD26F392650068026D /* IBAppointment.h in Headers */,
+				7ABCB72226F392330068026D /* GEMacros.h in Headers */,
+				7ABCB7BD26F392640068026D /* PatientInfo.h in Headers */,
+				7ABCB80026F392650068026D /* IBLabResultPDFDocument.h in Headers */,
+				7ABCB81326F3928E0068026D /* EHRCall.h in Headers */,
+				7ABCB7E526F392650068026D /* IBUserService.h in Headers */,
+				7ABCB7DC26F392650068026D /* IBAddress.h in Headers */,
+				7ABCB83A26F392970068026D /* NotificationsModel.h in Headers */,
+				7ABCB84C26F392970068026D /* MessagesModel.h in Headers */,
+				7ABCB85E26F3929F0068026D /* UserCredentials.h in Headers */,
+				7ABCB7DB26F392650068026D /* IBUserEula.h in Headers */,
+				7ABCB81D26F3928E0068026D /* EHRReachability.h in Headers */,
+				7ABCB74126F392450068026D /* AccessOffer.h in Headers */,
+				7ABCB7D026F392640068026D /* IBHealthCareProvider.h in Headers */,
+				7ABCB7F126F392650068026D /* UserDeviceSettings.h in Headers */,
+				7ABCB86526F3929F0068026D /* ServiceSettings.h in Headers */,
+				7ABCB7BC26F392640068026D /* PatientHealthSummary.h in Headers */,
+				7ABCB7C926F392640068026D /* Record.h in Headers */,
+				7ABCB75526F3924D0068026D /* HCIN.h in Headers */,
+				7ABCB72426F392330068026D /* EHRGuid.h in Headers */,
+				7ABCB73626F392330068026D /* AppSignature.h in Headers */,
+				7ABCB7F726F392650068026D /* IBUserInfo.h in Headers */,
+				7ABCB84026F392970068026D /* UserModel.h in Headers */,
+				7ABCB7FE26F392650068026D /* IBPatientContact.h in Headers */,
+				7ABCB7D526F392640068026D /* IBLabResult.h in Headers */,
+				7ABCB7B526F392640068026D /* IBEula.h in Headers */,
+				7ABCB7C826F392640068026D /* IBVersion.h in Headers */,
+				7ABCB86726F3929F0068026D /* PersistenceManager.h in Headers */,
+				7ABCB7FF26F392650068026D /* Patient.h in Headers */,
+				7ABCB74026F392450068026D /* AccessRequest.h in Headers */,
+				7ABCB7EC26F392650068026D /* IBLabResultTextDocument.h in Headers */,
+				7ABCB7DA26F392650068026D /* IBLabRequest.h in Headers */,
+				7ABCB75226F3924D0068026D /* PIN.h in Headers */,
+				7ABCB7DF26F392650068026D /* IBContact.h in Headers */,
+				7ABCB81B26F3928E0068026D /* EHRApiServer.h in Headers */,
+				7ABCB72726F392330068026D /* GETimeUtil.h in Headers */,
+				7ABCB83F26F392970068026D /* ServicesModel.h in Headers */,
+				7ABCB83826F392970068026D /* PatientModel.h in Headers */,
+				7ABCB84426F392970068026D /* RecordsModel.h in Headers */,
+				7ABCB73326F392330068026D /* GERuntimeConstants.h in Headers */,
+				7ABCB7FC26F392650068026D /* IBPatientInfo.h in Headers */,
+				7ABCB7BF26F392640068026D /* IBService.h in Headers */,
+				7ABCB73026F392330068026D /* DateUtil.h in Headers */,
+				7ABCB73F26F392450068026D /* OfferedPrivateMessage.h in Headers */,
+				7ABCB7BA26F392640068026D /* IBPractitioner.h in Headers */,
+				7ABCB7E826F392650068026D /* IBMedia.h in Headers */,
+				7ABCB72F26F392330068026D /* GEFileUtil.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +965,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7ABCB86A26F3929F0068026D /* UICKeyChainStore.LICENSE.readme in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,8 +984,95 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7ABCB7F926F392650068026D /* IBTelexInfo.m in Sources */,
+				7ABCB72526F392330068026D /* GEDeviceHardware.m in Sources */,
+				7ABCB7B626F392640068026D /* IBUser.m in Sources */,
+				7ABCB81926F3928E0068026D /* EHRCall.m in Sources */,
+				7ABCB7ED26F392650068026D /* IBHealthCareProvider.m in Sources */,
+				7ABCB7E626F392650068026D /* IBCapability.m in Sources */,
+				7ABCB83B26F392970068026D /* NotificationsModelFilter.m in Sources */,
+				7ABCB7CD26F392640068026D /* Patient.m in Sources */,
+				7ABCB72026F392330068026D /* GETimeUtil.m in Sources */,
+				7ABCB7F526F392650068026D /* IBAddress.m in Sources */,
+				7ABCB86C26F3929F0068026D /* AppState.m in Sources */,
+				7ABCB84D26F392970068026D /* PatientModel.m in Sources */,
+				7ABCB72E26F392330068026D /* UIView+EHR.m in Sources */,
+				7ABCB73526F392330068026D /* DateUtil.m in Sources */,
+				7ABCB83C26F392970068026D /* EulaModel.m in Sources */,
+				7ABCB7EF26F392650068026D /* PatientNotification.m in Sources */,
+				7ABCB81A26F3928E0068026D /* EHRApiServer.m in Sources */,
+				7ABCB7D126F392640068026D /* IBMessageContent.m in Sources */,
+				7ABCB84826F392970068026D /* EulaModelFilter.m in Sources */,
+				7ABCB7FD26F392650068026D /* IBAppSummary.m in Sources */,
+				7ABCB7D426F392640068026D /* UserDeviceSettings.m in Sources */,
+				7ABCB81526F3928E0068026D /* EHRServerResponse.m in Sources */,
+				7ABCB7CA26F392640068026D /* IBLabResultPDFDocument.m in Sources */,
+				7ABCB7B826F392640068026D /* IBUserInfo.m in Sources */,
 				7B45880EDA59D742B184824A9513D91C /* ehrPatientSDK-ios-dummy.m in Sources */,
-				C3DB2CF816CF2F4BA11257A2A8D8CA7C /* ReplaceMe.m in Sources */,
+				7ABCB74526F392450068026D /* AccessOffer.m in Sources */,
+				7ABCB74326F392450068026D /* AccessRequest.m in Sources */,
+				7ABCB7CE26F392640068026D /* IBVersion.m in Sources */,
+				7ABCB7CF26F392640068026D /* Record.m in Sources */,
+				7ABCB84126F392970068026D /* UserModel.m in Sources */,
+				7ABCB72B26F392330068026D /* NSDictionary+JSON.m in Sources */,
+				7ABCB74426F392450068026D /* AccessState.m in Sources */,
+				7ABCB75026F3924D0068026D /* HCIN.m in Sources */,
+				7ABCB7F426F392650068026D /* IBUserCapability.m in Sources */,
+				7ABCB7E726F392650068026D /* IBLabResult.m in Sources */,
+				7ABCB7D326F392640068026D /* IBPatientContact.m in Sources */,
+				7ABCB7EE26F392650068026D /* PatientHealthSummary.m in Sources */,
+				7ABCB7C726F392640068026D /* IBAppointment.m in Sources */,
+				7ABCB81E26F3928E0068026D /* EHRServerRequest.m in Sources */,
+				7ABCB75426F3924D0068026D /* SIN.m in Sources */,
+				7ABCB80626F392650068026D /* IBAppInfo.m in Sources */,
+				7ABCB7C326F392640068026D /* IBTelex.m in Sources */,
+				7ABCB83E26F392970068026D /* ContactsModel.m in Sources */,
+				7ABCB7BB26F392640068026D /* IBService.m in Sources */,
+				7ABCB7CC26F392640068026D /* IBContact.m in Sources */,
+				7ABCB84526F392970068026D /* NotificationsModel.m in Sources */,
+				7ABCB80526F392650068026D /* IBMediaInfo.m in Sources */,
+				7ABCB72D26F392330068026D /* EHRGuid.m in Sources */,
+				7ABCB86B26F3929F0068026D /* UICKeyChainStore.m in Sources */,
+				7ABCB7F026F392650068026D /* IBAgentInfo.m in Sources */,
+				7ABCB84A26F392970068026D /* RecordsModel.m in Sources */,
+				7ABCB7B126F392640068026D /* IBDeviceInfo.m in Sources */,
+				7ABCB72126F392330068026D /* AppSignature.m in Sources */,
+				7ABCB74F26F3924D0068026D /* InsuranceNumber.m in Sources */,
+				7ABCB7DE26F392650068026D /* IBUserEula.m in Sources */,
+				7ABCB83926F392970068026D /* MessagesModel.m in Sources */,
+				7ABCB80426F392650068026D /* IBMedia.m in Sources */,
+				7ABCB73426F392330068026D /* GEFileUtil.m in Sources */,
+				7ABCB81626F3928E0068026D /* EHRReachability.m in Sources */,
+				7ABCB86826F3929F0068026D /* UserCredentials.m in Sources */,
+				7ABCB7E226F392650068026D /* IBDispensaryInfo.m in Sources */,
+				7ABCB84E26F392970068026D /* Inbox.m in Sources */,
+				7ABCB86026F3929F0068026D /* PersistenceManager.m in Sources */,
+				7ABCB81826F3928E0068026D /* EHRRequestStatus.m in Sources */,
+				7ABCB86926F3929F0068026D /* ServiceSettings.m in Sources */,
+				7ABCB7E026F392650068026D /* IBPractitionerPractice.m in Sources */,
+				7ABCB84B26F392970068026D /* ServicesModelFilter.m in Sources */,
+				7ABCB75A26F392540068026D /* FactorsRequired.m in Sources */,
+				7ABCB7F226F392650068026D /* IBLabRequestTextDocument.m in Sources */,
+				7ABCB7C426F392640068026D /* IBEula.m in Sources */,
+				7ABCB86226F3929F0068026D /* AppPreferences.m in Sources */,
+				7ABCB7D726F392640068026D /* PatientInfo.m in Sources */,
+				7ABCB7C126F392640068026D /* IBLabRequest.m in Sources */,
+				7ABCB7E326F392650068026D /* IBLab.m in Sources */,
+				7ABCB72626F392330068026D /* GERuntimeConstants.m in Sources */,
+				7ABCB80126F392650068026D /* IBPractitionerJurisdiction.m in Sources */,
+				7ABCB86126F3929F0068026D /* SecureCredentials.m in Sources */,
+				7ABCB75126F3924D0068026D /* PIN.m in Sources */,
+				7ABCB74626F392450068026D /* OfferedPrivateMessage.m in Sources */,
+				7ABCB7F826F392650068026D /* IBLabResultTextDocument.m in Sources */,
+				7ABCB7CB26F392640068026D /* IBPatientInfo.m in Sources */,
+				7ABCB7C526F392640068026D /* IBLabRequestPDFDocument.m in Sources */,
+				7ABCB72926F392330068026D /* MathUtil.m in Sources */,
+				7ABCB84626F392970068026D /* ServicesModel.m in Sources */,
+				7ABCB7FB26F392650068026D /* IBMessageDistribution.m in Sources */,
+				7ABCB73226F392330068026D /* Version.m in Sources */,
+				7ABCB7C226F392640068026D /* IBPractitioner.m in Sources */,
+				7ABCB80326F392650068026D /* IBUserService.m in Sources */,
+				7ABCB7E926F392650068026D /* IBAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,8 +1208,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
