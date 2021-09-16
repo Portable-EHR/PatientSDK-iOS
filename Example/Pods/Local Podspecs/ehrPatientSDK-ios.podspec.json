@@ -1,0 +1,22 @@
+{
+  "name": "ehrPatientSDK-ios",
+  "version": "0.1.0",
+  "summary": "A short description of ehrPatientSDK-ios.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/rasthana@gmail.com/ehrPatientSDK-ios",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "rasthana@gmail.com": "rahul.asthana@portableehr.com"
+  },
+  "source": {
+    "git": "https://github.com/rasthana@gmail.com/ehrPatientSDK-ios.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "ehrPatientSDK-ios/Classes/**/*"
+}

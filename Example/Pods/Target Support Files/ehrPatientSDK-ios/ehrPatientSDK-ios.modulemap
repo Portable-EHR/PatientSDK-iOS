@@ -1,0 +1,6 @@
+framework module ehrPatientSDK_ios {
+  umbrella header "ehrPatientSDK-ios-umbrella.h"
+
+  export *
+  module * { export * }
+}

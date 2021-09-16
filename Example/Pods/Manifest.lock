@@ -1,0 +1,16 @@
+PODS:
+  - ehrPatientSDK-ios (0.1.0)
+
+DEPENDENCIES:
+  - ehrPatientSDK-ios (from `../`)
+
+EXTERNAL SOURCES:
+  ehrPatientSDK-ios:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  ehrPatientSDK-ios: 4bf78ba17838cb077881d64724b9ddd46ee14f3e
+
+PODFILE CHECKSUM: e1be283be7e96ba663e06d5e1c1b640891682ef7
+
+COCOAPODS: 1.10.1

@@ -1,0 +1,602 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		47370FB8B4B130F73F918EB6BF3B9692 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		54BBC7CB33F2634AF4CD386B3686F22F /* Pods-ehrPatientSDK-ios_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0265783E41FDD503EB727CE1FCFAF9 /* Pods-ehrPatientSDK-ios_Tests-dummy.m */; };
+		77E55181CD9D5F702F458A579D8C08B7 /* Pods-ehrPatientSDK-ios_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CC7B2F99BD0394C5DA32D4C049647C5B /* Pods-ehrPatientSDK-ios_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7B45880EDA59D742B184824A9513D91C /* ehrPatientSDK-ios-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 733DDCFBC0709DF218E5D0E165575F59 /* ehrPatientSDK-ios-dummy.m */; };
+		9CC0AE5175C360658B80DADECDDA6D57 /* ehrPatientSDK-ios-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 160B722EFA2ED10609AD9F0B407C32CC /* ehrPatientSDK-ios-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C3DB2CF816CF2F4BA11257A2A8D8CA7C /* ReplaceMe.m in Sources */ = {isa = PBXBuildFile; fileRef = 453212F6D808D1703E577F20520BE4DE /* ReplaceMe.m */; };
+		E4345F96FE29539D759573943D7C01B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		47430F549A08D1F8558B7F56C4B8B9A0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 81BFBCD6DB10A6558055C80E7B6DAE87;
+			remoteInfo = "ehrPatientSDK-ios";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		12E1A50C4E0001F0BD175CB71A11365D /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		160B722EFA2ED10609AD9F0B407C32CC /* ehrPatientSDK-ios-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ehrPatientSDK-ios-umbrella.h"; sourceTree = "<group>"; };
+		2FF7244F21B329F5925A6F824FCA4B4A /* ehrPatientSDK-ios-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ehrPatientSDK-ios-prefix.pch"; sourceTree = "<group>"; };
+		30C1CCB9543EC3C79785EB75A9991A18 /* ehrPatientSDK-ios-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ehrPatientSDK-ios-Info.plist"; sourceTree = "<group>"; };
+		3E79ED857B0ED5E54DF85B0D9942E352 /* Pods_ehrPatientSDK_ios_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ehrPatientSDK_ios_Tests.framework; path = "Pods-ehrPatientSDK-ios_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4287393F4DB6F85AF7A1C5776C61530F /* Pods-ehrPatientSDK-ios_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ehrPatientSDK-ios_Tests-Info.plist"; sourceTree = "<group>"; };
+		453212F6D808D1703E577F20520BE4DE /* ReplaceMe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ReplaceMe.m; path = "ehrPatientSDK-ios/Classes/ReplaceMe.m"; sourceTree = "<group>"; };
+		4D58965214989BE0467903769DAD4F66 /* ehrPatientSDK-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "ehrPatientSDK-ios.debug.xcconfig"; sourceTree = "<group>"; };
+		5514AAF3C52C6CFA4095B12551F9782D /* Pods-ehrPatientSDK-ios_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ehrPatientSDK-ios_Tests.modulemap"; sourceTree = "<group>"; };
+		59B09E10646727862BC94FA07CA33C91 /* ehrPatientSDK-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "ehrPatientSDK-ios.release.xcconfig"; sourceTree = "<group>"; };
+		5D0265783E41FDD503EB727CE1FCFAF9 /* Pods-ehrPatientSDK-ios_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ehrPatientSDK-ios_Tests-dummy.m"; sourceTree = "<group>"; };
+		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		733DDCFBC0709DF218E5D0E165575F59 /* ehrPatientSDK-ios-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ehrPatientSDK-ios-dummy.m"; sourceTree = "<group>"; };
+		8B4F8E10912D512913D8433FB48EF210 /* Pods-ehrPatientSDK-ios_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ehrPatientSDK-ios_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		8E29659D9362A975CC8D4168C9F9B2A3 /* Pods-ehrPatientSDK-ios_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ehrPatientSDK-ios_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		ABB9276EBCAA0D8F34732881603E0EDB /* Pods-ehrPatientSDK-ios_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ehrPatientSDK-ios_Tests-frameworks.sh"; sourceTree = "<group>"; };
+		ADA5B681041A7357D15D7AF701653C38 /* Pods-ehrPatientSDK-ios_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ehrPatientSDK-ios_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		AE1461D75026CE4899972F44FB77424E /* ehrPatientSDK-ios.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = "ehrPatientSDK-ios.podspec"; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		B481CC4FB6CF8AA78AE990DD64504776 /* ehrPatientSDK-ios.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "ehrPatientSDK-ios.modulemap"; sourceTree = "<group>"; };
+		B635484BF453CDDE9685CDB1CDF9D1B7 /* ehrPatientSDK_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ehrPatientSDK_ios.framework; path = "ehrPatientSDK-ios.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFBC5291B327291486881C357108FA52 /* Pods-ehrPatientSDK-ios_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ehrPatientSDK-ios_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		CC7B2F99BD0394C5DA32D4C049647C5B /* Pods-ehrPatientSDK-ios_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ehrPatientSDK-ios_Tests-umbrella.h"; sourceTree = "<group>"; };
+		E5B520DE88B2487D9C871B371D32A521 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5897D94D5130FAC42ED0A80DDDB31E0E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				47370FB8B4B130F73F918EB6BF3B9692 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		695E1D486999CDAED095E9A306D5CA3A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4345F96FE29539D759573943D7C01B1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4183F1569C42A23AAED1C3E71EA30AF3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B635484BF453CDDE9685CDB1CDF9D1B7 /* ehrPatientSDK_ios.framework */,
+				3E79ED857B0ED5E54DF85B0D9942E352 /* Pods_ehrPatientSDK_ios_Tests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4B5BFDB16F7B7A486B025C9B8257B5D7 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				C323CA31A87137E792018F39B2885DCD /* Pods-ehrPatientSDK-ios_Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		B3721317FF97D660599FC85A08AB5326 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				AE1461D75026CE4899972F44FB77424E /* ehrPatientSDK-ios.podspec */,
+				E5B520DE88B2487D9C871B371D32A521 /* LICENSE */,
+				12E1A50C4E0001F0BD175CB71A11365D /* README.md */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		C323CA31A87137E792018F39B2885DCD /* Pods-ehrPatientSDK-ios_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				5514AAF3C52C6CFA4095B12551F9782D /* Pods-ehrPatientSDK-ios_Tests.modulemap */,
+				8E29659D9362A975CC8D4168C9F9B2A3 /* Pods-ehrPatientSDK-ios_Tests-acknowledgements.markdown */,
+				8B4F8E10912D512913D8433FB48EF210 /* Pods-ehrPatientSDK-ios_Tests-acknowledgements.plist */,
+				5D0265783E41FDD503EB727CE1FCFAF9 /* Pods-ehrPatientSDK-ios_Tests-dummy.m */,
+				ABB9276EBCAA0D8F34732881603E0EDB /* Pods-ehrPatientSDK-ios_Tests-frameworks.sh */,
+				4287393F4DB6F85AF7A1C5776C61530F /* Pods-ehrPatientSDK-ios_Tests-Info.plist */,
+				CC7B2F99BD0394C5DA32D4C049647C5B /* Pods-ehrPatientSDK-ios_Tests-umbrella.h */,
+				BFBC5291B327291486881C357108FA52 /* Pods-ehrPatientSDK-ios_Tests.debug.xcconfig */,
+				ADA5B681041A7357D15D7AF701653C38 /* Pods-ehrPatientSDK-ios_Tests.release.xcconfig */,
+			);
+			name = "Pods-ehrPatientSDK-ios_Tests";
+			path = "Target Support Files/Pods-ehrPatientSDK-ios_Tests";
+			sourceTree = "<group>";
+		};
+		C5EAF6D3FF0C4B7AECF7D944B6A5ED5D /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F6DEF16F1DB4F25B8A14671743B5751D /* ehrPatientSDK-ios */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				C5EAF6D3FF0C4B7AECF7D944B6A5ED5D /* Development Pods */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				4183F1569C42A23AAED1C3E71EA30AF3 /* Products */,
+				4B5BFDB16F7B7A486B025C9B8257B5D7 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				578452D2E740E91742655AC8F1636D1F /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EDDFCECD888DCB2577AC082E5A6849C0 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B481CC4FB6CF8AA78AE990DD64504776 /* ehrPatientSDK-ios.modulemap */,
+				733DDCFBC0709DF218E5D0E165575F59 /* ehrPatientSDK-ios-dummy.m */,
+				30C1CCB9543EC3C79785EB75A9991A18 /* ehrPatientSDK-ios-Info.plist */,
+				2FF7244F21B329F5925A6F824FCA4B4A /* ehrPatientSDK-ios-prefix.pch */,
+				160B722EFA2ED10609AD9F0B407C32CC /* ehrPatientSDK-ios-umbrella.h */,
+				4D58965214989BE0467903769DAD4F66 /* ehrPatientSDK-ios.debug.xcconfig */,
+				59B09E10646727862BC94FA07CA33C91 /* ehrPatientSDK-ios.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/ehrPatientSDK-ios";
+			sourceTree = "<group>";
+		};
+		F6DEF16F1DB4F25B8A14671743B5751D /* ehrPatientSDK-ios */ = {
+			isa = PBXGroup;
+			children = (
+				453212F6D808D1703E577F20520BE4DE /* ReplaceMe.m */,
+				B3721317FF97D660599FC85A08AB5326 /* Pod */,
+				EDDFCECD888DCB2577AC082E5A6849C0 /* Support Files */,
+			);
+			name = "ehrPatientSDK-ios";
+			path = ../..;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		1EA2C792C085541E3398D64F8E1C72DA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9CC0AE5175C360658B80DADECDDA6D57 /* ehrPatientSDK-ios-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E53D0F16DC681A31E52BF0893387EA7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				77E55181CD9D5F702F458A579D8C08B7 /* Pods-ehrPatientSDK-ios_Tests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		81BFBCD6DB10A6558055C80E7B6DAE87 /* ehrPatientSDK-ios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 55BB199D3DDD9DACD1D71BE1289A0137 /* Build configuration list for PBXNativeTarget "ehrPatientSDK-ios" */;
+			buildPhases = (
+				1EA2C792C085541E3398D64F8E1C72DA /* Headers */,
+				93A3FA7F430812C4DC08C445FECCFE56 /* Sources */,
+				5897D94D5130FAC42ED0A80DDDB31E0E /* Frameworks */,
+				DCEBA9DFC950A33D649B9C341F153257 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ehrPatientSDK-ios";
+			productName = "ehrPatientSDK-ios";
+			productReference = B635484BF453CDDE9685CDB1CDF9D1B7 /* ehrPatientSDK_ios.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A39E0ADC0208242E59B164FCA2083BFF /* Pods-ehrPatientSDK-ios_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 82823125F798B3E8294B84A7CA37B120 /* Build configuration list for PBXNativeTarget "Pods-ehrPatientSDK-ios_Tests" */;
+			buildPhases = (
+				2E53D0F16DC681A31E52BF0893387EA7 /* Headers */,
+				8C9EFF2977F198BC6C5C5CBCE120080B /* Sources */,
+				695E1D486999CDAED095E9A306D5CA3A /* Frameworks */,
+				5B5B5E420891F166015A2547902B2BD9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				80A69E83122944759625E6B050A49D19 /* PBXTargetDependency */,
+			);
+			name = "Pods-ehrPatientSDK-ios_Tests";
+			productName = "Pods-ehrPatientSDK-ios_Tests";
+			productReference = 3E79ED857B0ED5E54DF85B0D9942E352 /* Pods_ehrPatientSDK_ios_Tests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 4183F1569C42A23AAED1C3E71EA30AF3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				81BFBCD6DB10A6558055C80E7B6DAE87 /* ehrPatientSDK-ios */,
+				A39E0ADC0208242E59B164FCA2083BFF /* Pods-ehrPatientSDK-ios_Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5B5B5E420891F166015A2547902B2BD9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCEBA9DFC950A33D649B9C341F153257 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8C9EFF2977F198BC6C5C5CBCE120080B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				54BBC7CB33F2634AF4CD386B3686F22F /* Pods-ehrPatientSDK-ios_Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93A3FA7F430812C4DC08C445FECCFE56 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B45880EDA59D742B184824A9513D91C /* ehrPatientSDK-ios-dummy.m in Sources */,
+				C3DB2CF816CF2F4BA11257A2A8D8CA7C /* ReplaceMe.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		80A69E83122944759625E6B050A49D19 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "ehrPatientSDK-ios";
+			target = 81BFBCD6DB10A6558055C80E7B6DAE87 /* ehrPatientSDK-ios */;
+			targetProxy = 47430F549A08D1F8558B7F56C4B8B9A0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		22DEED9452086ED6A90D4EF54F19213F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ADA5B681041A7357D15D7AF701653C38 /* Pods-ehrPatientSDK-ios_Tests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-ehrPatientSDK-ios_Tests/Pods-ehrPatientSDK-ios_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ehrPatientSDK-ios_Tests/Pods-ehrPatientSDK-ios_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		28EB6F40BADFFE2C22180167F12E4736 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BFBC5291B327291486881C357108FA52 /* Pods-ehrPatientSDK-ios_Tests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-ehrPatientSDK-ios_Tests/Pods-ehrPatientSDK-ios_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ehrPatientSDK-ios_Tests/Pods-ehrPatientSDK-ios_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		431BA2B8298F0EE71735B9E0114E1955 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		52E164248AECB6686D5896F4519E4A67 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4D58965214989BE0467903769DAD4F66 /* ehrPatientSDK-ios.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/ehrPatientSDK-ios/ehrPatientSDK-ios-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ehrPatientSDK-ios/ehrPatientSDK-ios-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/ehrPatientSDK-ios/ehrPatientSDK-ios.modulemap";
+				PRODUCT_MODULE_NAME = ehrPatientSDK_ios;
+				PRODUCT_NAME = ehrPatientSDK_ios;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		79759604D78320E712558F49DF19AA9F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		7AC01DB18A4D2C35F0AE3AA7FACBDAEA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 59B09E10646727862BC94FA07CA33C91 /* ehrPatientSDK-ios.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/ehrPatientSDK-ios/ehrPatientSDK-ios-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ehrPatientSDK-ios/ehrPatientSDK-ios-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/ehrPatientSDK-ios/ehrPatientSDK-ios.modulemap";
+				PRODUCT_MODULE_NAME = ehrPatientSDK_ios;
+				PRODUCT_NAME = ehrPatientSDK_ios;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				79759604D78320E712558F49DF19AA9F /* Debug */,
+				431BA2B8298F0EE71735B9E0114E1955 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		55BB199D3DDD9DACD1D71BE1289A0137 /* Build configuration list for PBXNativeTarget "ehrPatientSDK-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52E164248AECB6686D5896F4519E4A67 /* Debug */,
+				7AC01DB18A4D2C35F0AE3AA7FACBDAEA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		82823125F798B3E8294B84A7CA37B120 /* Build configuration list for PBXNativeTarget "Pods-ehrPatientSDK-ios_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				28EB6F40BADFFE2C22180167F12E4736 /* Debug */,
+				22DEED9452086ED6A90D4EF54F19213F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}
