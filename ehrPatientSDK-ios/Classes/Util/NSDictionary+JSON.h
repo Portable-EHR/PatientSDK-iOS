@@ -4,6 +4,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GEMacros.h"
 
 @interface NSDictionary (JSON)
 +(id) dictionaryWithJSONdata:(NSData*)jsonData;
