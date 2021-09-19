@@ -4,6 +4,7 @@
 //
 
 #import "AppSignature.h"
+#import "GEMacros.h"
 
 @implementation AppSignature
 

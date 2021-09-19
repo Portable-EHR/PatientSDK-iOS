@@ -3,6 +3,8 @@
 // Copyright (c) 2015-2019 Portable EHR inc. All rights reserved.
 //
 
+#import "GEMacros.h"
+
 @implementation NSDictionary (JSON)
 + (id)dictionaryWithJSONdata:(NSData *)jsonData {
 

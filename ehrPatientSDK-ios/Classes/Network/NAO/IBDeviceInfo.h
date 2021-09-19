@@ -6,6 +6,8 @@
 #import <Foundation/Foundation.h>
 #import "EHRInstanceCounterP.h"
 #import "EHRNetworkableP.h"
+#import "GEMacros.h"
+#import "NSDictionary+JSON.h"
 
 @class NotificationsModelFilter;
 @class PatientModel;
@@ -28,7 +30,7 @@
     BOOL         _canAuthenticate;
     BOOL         _canAuthenticateWithBiometrics;
     BOOL         _canAuthenticateWithPIN;
-    LAPolicy     _policyInPlace;
+//    LAPolicy     _policyInPlace;
 }
 
 @property(nonatomic) NSString     *deviceGuid;

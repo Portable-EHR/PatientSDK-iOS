@@ -8,6 +8,7 @@
 
 #import "GEFileUtil.h"
 #import "GEDeviceHardware.h"
+#import "GEMacros.h"
 
 @interface GEFileUtil (Private)
 

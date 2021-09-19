@@ -5,6 +5,7 @@
 
 #import "AccessOffer.h"
 #import "IBUserInfo.h"
+#import "GEMacros.h"
 
 @implementation AccessOffer
 

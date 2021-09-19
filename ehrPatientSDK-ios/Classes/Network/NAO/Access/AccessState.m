@@ -8,6 +8,8 @@
 #import "AccessState.h"
 #import "AccessOffer.h"
 #import "AccessRequest.h"
+#import "GEMacros.h"
+#import "NSDictionary+JSON.h"
 
 @implementation AccessState
 TRACE_OFF

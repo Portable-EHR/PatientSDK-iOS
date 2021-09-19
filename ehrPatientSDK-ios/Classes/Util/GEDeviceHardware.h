@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GERuntimeConstants.h"
 
 @interface GEDeviceHardware : NSObject
 

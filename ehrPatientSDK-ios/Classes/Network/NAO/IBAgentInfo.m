@@ -7,6 +7,8 @@
 #import "IBAddress.h"
 #import "IBContact.h"
 #import "IBMediaInfo.h"
+#import "GEMacros.h"
+#import "NSDictionary+JSON.h"
 
 @implementation IBAgentInfo
 

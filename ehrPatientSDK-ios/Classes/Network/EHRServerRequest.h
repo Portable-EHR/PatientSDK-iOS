@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GEMacros.h"
+#import "NSDictionary+JSON.h"
 
 @class EHRApiServer;
 

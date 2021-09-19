@@ -7,6 +7,7 @@
 #import "EHRNetworkableP.h"
 #import "AccessRequest.h"
 #import "IBUserInfo.h"
+#import "GEMacros.h"
 
 @implementation AccessRequest
 TRACE_OFF

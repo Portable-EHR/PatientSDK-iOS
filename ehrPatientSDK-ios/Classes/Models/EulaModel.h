@@ -5,6 +5,8 @@
 
 #import <Foundation/Foundation.h>
 #import "EHRInstanceCounterP.h"
+#import "GEMacros.h"
+#import "NSDictionary+JSON.h"
 
 @class AppState;
 @class EulaModelFilter;

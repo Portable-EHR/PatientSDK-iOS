@@ -6,6 +6,7 @@
 #import "IBHealthCareProvider.h"
 #import "IBContact.h"
 #import "IBService.h"
+#import "GEMacros.h"
 
 @implementation IBHealthCareProvider
 

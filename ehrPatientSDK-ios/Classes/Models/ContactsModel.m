@@ -7,6 +7,9 @@
 #import "Patient.h"
 #import "GEFileUtil.h"
 #import "Record.h"
+#import "GEMacros.h"
+#import "NSDictionary+JSON.h"
+
 
 @implementation ContactsModel
 

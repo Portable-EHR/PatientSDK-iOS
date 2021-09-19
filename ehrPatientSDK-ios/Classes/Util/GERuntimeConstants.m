@@ -11,6 +11,7 @@
 #import "GEDeviceHardware.h"
 #import "Version.h"
 #import "EHRPersistableP.h"
+#import "GEMacros.h"
 
 #pragma clang diagnostic push
 #pragma ide diagnostic ignored "OCUnusedMethodInspection"

@@ -5,6 +5,8 @@
 
 #import "IBLab.h"
 #import "IBAddress.h"
+#import "GEMacros.h"
+#import "NSDictionary+JSON.h"
 
 @implementation IBLab
 TRACE_OFF

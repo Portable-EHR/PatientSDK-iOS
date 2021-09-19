@@ -6,6 +6,8 @@
 #import "EHRPersistableP.h"
 #import "IBCapability.h"
 #import "IBEula.h"
+#import "GEMacros.h"
+#import "NSDictionary+JSON.h"
 
 @implementation IBCapability
 

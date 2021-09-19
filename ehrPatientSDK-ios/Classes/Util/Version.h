@@ -5,6 +5,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EHRInstanceCounterP.h"
+#import "GEMacros.h"
 
 @interface Version : NSObject <EHRInstanceCounterP> {
 

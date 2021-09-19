@@ -5,6 +5,7 @@
 
 #import "EHRPersistableP.h"
 #import "IBAddress.h"
+#import "GEMacros.h"
 
 @implementation IBAddress
 

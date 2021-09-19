@@ -188,6 +188,18 @@
 		7ABCB86A26F3929F0068026D /* UICKeyChainStore.LICENSE.readme in Resources */ = {isa = PBXBuildFile; fileRef = 7ABCB85B26F3929F0068026D /* UICKeyChainStore.LICENSE.readme */; };
 		7ABCB86B26F3929F0068026D /* UICKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB85C26F3929F0068026D /* UICKeyChainStore.m */; };
 		7ABCB86C26F3929F0068026D /* AppState.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB85D26F3929F0068026D /* AppState.m */; };
+		7ABCB87426F5B7460068026D /* EHRModelSequencerP.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB86E26F5B7460068026D /* EHRModelSequencerP.h */; };
+		7ABCB87526F5B7460068026D /* EHRNetworkableP.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB86F26F5B7460068026D /* EHRNetworkableP.h */; };
+		7ABCB87626F5B7460068026D /* EHRInstanceCounterP.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB87026F5B7460068026D /* EHRInstanceCounterP.h */; };
+		7ABCB87726F5B7460068026D /* NotificationCellListenerP.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB87126F5B7460068026D /* NotificationCellListenerP.h */; };
+		7ABCB87826F5B7460068026D /* EHRPersistableP.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB87226F5B7460068026D /* EHRPersistableP.h */; };
+		7ABCB87926F5B7460068026D /* ScannerP.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB87326F5B7460068026D /* ScannerP.h */; };
+		7ABCB87D26F5C3120068026D /* AuthSequencer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB87B26F5C3120068026D /* AuthSequencer.m */; };
+		7ABCB87E26F5C3120068026D /* AuthSequencer.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB87C26F5C3120068026D /* AuthSequencer.h */; };
+		7ABCB88626F5E97B0068026D /* NotificationProgressChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB88226F5E97B0068026D /* NotificationProgressChange.m */; };
+		7ABCB88726F5E97B0068026D /* NotificationProgressChange.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB88326F5E97B0068026D /* NotificationProgressChange.h */; };
+		7ABCB88826F5E97B0068026D /* MessageDistributionProgressChange.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB88426F5E97B0068026D /* MessageDistributionProgressChange.h */; };
+		7ABCB88926F5E97B0068026D /* MessageDistributionProgressChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB88526F5E97B0068026D /* MessageDistributionProgressChange.m */; };
 		7B45880EDA59D742B184824A9513D91C /* ehrPatientSDK-ios-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 733DDCFBC0709DF218E5D0E165575F59 /* ehrPatientSDK-ios-dummy.m */; };
 		9CC0AE5175C360658B80DADECDDA6D57 /* ehrPatientSDK-ios-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 160B722EFA2ED10609AD9F0B407C32CC /* ehrPatientSDK-ios-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E4345F96FE29539D759573943D7C01B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
@@ -394,6 +406,18 @@
 		7ABCB85B26F3929F0068026D /* UICKeyChainStore.LICENSE.readme */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UICKeyChainStore.LICENSE.readme; sourceTree = "<group>"; };
 		7ABCB85C26F3929F0068026D /* UICKeyChainStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICKeyChainStore.m; sourceTree = "<group>"; };
 		7ABCB85D26F3929F0068026D /* AppState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppState.m; sourceTree = "<group>"; };
+		7ABCB86E26F5B7460068026D /* EHRModelSequencerP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EHRModelSequencerP.h; sourceTree = "<group>"; };
+		7ABCB86F26F5B7460068026D /* EHRNetworkableP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EHRNetworkableP.h; sourceTree = "<group>"; };
+		7ABCB87026F5B7460068026D /* EHRInstanceCounterP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EHRInstanceCounterP.h; sourceTree = "<group>"; };
+		7ABCB87126F5B7460068026D /* NotificationCellListenerP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationCellListenerP.h; sourceTree = "<group>"; };
+		7ABCB87226F5B7460068026D /* EHRPersistableP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EHRPersistableP.h; sourceTree = "<group>"; };
+		7ABCB87326F5B7460068026D /* ScannerP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScannerP.h; sourceTree = "<group>"; };
+		7ABCB87B26F5C3120068026D /* AuthSequencer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthSequencer.m; sourceTree = "<group>"; };
+		7ABCB87C26F5C3120068026D /* AuthSequencer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthSequencer.h; sourceTree = "<group>"; };
+		7ABCB88226F5E97B0068026D /* NotificationProgressChange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationProgressChange.m; sourceTree = "<group>"; };
+		7ABCB88326F5E97B0068026D /* NotificationProgressChange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationProgressChange.h; sourceTree = "<group>"; };
+		7ABCB88426F5E97B0068026D /* MessageDistributionProgressChange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageDistributionProgressChange.h; sourceTree = "<group>"; };
+		7ABCB88526F5E97B0068026D /* MessageDistributionProgressChange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageDistributionProgressChange.m; sourceTree = "<group>"; };
 		8B4F8E10912D512913D8433FB48EF210 /* Pods-ehrPatientSDK-ios_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ehrPatientSDK-ios_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		8E29659D9362A975CC8D4168C9F9B2A3 /* Pods-ehrPatientSDK-ios_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ehrPatientSDK-ios_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -694,6 +718,42 @@
 			path = Properties;
 			sourceTree = "<group>";
 		};
+		7ABCB86D26F5B6DD0068026D /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				7ABCB87026F5B7460068026D /* EHRInstanceCounterP.h */,
+				7ABCB86E26F5B7460068026D /* EHRModelSequencerP.h */,
+				7ABCB86F26F5B7460068026D /* EHRNetworkableP.h */,
+				7ABCB87226F5B7460068026D /* EHRPersistableP.h */,
+				7ABCB87126F5B7460068026D /* NotificationCellListenerP.h */,
+				7ABCB87326F5B7460068026D /* ScannerP.h */,
+			);
+			name = Protocols;
+			path = "ehrPatientSDK-ios/Classes/Protocols";
+			sourceTree = "<group>";
+		};
+		7ABCB87A26F5C2E60068026D /* Sequencers */ = {
+			isa = PBXGroup;
+			children = (
+				7ABCB87C26F5C3120068026D /* AuthSequencer.h */,
+				7ABCB87B26F5C3120068026D /* AuthSequencer.m */,
+			);
+			name = Sequencers;
+			path = "ehrPatientSDK-ios/Classes/Sequencers";
+			sourceTree = "<group>";
+		};
+		7ABCB88126F5E93E0068026D /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				7ABCB88426F5E97B0068026D /* MessageDistributionProgressChange.h */,
+				7ABCB88526F5E97B0068026D /* MessageDistributionProgressChange.m */,
+				7ABCB88326F5E97B0068026D /* NotificationProgressChange.h */,
+				7ABCB88226F5E97B0068026D /* NotificationProgressChange.m */,
+			);
+			name = UI;
+			path = "ehrPatientSDK-ios/Classes/UI";
+			sourceTree = "<group>";
+		};
 		B3721317FF97D660599FC85A08AB5326 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
@@ -766,6 +826,9 @@
 		F6DEF16F1DB4F25B8A14671743B5751D /* ehrPatientSDK-ios */ = {
 			isa = PBXGroup;
 			children = (
+				7ABCB88126F5E93E0068026D /* UI */,
+				7ABCB87A26F5C2E60068026D /* Sequencers */,
+				7ABCB86D26F5B6DD0068026D /* Protocols */,
 				7ABCB5B526F390D30068026D /* AppState */,
 				7ABCB5B426F390C50068026D /* Models */,
 				7ABCB5B226F390B30068026D /* Network */,
@@ -784,7 +847,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7ABCB87E26F5C3120068026D /* AuthSequencer.h in Headers */,
 				7ABCB86326F3929F0068026D /* UICKeyChainStore.h in Headers */,
+				7ABCB87826F5B7460068026D /* EHRPersistableP.h in Headers */,
 				7ABCB7C626F392640068026D /* IBMessageContent.h in Headers */,
 				7ABCB80226F392650068026D /* IBMessageDistribution.h in Headers */,
 				7ABCB7B726F392640068026D /* IBUser.h in Headers */,
@@ -800,12 +865,17 @@
 				7ABCB75626F3924D0068026D /* InsuranceNumber.h in Headers */,
 				7ABCB7D226F392640068026D /* IBLabRequestTextDocument.h in Headers */,
 				7ABCB72A26F392330068026D /* NSDictionary+JSON.h in Headers */,
+				7ABCB88826F5E97B0068026D /* MessageDistributionProgressChange.h in Headers */,
+				7ABCB87726F5B7460068026D /* NotificationCellListenerP.h in Headers */,
 				7ABCB84926F392970068026D /* ServicesModelFilter.h in Headers */,
 				7ABCB7FA26F392650068026D /* IBTelexInfo.h in Headers */,
 				9CC0AE5175C360658B80DADECDDA6D57 /* ehrPatientSDK-ios-umbrella.h in Headers */,
 				7ABCB7B326F392640068026D /* IBAppSummary.h in Headers */,
+				7ABCB87626F5B7460068026D /* EHRInstanceCounterP.h in Headers */,
+				7ABCB87526F5B7460068026D /* EHRNetworkableP.h in Headers */,
 				7ABCB84226F392970068026D /* ContactsModel.h in Headers */,
 				7ABCB86626F3929F0068026D /* AppPreferences.h in Headers */,
+				7ABCB87926F5B7460068026D /* ScannerP.h in Headers */,
 				7ABCB83726F392970068026D /* NotificationsModelFilter.h in Headers */,
 				7ABCB7D626F392640068026D /* IBDispensaryInfo.h in Headers */,
 				7ABCB81726F3928E0068026D /* EHRServerResponse.h in Headers */,
@@ -816,6 +886,7 @@
 				7ABCB81C26F3928E0068026D /* EHRRequestStatus.h in Headers */,
 				7ABCB72326F392330068026D /* GEDeviceHardware.h in Headers */,
 				7ABCB83D26F392970068026D /* EulaModelFilter.h in Headers */,
+				7ABCB88726F5E97B0068026D /* NotificationProgressChange.h in Headers */,
 				7ABCB84726F392970068026D /* EulaModel.h in Headers */,
 				7ABCB86426F3929F0068026D /* SecureCredentials.h in Headers */,
 				7ABCB7BE26F392640068026D /* IBLabRequestPDFDocument.h in Headers */,
@@ -859,6 +930,7 @@
 				7ABCB74026F392450068026D /* AccessRequest.h in Headers */,
 				7ABCB7EC26F392650068026D /* IBLabResultTextDocument.h in Headers */,
 				7ABCB7DA26F392650068026D /* IBLabRequest.h in Headers */,
+				7ABCB87426F5B7460068026D /* EHRModelSequencerP.h in Headers */,
 				7ABCB75226F3924D0068026D /* PIN.h in Headers */,
 				7ABCB7DF26F392650068026D /* IBContact.h in Headers */,
 				7ABCB81B26F3928E0068026D /* EHRApiServer.h in Headers */,
@@ -1009,6 +1081,7 @@
 				7ABCB7CA26F392640068026D /* IBLabResultPDFDocument.m in Sources */,
 				7ABCB7B826F392640068026D /* IBUserInfo.m in Sources */,
 				7B45880EDA59D742B184824A9513D91C /* ehrPatientSDK-ios-dummy.m in Sources */,
+				7ABCB87D26F5C3120068026D /* AuthSequencer.m in Sources */,
 				7ABCB74526F392450068026D /* AccessOffer.m in Sources */,
 				7ABCB74326F392450068026D /* AccessRequest.m in Sources */,
 				7ABCB7CE26F392640068026D /* IBVersion.m in Sources */,
@@ -1041,6 +1114,7 @@
 				7ABCB7DE26F392650068026D /* IBUserEula.m in Sources */,
 				7ABCB83926F392970068026D /* MessagesModel.m in Sources */,
 				7ABCB80426F392650068026D /* IBMedia.m in Sources */,
+				7ABCB88926F5E97B0068026D /* MessageDistributionProgressChange.m in Sources */,
 				7ABCB73426F392330068026D /* GEFileUtil.m in Sources */,
 				7ABCB81626F3928E0068026D /* EHRReachability.m in Sources */,
 				7ABCB86826F3929F0068026D /* UserCredentials.m in Sources */,
@@ -1064,6 +1138,7 @@
 				7ABCB75126F3924D0068026D /* PIN.m in Sources */,
 				7ABCB74626F392450068026D /* OfferedPrivateMessage.m in Sources */,
 				7ABCB7F826F392650068026D /* IBLabResultTextDocument.m in Sources */,
+				7ABCB88626F5E97B0068026D /* NotificationProgressChange.m in Sources */,
 				7ABCB7CB26F392640068026D /* IBPatientInfo.m in Sources */,
 				7ABCB7C526F392640068026D /* IBLabRequestPDFDocument.m in Sources */,
 				7ABCB72926F392330068026D /* MathUtil.m in Sources */,
@@ -1229,13 +1304,16 @@
 				GCC_PREFIX_HEADER = "Target Support Files/ehrPatientSDK-ios/ehrPatientSDK-ios-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/ehrPatientSDK-ios/ehrPatientSDK-ios-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 1.0.0;
 				MODULEMAP_FILE = "Target Support Files/ehrPatientSDK-ios/ehrPatientSDK-ios.modulemap";
+				PRODUCT_BUNDLE_IDENTIFIER = com.portableehr.patientsdk;
 				PRODUCT_MODULE_NAME = ehrPatientSDK_ios;
 				PRODUCT_NAME = ehrPatientSDK_ios;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1325,13 +1403,16 @@
 				GCC_PREFIX_HEADER = "Target Support Files/ehrPatientSDK-ios/ehrPatientSDK-ios-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/ehrPatientSDK-ios/ehrPatientSDK-ios-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 1.0.0;
 				MODULEMAP_FILE = "Target Support Files/ehrPatientSDK-ios/ehrPatientSDK-ios.modulemap";
+				PRODUCT_BUNDLE_IDENTIFIER = com.portableehr.patientsdk;
 				PRODUCT_MODULE_NAME = ehrPatientSDK_ios;
 				PRODUCT_NAME = ehrPatientSDK_ios;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

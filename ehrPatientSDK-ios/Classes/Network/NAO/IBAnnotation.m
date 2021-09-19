@@ -7,6 +7,7 @@
 #import "IBPractitioner.h"
 #import "IBLabRequest.h"
 #import "IBLabResult.h"
+#import "GEMacros.h"
 
 @implementation IBAnnotation
 

@@ -5,6 +5,7 @@
 
 #import "EHRPersistableP.h"
 #import "FactorsRequired.h"
+#import "GEMacros.h"
 
 @implementation FactorsRequired
 

@@ -10,6 +10,8 @@
 #import "IBUserInfo.h"
 #import "IBDispensaryInfo.h"
 #import "IBPractitioner.h"
+#import "GEMacros.h"
+#import "NSDictionary+JSON.h"
 
 @implementation IBAppointment
 TRACE_OFF

@@ -5,6 +5,7 @@
 
 #import "EHRServerResponse.h"
 #import "EHRRequestStatus.h"
+#import "GEMacros.h"
 
 @implementation EHRServerResponse
 

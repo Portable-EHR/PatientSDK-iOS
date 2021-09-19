@@ -10,6 +10,7 @@
 #import "IBPractitioner.h"
 #import "IBLabResultTextDocument.h"
 #import "IBLabResultPDFDocument.h"
+#import "GEMacros.h"
 
 @implementation IBLabResult
 
