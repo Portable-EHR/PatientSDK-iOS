@@ -18,3 +18,4 @@
 #import "NSDictionary+JSON.h"
 #import <SystemConfiguration/SystemConfiguration.h>
 #import "LocalAuthentication/LocalAuthentication.h"
+#import "IBVersion.h"

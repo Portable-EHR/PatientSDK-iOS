@@ -10,6 +10,7 @@
 
 #import <Foundation/Foundation.h>
 #include "GERuntimeConstants.h"
+#import "PehrSDKConfig.h"
 
 
 //@class SKPaymentTransaction;

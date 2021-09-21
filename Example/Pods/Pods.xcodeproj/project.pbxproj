@@ -10,6 +10,8 @@
 		47370FB8B4B130F73F918EB6BF3B9692 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 		54BBC7CB33F2634AF4CD386B3686F22F /* Pods-ehrPatientSDK-ios_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0265783E41FDD503EB727CE1FCFAF9 /* Pods-ehrPatientSDK-ios_Tests-dummy.m */; };
 		77E55181CD9D5F702F458A579D8C08B7 /* Pods-ehrPatientSDK-ios_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CC7B2F99BD0394C5DA32D4C049647C5B /* Pods-ehrPatientSDK-ios_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7A33F12626FA390C00C48A41 /* PehrSDKConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A33F12526FA390C00C48A41 /* PehrSDKConfig.m */; };
+		7A33F12826FA391700C48A41 /* PehrSDKConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A33F12726FA391700C48A41 /* PehrSDKConfig.h */; };
 		7ABCB72026F392330068026D /* GETimeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB70926F392320068026D /* GETimeUtil.m */; };
 		7ABCB72126F392330068026D /* AppSignature.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB70A26F392320068026D /* AppSignature.m */; };
 		7ABCB72226F392330068026D /* GEMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB70B26F392320068026D /* GEMacros.h */; };
@@ -228,6 +230,8 @@
 		5D0265783E41FDD503EB727CE1FCFAF9 /* Pods-ehrPatientSDK-ios_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ehrPatientSDK-ios_Tests-dummy.m"; sourceTree = "<group>"; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		733DDCFBC0709DF218E5D0E165575F59 /* ehrPatientSDK-ios-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ehrPatientSDK-ios-dummy.m"; sourceTree = "<group>"; };
+		7A33F12526FA390C00C48A41 /* PehrSDKConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PehrSDKConfig.m; sourceTree = "<group>"; };
+		7A33F12726FA391700C48A41 /* PehrSDKConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PehrSDKConfig.h; sourceTree = "<group>"; };
 		7ABCB70926F392320068026D /* GETimeUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GETimeUtil.m; sourceTree = "<group>"; };
 		7ABCB70A26F392320068026D /* AppSignature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppSignature.m; sourceTree = "<group>"; };
 		7ABCB70B26F392320068026D /* GEMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GEMacros.h; sourceTree = "<group>"; };
@@ -502,6 +506,8 @@
 				7ABCB71726F392330068026D /* UIView+EHR.m */,
 				7ABCB71A26F392330068026D /* Version.h */,
 				7ABCB71B26F392330068026D /* Version.m */,
+				7A33F12526FA390C00C48A41 /* PehrSDKConfig.m */,
+				7A33F12726FA391700C48A41 /* PehrSDKConfig.h */,
 			);
 			name = Util;
 			path = "ehrPatientSDK-ios/Classes/Util";
@@ -883,6 +889,7 @@
 				7ABCB7B926F392640068026D /* IBCapability.h in Headers */,
 				7ABCB84326F392970068026D /* Inbox.h in Headers */,
 				7ABCB7E126F392650068026D /* IBAgentInfo.h in Headers */,
+				7A33F12826FA391700C48A41 /* PehrSDKConfig.h in Headers */,
 				7ABCB81C26F3928E0068026D /* EHRRequestStatus.h in Headers */,
 				7ABCB72326F392330068026D /* GEDeviceHardware.h in Headers */,
 				7ABCB83D26F392970068026D /* EulaModelFilter.h in Headers */,
@@ -1005,6 +1012,11 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
 				LastUpgradeCheck = 1100;
+				TargetAttributes = {
+					81BFBCD6DB10A6558055C80E7B6DAE87 = {
+						LastSwiftMigration = 1250;
+					};
+				};
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1091,6 +1103,7 @@
 				7ABCB74426F392450068026D /* AccessState.m in Sources */,
 				7ABCB75026F3924D0068026D /* HCIN.m in Sources */,
 				7ABCB7F426F392650068026D /* IBUserCapability.m in Sources */,
+				7A33F12626FA390C00C48A41 /* PehrSDKConfig.m in Sources */,
 				7ABCB7E726F392650068026D /* IBLabResult.m in Sources */,
 				7ABCB7D326F392640068026D /* IBPatientContact.m in Sources */,
 				7ABCB7EE26F392650068026D /* PatientHealthSummary.m in Sources */,
@@ -1293,6 +1306,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4D58965214989BE0467903769DAD4F66 /* ehrPatientSDK-ios.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -1315,6 +1329,7 @@
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1392,6 +1407,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 59B09E10646727862BC94FA07CA33C91 /* ehrPatientSDK-ios.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";

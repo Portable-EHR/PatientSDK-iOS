@@ -7,11 +7,8 @@
 #import "EHRInstanceCounterP.h"
 #import "GEMacros.h"
 
-@interface Version : NSObject <EHRInstanceCounterP> {
+@interface Version : NSObject
 
-    NSInteger _instanceNumber;
-
-}
 @property(nonatomic) NSUInteger major;
 @property(nonatomic) NSUInteger minor;
 @property(nonatomic) NSUInteger build;

@@ -103,9 +103,10 @@ static __strong NSMutableArray *allocatedClasses;
 
 + (void)initialize {
 
-    kAppVersion  = [Version versionWithMajor:1 minor:1 build:38];
+    kAppVersion  = [[PehrSDKConfig shared] getAppVersion];
     kBuildNumber = 10;
-    kAppAlias    = @"pehr.patient.ios";
+    kAppAlias    = [[PehrSDKConfig shared] getAppAlias];
+    kAppGuid     = [[PehrSDKConfig shared] getAppGuid];
 
     MPLOG(@"Initializing Run time constants %@", NSStringFromBool(YES));
     kSystemVersion = NormalizedVersionString([[UIDevice currentDevice] systemVersion]);
@@ -147,7 +148,7 @@ static __strong NSMutableArray *allocatedClasses;
     kvps[@"CA.devhome"]   = @"10.0.1.21";
     kvps[@"CA.devoffice"] = @"192.168.32.32";
     kHostNames = kvps;
-    kStackKey  = @"CA.prod";
+    kStackKey  = [[PehrSDKConfig shared] getAppStackKey];
     kHostName  = kHostNames[kStackKey];
     kIsIpad    = [GEDeviceHardware isTablet];
 
