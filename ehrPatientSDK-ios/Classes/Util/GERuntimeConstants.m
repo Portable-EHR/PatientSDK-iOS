@@ -147,6 +147,7 @@ static __strong NSMutableArray *allocatedClasses;
     kvps[@"CA.staging"]   = @"portableehr.net";
     kvps[@"CA.devhome"]   = @"10.0.1.21";
     kvps[@"CA.devoffice"] = @"192.168.32.32";
+    kvps[@"CA.partner"]   = @"api.portableehr.io";
     kHostNames = kvps;
     kStackKey  = [[PehrSDKConfig shared] getAppStackKey];
     kHostName  = kHostNames[kStackKey];
