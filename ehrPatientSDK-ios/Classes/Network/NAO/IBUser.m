@@ -298,6 +298,10 @@ TRACE_OFF
     return [self objectWithContentsOfDictionary:dic];
 }
 
+- (NSString *)getPatientGuid {
+    return _patient.guid;
+}
+
 - (void)dealloc {
     GE_DEALLOC();
     GE_DEALLOC_ECHO();

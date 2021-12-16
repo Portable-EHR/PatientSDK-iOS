@@ -30,6 +30,7 @@ TRACE_OFF
     _deviceGuid=nil;
     _userGuid=nil;
     _userApiKey=nil;
+    _dismissedResearchConsent=nil;
 }
 
 + (id)objectWithContentsOfDictionary:(NSDictionary *)dic {
@@ -43,6 +44,7 @@ TRACE_OFF
     if (server) uc->_server= [EHRApiServer objectWithContentsOfDictionary:server];
     NSDictionary *ue = WantDicFromDic(dic, @"appEula");
     if (ue) uc->_appEula = [IBUserEula objectWithContentsOfDictionary:ue];
+    uc->_dismissedResearchConsent = WantBoolFromDic(dic, @"dismissedResearchConsent");
     return uc;
 }
 
@@ -53,6 +55,7 @@ TRACE_OFF
     PutStringInDic(_deviceGuid, dic, @"deviceGuid");
     PutPersistableInDic(_server, dic, @"server");
     PutPersistableInDic(_appEula, dic, @"appEula");
+    PutBoolInDic(_dismissedResearchConsent, dic, @"dismissedResearchConsent");
 
     return dic;
 }
@@ -61,6 +64,10 @@ TRACE_OFF
     if (!self.appEula) return NO;
     if (self.appEula.dateConsented) return YES;
     return NO;
+}
+
+-(BOOL)hasDismissedResearchConsent {
+    return _dismissedResearchConsent == true;
 }
 
 -(BOOL)isGuest {

@@ -6,6 +6,7 @@
 #import <Foundation/Foundation.h>
 #import "EHRPersistableP.h"
 #import "GERuntimeConstants.h"
+#import "IBConsent.h"
 
 @class IBUser;
 @class Patient;
@@ -21,6 +22,7 @@
 @class IBAppInfo;
 @class EulaModel;
 @class IBUserEula;
+@class IBConsent;
 
 @interface AppState : NSObject <EHRPersistableP> {
 
@@ -74,6 +76,9 @@
 @property(nonatomic, readonly) AuthSequencer    *authSequencer;
 @property(nonatomic) BOOL                       isLaunching;
 @property(nonatomic, readonly) NSInteger        maximumNumberOfDevices;
+@property NSArray<IBConsent *>                  *consents;
+@property IBConsent                             *selectedConsent;
+
 - (void)signPreferences;
 - (void)unsignPreferences;
 

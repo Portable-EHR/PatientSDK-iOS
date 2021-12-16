@@ -20,7 +20,9 @@
 @property(nonatomic) NSString     *userGuid;
 @property(nonatomic) NSString     *userApiKey;
 @property(nonatomic) IBUserEula   *appEula;
+@property(nonatomic) BOOL         dismissedResearchConsent;
 @property(nonatomic) BOOL         hasConsentedEula;
+@property(nonatomic) BOOL         hasDismissedResearchConsent;
 
 
 -(BOOL) isGuest;

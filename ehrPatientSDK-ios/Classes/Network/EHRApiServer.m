@@ -43,6 +43,10 @@ TRACE_OFF
         server.port          = 443;
         server.scheme        = @"https";
         server.serverDNSname = @"api.portableehr.net";
+    } else if ([host hasSuffix:@"portableehr.io"]) {
+        server.port          = 443;
+        server.scheme        = @"https";
+        server.serverDNSname = @"api.portableehr.io";
     } else if ([host hasSuffix:@"portableehr.ca"]) {
         server.port          = 443;
         server.scheme        = @"https";
@@ -105,6 +109,8 @@ TRACE_OFF
 
     if ([kStackKey isEqualToString:@"CA.prod"]) {
         return @"https://oamp.portableehr.ca";
+    } else if ([kStackKey isEqualToString:@"CA.partner"]) {
+        return @"https://oamp.portableehr.io";
     } else if ([kStackKey isEqualToString:@"CA.staging"]) {
         return @"https://oamp.portableehr.net";
     } else if ([kStackKey isEqualToString:@"CA.devoffice"]) {

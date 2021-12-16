@@ -202,6 +202,12 @@
 		7ABCB88726F5E97B0068026D /* NotificationProgressChange.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB88326F5E97B0068026D /* NotificationProgressChange.h */; };
 		7ABCB88826F5E97B0068026D /* MessageDistributionProgressChange.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB88426F5E97B0068026D /* MessageDistributionProgressChange.h */; };
 		7ABCB88926F5E97B0068026D /* MessageDistributionProgressChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB88526F5E97B0068026D /* MessageDistributionProgressChange.m */; };
+		7AD134D0275CF0F200FEF5C7 /* IBConsent.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD134CF275CF0F200FEF5C7 /* IBConsent.m */; };
+		7AD134D2275CF10F00FEF5C7 /* IBConsent.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AD134D1275CF10F00FEF5C7 /* IBConsent.h */; };
+		7AD134D4275CF9A200FEF5C7 /* IBConsentInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AD134D3275CF9A200FEF5C7 /* IBConsentInfo.h */; };
+		7AD134D6275CFDAA00FEF5C7 /* IBConsentGranted.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AD134D5275CFDAA00FEF5C7 /* IBConsentGranted.h */; };
+		7AD134D8275CFFFE00FEF5C7 /* IBConsentInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD134D7275CFFFE00FEF5C7 /* IBConsentInfo.m */; };
+		7AD134DA275D000B00FEF5C7 /* IBConsentGranted.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD134D9275D000B00FEF5C7 /* IBConsentGranted.m */; };
 		7B45880EDA59D742B184824A9513D91C /* ehrPatientSDK-ios-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 733DDCFBC0709DF218E5D0E165575F59 /* ehrPatientSDK-ios-dummy.m */; };
 		9CC0AE5175C360658B80DADECDDA6D57 /* ehrPatientSDK-ios-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 160B722EFA2ED10609AD9F0B407C32CC /* ehrPatientSDK-ios-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E4345F96FE29539D759573943D7C01B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
@@ -422,6 +428,12 @@
 		7ABCB88326F5E97B0068026D /* NotificationProgressChange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationProgressChange.h; sourceTree = "<group>"; };
 		7ABCB88426F5E97B0068026D /* MessageDistributionProgressChange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageDistributionProgressChange.h; sourceTree = "<group>"; };
 		7ABCB88526F5E97B0068026D /* MessageDistributionProgressChange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageDistributionProgressChange.m; sourceTree = "<group>"; };
+		7AD134CF275CF0F200FEF5C7 /* IBConsent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IBConsent.m; sourceTree = "<group>"; };
+		7AD134D1275CF10F00FEF5C7 /* IBConsent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IBConsent.h; sourceTree = "<group>"; };
+		7AD134D3275CF9A200FEF5C7 /* IBConsentInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IBConsentInfo.h; sourceTree = "<group>"; };
+		7AD134D5275CFDAA00FEF5C7 /* IBConsentGranted.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IBConsentGranted.h; sourceTree = "<group>"; };
+		7AD134D7275CFFFE00FEF5C7 /* IBConsentInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IBConsentInfo.m; sourceTree = "<group>"; };
+		7AD134D9275D000B00FEF5C7 /* IBConsentGranted.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IBConsentGranted.m; sourceTree = "<group>"; };
 		8B4F8E10912D512913D8433FB48EF210 /* Pods-ehrPatientSDK-ios_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ehrPatientSDK-ios_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		8E29659D9362A975CC8D4168C9F9B2A3 /* Pods-ehrPatientSDK-ios_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ehrPatientSDK-ios_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -626,6 +638,12 @@
 				7ABCB6E226F3914B0068026D /* Access */,
 				7ABCB6E326F391520068026D /* Jurisdictions */,
 				7ABCB6E426F391590068026D /* Properties */,
+				7AD134CF275CF0F200FEF5C7 /* IBConsent.m */,
+				7AD134D1275CF10F00FEF5C7 /* IBConsent.h */,
+				7AD134D3275CF9A200FEF5C7 /* IBConsentInfo.h */,
+				7AD134D5275CFDAA00FEF5C7 /* IBConsentGranted.h */,
+				7AD134D7275CFFFE00FEF5C7 /* IBConsentInfo.m */,
+				7AD134D9275D000B00FEF5C7 /* IBConsentGranted.m */,
 			);
 			path = NAO;
 			sourceTree = "<group>";
@@ -854,6 +872,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7ABCB87E26F5C3120068026D /* AuthSequencer.h in Headers */,
+				7AD134D2275CF10F00FEF5C7 /* IBConsent.h in Headers */,
 				7ABCB86326F3929F0068026D /* UICKeyChainStore.h in Headers */,
 				7ABCB87826F5B7460068026D /* EHRPersistableP.h in Headers */,
 				7ABCB7C626F392640068026D /* IBMessageContent.h in Headers */,
@@ -912,6 +931,7 @@
 				7ABCB81326F3928E0068026D /* EHRCall.h in Headers */,
 				7ABCB7E526F392650068026D /* IBUserService.h in Headers */,
 				7ABCB7DC26F392650068026D /* IBAddress.h in Headers */,
+				7AD134D4275CF9A200FEF5C7 /* IBConsentInfo.h in Headers */,
 				7ABCB83A26F392970068026D /* NotificationsModel.h in Headers */,
 				7ABCB84C26F392970068026D /* MessagesModel.h in Headers */,
 				7ABCB85E26F3929F0068026D /* UserCredentials.h in Headers */,
@@ -940,6 +960,7 @@
 				7ABCB87426F5B7460068026D /* EHRModelSequencerP.h in Headers */,
 				7ABCB75226F3924D0068026D /* PIN.h in Headers */,
 				7ABCB7DF26F392650068026D /* IBContact.h in Headers */,
+				7AD134D6275CFDAA00FEF5C7 /* IBConsentGranted.h in Headers */,
 				7ABCB81B26F3928E0068026D /* EHRApiServer.h in Headers */,
 				7ABCB72726F392330068026D /* GETimeUtil.h in Headers */,
 				7ABCB83F26F392970068026D /* ServicesModel.h in Headers */,
@@ -1077,6 +1098,7 @@
 				7ABCB83B26F392970068026D /* NotificationsModelFilter.m in Sources */,
 				7ABCB7CD26F392640068026D /* Patient.m in Sources */,
 				7ABCB72026F392330068026D /* GETimeUtil.m in Sources */,
+				7AD134D0275CF0F200FEF5C7 /* IBConsent.m in Sources */,
 				7ABCB7F526F392650068026D /* IBAddress.m in Sources */,
 				7ABCB86C26F3929F0068026D /* AppState.m in Sources */,
 				7ABCB84D26F392970068026D /* PatientModel.m in Sources */,
@@ -1090,6 +1112,7 @@
 				7ABCB7FD26F392650068026D /* IBAppSummary.m in Sources */,
 				7ABCB7D426F392640068026D /* UserDeviceSettings.m in Sources */,
 				7ABCB81526F3928E0068026D /* EHRServerResponse.m in Sources */,
+				7AD134DA275D000B00FEF5C7 /* IBConsentGranted.m in Sources */,
 				7ABCB7CA26F392640068026D /* IBLabResultPDFDocument.m in Sources */,
 				7ABCB7B826F392640068026D /* IBUserInfo.m in Sources */,
 				7B45880EDA59D742B184824A9513D91C /* ehrPatientSDK-ios-dummy.m in Sources */,
@@ -1142,6 +1165,7 @@
 				7ABCB7F226F392650068026D /* IBLabRequestTextDocument.m in Sources */,
 				7ABCB7C426F392640068026D /* IBEula.m in Sources */,
 				7ABCB86226F3929F0068026D /* AppPreferences.m in Sources */,
+				7AD134D8275CFFFE00FEF5C7 /* IBConsentInfo.m in Sources */,
 				7ABCB7D726F392640068026D /* PatientInfo.m in Sources */,
 				7ABCB7C126F392640068026D /* IBLabRequest.m in Sources */,
 				7ABCB7E326F392650068026D /* IBLab.m in Sources */,

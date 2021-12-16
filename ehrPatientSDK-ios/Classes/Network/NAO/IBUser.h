@@ -54,4 +54,6 @@
 - (IBHealthCareProvider *)providerWithGuid:(NSString *)guid;
 #pragma clang diagnostic pop
 
+- (NSString *)getPatientGuid;
+
 @end
