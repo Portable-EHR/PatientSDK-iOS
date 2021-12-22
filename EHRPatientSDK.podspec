@@ -1,5 +1,5 @@
 #
-# Be sure to run `pod lib lint ehrPatientSDK-ios.podspec' to ensure this is a
+# Be sure to run `pod lib lint EHRPatientSDK.podspec' to ensure this is a
 # valid spec before submitting.
 #
 # Any lines starting with a # are optional, but their use is encouraged
@@ -7,7 +7,7 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'ehrPatientSDK-ios'
+  s.name             = 'EHRPatientSDK'
   s.version          = '1.0.0'
   s.summary          = 'Portable EHR Patient SDK module created as a library.'
 
@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Portable EHR' => 'rahul.asthana@portableehr.com' }
-  s.source           = { :git => 'https://github.com/Portable-EHR/PatientSDK-iOS', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/Portable-EHR/PatientSDK-iOS.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '9.0'
@@ -33,7 +33,7 @@ Pod::Spec.new do |s|
   s.source_files = 'ehrPatientSDK-ios/Classes/**/*'
   
   # s.resource_bundles = {
-  #   'ehrPatientSDK-ios' => ['ehrPatientSDK-ios/Assets/*.png']
+  #   'EHRPatientSDK' => ['ehrPatientSDK-ios/Assets/*.png']
   # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'

@@ -17,12 +17,12 @@ ehrPatientSDK-ios is available through [CocoaPods](https://cocoapods.org). To in
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'ehrPatientSDK-ios'
+pod 'EHRPatientSDK'
 ```
 
 ## Author
 
-rasthana@gmail.com, rahul.asthana@portableehr.com
+Rahul Asthana for Portable EHR, rahul.asthana@portableehr.com
 
 ## License
 
