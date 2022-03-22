@@ -310,6 +310,8 @@ TRACE_OFF
     if (newInfo.visits) old.visits                          = newInfo.visits;
     old.emailVerified  = newInfo.emailVerified;
     old.mobileVerified = newInfo.mobileVerified;
+    old.deviceEmailVerified = newInfo.deviceEmailVerified;
+    old.deviceMobileVerified = newInfo.deviceMobileVerified;
     old.identityVerified=newInfo.identityVerified;
 
     if (saveIt) {

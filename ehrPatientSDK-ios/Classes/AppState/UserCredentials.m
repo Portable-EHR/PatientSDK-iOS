@@ -31,6 +31,7 @@ TRACE_OFF
     _userGuid=nil;
     _userApiKey=nil;
     _dismissedResearchConsent=nil;
+    _isUserPasswordSet=false;
 }
 
 + (id)objectWithContentsOfDictionary:(NSDictionary *)dic {
@@ -45,6 +46,7 @@ TRACE_OFF
     NSDictionary *ue = WantDicFromDic(dic, @"appEula");
     if (ue) uc->_appEula = [IBUserEula objectWithContentsOfDictionary:ue];
     uc->_dismissedResearchConsent = WantBoolFromDic(dic, @"dismissedResearchConsent");
+    uc->_isUserPasswordSet = WantBoolFromDic(dic, @"isUserPasswordSet");
     return uc;
 }
 
@@ -56,6 +58,7 @@ TRACE_OFF
     PutPersistableInDic(_server, dic, @"server");
     PutPersistableInDic(_appEula, dic, @"appEula");
     PutBoolInDic(_dismissedResearchConsent, dic, @"dismissedResearchConsent");
+    PutBoolInDic(_isUserPasswordSet, dic, @"isUserPasswordSet");
 
     return dic;
 }
@@ -68,6 +71,10 @@ TRACE_OFF
 
 -(BOOL)hasDismissedResearchConsent {
     return _dismissedResearchConsent == true;
+}
+
+-(BOOL)isUserPasswordSet {
+    return _isUserPasswordSet == true;
 }
 
 -(BOOL)isGuest {

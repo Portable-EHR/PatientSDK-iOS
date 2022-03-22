@@ -31,7 +31,10 @@
 @property(nonatomic) NSString       *role;   // todo, these are server side enums
 @property(nonatomic) BOOL           emailVerified;
 @property(nonatomic) BOOL           mobileVerified;
+@property(nonatomic) BOOL           deviceEmailVerified;
+@property(nonatomic) BOOL           deviceMobileVerified;
 @property(nonatomic) BOOL           identityVerified;
+@property(nonatomic) BOOL           forcePasswordChange;
 @property(nonatomic) IBContact      *contact;
 @property(nonatomic) NSDate         *createdOn;
 @property(nonatomic) NSDictionary   *visits;

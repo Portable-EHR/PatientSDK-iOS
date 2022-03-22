@@ -23,6 +23,7 @@
 @property(nonatomic) BOOL         dismissedResearchConsent;
 @property(nonatomic) BOOL         hasConsentedEula;
 @property(nonatomic) BOOL         hasDismissedResearchConsent;
+@property(nonatomic) BOOL         isUserPasswordSet;
 
 
 -(BOOL) isGuest;

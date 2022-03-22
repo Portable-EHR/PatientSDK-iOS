@@ -46,6 +46,8 @@ TRACE_OFF
     user.apiKey            = @"K7ICfFOwS3ELdHfAzWBhPt";
     user.guid              = @"67b1c035-9d12-4bd6-9f94-df75182da183";
     user.emailVerified     = YES;
+    user.deviceMobileVerified    = YES;
+    user.deviceEmailVerified    = YES;
     user.role              = @"guest";
     user.status            = @"active";
     user->_isPractitioner  = NO;
@@ -64,6 +66,9 @@ TRACE_OFF
     user.emailVerified     = YES;
     user.identityVerified  = YES;
     user.mobileVerified    = YES;
+    user.forcePasswordChange  = NO;
+    user.deviceMobileVerified    = YES;
+    user.deviceEmailVerified    = YES;
     user.role              = @"patient";
     user.patient           = [Patient YLB];
     user->_isPractitioner  = NO;
@@ -81,7 +86,10 @@ TRACE_OFF
     user.apiKey            = @"doctorLB";
     user.emailVerified     = YES;
     user.identityVerified  = YES;
+    user.forcePasswordChange  = NO;
     user.mobileVerified    = YES;
+    user.deviceMobileVerified    = YES;
+    user.deviceEmailVerified    = YES;
     user.role              = @"practitioner";
     user->_isPractitioner  = YES;
 
@@ -135,6 +143,9 @@ TRACE_OFF
     us.emailVerified    = WantBoolFromDic(dic, @"emailVerified");
     us.mobileVerified   = WantBoolFromDic(dic, @"mobileVerified");
     us.identityVerified = WantBoolFromDic(dic, @"identityVerified");
+    us.forcePasswordChange = WantBoolFromDic(dic, @"forcePasswordChange");
+    us.deviceEmailVerified   = WantBoolFromDic(dic, @"deviceEmailVerified");
+    us.deviceMobileVerified   = WantBoolFromDic(dic, @"deviceMobileVerified");
 
     if ((val = dic[@"contact"])) us.contact = [IBContact objectWithContentsOfDictionary:val];
     if ((val = dic[@"patient"])) us.patient = [Patient objectWithContentsOfDictionary:val];
@@ -275,7 +286,10 @@ TRACE_OFF
     PutDateInDic(self.createdOn, dic, @"createdOn");
     PutBoolInDic(self.emailVerified, dic, @"emailVerified");
     PutBoolInDic(self.mobileVerified, dic, @"mobileVerified");
+    PutBoolInDic(self.deviceEmailVerified, dic, @"deviceEmailVerified");
+    PutBoolInDic(self.deviceMobileVerified, dic, @"deviceMobileVerified");
     PutBoolInDic(self.identityVerified, dic, @"identityVerified");
+    PutBoolInDic(self.forcePasswordChange, dic, @"forcePasswordChange");
 
     return dic;
 }
