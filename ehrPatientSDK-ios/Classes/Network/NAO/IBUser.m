@@ -26,6 +26,7 @@ TRACE_OFF
         self.patients            = [NSMutableDictionary dictionary];
         self.userServiceModel    = [NSMutableArray array];
         self.userCapabilityModel = [NSMutableArray array];
+        self.forcePasswordChange = NO;
         self->_isPractitioner    = NO;
     } else {
         TRACE(@"*** super returned nil!");
@@ -51,6 +52,7 @@ TRACE_OFF
     user.role              = @"guest";
     user.status            = @"active";
     user->_isPractitioner  = NO;
+    user.forcePasswordChange  = NO;
 
     return user;
 }
