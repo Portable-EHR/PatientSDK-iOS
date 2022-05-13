@@ -807,6 +807,7 @@ static AppState   *_sharedInstance;
     [self resetApplicationBadgeNumber];
     [[SecureCredentials sharedCredentials] setupGuest];
     [[SecureCredentials sharedCredentials] setupServer];
+    [SecureCredentials sharedCredentials].current.dismissedResearchConsent = false;
     [[SecureCredentials sharedCredentials] persist];
     [self deactivateForegroundRefresh];
     return [self doReset];

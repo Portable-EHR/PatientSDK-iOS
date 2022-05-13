@@ -74,7 +74,7 @@ TRACE_OFF
 }
 
 -(BOOL)isUserPasswordSet {
-    return _isUserPasswordSet == NO;
+    return _isUserPasswordSet;
 }
 
 -(BOOL)isGuest {

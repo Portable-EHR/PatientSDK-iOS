@@ -144,10 +144,10 @@ TRACE_OFF
     us.createdOn        = WantDateFromDic(dic, @"createdOn");
     us.emailVerified    = WantBoolFromDic(dic, @"emailVerified");
     us.mobileVerified   = WantBoolFromDic(dic, @"mobileVerified");
-    us.identityVerified = WantBoolFromDic(dic, @"identityVerified");
-    us.forcePasswordChange = WantBoolFromDic(dic, @"forcePasswordChange");
     us.deviceEmailVerified   = WantBoolFromDic(dic, @"deviceEmailVerified");
     us.deviceMobileVerified   = WantBoolFromDic(dic, @"deviceMobileVerified");
+    us.identityVerified = WantBoolFromDic(dic, @"identityVerified");
+    us.forcePasswordChange = WantBoolFromDic(dic, @"forcePasswordChange");
 
     if ((val = dic[@"contact"])) us.contact = [IBContact objectWithContentsOfDictionary:val];
     if ((val = dic[@"patient"])) us.patient = [Patient objectWithContentsOfDictionary:val];

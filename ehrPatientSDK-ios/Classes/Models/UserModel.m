@@ -312,7 +312,8 @@ TRACE_OFF
     old.mobileVerified = newInfo.mobileVerified;
     old.deviceEmailVerified = newInfo.deviceEmailVerified;
     old.deviceMobileVerified = newInfo.deviceMobileVerified;
-    old.identityVerified=newInfo.identityVerified;
+    old.forcePasswordChange = newInfo.forcePasswordChange;
+    old.identityVerified = newInfo.identityVerified;
 
     if (saveIt) {
         BOOL result = self.saveOnDevice;
