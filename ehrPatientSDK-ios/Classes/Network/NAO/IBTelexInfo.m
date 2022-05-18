@@ -29,6 +29,7 @@ TRACE_OFF
     ad.createdOn      = WantDateFromDic(theDictionary, @"createdOn");
     ad.seenOn         = WantDateFromDic(theDictionary, @"seenOn");
     ad.acknowledgedOn = WantDateFromDic(theDictionary, @"acknowledgedOn");
+    ad.author         = WantStringFromDic(theDictionary, @"author");
 
     return ad;
 }
@@ -41,6 +42,7 @@ TRACE_OFF
     PutDateInDic(self.createdOn, dic, @"createdOn");
     PutDateInDic(self.acknowledgedOn, dic, @"acknowledgedOn");
     PutDateInDic(self.seenOn, dic, @"seenOn");
+    PutStringInDic(self.author, dic, @"author");
 
     return dic;
 }
@@ -69,6 +71,10 @@ TRACE_OFF
 
 -(BOOL)isAcknowledged {
     return nil != self.acknowledgedOn;
+}
+
+-(NSString *)getAuthor {
+    return _author;
 }
 
 - (void)dealloc {

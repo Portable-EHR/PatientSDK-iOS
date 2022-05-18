@@ -15,9 +15,12 @@
 @property (nonatomic) NSString *source;
 @property (nonatomic) NSDate *createdOn;
 @property (nonatomic) NSDate *seenOn;
+@property (nonatomic) NSString *author;
 @property (nonatomic) NSDate *acknowledgedOn;
 
 @property (readonly) BOOL isAcknowledged;
+
+@property (readonly) NSString* getAuthor;
 
 
 @end
