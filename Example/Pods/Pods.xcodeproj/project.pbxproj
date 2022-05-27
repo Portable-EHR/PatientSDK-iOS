@@ -18,7 +18,6 @@
 		7ABCB72326F392330068026D /* GEDeviceHardware.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB70C26F392330068026D /* GEDeviceHardware.h */; };
 		7ABCB72426F392330068026D /* EHRGuid.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB70D26F392330068026D /* EHRGuid.h */; };
 		7ABCB72526F392330068026D /* GEDeviceHardware.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB70E26F392330068026D /* GEDeviceHardware.m */; };
-		7ABCB72626F392330068026D /* GERuntimeConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB70F26F392330068026D /* GERuntimeConstants.m */; };
 		7ABCB72726F392330068026D /* GETimeUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB71026F392330068026D /* GETimeUtil.h */; };
 		7ABCB72826F392330068026D /* MathUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB71126F392330068026D /* MathUtil.h */; };
 		7ABCB72926F392330068026D /* MathUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB71226F392330068026D /* MathUtil.m */; };
@@ -31,7 +30,6 @@
 		7ABCB73026F392330068026D /* DateUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB71926F392330068026D /* DateUtil.h */; };
 		7ABCB73126F392330068026D /* Version.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB71A26F392330068026D /* Version.h */; };
 		7ABCB73226F392330068026D /* Version.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB71B26F392330068026D /* Version.m */; };
-		7ABCB73326F392330068026D /* GERuntimeConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB71C26F392330068026D /* GERuntimeConstants.h */; };
 		7ABCB73426F392330068026D /* GEFileUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB71D26F392330068026D /* GEFileUtil.m */; };
 		7ABCB73526F392330068026D /* DateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB71E26F392330068026D /* DateUtil.m */; };
 		7ABCB73626F392330068026D /* AppSignature.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB71F26F392330068026D /* AppSignature.h */; };
@@ -179,11 +177,9 @@
 		7ABCB85F26F3929F0068026D /* AppState.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB85026F3929F0068026D /* AppState.h */; };
 		7ABCB86026F3929F0068026D /* PersistenceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB85126F3929F0068026D /* PersistenceManager.m */; };
 		7ABCB86126F3929F0068026D /* SecureCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB85226F3929F0068026D /* SecureCredentials.m */; };
-		7ABCB86226F3929F0068026D /* AppPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB85326F3929F0068026D /* AppPreferences.m */; };
 		7ABCB86326F3929F0068026D /* UICKeyChainStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB85426F3929F0068026D /* UICKeyChainStore.h */; };
 		7ABCB86426F3929F0068026D /* SecureCredentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB85526F3929F0068026D /* SecureCredentials.h */; };
 		7ABCB86526F3929F0068026D /* ServiceSettings.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB85626F3929F0068026D /* ServiceSettings.h */; };
-		7ABCB86626F3929F0068026D /* AppPreferences.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB85726F3929F0068026D /* AppPreferences.h */; };
 		7ABCB86726F3929F0068026D /* PersistenceManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB85826F3929F0068026D /* PersistenceManager.h */; };
 		7ABCB86826F3929F0068026D /* UserCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB85926F3929F0068026D /* UserCredentials.m */; };
 		7ABCB86926F3929F0068026D /* ServiceSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB85A26F3929F0068026D /* ServiceSettings.m */; };
@@ -244,7 +240,6 @@
 		7ABCB70C26F392330068026D /* GEDeviceHardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GEDeviceHardware.h; sourceTree = "<group>"; };
 		7ABCB70D26F392330068026D /* EHRGuid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EHRGuid.h; sourceTree = "<group>"; };
 		7ABCB70E26F392330068026D /* GEDeviceHardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GEDeviceHardware.m; sourceTree = "<group>"; };
-		7ABCB70F26F392330068026D /* GERuntimeConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GERuntimeConstants.m; sourceTree = "<group>"; };
 		7ABCB71026F392330068026D /* GETimeUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GETimeUtil.h; sourceTree = "<group>"; };
 		7ABCB71126F392330068026D /* MathUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathUtil.h; sourceTree = "<group>"; };
 		7ABCB71226F392330068026D /* MathUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MathUtil.m; sourceTree = "<group>"; };
@@ -257,7 +252,6 @@
 		7ABCB71926F392330068026D /* DateUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateUtil.h; sourceTree = "<group>"; };
 		7ABCB71A26F392330068026D /* Version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Version.h; sourceTree = "<group>"; };
 		7ABCB71B26F392330068026D /* Version.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Version.m; sourceTree = "<group>"; };
-		7ABCB71C26F392330068026D /* GERuntimeConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GERuntimeConstants.h; sourceTree = "<group>"; };
 		7ABCB71D26F392330068026D /* GEFileUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GEFileUtil.m; sourceTree = "<group>"; };
 		7ABCB71E26F392330068026D /* DateUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateUtil.m; sourceTree = "<group>"; };
 		7ABCB71F26F392330068026D /* AppSignature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppSignature.h; sourceTree = "<group>"; };
@@ -405,11 +399,9 @@
 		7ABCB85026F3929F0068026D /* AppState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppState.h; sourceTree = "<group>"; };
 		7ABCB85126F3929F0068026D /* PersistenceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistenceManager.m; sourceTree = "<group>"; };
 		7ABCB85226F3929F0068026D /* SecureCredentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecureCredentials.m; sourceTree = "<group>"; };
-		7ABCB85326F3929F0068026D /* AppPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppPreferences.m; sourceTree = "<group>"; };
 		7ABCB85426F3929F0068026D /* UICKeyChainStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICKeyChainStore.h; sourceTree = "<group>"; };
 		7ABCB85526F3929F0068026D /* SecureCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecureCredentials.h; sourceTree = "<group>"; };
 		7ABCB85626F3929F0068026D /* ServiceSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceSettings.h; sourceTree = "<group>"; };
-		7ABCB85726F3929F0068026D /* AppPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppPreferences.h; sourceTree = "<group>"; };
 		7ABCB85826F3929F0068026D /* PersistenceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistenceManager.h; sourceTree = "<group>"; };
 		7ABCB85926F3929F0068026D /* UserCredentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCredentials.m; sourceTree = "<group>"; };
 		7ABCB85A26F3929F0068026D /* ServiceSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceSettings.m; sourceTree = "<group>"; };
@@ -506,8 +498,6 @@
 				7ABCB71826F392330068026D /* GEFileUtil.h */,
 				7ABCB71D26F392330068026D /* GEFileUtil.m */,
 				7ABCB70B26F392320068026D /* GEMacros.h */,
-				7ABCB71C26F392330068026D /* GERuntimeConstants.h */,
-				7ABCB70F26F392330068026D /* GERuntimeConstants.m */,
 				7ABCB71026F392330068026D /* GETimeUtil.h */,
 				7ABCB70926F392320068026D /* GETimeUtil.m */,
 				7ABCB71126F392330068026D /* MathUtil.h */,
@@ -683,8 +673,6 @@
 		7ABCB5B526F390D30068026D /* AppState */ = {
 			isa = PBXGroup;
 			children = (
-				7ABCB85726F3929F0068026D /* AppPreferences.h */,
-				7ABCB85326F3929F0068026D /* AppPreferences.m */,
 				7ABCB85026F3929F0068026D /* AppState.h */,
 				7ABCB85D26F3929F0068026D /* AppState.m */,
 				7ABCB85826F3929F0068026D /* PersistenceManager.h */,
@@ -899,7 +887,6 @@
 				7ABCB87626F5B7460068026D /* EHRInstanceCounterP.h in Headers */,
 				7ABCB87526F5B7460068026D /* EHRNetworkableP.h in Headers */,
 				7ABCB84226F392970068026D /* ContactsModel.h in Headers */,
-				7ABCB86626F3929F0068026D /* AppPreferences.h in Headers */,
 				7ABCB87926F5B7460068026D /* ScannerP.h in Headers */,
 				7ABCB83726F392970068026D /* NotificationsModelFilter.h in Headers */,
 				7ABCB7D626F392640068026D /* IBDispensaryInfo.h in Headers */,
@@ -966,7 +953,6 @@
 				7ABCB83F26F392970068026D /* ServicesModel.h in Headers */,
 				7ABCB83826F392970068026D /* PatientModel.h in Headers */,
 				7ABCB84426F392970068026D /* RecordsModel.h in Headers */,
-				7ABCB73326F392330068026D /* GERuntimeConstants.h in Headers */,
 				7ABCB7FC26F392650068026D /* IBPatientInfo.h in Headers */,
 				7ABCB7BF26F392640068026D /* IBService.h in Headers */,
 				7ABCB73026F392330068026D /* DateUtil.h in Headers */,
@@ -1164,12 +1150,10 @@
 				7ABCB75A26F392540068026D /* FactorsRequired.m in Sources */,
 				7ABCB7F226F392650068026D /* IBLabRequestTextDocument.m in Sources */,
 				7ABCB7C426F392640068026D /* IBEula.m in Sources */,
-				7ABCB86226F3929F0068026D /* AppPreferences.m in Sources */,
 				7AD134D8275CFFFE00FEF5C7 /* IBConsentInfo.m in Sources */,
 				7ABCB7D726F392640068026D /* PatientInfo.m in Sources */,
 				7ABCB7C126F392640068026D /* IBLabRequest.m in Sources */,
 				7ABCB7E326F392650068026D /* IBLab.m in Sources */,
-				7ABCB72626F392330068026D /* GERuntimeConstants.m in Sources */,
 				7ABCB80126F392650068026D /* IBPractitionerJurisdiction.m in Sources */,
 				7ABCB86126F3929F0068026D /* SecureCredentials.m in Sources */,
 				7ABCB75126F3924D0068026D /* PIN.m in Sources */,

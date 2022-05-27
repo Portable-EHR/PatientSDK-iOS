@@ -12,7 +12,7 @@
 #endif
 
 
-#import "GERuntimeConstants.h"
+#import "PehrSDKConfig.h"
 #import "GEMacros.h"
 #import "UIView+EHR.h"
 #import "NSDictionary+JSON.h"

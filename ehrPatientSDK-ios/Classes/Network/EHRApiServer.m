@@ -71,7 +71,7 @@ TRACE_OFF
 }
 
 +(EHRApiServer *) serverForStackKey:(NSString *) stackKey {
-    NSString *host = [GERuntimeConstants getHostNameForStackKey:stackKey];
+    NSString *host = [PehrSDKConfig getHostNameForStackKey:stackKey];
     return [EHRApiServer serverForHost:host];
 }
 
