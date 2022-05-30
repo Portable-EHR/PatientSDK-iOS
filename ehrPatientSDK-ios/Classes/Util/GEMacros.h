@@ -9,6 +9,7 @@
 //#define MP_DEBUG 1
 
 #import <Foundation/Foundation.h>
+#include "GERuntimeConstants.h"
 #import "PehrSDKConfig.h"
 
 
@@ -129,7 +130,7 @@ do {                                                               \
 _numberOfInstances++;                                              \
 _lifeTimeInstances++;                                              \
 _instanceNumber=_lifeTimeInstances;                                \
-[PehrSDKConfig addAllocatedClass:self.class.description];     \
+[GERuntimeConstants addAllocatedClass:self.class.description];     \
 } while(0);                                                        \
 
 #define GE_ALLOC_ECHO()                                                                                 \

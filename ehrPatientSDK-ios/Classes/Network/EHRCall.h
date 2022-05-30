@@ -4,7 +4,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "PehrSDKConfig.h"
+#import "GERuntimeConstants.h"
 #import "EHRInstanceCounterP.h"
 
 @class EHRServerRequest;

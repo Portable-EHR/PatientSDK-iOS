@@ -8,7 +8,7 @@
 #import <Foundation/Foundation.h>
 #import <LocalAuthentication/LocalAuthentication.h>
 #import "NSDictionary+JSON.h"
-#import "PehrSDKConfig.h"
+#import "GERuntimeConstants.h"
 
 @protocol EHRInstanceCounterP <NSObject>
 

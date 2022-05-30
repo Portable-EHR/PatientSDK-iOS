@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "PehrSDKConfig.h"
+#import "GERuntimeConstants.h"
 
 @interface GEDeviceHardware : NSObject
 

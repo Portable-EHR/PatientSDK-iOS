@@ -9,8 +9,6 @@
 #import "UICKeyChainStore.h"
 #import "IBUser.h"
 #import "IBUserEula.h"
-#import "PehrSDKConfig.h"
-
 
 @implementation SecureCredentials
 
@@ -23,7 +21,7 @@ static SecureCredentials *_sharedInstance;
         GE_ALLOC()
         GE_ALLOC_ECHO()
         _domain         = [[NSBundle mainBundle] bundleIdentifier];
-        _credentialsKey = [keyPrefix stringByAppendingString:@"credentials"];
+        _credentialsKey = @"credentials";
         _keyChain       = [UICKeyChainStore keyChainStoreWithService:_domain accessGroup:nil];
         [self reload];
     } else {
@@ -50,16 +48,14 @@ static SecureCredentials *_sharedInstance;
 
 + (id)objectWithContentsOfDictionary:(NSDictionary *)dic {
     SecureCredentials *sc  = [[self alloc] init];
-    NSString *key = [keyPrefix stringByAppendingString:@"current"];
-    NSDictionary      *cur = WantDicFromDic(dic, key);
+    NSDictionary      *cur = WantDicFromDic(dic, @"current");
     if (cur) sc->_current = [UserCredentials objectWithContentsOfDictionary:cur];
     return sc;
 }
 
 - (NSDictionary *)asDictionary {
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-    NSString *key = [keyPrefix stringByAppendingString:@"current"];
-    PutPersistableInDic(_current, dic, key);
+    PutPersistableInDic(_current, dic, @"current");
     return dic;
 }
 
@@ -108,9 +104,8 @@ static SecureCredentials *_sharedInstance;
 #pragma mark private stuff
 
 - (void)loadWithContentOfDictionary:(NSDictionary *)dic {
-    
-    NSString *key = [keyPrefix stringByAppendingString:@"current"];
-    NSDictionary *cur = WantDicFromDic(dic, key);
+
+    NSDictionary *cur = WantDicFromDic(dic, @"current");
     if (cur) _current = [UserCredentials objectWithContentsOfDictionary:cur];
 
 }

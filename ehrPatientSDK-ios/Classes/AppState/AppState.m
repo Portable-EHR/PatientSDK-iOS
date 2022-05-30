@@ -425,24 +425,21 @@ static AppState   *_sharedInstance;
     as.installedOn = [NSDate date];
     as.buildNumber = kBuildNumber;
     NSDictionary *asAsDic = [as asDictionary];
-    NSString *key = [keyPrefix stringByAppendingString:@"signature"];
-    [[NSUserDefaults standardUserDefaults] setObject:asAsDic forKey:key];
+    [[NSUserDefaults standardUserDefaults] setObject:asAsDic forKey:@"signature"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void)unsignPreferences __unused {
 
     // utility method, used in developement only (sometimes) to simulate a fresh install
-    
-    NSString *key = [keyPrefix stringByAppendingString:@"signature"];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:key];
+
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"signature"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 
 }
 
 - (BOOL)isPreferencesSigned {
-    NSString *key = [keyPrefix stringByAppendingString:@"signature"];
-    NSDictionary *dictionary = [[NSUserDefaults standardUserDefaults] objectForKey:key];
+    NSDictionary *dictionary = [[NSUserDefaults standardUserDefaults] objectForKey:@"signature"];
     return nil != dictionary;
 }
 

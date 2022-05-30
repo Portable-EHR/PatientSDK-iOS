@@ -5,7 +5,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EHRPersistableP.h"
-#import "PehrSDKConfig.h"
+#import "GERuntimeConstants.h"
 #import "IBConsent.h"
 
 @class IBUser;
