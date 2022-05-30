@@ -103,12 +103,14 @@ static SecureCredentials *_sharedInstance;
 
 #pragma mark private stuff
 
+
 - (void)loadWithContentOfDictionary:(NSDictionary *)dic {
 
     NSDictionary *cur = WantDicFromDic(dic, @"current");
     if (cur) _current = [UserCredentials objectWithContentsOfDictionary:cur];
 
 }
+
 
 - (void)setupGuest {
     IBUser       *guest  = [IBUser guest];
@@ -123,5 +125,6 @@ static SecureCredentials *_sharedInstance;
     EHRApiServer *server = [EHRApiServer serverForStackKey:kStackKey];
     _current.server=server;
 }
+
 
 @end
