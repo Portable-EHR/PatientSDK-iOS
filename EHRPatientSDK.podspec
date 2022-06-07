@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'EHRPatientSDK'
-  s.version          = '1.0.0'
+  s.version          = '1.0.1'
   s.summary          = 'Portable EHR Patient SDK module created as a library.'
 
 # This description is used to generate tags and improve search results.
