@@ -5,6 +5,7 @@
 //  Created by Rahul Asthana on 20/09/21.
 //
 
+#import <GERuntimeConstants.h>
 #import "PehrSDKConfig.h"
 #import "GEMacros.h"
 
@@ -31,7 +32,7 @@ TRACE_OFF
 + (PehrSDKConfig *)shared {
 
     static dispatch_once_t once;
-    static PehrSDKConfig      *_Instance;
+    static PehrSDKConfig   *_Instance;
     dispatch_once(&once, ^{
         _Instance = [[PehrSDKConfig alloc] init];
 
@@ -56,11 +57,44 @@ TRACE_OFF
     return _stackKey;
 }
 
+- (NSString *)getLocalIPaddress {
+    return _localIPaddress;
+}
+
 - setup:(NSString *)appGuid appAlias:(NSString *)appAlias appVersion:(NSString *)appVersion stackKey:(NSString *)stackKey __unused {
-    self->_appGuid = appGuid;
-    self->_appAlias = appAlias;
+    self->_appGuid    = appGuid;
+    self->_appAlias   = appAlias;
     self->_appVersion = appVersion;
-    self->_stackKey = stackKey;
+    self->_stackKey   = stackKey;
+    self->_localIPaddress = nil;
+
+    [GERuntimeConstants initialize];
+    [GERuntimeConstants setAppGuid:appGuid];
+    [GERuntimeConstants setAppAlias:appAlias];
+    [GERuntimeConstants setAppVersion:appVersion];
+    [GERuntimeConstants setStackKey:stackKey];
+    [GERuntimeConstants setBuildNumber:10]; // todo : figure out this old dependency (from MaxPower Game Engine)
+
+
+    return self;
+}
+
+- setup:(NSString *)appGuid appAlias:(NSString *)appAlias appVersion:(NSString *)appVersion localIPaddress:(NSString *)address  __unused {
+    self->_appGuid        = appGuid;
+    self->_appAlias       = appAlias;
+    self->_appVersion     = appVersion;
+    self->_stackKey       = @"CA.local";
+    self->_localIPaddress = address;
+
+    [GERuntimeConstants initialize];
+    [GERuntimeConstants setAppGuid:appGuid];
+    [GERuntimeConstants setAppAlias:appAlias];
+    [GERuntimeConstants setAppVersion:appVersion];
+    [GERuntimeConstants setLocalIPaddress:address];
+    kHostNames[@"CA.local"] = address;
+    [GERuntimeConstants setBuildNumber:10]; // todo : figure out this old dependency (from MaxPower Game Engine)
+
+
     return self;
 }
 

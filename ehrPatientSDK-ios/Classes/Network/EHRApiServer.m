@@ -12,7 +12,7 @@
 
 @implementation EHRApiServer
 
-static NSString *DEV_HOST = @"darkmax.local";
+static NSString *DEV_HOST = @"portableehr.local";
 @dynamic oampURL;
 
 TRACE_OFF
@@ -20,7 +20,7 @@ TRACE_OFF
 - (id)init {
     if ((self = [super init])) {
         self.port          = (unsigned int) 443;
-        self.serverDNSname = @"api.portableehr.net";
+        self.serverDNSname = kHostName;
         self.scheme        = @"https";
         GE_ALLOC();
     } else {
@@ -51,16 +51,15 @@ TRACE_OFF
         server.port          = 443;
         server.scheme        = @"https";
         server.serverDNSname = @"api.portableehr.ca";
-    } else if ([host isEqualToString:@"192.168.32.32"]) {
+    } else if ([host hasSuffix:@"portableehr.dev"]) {
+        server.port          = 443;
+        server.scheme        = @"https";
+        server.serverDNSname = @"api.portableehr.dev";
+    } else if ([[PehrSDKConfig.shared getAppStackKey] isEqualToString:@"CA.local"]) {
         server.port          = 8080;
         server.scheme        = @"http";
-        server.host          = DEV_HOST;
-        server.serverDNSname = @"192.168.32.32";
-    } else if ([host isEqualToString:@"10.0.1.21"]) {
-        server.port          = 8080;
-        server.scheme        = @"http";
-        server.host          = DEV_HOST;
-        server.serverDNSname = @"10.0.1.21";
+        server.host          = [[PehrSDKConfig shared] getLocalIPaddress];
+        server.serverDNSname = server.host;
     } else if ([host isEqualToString:DEV_HOST]) {
         server.port          = 8080;
         server.scheme        = @"http";
@@ -77,12 +76,12 @@ TRACE_OFF
 
 
 - (void)setServerDNSname:(NSString *)serverDNSname {
-    _serverDNSname = nil;
+    _serverDNSname = nil;  // todo : weird, claw-back in autorelease era ? eg force a release ???
     _serverDNSname = serverDNSname;
 }
 
 - (void)setHost:(NSString *)host {
-    _host = nil;
+    _host = nil;  // todo : weird, claw-back in autorelease era ? eg force a release ???
     _host = host;
 }
 
@@ -111,12 +110,13 @@ TRACE_OFF
         return @"https://oamp.portableehr.ca";
     } else if ([kStackKey isEqualToString:@"CA.partner"]) {
         return @"https://oamp.portableehr.io";
+    } else if ([kStackKey isEqualToString:@"CA.dev"]) {
+        return @"https://oamp.portableehr.dev";
     } else if ([kStackKey isEqualToString:@"CA.staging"]) {
         return @"https://oamp.portableehr.net";
-    } else if ([kStackKey isEqualToString:@"CA.devoffice"]) {
-        return @"http://192.168.32.32";
-    } else if ([kStackKey isEqualToString:@"CA.devhome"]) {
-        return @"http://10.0.1.21";
+    } else if ([kStackKey isEqualToString:@"CA.local"]) {
+        NSString * urlAsString = [NSString stringWithFormat:@"%@://%@:80", self.scheme, self.serverDNSname];
+        return urlAsString;
     } else {
         MPLOGERROR(@"**** No OAMP URL available for stack key [%@]", kStackKey);
         return nil;

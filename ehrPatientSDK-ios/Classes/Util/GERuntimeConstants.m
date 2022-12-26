@@ -9,9 +9,7 @@
 
 #import "EHRInstanceCounterP.h"
 #import "GEDeviceHardware.h"
-#import "Version.h"
 #import "EHRPersistableP.h"
-#import "GEMacros.h"
 
 #pragma clang diagnostic push
 #pragma ide diagnostic ignored "OCUnusedMethodInspection"
@@ -22,19 +20,20 @@ NSString *kAppGuid;
 
 NSString *kSystemVersion = @"000000";
 
-NSString     *kNotificationsModelRefreshNotification = @"kNotificationsModelRefreshNotification";
-NSString     *kEulaModelRefreshNotification          = @"kEulaModelRefreshNotification";
-NSString     *kPatientModelRefreshNotification       = @"kPatientModelRefreshNotification";
-NSString     *kUserModelRefreshNotification          = @"kUserModelRefreshNotification";
-NSString     *kUserDeactivatedNotification           = @"kUserDeactivatedNotification";
-NSString     *kAppWillResumeForeground               = @"kAppWillResumeForeground";
-NSString     *kAuthenticationFailure                 = @"kAuthenticationFailure";
-NSString     *kServerMaintenance                     = @"kServerMaintenance";
-NSString     *kAppMustUpdate                         = @"kAppMustUpdate";
-NSDictionary *kHostNames;
-NSString     *kHostName                              = @"portableehr.ca";
-NSString     *kStackKey                              = @"CA.prod";
-NSInteger    kBuildNumber                            = 10;
+NSString            *kNotificationsModelRefreshNotification = @"kNotificationsModelRefreshNotification";
+NSString            *kEulaModelRefreshNotification          = @"kEulaModelRefreshNotification";
+NSString            *kPatientModelRefreshNotification       = @"kPatientModelRefreshNotification";
+NSString            *kUserModelRefreshNotification          = @"kUserModelRefreshNotification";
+NSString            *kUserDeactivatedNotification           = @"kUserDeactivatedNotification";
+NSString            *kAppWillResumeForeground               = @"kAppWillResumeForeground";
+NSString            *kAuthenticationFailure                 = @"kAuthenticationFailure";
+NSString            *kServerMaintenance                     = @"kServerMaintenance";
+NSString            *kAppMustUpdate                         = @"kAppMustUpdate";
+NSMutableDictionary *kHostNames;
+NSString            *kHostName                              = @"portableehr.dev";
+NSString            *kStackKey                              = @"CA.dev";
+NSString            *kLocalIPAddress                        = @"127.0.0.1";
+NSInteger           kBuildNumber                            = 10;
 
 UIColor *kColorBackgroundHighlight;
 UIColor *kColorDarkening10;
@@ -143,11 +142,11 @@ static __strong NSMutableArray *allocatedClasses;
     kWarningFont     = [UIFont fontWithName:@"HelveticaNeue-Bold" size:18];
 
     NSMutableDictionary *kvps = [NSMutableDictionary dictionary];
-    kvps[@"CA.prod"]      = @"portableehr.ca";
-    kvps[@"CA.staging"]   = @"portableehr.net";
-    kvps[@"CA.devhome"]   = @"10.0.1.21";
-    kvps[@"CA.devoffice"] = @"192.168.32.32";
-    kvps[@"CA.partner"]   = @"api.portableehr.io";
+    kvps[@"CA.prod"]    = @"portableehr.ca";
+    kvps[@"CA.staging"] = @"portableehr.net";
+    kvps[@"CA.dev"]     = @"portableehr.dev";
+    kvps[@"CA.local"]   = [[PehrSDKConfig shared] getLocalIPaddress];
+    kvps[@"CA.partner"] = @"api.portableehr.io";
     kHostNames = kvps;
     kStackKey  = [[PehrSDKConfig shared] getAppStackKey];
     kHostName  = kHostNames[kStackKey];
@@ -203,7 +202,7 @@ CGBounds CGBoundsMake(CGFloat start, CGFloat top, CGFloat end, CGFloat bottom) {
 }
 
 NSString *NSStringFromCGBounds(CGBounds a) {
-    NSString *ret = @"(s: %f, t: %f, e: %f, b: %f)";
+    NSString * ret = @"(s: %f, t: %f, e: %f, b: %f)";
     return [NSString stringWithFormat:ret, a.start, a.top, a.end, a.bottom];
 }
 
@@ -224,7 +223,7 @@ NSString *NSStringFromCGBounds(CGBounds a) {
         MPLOGERROR(@"**** Attempt to get host name for nil key, bailing out");
         return nil;
     }
-    NSString *hostName = kHostNames[key];
+    NSString * hostName = kHostNames[key];
     if (!hostName) {
         MPLOGERROR(@"**** Attempt to get host name for invalid key [%@], bailing out", key);
         return nil;
@@ -238,7 +237,7 @@ NSString *NSStringFromCGBounds(CGBounds a) {
         return nil;
     }
     for (NSString *key in [kHostNames allKeys]) {
-        NSString *strawman = kHostNames[key];
+        NSString * strawman = kHostNames[key];
         if ([strawman isEqualToString:hostName]) return key;
     }
     MPLOGERROR(@"**** Attempt to get stack key for invalid host [%@], bailing out", hostName);
@@ -247,6 +246,10 @@ NSString *NSStringFromCGBounds(CGBounds a) {
 
 + (void)setAppAlias:(NSString *)appAlias {
     kAppAlias = appAlias;
+}
+
++ (void)setLocalIPaddress:(NSString *)address {
+    kLocalIPAddress = address;
 }
 
 + (void)setAppGuid:(NSString *)appGuid {
@@ -274,7 +277,7 @@ NSString *NSStringFromCGBounds(CGBounds a) {
 
 + (NSString *)allocatedClassesAsString __unused {
 
-    NSString      *res = @"";
+    NSString * res = @"";
     for (NSString *classAsName in allocatedClasses) {
         id cl = NSClassFromString(classAsName);
         if (cl) {
@@ -288,7 +291,7 @@ NSString *NSStringFromCGBounds(CGBounds a) {
 
 + (NSString *)remainingAllocatedClassesAsString __unused {
 
-    NSString      *res = @"";
+    NSString * res = @"";
     for (NSString *classAsName in allocatedClasses) {
         id cl = NSClassFromString(classAsName);
         if (cl) {
@@ -373,31 +376,31 @@ NSString *NormalizedVersionString(NSString *versionString) {
 
 BOOL systemVersionEqualTo(NSString *dotVersionAsString) {
 
-    NSString *normalizedVersion = NormalizedVersionString(dotVersionAsString);
+    NSString * normalizedVersion = NormalizedVersionString(dotVersionAsString);
     return ([kSystemVersion compare:normalizedVersion options:NSNumericSearch] == NSOrderedSame);
 }
 
 BOOL systemVersionGreaterThan(NSString *dotVersionAsString) {
 
-    NSString *normalizedVersion = NormalizedVersionString(dotVersionAsString);
+    NSString * normalizedVersion = NormalizedVersionString(dotVersionAsString);
     return ([kSystemVersion compare:normalizedVersion options:NSNumericSearch] == NSOrderedDescending);
 }
 
 BOOL systemVersionGreaterThanOrEqualTo(NSString *dotVersionAsString) {
 
-    NSString *normalizedVersion = NormalizedVersionString(dotVersionAsString);
+    NSString * normalizedVersion = NormalizedVersionString(dotVersionAsString);
     return ([kSystemVersion compare:normalizedVersion options:NSNumericSearch] == NSOrderedAscending);
 }
 
 BOOL systemVersionLessThan(NSString *dotVersionAsString) {
 
-    NSString *normalizedVersion = NormalizedVersionString(dotVersionAsString);
+    NSString * normalizedVersion = NormalizedVersionString(dotVersionAsString);
     return ([kSystemVersion compare:normalizedVersion options:NSNumericSearch] == NSOrderedAscending);
 }
 
 BOOL systemVersionLessThanOrEqualTo(NSString *dotVersionAsString) {
 
-    NSString *normalizedVersion = NormalizedVersionString(dotVersionAsString);
+    NSString * normalizedVersion = NormalizedVersionString(dotVersionAsString);
     return ([kSystemVersion compare:normalizedVersion options:NSNumericSearch] == NSOrderedDescending);
 }
 
@@ -407,7 +410,7 @@ BOOL systemVersionLessThanOrEqualTo(NSString *dotVersionAsString) {
 
 void openScheme(NSString *scheme) {
     UIApplication *application = [UIApplication sharedApplication];
-    NSURL         *URL         = [NSURL URLWithString:scheme];
+    NSURL * URL = [NSURL URLWithString:scheme];
 
     if ([application respondsToSelector:@selector(openURL:options:completionHandler:)]) {
         [application openURL:URL options:@{}
@@ -429,8 +432,8 @@ NSDate *WantDateFromDic(NSDictionary *dic, NSString *key) {
     id     val;
     NSDate *date = nil;
     if ((val = dic[key])) {
-        NSString        *dateAsString = val;
-        NSDateFormatter *df           = [[NSDateFormatter alloc] init];
+        NSString * dateAsString = val;
+        NSDateFormatter *df     = [[NSDateFormatter alloc] init];
         [df setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZ"];
 //        NSLocale *posix = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
 //        [df setLocale:posix];
@@ -478,7 +481,7 @@ void PutDateInDic(NSDate *theDate, NSMutableDictionary *dic, NSString *key) {
     if (!theDate) return;
     if (!dic) return;
     if (!key) return;
-    NSString *stringFromDate = NetworkDateFromDate(theDate);
+    NSString * stringFromDate = NetworkDateFromDate(theDate);
     dic[key] = stringFromDate;
 
 }
@@ -507,7 +510,7 @@ void PutIntegerInDic(NSInteger theInt, NSMutableDictionary *dic, NSString *key) 
     if (theInt == 0) return; // save space
     if (!dic) return;
     if (!key) return;
-    [dic setObject:[NSNumber numberWithInt:(int) theInt] forKey:key];
+    dic[key] = @((int) theInt);
 }
 
 void PutBoolInDic(BOOL theBool, NSMutableDictionary *dic, NSString *key) {
@@ -515,7 +518,7 @@ void PutBoolInDic(BOOL theBool, NSMutableDictionary *dic, NSString *key) {
     if (!theBool) return;                                    // not writing 'NO'
     if (!dic) return;
     if (!key) return;
-    [dic setObject:NSStringFromBool(theBool) forKey:key];   // human readable
+    dic[key] = NSStringFromBool(theBool);   // human readable
 }
 
 void PutUrlInDic(NSURL *theUrl, NSMutableDictionary *dic, NSString *key) {
@@ -524,7 +527,7 @@ void PutUrlInDic(NSURL *theUrl, NSMutableDictionary *dic, NSString *key) {
     if (!theUrl) return;                                    // not writing 'NO'
     if (!dic) return;
     if (!key) return;
-    [dic setObject:theUrl.absoluteString forKey:key];      // human readable
+    dic[key] = theUrl.absoluteString;      // human readable
 }
 
 //endregion
@@ -545,7 +548,7 @@ NSString *NetworkDateFromDate(NSDate *theDate) {
     [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZ"];
     [dateFormatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"GMT"]];
 //    [dateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en"]];
-    NSString *stringFromDate = [dateFormatter stringFromDate:theDate];
+    NSString * stringFromDate = [dateFormatter stringFromDate:theDate];
     return stringFromDate;
 
 }
@@ -602,14 +605,14 @@ void QuietLog(NSString *format, ...) {
     NSDate          *date = [NSDate date];
     NSDateFormatter *df   = [[NSDateFormatter alloc] init];
     [df setDateFormat:@"HH:mm:ss.SSS"];
-    NSString *formateTime     = [df stringFromDate:date];
-    NSString *effectiveFormat = [NSString stringWithFormat:@"%@ | %@", formateTime, format];
+    NSString * formateTime     = [df stringFromDate:date];
+    NSString * effectiveFormat = [NSString stringWithFormat:@"%@ | %@", formateTime, format];
 
     // Get a reference to the arguments that follow the format parameter
     va_list argList;
     va_start(argList, format);
     // Perform format string argument substitution, reinstate %% escapes, then print
-    NSString *s = [[NSString alloc] initWithFormat:effectiveFormat arguments:argList];
+    NSString * s = [[NSString alloc] initWithFormat:effectiveFormat arguments:argList];
     printf("%s\n", [[s stringByReplacingOccurrencesOfString:@"%%" withString:@"%%%%"] UTF8String]);
     va_end(argList);
 }

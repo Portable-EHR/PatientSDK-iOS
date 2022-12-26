@@ -14,7 +14,8 @@
             *_appGuid,
             *_appAlias,
             *_appVersion,
-            *_stackKey;
+            *_stackKey,
+            *_localIPaddress;
 
 }
 
@@ -24,7 +25,10 @@
 - (NSString *)getAppAlias;
 - (Version *)getAppVersion;
 - (NSString *)getAppStackKey;
+- (NSString *)getLocalIPaddress;
 
 - setup:(NSString *)appGuid appAlias:(NSString *)appAlias appVersion:(NSString *)appVersion stackKey:(NSString *)stackKey;
+
+- setup:(NSString *)appGuid appAlias:(NSString *)appAlias appVersion:(NSString *)appVersion localIPaddress:(NSString *)address;
 
 @end

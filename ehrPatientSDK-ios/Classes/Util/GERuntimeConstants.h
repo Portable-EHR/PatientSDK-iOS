@@ -39,9 +39,10 @@ typedef enum CCScreenMode : NSUInteger {
 
 extern NSString *kSystemVersion;
 
-extern NSDictionary *kHostNames;
+extern NSMutableDictionary *kHostNames;
 extern NSString *kStackKey;
 extern NSString *kHostName;
+extern NSString *kLocalIPaddress;
 
 extern UIColor *kColorDarkening10;
 extern UIColor *kColorDarkening20;
@@ -102,12 +103,12 @@ typedef struct CGBounds {
 
 extern const  CGBounds  CGBoundsZero;
 
-extern CGBounds getWindowCrop();
-extern BOOL isDarkMode();
+extern CGBounds getWindowCrop(void);
+extern BOOL isDarkMode(void);
 
 extern NSString * NSStringFromCGBounds(CGBounds b);
 
-typedef void(^VoidBlock)();
+typedef void(^VoidBlock)(void);
 typedef void(^SenderBlock)(id call);
 typedef void(^NSErrorBlock)(NSError *);
 
@@ -124,6 +125,7 @@ extern CGBounds CGBoundsMake(CGFloat start,CGFloat top,CGFloat end,CGFloat botto
 + (NSString *)allocatedClassesAsString;
 + (NSString *)remainingAllocatedClassesAsString;
 +(void) setAppAlias:(NSString *) appAlias;
++ (void)setLocalIPaddress:(NSString *)address;
 +(void) setAppGuid:(NSString *) appGuid;
 +(void) setAppVersion:(NSString *) appVersionAsString;
 + (void)setBuildNumber:(NSInteger)buildNumber;
@@ -148,8 +150,8 @@ extern void PutBoolInDic(BOOL theBool, NSMutableDictionary *dic, NSString *key);
 extern void PutUrlInDic(NSURL* theUrl, NSMutableDictionary *dic,NSString *key);
 extern void PutPersistableInDic (id<EHRPersistableP> token, NSMutableDictionary *dic, NSString *key);
 
-extern NSDate * now ();
-extern NSDate * forever();
+extern NSDate * now (void);
+extern NSDate * forever(void);
 
 extern NSString * NetworkDateFromDate(NSDate * date);
 extern NSString *NSStringFromBool(BOOL theBool);
@@ -160,7 +162,7 @@ extern BOOL  BoolFromString(NSString *theBool);
 
 extern float deviceFontSize(float normalizedFont);
 extern float deviceOffset(float normalizedOffset);
-extern CGRect currentWindowSize();
+extern CGRect currentWindowSize(void);
 
 extern void QuietLog(NSString *format, ...);
 extern void Carp(NSException *e, NSString *message);
