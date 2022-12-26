@@ -152,10 +152,12 @@ static AppState *_appState;
 //**************************************************************************************//
 //  helpers, business methods                                                           //
 //**************************************************************************************//
+
+
 /**
  *
- * @param NSString guid
- * @return IBService
+ * @param guid
+ * @return IBserive|nil
  */
 - (IBService *)serviceWithGuid:(NSString *)guid __unused {
     for (IBService *strawman in [_allServices allValues]) {

@@ -31,7 +31,7 @@ _instanceNumber=_lifeTimeInstances;                     \
 
 #define GE_ALLOC_ECHO()                                     \
 do {                                                                                                    \
-    MPLOG(@" alloc [%ld]/[%08X], [%ld] left.",(long)_instanceNumber,(int)self,(long)_numberOfInstances);    \
+    MPLOG(@" alloc [%ld]/[%lX], [%ld] left.",(long)_instanceNumber,(long)self,(long)_numberOfInstances);    \
 } while (0)\
 
 #define GE_DEALLOC()                                 \
@@ -41,7 +41,7 @@ _numberOfInstances--;                                \
 
 #define GE_DEALLOC_ECHO()                                                                                \
 do {                                                                                                    \
-MPLOG(@"dealloc [%ld]/[%08X], [%ld] left.",(long)_instanceNumber,(int)self,(long)_numberOfInstances);    \
+MPLOG(@"dealloc [%ld]/[%lX], [%ld] left.",(long)_instanceNumber,(long)self,(long)_numberOfInstances);    \
 } while (0)\
 */
 
@@ -110,7 +110,7 @@ static NSInteger _numberOfInstances = 0; \
 }                                        \
 
 #define TRACE_KILLROY                   \
-    TRACE(@"[%ld]/[%08X]",(long)_instanceNumber,(int) self);
+    TRACE(@"[%ld]/[%lX]",(long)_instanceNumber,(long) self);
 
 #define TRACE_OFF                        \
 static BOOL _trace = NO;                 \
@@ -136,7 +136,7 @@ _instanceNumber=_lifeTimeInstances;                                \
 #define GE_ALLOC_ECHO()                                                                                 \
 if(_trace)    {                                                                                         \
 do {                                                                                                    \
-MPLOG(@" alloc [%ld]/[%08X], [%ld] left.",(long)_instanceNumber,(int)self,(long)_numberOfInstances);    \
+MPLOG(@" alloc [%ld]/[%lX], [%ld] left.",(long)_instanceNumber,(long)self,(long)_numberOfInstances);    \
 } while (0);                                                                                            \
 }                                                                                                       \
 
@@ -148,7 +148,7 @@ _numberOfInstances--;                                \
 #define GE_DEALLOC_ECHO()                                                                                \
 if(_trace)    {                                                                                          \
 do {                                                                                                     \
-MPLOG(@"dealloc [%ld]/[%08X], [%ld] left.",(long)_instanceNumber,(int)self,(long)_numberOfInstances);    \
+MPLOG(@"dealloc [%ld]/[%lX], [%ld] left.",(long)_instanceNumber,(long)self,(long)_numberOfInstances);    \
 } while (0);                                                                                              \
 }                                                                                                        \
 
