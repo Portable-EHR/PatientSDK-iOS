@@ -36,7 +36,7 @@
 @property(nonatomic) IBConsentGranted *consent;
 @property(nonatomic) BOOL             active;
 
-- (IBConsentGranted *)getGrantedConsent;
+- (IBConsentGranted *) __unused getGrantedConsent;
 
 @end
 

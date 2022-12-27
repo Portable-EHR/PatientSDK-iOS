@@ -4,10 +4,6 @@
 //
 //
 
-#import <Foundation/Foundation.h>
-#import "GEDeviceHardware.h"
-#import "EHRPersistableP.h"
-#import "IBAppSummary.h"
 #import "IBConsent.h"
 
 #pragma clang diagnostic push
@@ -57,9 +53,9 @@ TRACE_OFF
     pa->_consentableElementType = WantStringFromDic(dic, @"consentableElementType");
     pa->_activeFrom             = WantStringFromDic(dic, @"activeFrom");
 
-    pa->_title           = [IBConsentInfo objectWithContentsOfDictionary:[dic objectForKey:@"title"]];
-    pa->_descriptionText = [IBConsentInfo objectWithContentsOfDictionary:[dic objectForKey:@"description"]];
-    pa->_consent         = [IBConsentGranted objectWithContentsOfDictionary:[dic objectForKey:@"consent"]];
+    pa->_title           = [IBConsentInfo objectWithContentsOfDictionary:dic[@"title"]];
+    pa->_descriptionText = [IBConsentInfo objectWithContentsOfDictionary:dic[@"description"]];
+    pa->_consent         = [IBConsentGranted objectWithContentsOfDictionary:dic[@"consent"]];
 
     pa->_active = WantBoolFromDic(dic, @"active");
 
@@ -74,9 +70,9 @@ TRACE_OFF
     PutStringInDic(self.consentableElementType, dic, @"consentableElementType");
     PutStringInDic(self.activeFrom, dic, @"activeFrom");
 
-    if (self.title) [dic setObject:[self.title asDictionary] forKey:@"title"];
-    if (self.descriptionText) [dic setObject:[self.descriptionText asDictionary] forKey:@"description"];
-    if (self.consent) [dic setObject:[self.consent asDictionary] forKey:@"consent"];
+    if (self.title) dic[@"title"]                 = [self.title asDictionary];
+    if (self.descriptionText) dic[@"description"] = [self.descriptionText asDictionary];
+    if (self.consent) dic[@"consent"]             = [self.consent asDictionary];
 
     PutBoolInDic(self.active, dic, @"active");
     return dic;
