@@ -456,6 +456,11 @@ NSDictionary *WantDicFromDic(NSDictionary *dic, NSString *key) {
     return dic[key];
 }
 
+NSArray *WantArrayFromDic(NSDictionary *dic, NSString *key) {
+    if (!key) return nil;
+    return dic[key];
+}
+
 NSInteger WantIntegerFromDic(NSDictionary *dic, NSString *key) {
     if (!key) return 0;
     if (!dic) return 0;
