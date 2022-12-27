@@ -8,6 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		47370FB8B4B130F73F918EB6BF3B9692 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		4B8DD181C5BAA6660D381815 /* EntryAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD5C7582453A61440C8ED /* EntryAttachment.m */; };
+		4B8DD1C3F58DB9E0EBE45906 /* ConversationParticipant.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DDDFF4CC3497E2DCC5716 /* ConversationParticipant.m */; };
+		4B8DD1E2DA331884862D78A1 /* ConversationParticipant.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD7C6D1A4C832B4BF05A7 /* ConversationParticipant.h */; };
+		4B8DD1E798A4D2FD32FBACFA /* ConversationEnvelope.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DDECD17551C4BEFFEF7AF /* ConversationEnvelope.m */; };
+		4B8DD7107CCC67D229731B00 /* EntryAttachment.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DDFF96CA73E2AD51859A6 /* EntryAttachment.h */; };
+		4B8DD84045FCB86F4498C3EC /* ConversationEntryPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DDE6A29BDBA6AD7B1FA67 /* ConversationEntryPoint.m */; };
+		4B8DD84714447DC243AFE4B1 /* ConversationEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD0034453C67C22ADF319 /* ConversationEntry.h */; };
+		4B8DD8F496DB88AD2D8E452A /* ConversationEnvelope.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD8BBA280DD5D0274C52D /* ConversationEnvelope.h */; };
+		4B8DD91FC0C5D723371CA1FC /* ConversationEntryPayload.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD0A6D57C021ED66F5030 /* ConversationEntryPayload.h */; };
+		4B8DD984E1396C67F08C18D1 /* ConversationEntryPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD23FEA5829C301694792 /* ConversationEntryPoint.h */; };
+		4B8DDA45577D82D2DD970FD2 /* ConversationEntryPayload.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DDE4D705B7CEF0ED613B6 /* ConversationEntryPayload.m */; };
+		4B8DDB5FA8C4331307BF5901 /* Conversation.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD932464D5B94BE9F516F /* Conversation.h */; };
+		4B8DDCB34836FC9EA16CF34A /* ConversationEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DDC6D54654BA75E1BAC7C /* ConversationEntry.m */; };
+		4B8DDD6181C5D9A05D1B39EB /* Conversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD465837BD82B434D20BE /* Conversation.m */; };
 		54BBC7CB33F2634AF4CD386B3686F22F /* Pods-ehrPatientSDK-ios_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0265783E41FDD503EB727CE1FCFAF9 /* Pods-ehrPatientSDK-ios_Tests-dummy.m */; };
 		77E55181CD9D5F702F458A579D8C08B7 /* Pods-ehrPatientSDK-ios_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CC7B2F99BD0394C5DA32D4C049647C5B /* Pods-ehrPatientSDK-ios_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7A33F12626FA390C00C48A41 /* PehrSDKConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A33F12526FA390C00C48A41 /* PehrSDKConfig.m */; };
@@ -230,6 +244,20 @@
 		30C1CCB9543EC3C79785EB75A9991A18 /* ehrPatientSDK-ios-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ehrPatientSDK-ios-Info.plist"; sourceTree = "<group>"; };
 		3E79ED857B0ED5E54DF85B0D9942E352 /* Pods_ehrPatientSDK_ios_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ehrPatientSDK_ios_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4287393F4DB6F85AF7A1C5776C61530F /* Pods-ehrPatientSDK-ios_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ehrPatientSDK-ios_Tests-Info.plist"; sourceTree = "<group>"; };
+		4B8DD0034453C67C22ADF319 /* ConversationEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversationEntry.h; sourceTree = "<group>"; };
+		4B8DD0A6D57C021ED66F5030 /* ConversationEntryPayload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversationEntryPayload.h; sourceTree = "<group>"; };
+		4B8DD23FEA5829C301694792 /* ConversationEntryPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversationEntryPoint.h; sourceTree = "<group>"; };
+		4B8DD465837BD82B434D20BE /* Conversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Conversation.m; sourceTree = "<group>"; };
+		4B8DD5C7582453A61440C8ED /* EntryAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryAttachment.m; sourceTree = "<group>"; };
+		4B8DD7C6D1A4C832B4BF05A7 /* ConversationParticipant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversationParticipant.h; sourceTree = "<group>"; };
+		4B8DD8BBA280DD5D0274C52D /* ConversationEnvelope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversationEnvelope.h; sourceTree = "<group>"; };
+		4B8DD932464D5B94BE9F516F /* Conversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Conversation.h; sourceTree = "<group>"; };
+		4B8DDC6D54654BA75E1BAC7C /* ConversationEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationEntry.m; sourceTree = "<group>"; };
+		4B8DDDFF4CC3497E2DCC5716 /* ConversationParticipant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationParticipant.m; sourceTree = "<group>"; };
+		4B8DDE4D705B7CEF0ED613B6 /* ConversationEntryPayload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationEntryPayload.m; sourceTree = "<group>"; };
+		4B8DDE6A29BDBA6AD7B1FA67 /* ConversationEntryPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationEntryPoint.m; sourceTree = "<group>"; };
+		4B8DDECD17551C4BEFFEF7AF /* ConversationEnvelope.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationEnvelope.m; sourceTree = "<group>"; };
+		4B8DDFF96CA73E2AD51859A6 /* EntryAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryAttachment.h; sourceTree = "<group>"; };
 		4D58965214989BE0467903769DAD4F66 /* ehrPatientSDK-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "ehrPatientSDK-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		5514AAF3C52C6CFA4095B12551F9782D /* Pods-ehrPatientSDK-ios_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ehrPatientSDK-ios_Tests.modulemap"; sourceTree = "<group>"; };
 		59B09E10646727862BC94FA07CA33C91 /* ehrPatientSDK-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "ehrPatientSDK-ios.release.xcconfig"; sourceTree = "<group>"; };
@@ -484,6 +512,42 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
+		4B8DD1E8BF36CEB082920E4E /* Calls */ = {
+			isa = PBXGroup;
+			children = (
+				4B8DD46F18C2D3DD808E1880 /* Convo */,
+			);
+			path = Calls;
+			sourceTree = "<group>";
+		};
+		4B8DD46F18C2D3DD808E1880 /* Convo */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Convo;
+			sourceTree = "<group>";
+		};
+		4B8DD7E62A217A2DA859B2B8 /* Convo */ = {
+			isa = PBXGroup;
+			children = (
+				4B8DDE6A29BDBA6AD7B1FA67 /* ConversationEntryPoint.m */,
+				4B8DD23FEA5829C301694792 /* ConversationEntryPoint.h */,
+				4B8DD465837BD82B434D20BE /* Conversation.m */,
+				4B8DD932464D5B94BE9F516F /* Conversation.h */,
+				4B8DDDFF4CC3497E2DCC5716 /* ConversationParticipant.m */,
+				4B8DD7C6D1A4C832B4BF05A7 /* ConversationParticipant.h */,
+				4B8DDC6D54654BA75E1BAC7C /* ConversationEntry.m */,
+				4B8DD0034453C67C22ADF319 /* ConversationEntry.h */,
+				4B8DDE4D705B7CEF0ED613B6 /* ConversationEntryPayload.m */,
+				4B8DD0A6D57C021ED66F5030 /* ConversationEntryPayload.h */,
+				4B8DDECD17551C4BEFFEF7AF /* ConversationEnvelope.m */,
+				4B8DD8BBA280DD5D0274C52D /* ConversationEnvelope.h */,
+				4B8DD5C7582453A61440C8ED /* EntryAttachment.m */,
+				4B8DDFF96CA73E2AD51859A6 /* EntryAttachment.h */,
+			);
+			path = Convo;
+			sourceTree = "<group>";
+		};
 		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -644,6 +708,8 @@
 				7AD134D5275CFDAA00FEF5C7 /* IBConsentGranted.h */,
 				7AD134D7275CFFFE00FEF5C7 /* IBConsentInfo.m */,
 				7AD134D9275D000B00FEF5C7 /* IBConsentGranted.m */,
+				4B8DD7E62A217A2DA859B2B8 /* Convo */,
+				4B8DD1E8BF36CEB082920E4E /* Calls */,
 			);
 			path = NAO;
 			sourceTree = "<group>";
@@ -974,6 +1040,13 @@
 				7ABCB7BA26F392640068026D /* IBPractitioner.h in Headers */,
 				7ABCB7E826F392650068026D /* IBMedia.h in Headers */,
 				7ABCB72F26F392330068026D /* GEFileUtil.h in Headers */,
+				4B8DD984E1396C67F08C18D1 /* ConversationEntryPoint.h in Headers */,
+				4B8DDB5FA8C4331307BF5901 /* Conversation.h in Headers */,
+				4B8DD1E2DA331884862D78A1 /* ConversationParticipant.h in Headers */,
+				4B8DD84714447DC243AFE4B1 /* ConversationEntry.h in Headers */,
+				4B8DD91FC0C5D723371CA1FC /* ConversationEntryPayload.h in Headers */,
+				4B8DD8F496DB88AD2D8E452A /* ConversationEnvelope.h in Headers */,
+				4B8DD7107CCC67D229731B00 /* EntryAttachment.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1185,6 +1258,13 @@
 				7ABCB7C226F392640068026D /* IBPractitioner.m in Sources */,
 				7ABCB80326F392650068026D /* IBUserService.m in Sources */,
 				7ABCB7E926F392650068026D /* IBAnnotation.m in Sources */,
+				4B8DD84045FCB86F4498C3EC /* ConversationEntryPoint.m in Sources */,
+				4B8DDD6181C5D9A05D1B39EB /* Conversation.m in Sources */,
+				4B8DD1C3F58DB9E0EBE45906 /* ConversationParticipant.m in Sources */,
+				4B8DDCB34836FC9EA16CF34A /* ConversationEntry.m in Sources */,
+				4B8DDA45577D82D2DD970FD2 /* ConversationEntryPayload.m in Sources */,
+				4B8DD1E798A4D2FD32FBACFA /* ConversationEnvelope.m in Sources */,
+				4B8DD181C5BAA6660D381815 /* EntryAttachment.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
