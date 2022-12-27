@@ -16,29 +16,28 @@
 #import "IBConsentGranted.h"
 
 @interface IBConsent : NSObject <EHRInstanceCounterP, EHRNetworkableP, EHRPersistableP> {
-    NSInteger    _instanceNumber;
-    NSString     *_guid;
-    NSString     *_alias;
-    NSString     *_consentableElementType;
-    BOOL         _active;
-    NSString     *_activeFrom;
-    IBConsentInfo *_title;
-    IBConsentInfo *_description;
+    NSInteger        _instanceNumber;
+    NSString         *_guid;
+    NSString         *_alias;
+    NSString         *_consentableElementType;
+    BOOL             _active;
+    NSString         *_activeFrom;
+    IBConsentInfo    *_title;
+    IBConsentInfo    *_descriptionText;
     IBConsentGranted *_consent;
 }
 
-@property(nonatomic) NSString     *guid;
-@property(nonatomic) NSString     *alias;
-@property(nonatomic) NSString     *consentableElementType;
-@property(nonatomic) NSString     *activeFrom;
-@property(nonatomic) IBConsentInfo *title;
-@property(nonatomic) IBConsentInfo *description;
+@property(nonatomic) NSString         *guid;
+@property(nonatomic) NSString         *alias;
+@property(nonatomic) NSString         *consentableElementType;
+@property(nonatomic) NSString         *activeFrom;
+@property(nonatomic) IBConsentInfo    *title;
+@property(nonatomic) IBConsentInfo    *descriptionText;
 @property(nonatomic) IBConsentGranted *consent;
-@property(nonatomic) BOOL         active;
+@property(nonatomic) BOOL             active;
 
 - (IBConsentGranted *)getGrantedConsent;
 
 @end
-
 
 #endif /* IBConsent_h */

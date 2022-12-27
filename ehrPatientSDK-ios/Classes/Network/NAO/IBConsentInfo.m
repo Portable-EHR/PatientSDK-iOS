@@ -6,6 +6,7 @@
 
 #import <Foundation/Foundation.h>
 #import "GEDeviceHardware.h"
+#import "EHRPersistableP.h"
 #import "IBAppSummary.h"
 #import "IBConsentInfo.h"
 
