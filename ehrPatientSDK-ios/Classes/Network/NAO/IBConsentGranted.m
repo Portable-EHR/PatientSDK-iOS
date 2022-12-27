@@ -11,6 +11,7 @@
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
+
 @implementation IBConsentGranted
 
 @synthesize guid = _guid;
@@ -33,19 +34,19 @@ TRACE_OFF
 - (void)dealloc {
     GE_DEALLOC();
     GE_DEALLOC_ECHO();
-    _guid   = nil;
-    _user_guid   = nil;
-    _patient_guid   = nil;
-    _givenOn    = nil;
+    _guid         = nil;
+    _user_guid    = nil;
+    _patient_guid = nil;
+    _givenOn      = nil;
 }
 
 + (instancetype)objectWithContentsOfDictionary:(NSDictionary *)dic {
 
     IBConsentGranted *pa = [[self alloc] init];
-    pa->_guid                                               = WantStringFromDic(dic, @"guid");
-    pa->_user_guid                                          = WantStringFromDic(dic, @"user_guid");
-    pa->_patient_guid                                       = WantStringFromDic(dic, @"patient_guid");
-    pa->_givenOn                                            = WantStringFromDic(dic, @"givenOn");
+    pa->_guid         = WantStringFromDic(dic, @"guid");
+    pa->_user_guid    = WantStringFromDic(dic, @"user_guid");
+    pa->_patient_guid = WantStringFromDic(dic, @"patient_guid");
+    pa->_givenOn      = WantStringFromDic(dic, @"givenOn");
     return pa;
 }
 
@@ -79,4 +80,5 @@ TRACE_OFF
 }
 
 @end
+
 #pragma clang diagnostic pop

@@ -2,11 +2,16 @@
 // Created by Yves Le Borgne on 2022-12-27.
 //
 
-#import "ConversationEnvelope.h"
+#import "ConversationEntryStatus.h"
 
-@implementation ConversationEnvelope
+@implementation ConversationEntryStatus
 
 TRACE_OFF
+
+@synthesize participantId = _participantId;
+@synthesize entryId = _entryId;
+@synthesize status = _status;
+@synthesize date = _date;
 
 - (instancetype)init {
     if ((self = [super init])) {
@@ -37,37 +42,28 @@ TRACE_OFF
 }
 
 + (id)objectWithContentsOfDictionary:(NSDictionary *)dic {
-    ConversationEnvelope *ce = [[ConversationEnvelope alloc] init];
-    ce.guid        = WantStringFromDic(dic, @"guid");
-    ce.status      = WantStringFromDic(dic, @"status");
-    ce.location    = WantStringFromDic(dic, @"location");
-    ce.staffTitle  = WantStringFromDic(dic, @"staffTitle");
-    ce.clientTitle = WantStringFromDic(dic, @"clientTitle");
-    ce.teaser      = WantStringFromDic(dic, @"teaser");
-    ce.lastUpdated = WantDateFromDic(dic, @"lastUpdated");
-    return ce;
+    ConversationEntryStatus *ces = [[ConversationEntryStatus alloc] init];
+    ces.participantId = WantStringFromDic(dic, @"participantId");
+    ces.entryId       = WantStringFromDic(dic, @"entryId");
+    ces.status        = WantStringFromDic(dic, @"status");
+    ces.date          = WantDateFromDic(dic, @"date");
+    return ces;
 }
 
 - (NSDictionary *)asDictionary {
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-    PutStringInDic(self.guid, dic, @"guid");
+    PutStringInDic(self.participantId, dic, @"participantId");
+    PutStringInDic(self.entryId, dic, @"entryId");
     PutStringInDic(self.status, dic, @"status");
-    PutStringInDic(self.location, dic, @"location");
-    PutStringInDic(self.staffTitle, dic, @"staffTitle");
-    PutStringInDic(self.clientTitle, dic, @"clientTitle");
-    PutStringInDic(self.teaser, dic, @"teaser");
-    PutDateInDic(self.lastUpdated, dic, @"lastUpdated");
+    PutDateInDic(self.date, dic, @"date");
     return dic;
 }
 
 - (void)dealloc {
-    _guid        = nil;
-    _status      = nil;
-    _location    = nil;
-    _staffTitle  = nil;
-    _clientTitle = nil;
-    _teaser      = nil;
-    _lastUpdated = nil;
+    _participantId = nil;
+    _entryId       = nil;
+    _status        = nil;
+    _date          = nil;
     GE_DEALLOC();
     GE_DEALLOC_ECHO();
 }

@@ -6,7 +6,19 @@
 #import "EHRInstanceCounterP.h"
 #import "EHRNetworkableP.h"
 
-@interface EntryAttachment : NSObject <EHRInstanceCounterP,EHRNetworkableP> {
+@interface EntryAttachment : NSObject <EHRInstanceCounterP, EHRNetworkableP> {
     NSInteger _instanceNumber;
+    NSString  *_id;
+    NSString  *_name;
+    NSString  *_mimeType;
+    NSString  *_b64;
 }
+
+@property(nonatomic) NSString *id;
+@property(nonatomic) NSString *name;
+@property(nonatomic) NSString *mimeType;
+@property(nonatomic) NSString *b64;
+
+- (NSData *)getDocument;
+
 @end

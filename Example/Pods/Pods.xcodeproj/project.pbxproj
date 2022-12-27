@@ -12,7 +12,9 @@
 		4B8DD1C3F58DB9E0EBE45906 /* ConversationParticipant.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DDDFF4CC3497E2DCC5716 /* ConversationParticipant.m */; };
 		4B8DD1E2DA331884862D78A1 /* ConversationParticipant.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD7C6D1A4C832B4BF05A7 /* ConversationParticipant.h */; };
 		4B8DD1E798A4D2FD32FBACFA /* ConversationEnvelope.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DDECD17551C4BEFFEF7AF /* ConversationEnvelope.m */; };
+		4B8DD52FE31BF25A2A3A470E /* ConversationEntryStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD36730B9CCC9AD97E7D8 /* ConversationEntryStatus.h */; };
 		4B8DD7107CCC67D229731B00 /* EntryAttachment.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DDFF96CA73E2AD51859A6 /* EntryAttachment.h */; };
+		4B8DD7BE6FFB40590CA082FF /* ConversationEntryStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD3AC890E846E2EDFF96B /* ConversationEntryStatus.m */; };
 		4B8DD84045FCB86F4498C3EC /* ConversationEntryPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DDE6A29BDBA6AD7B1FA67 /* ConversationEntryPoint.m */; };
 		4B8DD84714447DC243AFE4B1 /* ConversationEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD0034453C67C22ADF319 /* ConversationEntry.h */; };
 		4B8DD8F496DB88AD2D8E452A /* ConversationEnvelope.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD8BBA280DD5D0274C52D /* ConversationEnvelope.h */; };
@@ -247,6 +249,8 @@
 		4B8DD0034453C67C22ADF319 /* ConversationEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversationEntry.h; sourceTree = "<group>"; };
 		4B8DD0A6D57C021ED66F5030 /* ConversationEntryPayload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversationEntryPayload.h; sourceTree = "<group>"; };
 		4B8DD23FEA5829C301694792 /* ConversationEntryPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversationEntryPoint.h; sourceTree = "<group>"; };
+		4B8DD36730B9CCC9AD97E7D8 /* ConversationEntryStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversationEntryStatus.h; sourceTree = "<group>"; };
+		4B8DD3AC890E846E2EDFF96B /* ConversationEntryStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationEntryStatus.m; sourceTree = "<group>"; };
 		4B8DD465837BD82B434D20BE /* Conversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Conversation.m; sourceTree = "<group>"; };
 		4B8DD5C7582453A61440C8ED /* EntryAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryAttachment.m; sourceTree = "<group>"; };
 		4B8DD7C6D1A4C832B4BF05A7 /* ConversationParticipant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversationParticipant.h; sourceTree = "<group>"; };
@@ -544,6 +548,8 @@
 				4B8DD8BBA280DD5D0274C52D /* ConversationEnvelope.h */,
 				4B8DD5C7582453A61440C8ED /* EntryAttachment.m */,
 				4B8DDFF96CA73E2AD51859A6 /* EntryAttachment.h */,
+				4B8DD3AC890E846E2EDFF96B /* ConversationEntryStatus.m */,
+				4B8DD36730B9CCC9AD97E7D8 /* ConversationEntryStatus.h */,
 			);
 			path = Convo;
 			sourceTree = "<group>";
@@ -1047,6 +1053,7 @@
 				4B8DD91FC0C5D723371CA1FC /* ConversationEntryPayload.h in Headers */,
 				4B8DD8F496DB88AD2D8E452A /* ConversationEnvelope.h in Headers */,
 				4B8DD7107CCC67D229731B00 /* EntryAttachment.h in Headers */,
+				4B8DD52FE31BF25A2A3A470E /* ConversationEntryStatus.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1265,6 +1272,7 @@
 				4B8DDA45577D82D2DD970FD2 /* ConversationEntryPayload.m in Sources */,
 				4B8DD1E798A4D2FD32FBACFA /* ConversationEnvelope.m in Sources */,
 				4B8DD181C5BAA6660D381815 /* EntryAttachment.m in Sources */,
+				4B8DD7BE6FFB40590CA082FF /* ConversationEntryStatus.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,7 +6,13 @@
 #import "EHRInstanceCounterP.h"
 #import "EHRNetworkableP.h"
 
-@interface ConversationEntryPayload : NSObject  <EHRInstanceCounterP,EHRNetworkableP> {
+@interface ConversationEntryPayload : NSObject <EHRInstanceCounterP, EHRNetworkableP> {
     NSInteger _instanceNumber;
+    NSString  *_text;
+    NSArray   *_attachments;
 }
+
+@property(nonatomic) NSString *text;
+@property(nonatomic) NSArray  *attachments;
+
 @end

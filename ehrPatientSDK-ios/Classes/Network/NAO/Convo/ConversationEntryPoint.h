@@ -1,4 +1,4 @@
-  //
+//
 // Created by Yves Le Borgne on 2022-12-27.
 //
 
@@ -6,7 +6,13 @@
 #import "EHRInstanceCounterP.h"
 #import "EHRNetworkableP.h"
 
-@interface ConversationEntryPoint : NSObject <EHRInstanceCounterP,EHRNetworkableP> {
+@interface ConversationEntryPoint : NSObject <EHRInstanceCounterP, EHRNetworkableP> {
     NSInteger _instanceNumber;
+    NSString  *_id;
+    NSString  *_name;
+    NSString  *_descriptionText;
 }
+@property(nonatomic) NSString *id;
+@property(nonatomic) NSString *name;
+@property(nonatomic) NSString *descriptionText;
 @end

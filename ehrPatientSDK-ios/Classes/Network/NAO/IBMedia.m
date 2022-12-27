@@ -30,7 +30,7 @@ TRACE_OFF
     ad.mediaType     = WantStringFromDic(theDictionary, @"mediaType");
     ad.content       = WantStringFromDic(theDictionary, @"content");
 
-    [ad text];
+    [ad text]; // todo : investigate this 'desirable' side effect , sucks
 
     return ad;
 }

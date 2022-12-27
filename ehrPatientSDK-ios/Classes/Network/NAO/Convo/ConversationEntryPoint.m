@@ -8,8 +8,12 @@
 
 TRACE_OFF
 
--(instancetype) init {
-    if ((self = [super init])){
+@synthesize id = _id;
+@synthesize name = _name;
+@synthesize descriptionText = _descriptionText;
+
+- (instancetype)init {
+    if ((self = [super init])) {
         GE_ALLOC();
         GE_ALLOC_ECHO();
     } else {
@@ -18,32 +22,48 @@ TRACE_OFF
     return self;
 }
 
-
-+ (id)objectWithJSON:(NSString *)jsonString {
-    return nil;
++ (instancetype)objectWithJSON:(NSString *)jsonString {
+    NSDictionary *dic = [NSDictionary dictionaryWithJSON:jsonString];
+    return [self objectWithContentsOfDictionary:dic];
 }
 
-+ (id)objectWithJSONdata:(NSData *)jsonData {
-    return nil;
-}
-
-- (NSData *)asJSONdata {
-    return nil;
++ (instancetype)objectWithJSONdata:(NSData *)jsonData {
+    NSDictionary *dic = [NSDictionary dictionaryWithJSONdata:jsonData];
+    return [self objectWithContentsOfDictionary:dic];
 }
 
 - (NSString *)asJSON {
-    return nil;
+    return [[self asDictionary] asJSON];
+}
+
+- (NSData *)asJSONdata {
+    return [[self asDictionary] asJSONdata];
 }
 
 + (id)objectWithContentsOfDictionary:(NSDictionary *)dic {
-    return nil;
+    ConversationEntryPoint *cep = [[ConversationEntryPoint alloc] init];
+
+    cep.id              = WantStringFromDic(dic, @"id");
+    cep.name            = WantStringFromDic(dic, @"name");
+    cep.descriptionText = WantStringFromDic(dic, @"description");
+    // ALERT : mapping network property to avoid clash with NSObject.description
+
+    return cep;
 }
 
 - (NSDictionary *)asDictionary {
-    return nil;
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    PutStringInDic(self.id, dic, @"id");
+    PutStringInDic(self.name, dic, @"name");
+    PutStringInDic(self.descriptionText, dic, @"description");
+    return dic;
 }
 
--(void) dealloc {
+- (void)dealloc {
+    _name            = nil;
+    _id              = nil;
+    _descriptionText = nil;
+
     GE_DEALLOC();
     GE_DEALLOC_ECHO();
 }
