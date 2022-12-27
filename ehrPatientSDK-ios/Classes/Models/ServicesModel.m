@@ -154,11 +154,6 @@ static AppState *_appState;
 //**************************************************************************************//
 
 
-/**
- *
- * @param guid
- * @return IBserive|nil
- */
 - (IBService *)serviceWithGuid:(NSString *)guid __unused {
     for (IBService *strawman in [_allServices allValues]) {
         if ([strawman.guid isEqualToString:guid]) return strawman;

@@ -470,22 +470,22 @@ static AppState   *_sharedInstance;
 #pragma mark - listen to devics shit and stuff
 
 - (void)processNotificationsModelUpdate:(NSNotification *)notification {
-    TRACE(@"[%ld]/[%08X] Got notification [%@]", (long) _instanceNumber, (int) self, notification.name);
+    TRACE(@"[%ld]/[%lX] Got notification [%@]", (long) _instanceNumber, (long) self, notification.name);
 //    NSInteger unread = _sharedInstance.userModel.notificationsModel.allNotificationFilter.numberOfUnseen;
 //    [self setApplicationIconBadgeNumber:unread];
 
 }
 
 - (void)processAuthenticationFailure:(NSNotification *)notification {
-    TRACE(@"[%ld]/[%08X] Got notification [%@]", (long) _instanceNumber, (int) self, notification.name);
+    TRACE(@"[%ld]/[%lX] Got notification [%@]", (long) _instanceNumber, (long) self, notification.name);
 }
 
 - (void)processServerMaintenance:(NSNotification *)notification {
-    TRACE(@"[%ld]/[%08X] Got notification [%@]", (long) _instanceNumber, (int) self, notification.name);
+    TRACE(@"[%ld]/[%lX] Got notification [%@]", (long) _instanceNumber, (long) self, notification.name);
 }
 
 - (void)processAppUpdate:(NSNotification *)notification {
-    TRACE(@"[%ld]/[%08X] Got notification [%@]", (long) _instanceNumber, (int) self, notification.name);
+    TRACE(@"[%ld]/[%lX] Got notification [%@]", (long) _instanceNumber, (long) self, notification.name);
 }
 
 #pragma mark - EHRPersistableP
