@@ -4,7 +4,10 @@
 
 #import <Foundation/Foundation.h>
 #import "EHRInstanceCounterP.h"
+#import "EHRPersistableP.h"
 #import "EHRNetworkableP.h"
+#import "GEMacros.h"
+#import "NSDictionary+JSON.h"
 
 @interface EntryAttachment : NSObject <EHRInstanceCounterP, EHRNetworkableP> {
     NSInteger _instanceNumber;
