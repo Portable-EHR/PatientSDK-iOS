@@ -30,7 +30,7 @@ TRACE_OFF
     _deviceGuid=nil;
     _userGuid=nil;
     _userApiKey=nil;
-    _dismissedResearchConsent=nil;
+    _dismissedResearchConsent=NO;
     _isUserPasswordSet=NO;
 }
 
@@ -63,13 +63,13 @@ TRACE_OFF
     return dic;
 }
 
--(BOOL)hasConsentedEula {
+-(BOOL) __unused hasConsentedEula {
     if (!self.appEula) return NO;
     if (self.appEula.dateConsented) return YES;
     return NO;
 }
 
--(BOOL)hasDismissedResearchConsent {
+-(BOOL) __unused hasDismissedResearchConsent {
     return _dismissedResearchConsent == true;
 }
 
@@ -77,7 +77,7 @@ TRACE_OFF
     return _isUserPasswordSet;
 }
 
--(BOOL)isGuest {
+-(BOOL) __unused isGuest {
     IBUser * guest = [IBUser guest];
     if( [guest.guid isEqualToString:self.userGuid]) return YES;
     if ([guest.apiKey isEqualToString:self.userApiKey]) return YES;
