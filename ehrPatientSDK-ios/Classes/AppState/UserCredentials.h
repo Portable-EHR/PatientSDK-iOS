@@ -28,4 +28,5 @@
 
 -(BOOL) isGuest;
 
+
 @end

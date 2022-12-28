@@ -23,11 +23,6 @@ TRACE_OFF
  * implement EHRNetworkableP
  */
 
-/**
- * @param jsonString
- * @return
- */
-
 + (id)objectWithJSON:(NSString *)jsonString {
     return nil;
 }
