@@ -77,7 +77,7 @@
 
 - (void)readFromServer;
 - (void)readFromServerWithSuccess:(VoidBlock)successBlock andError:(VoidBlock)errorBlock;
-- (void)updateWithSinglePatientNotification:(PatientNotification *)pn ;
+- (void)updateWithSinglePatientNotification:(PatientNotification *)pn;
 
 - (void)notificationWasSeen:(PatientNotification *)notification;
 - (void)notificationWasSeen:(PatientNotification *)notification onSuccess:(VoidBlock)successBlock onError:(VoidBlock)errorBlock;
@@ -109,4 +109,5 @@
 - (void)setAppointmentFilter:(NotificationsModelFilter *)appointmentFilter;
 
 @end
+
 #pragma clang diagnostic pop
