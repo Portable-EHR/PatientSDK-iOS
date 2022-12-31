@@ -190,11 +190,11 @@ TRACE_OFF
 
     VoidBlock onFailure = ^{
         TRACE(@"**** Bailing out of readFromServer, not reading from server.");
-        _isRefreshing = NO;
-        if (_refreshFailedBlock) {
-            _refreshFailedBlock();
-            _refreshSuccessBlock = nil;
-            _refreshFailedBlock  = nil;
+        self->_isRefreshing = NO;
+        if (self->_refreshFailedBlock) {
+            self->_refreshFailedBlock();
+            self->_refreshSuccessBlock = nil;
+            self->_refreshFailedBlock  = nil;
         }
         return;
     };
@@ -243,19 +243,19 @@ TRACE_OFF
 
     NSString *sinceAsString = NetworkDateFromDate(since);
     req.parameters = [@{@"status": @"all", @"since": sinceAsString, @"type": @"all"} mutableCopy];
-    EHRCall *call = [EHRCall
+    EHRCall *call        = [EHRCall
             callWithRequest:req
                   onSuccess:^(EHRCall *theCall) {
                       EHRServerResponse *resp = theCall.serverResponse;
                       TRACE(@"Got response with requestStatus %@", [resp.requestStatus asDictionary]);
                       NSString  *apiStatus = resp.requestStatus.status;
                       VoidBlock _after     = ^{
-                          if (_refreshSuccessBlock) {
-                              _refreshSuccessBlock();
-                              _refreshSuccessBlock = nil;
-                              _refreshFailedBlock  = nil;
+                          if (self->_refreshSuccessBlock) {
+                              self->_refreshSuccessBlock();
+                              self->_refreshSuccessBlock = nil;
+                              self->_refreshFailedBlock  = nil;
                           }
-                          _isRefreshing = NO;
+                          self->_isRefreshing = NO;
                       };
 
                       if ([apiStatus isEqualToString:@"OK"]) {
@@ -278,12 +278,12 @@ TRACE_OFF
                       }
                   }
                     onError:^(EHRCall *theCall) {
-                        _isRefreshing = NO;
+                        self->_isRefreshing = NO;
                         TRACE(@"Error when listing notifications from Mr Server");
-                        if (_refreshFailedBlock) {
-                            _refreshFailedBlock();
-                            _refreshSuccessBlock = nil;
-                            _refreshFailedBlock  = nil;
+                        if (self->_refreshFailedBlock) {
+                            self->_refreshFailedBlock();
+                            self->_refreshSuccessBlock = nil;
+                            self->_refreshFailedBlock  = nil;
                         }
                     }
     ];
@@ -316,13 +316,7 @@ TRACE_OFF
                 }
             } else {
 
-                PatientNotification *old = _allNotifications[pn.seq];
-                // todo : useless if ... dafuk ?
-                if (old) {
-                    _allNotifications[pn.seq] = pn; // additive from network
-                } else {
-                    _allNotifications[pn.seq] = pn;
-                }
+                _allNotifications[pn.seq] = pn;
 
             }
         }
@@ -635,18 +629,18 @@ TRACE_OFF
     }
     req.parameters[@"changes"] = ar;
 
-    EHRCall *call = [EHRCall callWithRequest:req onSuccess:^(EHRCall *theCall) {
+    EHRCall *call        = [EHRCall callWithRequest:req onSuccess:^(EHRCall *theCall) {
         EHRServerResponse *resp = theCall.serverResponse;
         TRACE(@"Got response from /app/message/distribution[setProgress] with requestStatus %@", [resp.requestStatus asDictionary]);
         NSString  *apiStatus = resp.requestStatus.status;
         VoidBlock _after     = ^{
-            if (_stackedMessageChangesSuccessBlock) {
-                _stackedMessageChangesSuccessBlock();
-                _stackedMessageChangesSuccessBlock = nil;
-                _stackedMessageChangesErrorBlock   = nil;
+            if (self->_stackedMessageChangesSuccessBlock) {
+                self->_stackedMessageChangesSuccessBlock();
+                self->_stackedMessageChangesSuccessBlock = nil;
+                self->_stackedMessageChangesErrorBlock   = nil;
             }
-            _isSendingStackedMessageChanges = NO;
-            [_stackedMessageStateChanges removeAllObjects];
+            self->_isSendingStackedMessageChanges = NO;
+            [self->_stackedMessageStateChanges removeAllObjects];
         };
 
         if ([apiStatus isEqualToString:@"OK"]) {
@@ -668,38 +662,38 @@ TRACE_OFF
         } else {
             // status was not OK !
             MPLOGERROR(@"*** Got status [%@], message [%@]", apiStatus, resp.requestStatus.message);
-            if (_stackedMessageChangesErrorBlock) {
-                _stackedMessageChangesErrorBlock();
-                _stackedMessageChangesSuccessBlock = nil;
-                _stackedMessageChangesErrorBlock   = nil;
+            if (self->_stackedMessageChangesErrorBlock) {
+                self->_stackedMessageChangesErrorBlock();
+                self->_stackedMessageChangesSuccessBlock = nil;
+                self->_stackedMessageChangesErrorBlock   = nil;
             }
-            _isSendingStackedMessageChanges = NO;
-            [_stackedMessageStateChanges removeAllObjects];
+            self->_isSendingStackedMessageChanges = NO;
+            [self->_stackedMessageStateChanges removeAllObjects];
         }
-    }                                onError:^(EHRCall *theCall) {
+    }                                       onError:^(EHRCall *theCall) {
 
         // restored queued changes for next call if needed
 
-        if (_queuedMessageStateChanges.count > 0) {
+        if (self->_queuedMessageStateChanges.count > 0) {
 
             // restore a _queuedMessageStateChanges for next attempt
 
             NSMutableArray *array = [NSMutableArray arrayWithArray:
-                    [_stackedMessageStateChanges arrayByAddingObjectsFromArray:_queuedMessageStateChanges]];
-            _queuedMessageStateChanges  = array;
-            _stackedMessageStateChanges = [NSMutableArray array];
+                    [self->_stackedMessageStateChanges arrayByAddingObjectsFromArray:self->_queuedMessageStateChanges]];
+            self->_queuedMessageStateChanges  = array;
+            self->_stackedMessageStateChanges = [NSMutableArray array];
 
         } else {
-            _queuedMessageStateChanges  = _stackedMessageStateChanges;
-            _stackedMessageStateChanges = [NSMutableArray array];
+            self->_queuedMessageStateChanges  = self->_stackedMessageStateChanges;
+            self->_stackedMessageStateChanges = [NSMutableArray array];
         }
-        _isRefreshing                   = NO;
-        if (_stackedMessageChangesErrorBlock) {
-            _stackedMessageChangesErrorBlock();
-            _stackedMessageChangesSuccessBlock = nil;
-            _stackedMessageChangesErrorBlock   = nil;
+        self->_isRefreshing                   = NO;
+        if (self->_stackedMessageChangesErrorBlock) {
+            self->_stackedMessageChangesErrorBlock();
+            self->_stackedMessageChangesSuccessBlock = nil;
+            self->_stackedMessageChangesErrorBlock   = nil;
         }
-        _isSendingStackedMessageChanges = NO;
+        self->_isSendingStackedMessageChanges = NO;
     }];
     call.maximumAttempts = 3;
     call.timeOut         = 15;
@@ -747,18 +741,18 @@ TRACE_OFF
     }
     req.parameters[@"changes"] = ar;
 
-    EHRCall *call = [EHRCall callWithRequest:req onSuccess:^(EHRCall *theCall) {
+    EHRCall *call        = [EHRCall callWithRequest:req onSuccess:^(EHRCall *theCall) {
         EHRServerResponse *resp = theCall.serverResponse;
         TRACE(@"Got response with requestStatus %@", [resp.requestStatus asDictionary]);
         NSString  *apiStatus = resp.requestStatus.status;
         VoidBlock _after     = ^{
-            if (_stackedNotificationChangesSuccessBlock) {
-                _stackedNotificationChangesSuccessBlock();
-                _stackedNotificationChangesSuccessBlock = nil;
-                _stackedNotificationChangesErrorBlock   = nil;
+            if (self->_stackedNotificationChangesSuccessBlock) {
+                self->_stackedNotificationChangesSuccessBlock();
+                self->_stackedNotificationChangesSuccessBlock = nil;
+                self->_stackedNotificationChangesErrorBlock   = nil;
             }
-            _isSendingStackedNotificationChanges = NO;
-            [_stackedNotificationStateChanges removeAllObjects];
+            self->_isSendingStackedNotificationChanges = NO;
+            [self->_stackedNotificationStateChanges removeAllObjects];
         };
 
         if ([apiStatus isEqualToString:@"OK"]) {
@@ -780,38 +774,38 @@ TRACE_OFF
         } else {
             // status was not OK !
             MPLOGERROR(@"Got status [%@], message [%@]", apiStatus, resp.requestStatus.message);
-            if (_stackedNotificationChangesErrorBlock) {
-                _stackedNotificationChangesErrorBlock();
-                _stackedNotificationChangesSuccessBlock = nil;
-                _stackedNotificationChangesErrorBlock   = nil;
+            if (self->_stackedNotificationChangesErrorBlock) {
+                self->_stackedNotificationChangesErrorBlock();
+                self->_stackedNotificationChangesSuccessBlock = nil;
+                self->_stackedNotificationChangesErrorBlock   = nil;
             }
-            _isSendingStackedNotificationChanges = NO;
-            [_stackedNotificationStateChanges removeAllObjects];
+            self->_isSendingStackedNotificationChanges = NO;
+            [self->_stackedNotificationStateChanges removeAllObjects];
         }
-    }                                onError:^(EHRCall *theCall) {
+    }                                       onError:^(EHRCall *theCall) {
 
         // restored queued changes for next call if needed
 
-        if (_queuedNotificationStateChanges.count > 0) {
+        if (self->_queuedNotificationStateChanges.count > 0) {
 
             // restore a _queuedNotificationStateChanges for next attempt
 
             NSMutableArray *array = [NSMutableArray arrayWithArray:
-                    [_stackedNotificationStateChanges arrayByAddingObjectsFromArray:_queuedNotificationStateChanges]];
-            _queuedNotificationStateChanges  = array;
-            _stackedNotificationStateChanges = [NSMutableArray array];
+                    [self->_stackedNotificationStateChanges arrayByAddingObjectsFromArray:self->_queuedNotificationStateChanges]];
+            self->_queuedNotificationStateChanges  = array;
+            self->_stackedNotificationStateChanges = [NSMutableArray array];
 
         } else {
-            _queuedNotificationStateChanges  = _stackedNotificationStateChanges;
-            _stackedNotificationStateChanges = [NSMutableArray array];
+            self->_queuedNotificationStateChanges  = self->_stackedNotificationStateChanges;
+            self->_stackedNotificationStateChanges = [NSMutableArray array];
         }
-        _isRefreshing                        = NO;
-        if (_stackedNotificationChangesErrorBlock) {
-            _stackedNotificationChangesErrorBlock();
-            _stackedNotificationChangesSuccessBlock = nil;
-            _stackedNotificationChangesErrorBlock   = nil;
+        self->_isRefreshing                        = NO;
+        if (self->_stackedNotificationChangesErrorBlock) {
+            self->_stackedNotificationChangesErrorBlock();
+            self->_stackedNotificationChangesSuccessBlock = nil;
+            self->_stackedNotificationChangesErrorBlock   = nil;
         }
-        _isSendingStackedNotificationChanges = NO;
+        self->_isSendingStackedNotificationChanges = NO;
     }];
     call.maximumAttempts = 3;
     call.timeOut         = 15;
@@ -832,43 +826,43 @@ TRACE_OFF
     req.language = [AppState sharedAppState].deviceLanguage;
 
     req.parameters = [@{@"guids": @[notification.guid]} mutableCopy];
-    EHRCall *call = [EHRCall callWithRequest:req
-                                   onSuccess:^(EHRCall *theCall) {
+    EHRCall *call        = [EHRCall callWithRequest:req
+                                          onSuccess:^(EHRCall *theCall) {
 #if MP_DEBUG == 1
-                                       EHRServerResponse *resp = theCall.serverResponse;
-                                       TRACE(@"Got response with requestStatus %@", [resp.requestStatus asDictionary]);
+                                              EHRServerResponse *resp = theCall.serverResponse;
+                                              TRACE(@"Got response with requestStatus %@", [resp.requestStatus asDictionary]);
 #endif
-                                       BOOL updated = [theCall.serverResponse.requestStatus.status isEqualToString:@"OK"];
-                                       if (updated) {
-                                           notification.lastSeen    = [NSDate date];
-                                           notification.lastUpdated = notification.lastSeen;
-                                           if (nil == notification.seenOn) notification.seenOn = notification.lastSeen;
+                                              BOOL updated = [theCall.serverResponse.requestStatus.status isEqualToString:@"OK"];
+                                              if (updated) {
+                                                  notification.lastSeen    = [NSDate date];
+                                                  notification.lastUpdated = notification.lastSeen;
+                                                  if (nil == notification.seenOn) notification.seenOn = notification.lastSeen;
 //                                           self.lastRefreshed  = [NSDate date];
-                                           [self saveOnDevice];
-                                           if (_notificationSeenSuccessBlock) {
-                                               _notificationSeenSuccessBlock();
-                                               _notificationSeenSuccessBlock = nil;
-                                               _notificationSeenErrorBlock   = nil;
-                                           }
-                                       } else {
-                                           MPLOGERROR(@"Request to set notification as seen failed.");
-                                           MPLOGERROR(@"status  : %@", theCall.serverResponse.requestStatus.status);
-                                           MPLOGERROR(@"message : %@", theCall.serverResponse.requestStatus.message);
-                                           if (_notificationSeenErrorBlock) {
-                                               _notificationSeenErrorBlock();
-                                               _notificationSeenSuccessBlock = nil;
-                                               _notificationSeenErrorBlock   = nil;
-                                           }
-                                       }
-                                       [self refreshFilters];
-                                   }
-                                     onError:^(EHRCall *theCall) {
-                                         if (_notificationSeenErrorBlock) {
-                                             _notificationSeenErrorBlock();
-                                             _notificationSeenSuccessBlock = nil;
-                                             _notificationSeenErrorBlock   = nil;
-                                         }
-                                     }];
+                                                  [self saveOnDevice];
+                                                  if (self->_notificationSeenSuccessBlock) {
+                                                      self->_notificationSeenSuccessBlock();
+                                                      self->_notificationSeenSuccessBlock = nil;
+                                                      self->_notificationSeenErrorBlock   = nil;
+                                                  }
+                                              } else {
+                                                  MPLOGERROR(@"Request to set notification as seen failed.");
+                                                  MPLOGERROR(@"status  : %@", theCall.serverResponse.requestStatus.status);
+                                                  MPLOGERROR(@"message : %@", theCall.serverResponse.requestStatus.message);
+                                                  if (self->_notificationSeenErrorBlock) {
+                                                      self->_notificationSeenErrorBlock();
+                                                      self->_notificationSeenSuccessBlock = nil;
+                                                      self->_notificationSeenErrorBlock   = nil;
+                                                  }
+                                              }
+                                              [self refreshFilters];
+                                          }
+                                            onError:^(EHRCall *theCall) {
+                                                if (self->_notificationSeenErrorBlock) {
+                                                    self->_notificationSeenErrorBlock();
+                                                    self->_notificationSeenSuccessBlock = nil;
+                                                    self->_notificationSeenErrorBlock   = nil;
+                                                }
+                                            }];
     call.maximumAttempts = 3;
     call.timeOut         = 15;
     [call start];
@@ -924,7 +918,7 @@ TRACE_OFF
     req.language = [AppState sharedAppState].deviceLanguage;
 
     req.parameters = [@{@"guid": notification.guid} mutableCopy];
-    EHRCall *call = [EHRCall
+    EHRCall *call        = [EHRCall
             callWithRequest:req
                   onSuccess:^(EHRCall *theCall) {
 #if MP_DEBUG == 1
@@ -939,28 +933,28 @@ TRACE_OFF
 //                                           self.lastRefreshed   = [NSDate date];
                           [self refreshFilters];
                           [self saveOnDevice];
-                          if (_notificationArchivedSuccessBlock) {
-                              _notificationArchivedSuccessBlock();
-                              _notificationArchivedSuccessBlock = nil;
-                              _notificationArchivedErrorBlock   = nil;
+                          if (self->_notificationArchivedSuccessBlock) {
+                              self->_notificationArchivedSuccessBlock();
+                              self->_notificationArchivedSuccessBlock = nil;
+                              self->_notificationArchivedErrorBlock   = nil;
                           }
                       } else {
                           MPLOGERROR(@"Request to set notification as seen failed.");
                           MPLOGERROR(@"status  : %@", theCall.serverResponse.requestStatus.status);
                           MPLOGERROR(@"message : %@", theCall.serverResponse.requestStatus.message);
-                          if (_notificationArchivedErrorBlock) {
-                              _notificationArchivedErrorBlock();
-                              _notificationArchivedSuccessBlock = nil;
-                              _notificationArchivedErrorBlock   = nil;
+                          if (self->_notificationArchivedErrorBlock) {
+                              self->_notificationArchivedErrorBlock();
+                              self->_notificationArchivedSuccessBlock = nil;
+                              self->_notificationArchivedErrorBlock   = nil;
                           }
                       }
                       [self refreshFilters];
                   }
                     onError:^(EHRCall *theCall) {
-                        if (_notificationArchivedErrorBlock) {
-                            _notificationArchivedErrorBlock();
-                            _notificationArchivedSuccessBlock = nil;
-                            _notificationArchivedErrorBlock   = nil;
+                        if (self->_notificationArchivedErrorBlock) {
+                            self->_notificationArchivedErrorBlock();
+                            self->_notificationArchivedSuccessBlock = nil;
+                            self->_notificationArchivedErrorBlock   = nil;
                         }
                     }];
     call.maximumAttempts = 3;
@@ -1009,7 +1003,7 @@ TRACE_OFF
         [guids addObject:notification.guid];
     }
     req.parameters = @{@"guids": guids}.mutableCopy;
-    EHRCall *call = [EHRCall callWithRequest:req onSuccess:^(EHRCall *theCall) {
+    EHRCall *call        = [EHRCall callWithRequest:req onSuccess:^(EHRCall *theCall) {
 #if MP_DEBUG == 1
         EHRServerResponse *resp = theCall.serverResponse;
         TRACE(@"Deleted notifications : got response with requestStatus %@", [resp.requestStatus asDictionary]);
@@ -1020,7 +1014,7 @@ TRACE_OFF
             // _allNotifications is indexed on SEQ , we have guids
 
             NSMutableArray           *droppers = [NSMutableArray array];
-            for (PatientNotification *pn in [_allNotifications allValues]) {
+            for (PatientNotification *pn in [self->_allNotifications allValues]) {
                 if ([guids containsObject:pn.guid]) {
                     pn.progress  = @"deleted";
                     pn.deletedOn = [NSDate date];
@@ -1031,42 +1025,42 @@ TRACE_OFF
             if ([droppers count] == [guids count]) {
                 TRACE(@"Flushing %ld notifications", (unsigned long) [droppers count]);
                 for (NSString *seq in droppers) {
-                    [_allNotifications removeObjectForKey:seq];
+                    [self->_allNotifications removeObjectForKey:seq];
                 }
                 [self refreshFilters];
                 [self saveOnDevice];
-                if (_notificationDeletedSuccessBlock) {
-                    _notificationDeletedSuccessBlock();
-                    _notificationDeletedSuccessBlock = nil;
-                    _notificationDeletedErrorBlock   = nil;
+                if (self->_notificationDeletedSuccessBlock) {
+                    self->_notificationDeletedSuccessBlock();
+                    self->_notificationDeletedSuccessBlock = nil;
+                    self->_notificationDeletedErrorBlock   = nil;
                 }
             } else {
                 MPLOGERROR(@"*** SEQ index does not match GUID indes !!!");
-                if (_notificationDeletedErrorBlock) {
-                    _notificationDeletedErrorBlock();
-                    _notificationDeletedSuccessBlock = nil;
-                    _notificationDeletedErrorBlock   = nil;
+                if (self->_notificationDeletedErrorBlock) {
+                    self->_notificationDeletedErrorBlock();
+                    self->_notificationDeletedSuccessBlock = nil;
+                    self->_notificationDeletedErrorBlock   = nil;
                 }
             }
         } else {
             MPLOGERROR(@"Request to set notification as deleted failed.");
             MPLOGERROR(@"status  : %@", theCall.serverResponse.requestStatus.status);
             MPLOGERROR(@"message : %@", theCall.serverResponse.requestStatus.message);
-            if (_notificationDeletedErrorBlock) {
-                _notificationDeletedErrorBlock();
-                _notificationDeletedSuccessBlock = nil;
-                _notificationDeletedErrorBlock   = nil;
+            if (self->_notificationDeletedErrorBlock) {
+                self->_notificationDeletedErrorBlock();
+                self->_notificationDeletedSuccessBlock = nil;
+                self->_notificationDeletedErrorBlock   = nil;
             }
         }
         [self refreshFilters];
-    }                                onError:^(EHRCall *theCall) {
+    }                                       onError:^(EHRCall *theCall) {
         MPLOGERROR(@"Request to set notification as deleted failed.");
         MPLOGERROR(@"status  : %@", theCall.serverResponse.requestStatus.status);
         MPLOGERROR(@"message : %@", theCall.serverResponse.requestStatus.message);
-        if (_notificationDeletedErrorBlock) {
-            _notificationDeletedErrorBlock();
-            _notificationDeletedSuccessBlock = nil;
-            _notificationDeletedErrorBlock   = nil;
+        if (self->_notificationDeletedErrorBlock) {
+            self->_notificationDeletedErrorBlock();
+            self->_notificationDeletedSuccessBlock = nil;
+            self->_notificationDeletedErrorBlock   = nil;
         }
     }];
     call.maximumAttempts = 3;
