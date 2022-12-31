@@ -12,5 +12,8 @@
 
 +(NSInteger) randomNumberBetween:(NSInteger) min and:(NSInteger) max __unused;
 
++(BOOL) isOdd:(NSInteger) number;
++(BOOL) isEven:(NSInteger) number;
+
 @end
 #pragma clang diagnostic pop
