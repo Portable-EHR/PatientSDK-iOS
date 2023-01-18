@@ -5,6 +5,8 @@
 //  Created by Rahul Asthana on 20/09/21.
 //
 
+#import <EHRApiServer.h>
+#import <SecureCredentials.h>
 #import "WebServices.h"
 
 @interface PehrSDKConfig () {
@@ -118,6 +120,11 @@ TRACE_OFF
     [GERuntimeConstants setAppVersion:appVersion];
     [GERuntimeConstants setLocalIPaddress:address];
     kHostNames[@"CA.local"] = address;
+    kHostName = address;
+    [GERuntimeConstants setStackKey:@"CA.local"];
+    [[SecureCredentials sharedCredentials] setupServer];
+    [[SecureCredentials sharedCredentials] persist];
+
     [GERuntimeConstants setBuildNumber:10]; // todo : figure out this old dependency (from MaxPower Game Engine)
 
 
