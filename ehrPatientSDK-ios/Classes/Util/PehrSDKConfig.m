@@ -5,13 +5,29 @@
 //  Created by Rahul Asthana on 20/09/21.
 //
 
-#import <GERuntimeConstants.h>
-#import "PehrSDKConfig.h"
-#import "GEMacros.h"
+#import "WebServices.h"
+
+@interface PehrSDKConfig () {
+
+    @private
+    __strong NSString
+            *_deviceLanguage,
+            *_appGuid,
+            *_appAlias,
+            *_appVersion,
+            *_stackKey,
+            *_localIPaddress;
+
+    @private
+    __strong WebServices *_ws;
+}
+
+@end
 
 @implementation PehrSDKConfig
 
 static PehrSDKConfig *_Instance = nil;
+
 
 TRACE_OFF
 
@@ -21,6 +37,8 @@ TRACE_OFF
     if (self) {
 
         GE_ALLOC();
+        _ws          =   [[WebServices alloc] init];
+        _deviceLanguage = [[NSLocale preferredLanguages][0] componentsSeparatedByString:@"-"][0];
 
     } else {
         TRACE(@"*** super returned nil !");
@@ -39,6 +57,10 @@ TRACE_OFF
     });
     return _Instance;
 
+}
+
+- (WebServices *) ws __attribute__((unused)) {
+    return _ws;
 }
 
 - (NSString *)getAppGuid {
@@ -61,11 +83,15 @@ TRACE_OFF
     return _localIPaddress;
 }
 
+- (NSString *)getDeviceLanguage {
+    return _deviceLanguage;
+}
+
 - setup:(NSString *)appGuid appAlias:(NSString *)appAlias appVersion:(NSString *)appVersion stackKey:(NSString *)stackKey __unused {
-    self->_appGuid    = appGuid;
-    self->_appAlias   = appAlias;
-    self->_appVersion = appVersion;
-    self->_stackKey   = stackKey;
+    self->_appGuid        = appGuid;
+    self->_appAlias       = appAlias;
+    self->_appVersion     = appVersion;
+    self->_stackKey       = stackKey;
     self->_localIPaddress = nil;
 
     [GERuntimeConstants initialize];
@@ -97,7 +123,6 @@ TRACE_OFF
 
     return self;
 }
-
 
 @end
 

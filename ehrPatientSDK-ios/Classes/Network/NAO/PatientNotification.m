@@ -11,10 +11,12 @@
 #import "IBMessageContent.h"
 #import "IBTelexInfo.h"
 #import "IBAppointment.h"
+#import "ConversationEnvelope.h"
+#import "NSDate+Compare.h"
 
 @implementation PatientNotification
 
-@dynamic isExpired, isPatient, isSponsor, isMessage, isPrivateMessage, isAppointment, isInfo, isAlert, isSeen, isArchived, isDeleted, isAcknowledged, isActionRequired, isPractitioner, hasUnseenContent;
+@dynamic isExpired, isPatient, isSponsor, isMessage, isPrivateMessage, isAppointment, isConvoList, isInfo, isAlert, isSeen, isArchived, isDeleted, isAcknowledged, isActionRequired, isPractitioner, hasUnseenContent;
 
 TRACE_OFF
 
@@ -69,6 +71,9 @@ TRACE_OFF
             } else if (self.isPrivateMessage) {
                 if (self.isArchived) return NO;
                 return self.telexInfo.acknowledgedOn == nil;
+            } else if (self.isConvoList) {
+                if (self.isArchived) return NO;
+                if ([self.convo.lastUpdated isLaterThan:self.lastSeen]) return YES;
             } else {
                 // sponsor and medical notifications , once seen have no further
                 // action required from l'user
@@ -97,6 +102,9 @@ TRACE_OFF
 - (BOOL)isArchived {
     if (nil != self.archivedOn) return YES;
     if ([self.progress isEqualToString:@"archived"]) return YES;
+    if (nil != self.convo) {
+        if ([self.convo.status isEqualToString:@"closed"]) return YES;
+    }
 
     return NO;
 }
@@ -126,6 +134,9 @@ TRACE_OFF
 }
 
 - (BOOL)isInfo {
+    if (self.isConvoList) return NO;
+    if (self.isPrivateMessage) return NO;
+    if (self.isAppointment) return NO;
     if (!_notificationLevel) return NO;
     if ([self isSponsor]) return NO;
     if ([_notificationLevel isEqualToString:@"authorization"]) return YES;
@@ -164,6 +175,10 @@ TRACE_OFF
 
 - (BOOL)isAppointment {
     return [_payloadType isEqualToString:@"appointment"];
+}
+
+- (BOOL)isConvoList {
+    return [_payloadType isEqualToString:@"conversation"];
 }
 
 /*
@@ -206,6 +221,8 @@ TRACE_OFF
 
     self.guid              = other.guid;
     self.appointment       = other.appointment;
+    self.convo             = other.convo;
+    self.telexInfo         = other.telexInfo;
     self.capabilityAlias   = other.capabilityAlias;
     self.capabilityGuid    = other.capabilityGuid;
     self.text              = other.text;
@@ -231,7 +248,6 @@ TRACE_OFF
     self.patientGuid       = other.patientGuid;
     self.practitionerGuid  = other.practitionerGuid;
     self.senderName        = other.senderName;
-    self.telexInfo         = other.telexInfo;
     self.deviceInfo        = other.deviceInfo;
     self.seq               = other.seq;
     [self.appointment updateWith:other.appointment];
@@ -299,6 +315,10 @@ TRACE_OFF
             pn.appointment = [IBAppointment objectWithContentsOfDictionary:val];
         }
 
+        if ((val = dic[@"convo"])) {
+            pn.convo = [ConversationEnvelope objectWithContentsOfDictionary:val];
+        }
+
     } @catch (NSException *e) {
         MPLOG(@"Cautht exceltion %@", e.description);
     }
@@ -360,6 +380,10 @@ TRACE_OFF
     }
     if (self.appointment) {
         dic[@"appointment"] = [self.appointment asDictionary];
+    }
+
+    if (self.convo) {
+        dic[@"convo"] = [self.convo asDictionary];
     }
 
     return dic;

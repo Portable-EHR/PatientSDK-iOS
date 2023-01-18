@@ -10,7 +10,7 @@
 #import <UIKit/UIKit.h>
 #include <mach/mach.h>
 #import <sys/proc.h>
-
+#import "EHRInstanceCounterP.h"
 #pragma clang diagnostic push
 #pragma ide diagnostic ignored "OCUnusedMacroInspection"
 #pragma ide diagnostic ignored "OCUnusedMethodInspection"
@@ -19,6 +19,7 @@
 
 @class Version;
 @protocol EHRPersistableP;
+@protocol EHRInstanceCounterP;
 
 typedef enum CCScreenMode : NSUInteger {
     CCScreenModeUnknown      = 0,
@@ -59,6 +60,8 @@ extern UIColor *kColorCyan;
 extern UIColor *kColorTransparent;
 extern UIColor *kColorHide;
 extern UIColor *kColorArchive;
+extern UIColor *kColorAppleBlue;
+extern UIColor *kColorAppleImessageBlue;
 
 extern UIFont *kBandTitleFont;
 extern UIFont *kBandContentFont;

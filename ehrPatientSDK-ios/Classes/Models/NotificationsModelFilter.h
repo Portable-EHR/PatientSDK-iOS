@@ -23,7 +23,8 @@ typedef NS_ENUM(NSInteger, NotificationFilterType) {
     NotificationFilterTypeMessage        = 6,
     NotificationFilterTypePrivateMessage = 7,
     NotificationFilterTypeAlert          = 8,
-    NotificationFilterTypeAppointment    = 9
+    NotificationFilterTypeAppointment    = 9,
+    NotificationFilterTypeConvoList      = 10
 
 };
 
@@ -39,6 +40,7 @@ typedef NS_ENUM(NSInteger, NotificationFilterType) {
                            _showMessageNotifications,
                            _showPrivateMessageNotifications,
                            _showAppointmentNotifications,
+                           _showConvoListNotifications,
                            _showUnreadOnly,
                            _showArchived;
     NSInteger              _notificationsPerPage;
@@ -57,6 +59,7 @@ typedef NS_ENUM(NSInteger, NotificationFilterType) {
 @property(nonatomic) BOOL                   showAlertNotifications;
 @property(nonatomic) BOOL                   showPractitionerNotifications;
 @property(nonatomic) BOOL                   showPrivateMessageNotifications;
+@property(nonatomic) BOOL                   showConvoListNotifications;
 @property(nonatomic) BOOL                   showAppointmentNotifications;
 @property(nonatomic) BOOL                   showMessageNotifications;
 @property(nonatomic) BOOL                   showUnreadOnly;
@@ -92,6 +95,7 @@ typedef NS_ENUM(NSInteger, NotificationFilterType) {
 + (NotificationsModelFilter *)messageFilter;
 + (NotificationsModelFilter *)telexFilter;
 + (NotificationsModelFilter *)appointmentFilter;
++ (NotificationsModelFilter *)convoListFilter;
 
 - (void)refreshFilter;
 - (void)resetFilter;

@@ -37,12 +37,13 @@
 @property(nonatomic, readonly) EHRServerResponse *serverResponse;
 @property(nonatomic) NSInteger                   maximumAttempts;
 @property(nonatomic, readonly) BOOL              isCallInProgress;
-@property (nonatomic) BOOL verbose;
+@property(nonatomic) BOOL                        verbose;
 
 + (id)callWithRequest:(EHRServerRequest *)request onSuccess:(SenderBlock)success onError:(SenderBlock)error;
+- (BOOL)startAsGuest __attribute__((unused));
 - (BOOL)start;
 - (void)cancel;
--(void) setOnStart:(VoidBlock) onStart;
--(void) setOnEnd:(VoidBlock) onEnd;
+- (void)setOnStart:(VoidBlock)onStart;
+- (void)setOnEnd:(VoidBlock)onEnd;
 
 @end

@@ -3,6 +3,7 @@
 // Copyright (c) 2015-2019 Portable EHR inc. All rights reserved.
 //
 
+#import <ConversationEnvelope.h>
 #import "NotificationsModelFilter.h"
 #import "AppState.h"
 #import "UserModel.h"
@@ -13,6 +14,7 @@
 #import "IBMessageContent.h"
 #import "IBMessageDistribution.h"
 #import "IBAppointment.h"
+#import "NSDate+Compare.h"
 
 @implementation NotificationsModelFilter
 
@@ -23,6 +25,7 @@
 @synthesize showPractitionerNotifications = _showPractitionerNotifications;
 @synthesize showMessageNotifications = _showMessageNotifications;
 @synthesize showPrivateMessageNotifications = _showPrivateMessageNotifications;
+@synthesize showConvoListNotifications = _showConvoListNotifications;
 @synthesize showAppointmentNotifications = _showAppointmentNotifications;
 @synthesize notificationsPerPage = _notificationsPerPage;
 @synthesize showUnreadOnly = _showUnreadOnly;
@@ -135,6 +138,13 @@ TRACE_OFF
     return nf;
 }
 
++ (NotificationsModelFilter *)convoListFilter {
+    NotificationsModelFilter *nf = [[NotificationsModelFilter alloc] init];
+    [nf setFilterType:NotificationFilterTypeConvoList];
+    [nf resetPatientSelector];
+    return nf;
+}
+
 + (NotificationsModelFilter *)telexFilter __unused {
     NotificationsModelFilter *nf = [[NotificationsModelFilter alloc] init];
     [nf setFilterType:NotificationFilterTypePrivateMessage];
@@ -216,7 +226,21 @@ TRACE_OFF
     BOOL change = (filterType != _filterType);
     _filterType = filterType;
     switch (filterType) {
-        case NotificationFilterTypeAppointment:_showInfoNotifications = NO;
+        case NotificationFilterTypeConvoList:
+
+            _showInfoNotifications           = NO;
+            _showAlertNotifications          = NO;
+            _showPatientNotifications        = NO;
+            _showSponsorNotifications        = NO;
+            _showPractitionerNotifications   = NO;
+            _showMessageNotifications        = NO;
+            _showPrivateMessageNotifications = NO;
+            _showAppointmentNotifications    = NO;
+            _showConvoListNotifications      = YES;
+            break;
+        case NotificationFilterTypeAppointment:
+
+            _showInfoNotifications           = NO;
             _showAlertNotifications          = NO;
             _showPatientNotifications        = NO;
             _showSponsorNotifications        = NO;
@@ -224,8 +248,12 @@ TRACE_OFF
             _showMessageNotifications        = NO;
             _showPrivateMessageNotifications = NO;
             _showAppointmentNotifications    = YES;
+            _showConvoListNotifications      = NO;
             break;
-        case NotificationFilterTypeSponsor:_showInfoNotifications = NO;
+
+        case NotificationFilterTypeSponsor:
+
+            _showInfoNotifications           = NO;
             _showAlertNotifications          = NO;
             _showPatientNotifications        = NO;
             _showSponsorNotifications        = YES;
@@ -233,6 +261,7 @@ TRACE_OFF
             _showMessageNotifications        = NO;
             _showPrivateMessageNotifications = NO;
             _showAppointmentNotifications    = NO;
+            _showConvoListNotifications      = NO;
             break;
 
         case NotificationFilterTypeInfo:
@@ -245,7 +274,9 @@ TRACE_OFF
             _showMessageNotifications        = NO;
             _showPrivateMessageNotifications = NO;
             _showAppointmentNotifications    = NO;
+            _showConvoListNotifications      = NO;
             break;
+
         case NotificationFilterTypeAlert:
 
             _showInfoNotifications           = NO;
@@ -256,7 +287,9 @@ TRACE_OFF
             _showMessageNotifications        = NO;
             _showPrivateMessageNotifications = NO;
             _showAppointmentNotifications    = NO;
+            _showConvoListNotifications      = NO;
             break;
+
         case NotificationFilterTypePatient:
 
             _showInfoNotifications           = NO;
@@ -267,6 +300,7 @@ TRACE_OFF
             _showMessageNotifications        = NO;
             _showPrivateMessageNotifications = NO;
             _showAppointmentNotifications    = NO;
+            _showConvoListNotifications      = NO;
             break;
 
         case NotificationFilterTypePractitioner:
@@ -279,6 +313,7 @@ TRACE_OFF
             _showMessageNotifications        = NO;
             _showPrivateMessageNotifications = NO;
             _showAppointmentNotifications    = NO;
+            _showConvoListNotifications      = NO;
             break;
 
         case NotificationFilterTypeMessage:
@@ -291,6 +326,7 @@ TRACE_OFF
             _showMessageNotifications        = YES;
             _showPrivateMessageNotifications = NO;
             _showAppointmentNotifications    = NO;
+            _showConvoListNotifications      = NO;
             break;
 
         case NotificationFilterTypePrivateMessage:
@@ -303,6 +339,7 @@ TRACE_OFF
             _showMessageNotifications        = NO;
             _showPrivateMessageNotifications = YES;
             _showAppointmentNotifications    = NO;
+            _showConvoListNotifications      = NO;
             break;
 
         case NotificationFilterTypeAll:
@@ -316,6 +353,7 @@ TRACE_OFF
             _showMessageNotifications        = NO;
             _showPrivateMessageNotifications = NO;
             _showAppointmentNotifications    = NO;
+            _showConvoListNotifications      = NO;
             break;
     }
     if (change) {
@@ -364,6 +402,7 @@ TRACE_OFF
 
         // retain only the notification for the patients of interest
         if (not.isPrivateMessage && !_showPrivateMessageNotifications) continue;
+        if (not.isConvoList && !_showConvoListNotifications) continue;
         if (not.isAppointment && !_showAppointmentNotifications) continue;
         if (not.isPatient && _showPatientNotifications) {
             if (_patientSelector.count > 0) {
@@ -390,10 +429,16 @@ TRACE_OFF
             } else {
                 keeper = YES;
             }
+        } else if (not.isConvoList && _showConvoListNotifications) {
+            if (not.isArchived) {
+                keeper = _showArchived;
+            } else {
+                keeper = YES;
+            }
         }
 
         if (keeper) {
-            TRACE(@"%lu : keeping notification with seq %@", (unsigned long) self.filterType, not.seq);
+            TRACE(@"%lu : keeping patientNotification with seq %@", (unsigned long) self.filterType, not.seq);
             [ar addObject:not];
         }
     }
@@ -402,18 +447,27 @@ TRACE_OFF
         return;
     }
 
-    if (_filterType == NotificationFilterTypeAppointment) {
+    if (_filterType == NotificationFilterTypeConvoList) {
+        [ar sortUsingComparator:^NSComparisonResult(PatientNotification *obj1, PatientNotification *obj2) {
+            ConversationEnvelope *env1 = obj1.convo;
+            ConversationEnvelope *env2 = obj2.convo;
+            if ([env1.lastUpdated isEarlierThan:env2.lastUpdated]) return (NSComparisonResult) NSOrderedDescending;
+            if ([env1.lastUpdated isLaterThan:env2.lastUpdated]) return (NSComparisonResult) NSOrderedAscending;
+            return (NSComparisonResult) NSOrderedSame;
+        }];
+
+    } else if (_filterType == NotificationFilterTypeAppointment) {
         [ar sortUsingComparator:^NSComparisonResult(PatientNotification *obj1, PatientNotification *obj2) {
 
-            if (obj1.appointment.getSortOrder <  obj2.appointment.getSortOrder) {
-                return (NSComparisonResult)NSOrderedDescending;
+            if (obj1.appointment.getSortOrder < obj2.appointment.getSortOrder) {
+                return (NSComparisonResult) NSOrderedDescending;
             }
 
-            if (obj1.appointment.getSortOrder >  obj2.appointment.getSortOrder) {
-                return (NSComparisonResult)NSOrderedAscending;
+            if (obj1.appointment.getSortOrder > obj2.appointment.getSortOrder) {
+                return (NSComparisonResult) NSOrderedAscending;
             }
 
-            return (NSComparisonResult)NSOrderedSame;
+            return (NSComparisonResult) NSOrderedSame;
 
         }];
     } else {
@@ -537,7 +591,7 @@ TRACE_OFF
     NSDictionary *allNotifications = [AppState sharedAppState].userModel.notificationsModel.allNotifications;
 
     if ([allNotifications count] == 0) {
-        TRACE(@"*** notification at index [%lu] invoked whene there are NO notification !", (unsigned long) index);
+        TRACE(@"*** notification at index [%lu] invoked whene there are NO patientNotification !", (unsigned long) index);
         return nil;
     }
 
@@ -551,7 +605,7 @@ TRACE_OFF
     if (_notif) {
         return _notif;
     } else {
-        MPLOGERROR(@"*** notification at index [%lu] key[%@] for a notification not present in  notifications model!", (unsigned long) index, key);
+        MPLOGERROR(@"*** notification at index [%lu] key[%@] for a patientNotification not present in  notifications model!", (unsigned long) index, key);
         return nil;
     }
 
@@ -604,7 +658,6 @@ TRACE_OFF
     return strawman.message;
 }
 
-
 #pragma mark - persistence
 
 + (instancetype)objectWithContentsOfDictionary:(NSDictionary *)dic {
@@ -616,6 +669,7 @@ TRACE_OFF
     pa->_showPractitionerNotifications   = WantBoolFromDic(dic, @"showPractitionerNotifications");
     pa->_showMessageNotifications        = WantBoolFromDic(dic, @"showMessageNotifications");
     pa->_showPrivateMessageNotifications = WantBoolFromDic(dic, @"showPrivateMessageNotifications");
+    pa->_showConvoListNotifications      = WantBoolFromDic(dic, @"showConvoListNotifications");
     pa->_showAppointmentNotifications    = WantBoolFromDic(dic, @"showAppointmentNotifications");
     pa->_showUnreadOnly                  = WantBoolFromDic(dic, @"showUnreadOnly");
     pa->_notificationsPerPage            = WantIntegerFromDic(dic, @"notificationsPerPage");
@@ -632,6 +686,7 @@ TRACE_OFF
     PutBoolInDic(self.showPractitionerNotifications, dic, @"showPractitionerNotifications");
     PutBoolInDic(self.showMessageNotifications, dic, @"showMessageNotifications");
     PutBoolInDic(self.showPrivateMessageNotifications, dic, @"showPrivateMessageNotifications");
+    PutBoolInDic(self.showConvoListNotifications, dic, @"showConvoListNotifications");
     PutBoolInDic(self.showAppointmentNotifications, dic, @"showAppointmentNotifications");
     PutBoolInDic(self.showUnreadOnly, dic, @"showUnreadOnly");
     PutIntegerInDic(self.notificationsPerPage, dic, @"notificationsPerPage");

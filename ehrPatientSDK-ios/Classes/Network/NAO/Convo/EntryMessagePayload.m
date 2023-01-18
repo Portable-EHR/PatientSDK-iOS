@@ -2,10 +2,10 @@
 // Created by Yves Le Borgne on 2022-12-27.
 //
 
-#import "ConversationEntryPayload.h"
+#import "EntryMessagePayload.h"
 #import "EntryAttachment.h"
 
-@implementation ConversationEntryPayload
+@implementation EntryMessagePayload
 
 TRACE_OFF
 
@@ -48,7 +48,7 @@ TRACE_OFF
 }
 
 + (id)objectWithContentsOfDictionary:(NSDictionary *)dic {
-    ConversationEntryPayload *cep = [[ConversationEntryPayload alloc] init];
+    EntryMessagePayload *cep = [[EntryMessagePayload alloc] init];
     cep->_text = WantStringFromDic(dic, @"text");
     NSArray        *attsAsDics = WantArrayFromDic(dic, @"attachments");
     NSMutableArray *atts       = [NSMutableArray array];

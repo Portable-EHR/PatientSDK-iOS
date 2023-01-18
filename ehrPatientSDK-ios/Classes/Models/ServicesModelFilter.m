@@ -385,7 +385,7 @@ TRACE_OFF
     if (_notif) {
         return _notif;
     } else {
-        MPLOG(@"*** sortedKeys holds key[%@] for a notification not present in  notifications model!",key);
+        MPLOG(@"*** sortedKeys holds key[%@] for a patientNotification not present in  notifications model!",key);
         return nil;
     }
 

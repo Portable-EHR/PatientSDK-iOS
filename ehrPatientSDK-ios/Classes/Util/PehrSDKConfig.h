@@ -5,19 +5,13 @@
 //  Created by Rahul Asthana on 20/09/21.
 //
 
+#import <Foundation/Foundation.h>
+
 #import "Version.h"
 
-@interface PehrSDKConfig : NSObject {
+@class WebServices;
 
-    @private
-    __strong NSString
-            *_appGuid,
-            *_appAlias,
-            *_appVersion,
-            *_stackKey,
-            *_localIPaddress;
-
-}
+@interface PehrSDKConfig : NSObject
 
 + (PehrSDKConfig *)shared;
 
@@ -26,9 +20,18 @@
 - (Version *)getAppVersion;
 - (NSString *)getAppStackKey;
 - (NSString *)getLocalIPaddress;
+- (NSString *)getDeviceLanguage;
 
-- setup:(NSString *)appGuid appAlias:(NSString *)appAlias appVersion:(NSString *)appVersion stackKey:(NSString *)stackKey;
+- (WebServices *) ws __attribute__((unused));
 
-- setup:(NSString *)appGuid appAlias:(NSString *)appAlias appVersion:(NSString *)appVersion localIPaddress:(NSString *)address;
+-    setup:(NSString *)appGuid
+  appAlias:(NSString *)appAlias
+appVersion:(NSString *)appVersion
+  stackKey:(NSString *)stackKey;
+
+-        setup:(NSString *)appGuid
+      appAlias:(NSString *)appAlias
+    appVersion:(NSString *)appVersion
+localIPaddress:(NSString *)address;
 
 @end

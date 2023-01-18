@@ -17,6 +17,7 @@
 @class IBTelexInfo;
 @class IBDeviceInfo;
 @class IBAppointment;
+@class ConversationEnvelope;
 
 @interface PatientNotification : NSObject <EHRInstanceCounterP, EHRNetworkableP> {
 
@@ -24,40 +25,41 @@
 
 }
 
-@property NSString         *guid;
-@property NSString         *capabilityGuid;
-@property NSString         *capabilityAlias;
-@property NSString         *text;
-@property NSString         *textRenderer;
-@property NSString         *subject;
-@property NSString         *summary;
-@property BOOL             confidential;
-@property NSString         *payloadType;
-@property NSString         *notificationLevel;
-@property NSString         *aboutType;
-@property NSString         *aboutGuid;
-@property NSURL            *url;
-@property NSString         *thumb;
-@property NSString         *progress;
-@property NSDate           *createdOn;
-@property NSDate           *seenOn;
-@property NSDate           *ackedOn;
-@property NSDate           *archivedOn;
-@property NSDate           *deletedOn;
-@property NSDate           *expiresOn;
-@property NSDate           *lastUpdated;
-@property NSDate           *lastSeen;
-@property NSString         *patientGuid;
-@property NSString         *practitionerGuid;
-@property NSString         *senderName;
-@property IBAppointment    *appointment;
-@property IBAnnotation     *annotation;
-@property IBLabRequest     *labRequest;
-@property IBLabResult      *labResult;
-@property IBTelexInfo      *telexInfo;
-@property IBDeviceInfo     *deviceInfo;
-@property IBMessageContent *message;
-@property NSString         *seq;
+@property NSString             *guid;
+@property NSString             *capabilityGuid;
+@property NSString             *capabilityAlias;
+@property NSString             *text;
+@property NSString             *textRenderer;
+@property NSString             *subject;
+@property NSString             *summary;
+@property BOOL                 confidential;
+@property NSString             *payloadType;
+@property NSString             *notificationLevel;
+@property NSString             *aboutType;
+@property NSString             *aboutGuid;
+@property NSURL                *url;
+@property NSString             *thumb;
+@property NSString             *progress;
+@property NSDate               *createdOn;
+@property NSDate               *seenOn;
+@property NSDate               *ackedOn;
+@property NSDate               *archivedOn;
+@property NSDate               *deletedOn;
+@property NSDate               *expiresOn;
+@property NSDate               *lastUpdated;
+@property NSDate               *lastSeen;
+@property NSString             *patientGuid;
+@property NSString             *practitionerGuid;
+@property NSString             *senderName;
+@property IBAppointment        *appointment;
+@property ConversationEnvelope *convo;
+@property IBAnnotation         *annotation;
+@property IBLabRequest         *labRequest;
+@property IBLabResult          *labResult;
+@property IBTelexInfo          *telexInfo;
+@property IBDeviceInfo         *deviceInfo;
+@property IBMessageContent     *message;
+@property NSString             *seq;
 
 @property(nonatomic, readonly) BOOL isDeleted;
 @property(nonatomic, readonly) BOOL isExpired;
@@ -69,12 +71,13 @@
 @property(nonatomic, readonly) BOOL isMessage;
 @property(nonatomic, readonly) BOOL isPrivateMessage;
 @property(nonatomic, readonly) BOOL isAppointment;
+@property(nonatomic, readonly) BOOL isConvoList;
 @property(nonatomic, readonly) BOOL isPractitioner;
 @property(nonatomic, readonly) BOOL isInfo;
 @property(nonatomic, readonly) BOOL isAlert;
 @property(nonatomic, readonly) BOOL isActionRequired;
 @property(nonatomic, readonly) BOOL hasUnseenContent;
 
--(void) updateWith:(PatientNotification *)other;
+- (void)updateWith:(PatientNotification *)other;
 
 @end

@@ -9,7 +9,7 @@
 #import "GEMacros.h"
 #import "NSDictionary+JSON.h"
 
-@interface ConversationEntryPayload : NSObject <EHRInstanceCounterP, EHRNetworkableP> {
+@interface EntryMessagePayload : NSObject <EHRInstanceCounterP, EHRNetworkableP> {
     NSInteger _instanceNumber;
     NSString  *_text;
     NSArray   *_attachments;

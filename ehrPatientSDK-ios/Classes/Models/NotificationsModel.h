@@ -30,6 +30,7 @@
     NotificationsModelFilter *_alertNotificationFilter;
     NotificationsModelFilter *_practitionerNotificationFilter;
     NotificationsModelFilter *_privateMessageNotificationFilter;
+    NotificationsModelFilter *_conversationNotificationFilter;
     NotificationsModelFilter *_appointmentNotificationFilter;
     VoidBlock                _stackedNotificationChangesSuccessBlock,
                              _stackedNotificationChangesErrorBlock;
@@ -60,6 +61,7 @@
 @property(nonatomic, readonly) NotificationsModelFilter *practitionerNotificationFilter;
 @property(nonatomic, readonly) NotificationsModelFilter *appointmentNotificationsFilter;
 @property(nonatomic, readonly) NotificationsModelFilter *privateMessageNotificationFilter;
+@property(nonatomic, readonly) NotificationsModelFilter *conversationNotificationFilter;
 @property(nonatomic, readonly) NotificationsModelFilter *infoNotificationFilter;
 @property(nonatomic, readonly) NotificationsModelFilter *alertNotificationFilter;
 @property(nonatomic, getter=isRefreshEnabled) BOOL      refreshEnabled;

@@ -3,6 +3,9 @@
 //
 
 #import "ConversationEntry.h"
+#import "EntryPartipantPayload.h"
+#import "EntryMovePayload.h"
+#import "EntryStatusChangePayload.h"
 
 @implementation ConversationEntry
 
@@ -14,7 +17,7 @@ TRACE_OFF
 @synthesize audience = _audience;
 @synthesize attachmentCount = _attachmentCount;
 @synthesize status = _status;
-@synthesize payload = _payload;
+@synthesize payload;
 @synthesize createdOn = _createdOn;
 
 - (instancetype)init {
@@ -54,7 +57,17 @@ TRACE_OFF
     ce->_createdOn       = WantDateFromDic(dic, @"createdOn");
     ce->_attachmentCount = WantIntegerFromDic(dic, @"attachmentCount");
     NSDictionary *payloadAsDic = WantDicFromDic(dic, @"payload");
-    if (nil != payloadAsDic) ce->_payload = [ConversationEntryPayload objectWithContentsOfDictionary:payloadAsDic];
+    if (nil != payloadAsDic) {
+        if (ce.isMessageType) {
+            ce.payload = [EntryMessagePayload objectWithContentsOfDictionary:payloadAsDic];
+        } else if (ce.isParticipantType) {
+            ce.payload = [EntryPartipantPayload objectWithContentsOfDictionary:payloadAsDic];
+        } else if (ce.isMoveType) {
+            ce.payload = [EntryMovePayload objectWithContentsOfDictionary:payloadAsDic];
+        } else if (ce.isStatusChangeType) {
+            ce.payload = [EntryStatusChangePayload objectWithContentsOfDictionary:payloadAsDic];
+        }
+    }
     NSArray        *statusAsArray = WantArrayFromDic(dic, @"status");
     NSMutableArray *statii        = [NSMutableArray array];
     if (nil != statusAsArray) {
@@ -75,7 +88,7 @@ TRACE_OFF
     PutStringInDic(_audience, dic, @"audience");
     PutDateInDic(_createdOn, dic, @"createdOn");
     PutIntegerInDic(_attachmentCount, dic, @"attachmentCount");
-    if (nil != _payload) dic[@"payload"] = [_payload asDictionary];
+    if (nil != _messageEntryPayload) dic[@"payload"] = [_messageEntryPayload asDictionary];
     NSMutableArray *statii = [NSMutableArray array];
     if (nil != _status && _status.count > 0) {
         for (id <EHRNetworkableP> element in _status) {
@@ -88,15 +101,37 @@ TRACE_OFF
 }
 
 - (void)dealloc {
-    _id              = nil;
-    _type            = nil;
-    _from            = nil;
-    _audience        = nil;
-    _attachmentCount = 0;
-    _payload         = nil;
-    _status          = nil;
+    _id                  = nil;
+    _type                = nil;
+    _from                = nil;
+    _audience            = nil;
+    _attachmentCount     = 0;
+    _messageEntryPayload = nil;
+    _status              = nil;
     GE_DEALLOC();
     GE_DEALLOC_ECHO();
+}
+
+// convenience getters
+
+- (BOOL)isMessageType {
+    if (!_type) return false;
+    return [_type isEqualToString:@"message"];
+}
+
+- (BOOL)isStatusChangeType {
+    if (!_type) return false;
+    return [_type isEqualToString:@"status-change"];
+}
+
+- (BOOL)isMoveType {
+    if (!_type) return false;
+    return [_type isEqualToString:@"move"];
+}
+
+- (BOOL)isParticipantType {
+    if (!_type) return false;
+    return [_type isEqualToString:@"participant"];
 }
 
 @end

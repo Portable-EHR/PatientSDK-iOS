@@ -142,7 +142,7 @@ static AppState   *_sharedInstance;
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
         NetworkStatus reachabilitytoHost = [reach currentReachabilityStatus];
         if (reachabilitytoHost != NotReachable) {
-            _isServerReachable = YES;
+            self->_isServerReachable = YES;
             if ([self isAppUsable]) [self activateForegroundRefresh];
         }
         [reach startNotifier];
@@ -196,7 +196,7 @@ static AppState   *_sharedInstance;
                                       if (val) {
 //                                          TRACE(@"Received services \n%@", val);
                                           ServicesModel *newSM = [ServicesModel objectWithContentsOfDictionary:call.serverResponse.responseContent];
-                                          _servicesModel = newSM;
+                                          self->_servicesModel = newSM;
                                       }
 
                                       val = call.serverResponse.responseContent[@"user"];
@@ -237,9 +237,9 @@ static AppState   *_sharedInstance;
                                      if ([[resp requestStatus].status isEqualToString:@"OK"]) {
                                          NSDictionary *appInfoDic = resp.responseContent[@"appInfo"];
                                          IBAppInfo    *appInfo    = [IBAppInfo objectWithContentsOfDictionary:appInfoDic];
-                                         _appInfo   = appInfo;
+                                         self->_appInfo   = appInfo;
 //                                         [self.appInfo refreshFrom:appInfo];
-                                         _eulaModel = [[EulaModel alloc] init];
+                                         self->_eulaModel = [[EulaModel alloc] init];
                                          onSuccess();
                                      } else {
 //                                         TRACE(@"Got response with requestStatus %@", [resp.requestStatus asDictionary]);
@@ -273,11 +273,11 @@ static AppState   *_sharedInstance;
 
         if ([self saveOnDevice]) {
 
-            if (_appInfo.eula && ![_appInfo.eula.version.description isEqualToString:[SecureCredentials sharedCredentials].current.appEula.eulaVersion.description]) {
+            if (self->_appInfo.eula && ![self->_appInfo.eula.version.description isEqualToString:[SecureCredentials sharedCredentials].current.appEula.eulaVersion.description]) {
                 SecureCredentials *creds = [SecureCredentials sharedCredentials];
                 // eula update from server !
-                creds.current.appEula.eulaVersion   = _appInfo.eula.version;
-                creds.current.appEula.eulaGuid      = _appInfo.eula.guid;
+                creds.current.appEula.eulaVersion   = self->_appInfo.eula.version;
+                creds.current.appEula.eulaGuid      = self->_appInfo.eula.guid;
                 creds.current.appEula.dateSeen      = nil;
                 creds.current.appEula.dateConsented = nil;
                 [creds persist];
@@ -318,7 +318,7 @@ static AppState   *_sharedInstance;
 
 - (void)reachabilityChanged:(EHRReachability *)reachability {
 
-    TRACE(@"Reachability changed notification.");
+    TRACE(@"Reachability changed patientNotification.");
 
     if (reachability.currentReachabilityStatus == NotReachable) {
         TRACE(@"*** Unreachable !");
@@ -470,22 +470,22 @@ static AppState   *_sharedInstance;
 #pragma mark - listen to devics shit and stuff
 
 - (void)processNotificationsModelUpdate:(NSNotification *)notification {
-    TRACE(@"[%ld]/[%lX] Got notification [%@]", (long) _instanceNumber, (long) self, notification.name);
+    TRACE(@"[%ld]/[%lX] Got patientNotification [%@]", (long) _instanceNumber, (long) self, notification.name);
 //    NSInteger unread = _sharedInstance.userModel.notificationsModel.allNotificationFilter.numberOfUnseen;
 //    [self setApplicationIconBadgeNumber:unread];
 
 }
 
 - (void)processAuthenticationFailure:(NSNotification *)notification {
-    TRACE(@"[%ld]/[%lX] Got notification [%@]", (long) _instanceNumber, (long) self, notification.name);
+    TRACE(@"[%ld]/[%lX] Got patientNotification [%@]", (long) _instanceNumber, (long) self, notification.name);
 }
 
 - (void)processServerMaintenance:(NSNotification *)notification {
-    TRACE(@"[%ld]/[%lX] Got notification [%@]", (long) _instanceNumber, (long) self, notification.name);
+    TRACE(@"[%ld]/[%lX] Got patientNotification [%@]", (long) _instanceNumber, (long) self, notification.name);
 }
 
 - (void)processAppUpdate:(NSNotification *)notification {
-    TRACE(@"[%ld]/[%lX] Got notification [%@]", (long) _instanceNumber, (long) self, notification.name);
+    TRACE(@"[%ld]/[%lX] Got patientNotification [%@]", (long) _instanceNumber, (long) self, notification.name);
 }
 
 #pragma mark - EHRPersistableP
@@ -622,9 +622,9 @@ static AppState   *_sharedInstance;
 - (void)doOneRefresh {
 
     VoidBlock _after = ^{
-        if (_refreshCompletionBlock) {
-            _refreshCompletionBlock();
-            _refreshCompletionBlock = nil;
+        if (self->_refreshCompletionBlock) {
+            self->_refreshCompletionBlock();
+            self->_refreshCompletionBlock = nil;
         }
         [self isDoingOneRefresh:NO];
     };
@@ -652,7 +652,7 @@ static AppState   *_sharedInstance;
 
         }
 
-        [_userModel.notificationsModel refreshFromServerWithSuccess:^() {
+        [self->_userModel.notificationsModel refreshFromServerWithSuccess:^() {
                     TRACE(@"Synchronized notifications model.");
                     _after();
                 }
@@ -671,7 +671,7 @@ static AppState   *_sharedInstance;
 
         }
 
-        [_servicesModel refreshFromServerWithSuccess:^() {
+        [self->_servicesModel refreshFromServerWithSuccess:^() {
                     TRACE(@"Synchronized serviceModel.");
                     _afterServices();
                 }
@@ -687,8 +687,8 @@ static AppState   *_sharedInstance;
         // that is all ok, even when in background (id the app was backgrounded
         // during this method !
 
-        if ([_userModel.notificationsModel hasQueuedMessageChanges]) {
-            [_userModel.notificationsModel sendStackedMessageChangesOnSuccess:^() {
+        if ([self->_userModel.notificationsModel hasQueuedMessageChanges]) {
+            [self->_userModel.notificationsModel sendStackedMessageChangesOnSuccess:^() {
                 TRACE(@"Sent stacked message changes, with success.");
                 _afterSendingQueuedMessages();
             }                                                         onError:^() {
@@ -702,11 +702,11 @@ static AppState   *_sharedInstance;
 
     if ([_userModel.notificationsModel hasQueuedNotificationChanges]) {
         [_userModel.notificationsModel sendStackedNotificationChangesOnSuccess:^() {
-            TRACE(@"Sent stacked notification changes, with success.");
+            TRACE(@"Sent stacked patientNotification changes, with success.");
             _afterSendingQueuedNotifications();
         }                                                              onError:^() {
-            MPLOGERROR(@"*** Failed to send stacked notification changes, reloading");
-            [_userModel.notificationsModel reloadFromDevice];
+            MPLOGERROR(@"*** Failed to send stacked patientNotification changes, reloading");
+            [self->_userModel.notificationsModel reloadFromDevice];
             _afterSendingQueuedNotifications();
         }];
     } else {

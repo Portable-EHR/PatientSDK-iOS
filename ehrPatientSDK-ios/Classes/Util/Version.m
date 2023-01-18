@@ -3,7 +3,7 @@
 // Copyright (c) 2015-2019 Portable EHR inc. All rights reserved.
 //
 
-#import "Version.h"
+#include "Version.h"
 
 @implementation Version
 

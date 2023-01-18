@@ -6,13 +6,11 @@
 
 
 #import <Foundation/Foundation.h>
-#import <LocalAuthentication/LocalAuthentication.h>
-#import "NSDictionary+JSON.h"
-#import "GERuntimeConstants.h"
+#import "GEMacros.h"
 
 @protocol EHRInstanceCounterP <NSObject>
 
-    @optional
+@optional
 
 + (NSInteger)numberOfInstances;
 - (NSInteger)instanceNumber;

@@ -4,6 +4,7 @@
 //
 
 
+#import <LocalAuthentication/LocalAuthentication.h>
 #import "IBDeviceInfo.h"
 #import "GEDeviceHardware.h"
 #import "IBAppSummary.h"
@@ -94,7 +95,7 @@ TRACE_OFF
     pa->_localAuthenticationTested                        = WantBoolFromDic(dic, @"localAuthenticationTested");
     pa->_hasBiometricDevice                               = WantBoolFromDic(dic, @"hasBiometricDevice");
     pa->_hasEnrolledFingerprints                          = WantBoolFromDic(dic, @"hasEnrolledFingerprints");
-    if ([dic objectForKey:@"appSummary"]) pa->_appSummary = [IBAppSummary objectWithContentsOfDictionary:[dic objectForKey:@"appSummary"]];
+    if (dic[@"appSummary"]) pa->_appSummary = [IBAppSummary objectWithContentsOfDictionary:dic[@"appSummary"]];
     [pa testLocalAuthentication];
 
     return pa;

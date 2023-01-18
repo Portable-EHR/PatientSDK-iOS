@@ -18,18 +18,19 @@
     NSDate    *_addedOn;
     NSString  *_name;
     NSString  *_firstName;
-    NSString *_middleName;
-    BOOL     _mySelf;
+    NSString  *_middleName;
+    BOOL      _mySelf;
 }
 
-@property(nonatomic) NSString *guid;
-@property(nonatomic) NSString *participantId;
-@property(nonatomic) NSString *type;
-@property(nonatomic) NSString *role;
-@property(nonatomic) NSDate   *addedOn;
-@property(nonatomic) NSString *name;
-@property(nonatomic) NSString *middleName;
-@property(nonatomic) NSString *firstName;
-@property(nonatomic) BOOL     mySelf;
-
+@property(nonatomic) NSString           *guid;
+@property(nonatomic) NSString           *participantId;
+@property(nonatomic) NSString           *type;
+@property(nonatomic) NSString           *role;
+@property(nonatomic) NSDate             *addedOn;
+@property(nonatomic) NSString           *name;
+@property(nonatomic) NSString           *middleName;
+@property(nonatomic) NSString           *firstName;
+@property(nonatomic) BOOL               mySelf;
+@property(nonatomic, readonly) NSString *fullName;
+@property(nonatomic, readonly) NSString *shortName;
 @end

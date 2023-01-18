@@ -8,22 +8,70 @@
 
 /* Begin PBXBuildFile section */
 		47370FB8B4B130F73F918EB6BF3B9692 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		4B8DD037CC2770F23B41B7A6 /* ConvoEntryPayloadSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD00F178CC11506E584D3 /* ConvoEntryPayloadSpec.m */; };
+		4B8DD091AA9911039C2364EA /* EntryPartipantPayload.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD5BE4ECBC3F9BEFA90E8 /* EntryPartipantPayload.h */; };
+		4B8DD0A67F175AEDF568EC10 /* ConvoEntrySpec.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD59E493E254A6B973601 /* ConvoEntrySpec.h */; };
+		4B8DD0F5F02820720F33BA83 /* CommandsWS.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DDF64A8104C36C0045487 /* CommandsWS.m */; };
+		4B8DD1769C4AD2F9F016CB99 /* EntryStatusChangePayload.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD2AA0228E94BAEEA2A94 /* EntryStatusChangePayload.m */; };
 		4B8DD181C5BAA6660D381815 /* EntryAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD5C7582453A61440C8ED /* EntryAttachment.m */; };
 		4B8DD1C3F58DB9E0EBE45906 /* ConversationParticipant.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DDDFF4CC3497E2DCC5716 /* ConversationParticipant.m */; };
 		4B8DD1E2DA331884862D78A1 /* ConversationParticipant.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD7C6D1A4C832B4BF05A7 /* ConversationParticipant.h */; };
 		4B8DD1E798A4D2FD32FBACFA /* ConversationEnvelope.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DDECD17551C4BEFFEF7AF /* ConversationEnvelope.m */; };
+		4B8DD261565A94076BB2DB4B /* ConvoEntryPayloadSpec.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD72947797B45E6582BDE /* ConvoEntryPayloadSpec.h */; };
+		4B8DD3043D3B240B32665CFB /* NSDate+Compare.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD4C6FE90E3E56579C3CF /* NSDate+Compare.m */; };
+		4B8DD378677DBA24E0C6BB5B /* ConsentWS.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD9DDDD3AEF0AD1A8F7AA /* ConsentWS.h */; };
+		4B8DD3C60427C4B01F38EBBB /* EntryStatusChangePayload.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD2AA0228E94BAEEA2A94 /* EntryStatusChangePayload.m */; };
+		4B8DD425C342489989C1F2C4 /* ConvoEntryAddSpec.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD2DB4FCEC12135145EA5 /* ConvoEntryAddSpec.h */; };
+		4B8DD4DABFB499D1832A04ED /* ConvoInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD584C779E082067C03F4 /* ConvoInfo.h */; };
 		4B8DD52FE31BF25A2A3A470E /* ConversationEntryStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD36730B9CCC9AD97E7D8 /* ConversationEntryStatus.h */; };
+		4B8DD54EABA7C6F08998C419 /* EntryPartipantPayload.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD5BE4ECBC3F9BEFA90E8 /* EntryPartipantPayload.h */; };
+		4B8DD5E05853A9FCC0587CAE /* ConvoInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD584C779E082067C03F4 /* ConvoInfo.h */; };
+		4B8DD60423E185C2F2DAB033 /* NotificationWS.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD631E1D3A3875A5D0858 /* NotificationWS.h */; };
 		4B8DD7107CCC67D229731B00 /* EntryAttachment.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DDFF96CA73E2AD51859A6 /* EntryAttachment.h */; };
 		4B8DD7BE6FFB40590CA082FF /* ConversationEntryStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD3AC890E846E2EDFF96B /* ConversationEntryStatus.m */; };
+		4B8DD7CA426D7682393BB937 /* NSDate+Compare.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD4C6FE90E3E56579C3CF /* NSDate+Compare.m */; };
+		4B8DD7F6A6453B4EB7043E6A /* ConvoEntrySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD61309810772F9F3D4F8 /* ConvoEntrySpec.m */; };
+		4B8DD826A90012093DBE3360 /* NotificationWS.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DDF32159466926BE824EC /* NotificationWS.m */; };
+		4B8DD83823CAE8D41AD417A3 /* EHRRequests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD3E17A313C9797E00621 /* EHRRequests.m */; };
+		4B8DD83AE6729BE25BC27E22 /* EntryStatusChangePayload.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD70F2D379B4E490590FD /* EntryStatusChangePayload.h */; };
 		4B8DD84045FCB86F4498C3EC /* ConversationEntryPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DDE6A29BDBA6AD7B1FA67 /* ConversationEntryPoint.m */; };
 		4B8DD84714447DC243AFE4B1 /* ConversationEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD0034453C67C22ADF319 /* ConversationEntry.h */; };
+		4B8DD8490B02E7F2E98DB19A /* ConvoInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DDDEFA91169ED252E0D2B /* ConvoInfo.m */; };
+		4B8DD84D177A20C88E71ED64 /* NSDate+Compare.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DDE73693A3F070218785B /* NSDate+Compare.h */; };
+		4B8DD864B791A6BC246E9D3B /* EntryMovePayload.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DDF2B35027B0DE48781A3 /* EntryMovePayload.m */; };
+		4B8DD8EE6539D71CD80A29C4 /* CommandsWS.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD84D0EF53232D30877DC /* CommandsWS.h */; };
 		4B8DD8F496DB88AD2D8E452A /* ConversationEnvelope.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD8BBA280DD5D0274C52D /* ConversationEnvelope.h */; };
-		4B8DD91FC0C5D723371CA1FC /* ConversationEntryPayload.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD0A6D57C021ED66F5030 /* ConversationEntryPayload.h */; };
+		4B8DD91FC0C5D723371CA1FC /* EntryMessagePayload.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD0A6D57C021ED66F5030 /* EntryMessagePayload.h */; };
 		4B8DD984E1396C67F08C18D1 /* ConversationEntryPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD23FEA5829C301694792 /* ConversationEntryPoint.h */; };
-		4B8DDA45577D82D2DD970FD2 /* ConversationEntryPayload.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DDE4D705B7CEF0ED613B6 /* ConversationEntryPayload.m */; };
+		4B8DD9EC6E9BE03F07D09577 /* ConvoEntryPayloadSpec.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD72947797B45E6582BDE /* ConvoEntryPayloadSpec.h */; };
+		4B8DD9FDF7B729131F5A84C3 /* NSDate+Compare.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DDE73693A3F070218785B /* NSDate+Compare.h */; };
+		4B8DDA45577D82D2DD970FD2 /* EntryMessagePayload.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DDE4D705B7CEF0ED613B6 /* EntryMessagePayload.m */; };
+		4B8DDA63C56BB3C4C152952A /* ConvoWS.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD7BD3CEC57DFDD0A53C3 /* ConvoWS.m */; };
+		4B8DDA8E73C7FC7CF4D16C8C /* ConvoEntrySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD61309810772F9F3D4F8 /* ConvoEntrySpec.m */; };
+		4B8DDA90A75ADB195015E634 /* EntryMovePayload.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DDFF9B91AE3DD8D0C3D55 /* EntryMovePayload.h */; };
+		4B8DDB0E9596FEDD80F82A21 /* EntryMovePayload.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DDFF9B91AE3DD8D0C3D55 /* EntryMovePayload.h */; };
+		4B8DDB1D463B60BA6285B1B5 /* ConsentWS.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD9DDDD3AEF0AD1A8F7AA /* ConsentWS.h */; };
+		4B8DDB2225DE31190E74288C /* EHRRequests.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD8E95776965B13A9F171 /* EHRRequests.h */; };
+		4B8DDB3FC96401712370B127 /* ConsentWS.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD0F49BDB59C900A03450 /* ConsentWS.m */; };
 		4B8DDB5FA8C4331307BF5901 /* Conversation.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD932464D5B94BE9F516F /* Conversation.h */; };
+		4B8DDC8952CEE35F6DDFAB0D /* ConsentWS.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD0F49BDB59C900A03450 /* ConsentWS.m */; };
+		4B8DDCA89D0D87429C172771 /* ConvoEntryAddSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD210E9EF45B6A996F7A7 /* ConvoEntryAddSpec.m */; };
 		4B8DDCB34836FC9EA16CF34A /* ConversationEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DDC6D54654BA75E1BAC7C /* ConversationEntry.m */; };
+		4B8DDCB62D53718E57E97AA3 /* NotificationWS.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD631E1D3A3875A5D0858 /* NotificationWS.h */; };
 		4B8DDD6181C5D9A05D1B39EB /* Conversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD465837BD82B434D20BE /* Conversation.m */; };
+		4B8DDDB9BC831CAE65B4CDA4 /* ConvoInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DDDEFA91169ED252E0D2B /* ConvoInfo.m */; };
+		4B8DDDE9D0DFA517C1573D02 /* ConvoEntrySpec.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD59E493E254A6B973601 /* ConvoEntrySpec.h */; };
+		4B8DDE0504DFBD0043153917 /* WebServices.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DDA68F763702075FC7038 /* WebServices.h */; };
+		4B8DDE1043ADF9C6B11F20BA /* NotificationWS.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DDF32159466926BE824EC /* NotificationWS.m */; };
+		4B8DDE2AA92A7520A80341F0 /* EntryMovePayload.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DDF2B35027B0DE48781A3 /* EntryMovePayload.m */; };
+		4B8DDE3988265E2E8F952C5F /* EntryStatusChangePayload.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD70F2D379B4E490590FD /* EntryStatusChangePayload.h */; };
+		4B8DDE4D9DDADD31EE739601 /* ConvoEntryPayloadSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD00F178CC11506E584D3 /* ConvoEntryPayloadSpec.m */; };
+		4B8DDF20135D8A888DDF2985 /* EntryPartipantPayload.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD256F1B216D63FBA4977 /* EntryPartipantPayload.m */; };
+		4B8DDF2ED34CC7863866ABEE /* ConvoEntryAddSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD210E9EF45B6A996F7A7 /* ConvoEntryAddSpec.m */; };
+		4B8DDF626959ADEEF5FA6368 /* WebServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD717AA65FCCB38280CDD /* WebServices.m */; };
+		4B8DDF6C20B46F757F149696 /* ConvoWS.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DDC9748B334088563D92C /* ConvoWS.h */; };
+		4B8DDFF6BFFCD1ECC110BD83 /* ConvoEntryAddSpec.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD2DB4FCEC12135145EA5 /* ConvoEntryAddSpec.h */; };
+		4B8DDFF8F5B431315BCCC75B /* EntryPartipantPayload.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD256F1B216D63FBA4977 /* EntryPartipantPayload.m */; };
 		54BBC7CB33F2634AF4CD386B3686F22F /* Pods-ehrPatientSDK-ios_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0265783E41FDD503EB727CE1FCFAF9 /* Pods-ehrPatientSDK-ios_Tests-dummy.m */; };
 		77E55181CD9D5F702F458A579D8C08B7 /* Pods-ehrPatientSDK-ios_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CC7B2F99BD0394C5DA32D4C049647C5B /* Pods-ehrPatientSDK-ios_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7A33F12626FA390C00C48A41 /* PehrSDKConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A33F12526FA390C00C48A41 /* PehrSDKConfig.m */; };
@@ -175,14 +223,12 @@
 		7ABCB83C26F392970068026D /* EulaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB82426F392970068026D /* EulaModel.m */; };
 		7ABCB83D26F392970068026D /* EulaModelFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB82526F392970068026D /* EulaModelFilter.h */; };
 		7ABCB83E26F392970068026D /* ContactsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB82626F392970068026D /* ContactsModel.m */; };
-		7ABCB83F26F392970068026D /* ServicesModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB82726F392970068026D /* ServicesModel.h */; };
 		7ABCB84026F392970068026D /* UserModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB82826F392970068026D /* UserModel.h */; };
 		7ABCB84126F392970068026D /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB82926F392970068026D /* UserModel.m */; };
 		7ABCB84226F392970068026D /* ContactsModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB82A26F392970068026D /* ContactsModel.h */; };
 		7ABCB84326F392970068026D /* Inbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB82B26F392970068026D /* Inbox.h */; };
 		7ABCB84426F392970068026D /* RecordsModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB82C26F392970068026D /* RecordsModel.h */; };
 		7ABCB84526F392970068026D /* NotificationsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB82D26F392970068026D /* NotificationsModel.m */; };
-		7ABCB84626F392970068026D /* ServicesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB82E26F392970068026D /* ServicesModel.m */; };
 		7ABCB84726F392970068026D /* EulaModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB82F26F392970068026D /* EulaModel.h */; };
 		7ABCB84826F392970068026D /* EulaModelFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB83026F392970068026D /* EulaModelFilter.m */; };
 		7ABCB84926F392970068026D /* ServicesModelFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB83126F392970068026D /* ServicesModelFilter.h */; };
@@ -195,14 +241,10 @@
 		7ABCB85F26F3929F0068026D /* AppState.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB85026F3929F0068026D /* AppState.h */; };
 		7ABCB86026F3929F0068026D /* PersistenceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB85126F3929F0068026D /* PersistenceManager.m */; };
 		7ABCB86126F3929F0068026D /* SecureCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB85226F3929F0068026D /* SecureCredentials.m */; };
-		7ABCB86226F3929F0068026D /* AppPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB85326F3929F0068026D /* AppPreferences.m */; };
 		7ABCB86326F3929F0068026D /* UICKeyChainStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB85426F3929F0068026D /* UICKeyChainStore.h */; };
 		7ABCB86426F3929F0068026D /* SecureCredentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB85526F3929F0068026D /* SecureCredentials.h */; };
-		7ABCB86526F3929F0068026D /* ServiceSettings.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB85626F3929F0068026D /* ServiceSettings.h */; };
-		7ABCB86626F3929F0068026D /* AppPreferences.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB85726F3929F0068026D /* AppPreferences.h */; };
 		7ABCB86726F3929F0068026D /* PersistenceManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ABCB85826F3929F0068026D /* PersistenceManager.h */; };
 		7ABCB86826F3929F0068026D /* UserCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB85926F3929F0068026D /* UserCredentials.m */; };
-		7ABCB86926F3929F0068026D /* ServiceSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB85A26F3929F0068026D /* ServiceSettings.m */; };
 		7ABCB86A26F3929F0068026D /* UICKeyChainStore.LICENSE.readme in Resources */ = {isa = PBXBuildFile; fileRef = 7ABCB85B26F3929F0068026D /* UICKeyChainStore.LICENSE.readme */; };
 		7ABCB86B26F3929F0068026D /* UICKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB85C26F3929F0068026D /* UICKeyChainStore.m */; };
 		7ABCB86C26F3929F0068026D /* AppState.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ABCB85D26F3929F0068026D /* AppState.m */; };
@@ -227,6 +269,32 @@
 		7B45880EDA59D742B184824A9513D91C /* ehrPatientSDK-ios-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 733DDCFBC0709DF218E5D0E165575F59 /* ehrPatientSDK-ios-dummy.m */; };
 		9CC0AE5175C360658B80DADECDDA6D57 /* ehrPatientSDK-ios-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 160B722EFA2ED10609AD9F0B407C32CC /* ehrPatientSDK-ios-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E4345F96FE29539D759573943D7C01B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		FA8C0000295C688E008C39F1 /* ConversationEntryPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DDE6A29BDBA6AD7B1FA67 /* ConversationEntryPoint.m */; };
+		FA8C0001295C688E008C39F1 /* ConversationParticipant.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD7C6D1A4C832B4BF05A7 /* ConversationParticipant.h */; };
+		FA8C0002295C688E008C39F1 /* EntryAttachment.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DDFF96CA73E2AD51859A6 /* EntryAttachment.h */; };
+		FA8C0003295C688E008C39F1 /* ConversationParticipant.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DDDFF4CC3497E2DCC5716 /* ConversationParticipant.m */; };
+		FA8C0004295C688E008C39F1 /* Conversation.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD932464D5B94BE9F516F /* Conversation.h */; };
+		FA8C0005295C688E008C39F1 /* EntryMessagePayload.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD0A6D57C021ED66F5030 /* EntryMessagePayload.h */; };
+		FA8C0006295C688E008C39F1 /* ConversationEntryPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD23FEA5829C301694792 /* ConversationEntryPoint.h */; };
+		FA8C0007295C688E008C39F1 /* EntryAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD5C7582453A61440C8ED /* EntryAttachment.m */; };
+		FA8C0008295C688E008C39F1 /* Conversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD465837BD82B434D20BE /* Conversation.m */; };
+		FA8C0009295C6898008C39F1 /* CommandsWS.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DDF64A8104C36C0045487 /* CommandsWS.m */; };
+		FA8C000A295C6898008C39F1 /* WebServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD717AA65FCCB38280CDD /* WebServices.m */; };
+		FA8C000B295C6898008C39F1 /* ConvoWS.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD7BD3CEC57DFDD0A53C3 /* ConvoWS.m */; };
+		FA8C000C295C6898008C39F1 /* WebServices.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DDA68F763702075FC7038 /* WebServices.h */; };
+		FA8C000D295C6898008C39F1 /* CommandsWS.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD84D0EF53232D30877DC /* CommandsWS.h */; };
+		FA8C000E295C6898008C39F1 /* ConvoWS.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DDC9748B334088563D92C /* ConvoWS.h */; };
+		FA8C0015295F1C6B008C39F1 /* ServicesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8C0013295F1C6B008C39F1 /* ServicesModel.m */; };
+		FA8C0016295F1C6B008C39F1 /* ServicesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8C0013295F1C6B008C39F1 /* ServicesModel.m */; };
+		FA8C0017295F1C6B008C39F1 /* ServicesModel.h in Headers */ = {isa = PBXBuildFile; fileRef = FA8C0014295F1C6B008C39F1 /* ServicesModel.h */; };
+		FA8C0018295F1C6B008C39F1 /* ServicesModel.h in Headers */ = {isa = PBXBuildFile; fileRef = FA8C0014295F1C6B008C39F1 /* ServicesModel.h */; };
+		FA8CFFF9295C688E008C39F1 /* ConversationEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD0034453C67C22ADF319 /* ConversationEntry.h */; };
+		FA8CFFFA295C688E008C39F1 /* EntryMessagePayload.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DDE4D705B7CEF0ED613B6 /* EntryMessagePayload.m */; };
+		FA8CFFFB295C688E008C39F1 /* ConversationEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DDC6D54654BA75E1BAC7C /* ConversationEntry.m */; };
+		FA8CFFFC295C688E008C39F1 /* ConversationEnvelope.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DDECD17551C4BEFFEF7AF /* ConversationEnvelope.m */; };
+		FA8CFFFD295C688E008C39F1 /* ConversationEnvelope.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD8BBA280DD5D0274C52D /* ConversationEnvelope.h */; };
+		FA8CFFFE295C688E008C39F1 /* ConversationEntryStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD36730B9CCC9AD97E7D8 /* ConversationEntryStatus.h */; };
+		FA8CFFFF295C688E008C39F1 /* ConversationEntryStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD3AC890E846E2EDFF96B /* ConversationEntryStatus.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -247,21 +315,49 @@
 		3E79ED857B0ED5E54DF85B0D9942E352 /* Pods_ehrPatientSDK_ios_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ehrPatientSDK_ios_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4287393F4DB6F85AF7A1C5776C61530F /* Pods-ehrPatientSDK-ios_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ehrPatientSDK-ios_Tests-Info.plist"; sourceTree = "<group>"; };
 		4B8DD0034453C67C22ADF319 /* ConversationEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversationEntry.h; sourceTree = "<group>"; };
-		4B8DD0A6D57C021ED66F5030 /* ConversationEntryPayload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversationEntryPayload.h; sourceTree = "<group>"; };
+		4B8DD00F178CC11506E584D3 /* ConvoEntryPayloadSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConvoEntryPayloadSpec.m; sourceTree = "<group>"; };
+		4B8DD0A6D57C021ED66F5030 /* EntryMessagePayload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryMessagePayload.h; sourceTree = "<group>"; };
+		4B8DD0F49BDB59C900A03450 /* ConsentWS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConsentWS.m; sourceTree = "<group>"; };
+		4B8DD210E9EF45B6A996F7A7 /* ConvoEntryAddSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConvoEntryAddSpec.m; sourceTree = "<group>"; };
 		4B8DD23FEA5829C301694792 /* ConversationEntryPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversationEntryPoint.h; sourceTree = "<group>"; };
+		4B8DD256F1B216D63FBA4977 /* EntryPartipantPayload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryPartipantPayload.m; sourceTree = "<group>"; };
+		4B8DD2AA0228E94BAEEA2A94 /* EntryStatusChangePayload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryStatusChangePayload.m; sourceTree = "<group>"; };
+		4B8DD2DB4FCEC12135145EA5 /* ConvoEntryAddSpec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConvoEntryAddSpec.h; sourceTree = "<group>"; };
 		4B8DD36730B9CCC9AD97E7D8 /* ConversationEntryStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversationEntryStatus.h; sourceTree = "<group>"; };
 		4B8DD3AC890E846E2EDFF96B /* ConversationEntryStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationEntryStatus.m; sourceTree = "<group>"; };
+		4B8DD3E17A313C9797E00621 /* EHRRequests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EHRRequests.m; sourceTree = "<group>"; };
 		4B8DD465837BD82B434D20BE /* Conversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Conversation.m; sourceTree = "<group>"; };
+		4B8DD4C6FE90E3E56579C3CF /* NSDate+Compare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Compare.m"; sourceTree = "<group>"; };
+		4B8DD584C779E082067C03F4 /* ConvoInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConvoInfo.h; sourceTree = "<group>"; };
+		4B8DD59E493E254A6B973601 /* ConvoEntrySpec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConvoEntrySpec.h; sourceTree = "<group>"; };
+		4B8DD5BE4ECBC3F9BEFA90E8 /* EntryPartipantPayload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryPartipantPayload.h; sourceTree = "<group>"; };
 		4B8DD5C7582453A61440C8ED /* EntryAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryAttachment.m; sourceTree = "<group>"; };
+		4B8DD61309810772F9F3D4F8 /* ConvoEntrySpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConvoEntrySpec.m; sourceTree = "<group>"; };
+		4B8DD631E1D3A3875A5D0858 /* NotificationWS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationWS.h; sourceTree = "<group>"; };
+		4B8DD70F2D379B4E490590FD /* EntryStatusChangePayload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryStatusChangePayload.h; sourceTree = "<group>"; };
+		4B8DD717AA65FCCB38280CDD /* WebServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebServices.m; sourceTree = "<group>"; };
+		4B8DD72947797B45E6582BDE /* ConvoEntryPayloadSpec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConvoEntryPayloadSpec.h; sourceTree = "<group>"; };
+		4B8DD7BD3CEC57DFDD0A53C3 /* ConvoWS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConvoWS.m; sourceTree = "<group>"; };
 		4B8DD7C6D1A4C832B4BF05A7 /* ConversationParticipant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversationParticipant.h; sourceTree = "<group>"; };
+		4B8DD84D0EF53232D30877DC /* CommandsWS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommandsWS.h; sourceTree = "<group>"; };
 		4B8DD8BBA280DD5D0274C52D /* ConversationEnvelope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversationEnvelope.h; sourceTree = "<group>"; };
+		4B8DD8E95776965B13A9F171 /* EHRRequests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EHRRequests.h; sourceTree = "<group>"; };
 		4B8DD932464D5B94BE9F516F /* Conversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Conversation.h; sourceTree = "<group>"; };
+		4B8DD9DDDD3AEF0AD1A8F7AA /* ConsentWS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsentWS.h; sourceTree = "<group>"; };
+		4B8DDA68F763702075FC7038 /* WebServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebServices.h; sourceTree = "<group>"; };
 		4B8DDC6D54654BA75E1BAC7C /* ConversationEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationEntry.m; sourceTree = "<group>"; };
+		4B8DDC9748B334088563D92C /* ConvoWS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConvoWS.h; sourceTree = "<group>"; };
+		4B8DDDEFA91169ED252E0D2B /* ConvoInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConvoInfo.m; sourceTree = "<group>"; };
 		4B8DDDFF4CC3497E2DCC5716 /* ConversationParticipant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationParticipant.m; sourceTree = "<group>"; };
-		4B8DDE4D705B7CEF0ED613B6 /* ConversationEntryPayload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationEntryPayload.m; sourceTree = "<group>"; };
+		4B8DDE4D705B7CEF0ED613B6 /* EntryMessagePayload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryMessagePayload.m; sourceTree = "<group>"; };
 		4B8DDE6A29BDBA6AD7B1FA67 /* ConversationEntryPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationEntryPoint.m; sourceTree = "<group>"; };
+		4B8DDE73693A3F070218785B /* NSDate+Compare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Compare.h"; sourceTree = "<group>"; };
 		4B8DDECD17551C4BEFFEF7AF /* ConversationEnvelope.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationEnvelope.m; sourceTree = "<group>"; };
+		4B8DDF2B35027B0DE48781A3 /* EntryMovePayload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryMovePayload.m; sourceTree = "<group>"; };
+		4B8DDF32159466926BE824EC /* NotificationWS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationWS.m; sourceTree = "<group>"; };
+		4B8DDF64A8104C36C0045487 /* CommandsWS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommandsWS.m; sourceTree = "<group>"; };
 		4B8DDFF96CA73E2AD51859A6 /* EntryAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryAttachment.h; sourceTree = "<group>"; };
+		4B8DDFF9B91AE3DD8D0C3D55 /* EntryMovePayload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryMovePayload.h; sourceTree = "<group>"; };
 		4D58965214989BE0467903769DAD4F66 /* ehrPatientSDK-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "ehrPatientSDK-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		5514AAF3C52C6CFA4095B12551F9782D /* Pods-ehrPatientSDK-ios_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ehrPatientSDK-ios_Tests.modulemap"; sourceTree = "<group>"; };
 		59B09E10646727862BC94FA07CA33C91 /* ehrPatientSDK-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "ehrPatientSDK-ios.release.xcconfig"; sourceTree = "<group>"; };
@@ -417,14 +513,12 @@
 		7ABCB82426F392970068026D /* EulaModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EulaModel.m; sourceTree = "<group>"; };
 		7ABCB82526F392970068026D /* EulaModelFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EulaModelFilter.h; sourceTree = "<group>"; };
 		7ABCB82626F392970068026D /* ContactsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsModel.m; sourceTree = "<group>"; };
-		7ABCB82726F392970068026D /* ServicesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServicesModel.h; sourceTree = "<group>"; };
 		7ABCB82826F392970068026D /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
 		7ABCB82926F392970068026D /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
 		7ABCB82A26F392970068026D /* ContactsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsModel.h; sourceTree = "<group>"; };
 		7ABCB82B26F392970068026D /* Inbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Inbox.h; sourceTree = "<group>"; };
 		7ABCB82C26F392970068026D /* RecordsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordsModel.h; sourceTree = "<group>"; };
 		7ABCB82D26F392970068026D /* NotificationsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationsModel.m; sourceTree = "<group>"; };
-		7ABCB82E26F392970068026D /* ServicesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServicesModel.m; sourceTree = "<group>"; };
 		7ABCB82F26F392970068026D /* EulaModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EulaModel.h; sourceTree = "<group>"; };
 		7ABCB83026F392970068026D /* EulaModelFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EulaModelFilter.m; sourceTree = "<group>"; };
 		7ABCB83126F392970068026D /* ServicesModelFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServicesModelFilter.h; sourceTree = "<group>"; };
@@ -437,14 +531,10 @@
 		7ABCB85026F3929F0068026D /* AppState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppState.h; sourceTree = "<group>"; };
 		7ABCB85126F3929F0068026D /* PersistenceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistenceManager.m; sourceTree = "<group>"; };
 		7ABCB85226F3929F0068026D /* SecureCredentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecureCredentials.m; sourceTree = "<group>"; };
-		7ABCB85326F3929F0068026D /* AppPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppPreferences.m; sourceTree = "<group>"; };
 		7ABCB85426F3929F0068026D /* UICKeyChainStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICKeyChainStore.h; sourceTree = "<group>"; };
 		7ABCB85526F3929F0068026D /* SecureCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecureCredentials.h; sourceTree = "<group>"; };
-		7ABCB85626F3929F0068026D /* ServiceSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceSettings.h; sourceTree = "<group>"; };
-		7ABCB85726F3929F0068026D /* AppPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppPreferences.h; sourceTree = "<group>"; };
 		7ABCB85826F3929F0068026D /* PersistenceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistenceManager.h; sourceTree = "<group>"; };
 		7ABCB85926F3929F0068026D /* UserCredentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCredentials.m; sourceTree = "<group>"; };
-		7ABCB85A26F3929F0068026D /* ServiceSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceSettings.m; sourceTree = "<group>"; };
 		7ABCB85B26F3929F0068026D /* UICKeyChainStore.LICENSE.readme */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UICKeyChainStore.LICENSE.readme; sourceTree = "<group>"; };
 		7ABCB85C26F3929F0068026D /* UICKeyChainStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICKeyChainStore.m; sourceTree = "<group>"; };
 		7ABCB85D26F3929F0068026D /* AppState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppState.m; sourceTree = "<group>"; };
@@ -477,6 +567,8 @@
 		BFBC5291B327291486881C357108FA52 /* Pods-ehrPatientSDK-ios_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ehrPatientSDK-ios_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		CC7B2F99BD0394C5DA32D4C049647C5B /* Pods-ehrPatientSDK-ios_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ehrPatientSDK-ios_Tests-umbrella.h"; sourceTree = "<group>"; };
 		E5B520DE88B2487D9C871B371D32A521 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		FA8C0013295F1C6B008C39F1 /* ServicesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServicesModel.m; sourceTree = "<group>"; };
+		FA8C0014295F1C6B008C39F1 /* ServicesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServicesModel.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -519,16 +611,18 @@
 		4B8DD1E8BF36CEB082920E4E /* Calls */ = {
 			isa = PBXGroup;
 			children = (
-				4B8DD46F18C2D3DD808E1880 /* Convo */,
+				4B8DDF64A8104C36C0045487 /* CommandsWS.m */,
+				4B8DD84D0EF53232D30877DC /* CommandsWS.h */,
+				4B8DD717AA65FCCB38280CDD /* WebServices.m */,
+				4B8DDA68F763702075FC7038 /* WebServices.h */,
+				4B8DD7BD3CEC57DFDD0A53C3 /* ConvoWS.m */,
+				4B8DDC9748B334088563D92C /* ConvoWS.h */,
+				4B8DD0F49BDB59C900A03450 /* ConsentWS.m */,
+				4B8DD9DDDD3AEF0AD1A8F7AA /* ConsentWS.h */,
+				4B8DDF32159466926BE824EC /* NotificationWS.m */,
+				4B8DD631E1D3A3875A5D0858 /* NotificationWS.h */,
 			);
 			path = Calls;
-			sourceTree = "<group>";
-		};
-		4B8DD46F18C2D3DD808E1880 /* Convo */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Convo;
 			sourceTree = "<group>";
 		};
 		4B8DD7E62A217A2DA859B2B8 /* Convo */ = {
@@ -542,16 +636,38 @@
 				4B8DD7C6D1A4C832B4BF05A7 /* ConversationParticipant.h */,
 				4B8DDC6D54654BA75E1BAC7C /* ConversationEntry.m */,
 				4B8DD0034453C67C22ADF319 /* ConversationEntry.h */,
-				4B8DDE4D705B7CEF0ED613B6 /* ConversationEntryPayload.m */,
-				4B8DD0A6D57C021ED66F5030 /* ConversationEntryPayload.h */,
+				4B8DDE4D705B7CEF0ED613B6 /* EntryMessagePayload.m */,
+				4B8DD0A6D57C021ED66F5030 /* EntryMessagePayload.h */,
 				4B8DDECD17551C4BEFFEF7AF /* ConversationEnvelope.m */,
 				4B8DD8BBA280DD5D0274C52D /* ConversationEnvelope.h */,
 				4B8DD5C7582453A61440C8ED /* EntryAttachment.m */,
 				4B8DDFF96CA73E2AD51859A6 /* EntryAttachment.h */,
 				4B8DD3AC890E846E2EDFF96B /* ConversationEntryStatus.m */,
 				4B8DD36730B9CCC9AD97E7D8 /* ConversationEntryStatus.h */,
+				4B8DDDEFA91169ED252E0D2B /* ConvoInfo.m */,
+				4B8DD584C779E082067C03F4 /* ConvoInfo.h */,
+				4B8DDE91E24282E1FF86ECE1 /* Outbound */,
+				4B8DD256F1B216D63FBA4977 /* EntryPartipantPayload.m */,
+				4B8DD5BE4ECBC3F9BEFA90E8 /* EntryPartipantPayload.h */,
+				4B8DDF2B35027B0DE48781A3 /* EntryMovePayload.m */,
+				4B8DDFF9B91AE3DD8D0C3D55 /* EntryMovePayload.h */,
+				4B8DD2AA0228E94BAEEA2A94 /* EntryStatusChangePayload.m */,
+				4B8DD70F2D379B4E490590FD /* EntryStatusChangePayload.h */,
 			);
 			path = Convo;
+			sourceTree = "<group>";
+		};
+		4B8DDE91E24282E1FF86ECE1 /* Outbound */ = {
+			isa = PBXGroup;
+			children = (
+				4B8DD61309810772F9F3D4F8 /* ConvoEntrySpec.m */,
+				4B8DD59E493E254A6B973601 /* ConvoEntrySpec.h */,
+				4B8DD00F178CC11506E584D3 /* ConvoEntryPayloadSpec.m */,
+				4B8DD72947797B45E6582BDE /* ConvoEntryPayloadSpec.h */,
+				4B8DD210E9EF45B6A996F7A7 /* ConvoEntryAddSpec.m */,
+				4B8DD2DB4FCEC12135145EA5 /* ConvoEntryAddSpec.h */,
+			);
+			path = Outbound;
 			sourceTree = "<group>";
 		};
 		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
@@ -590,6 +706,8 @@
 				7ABCB71B26F392330068026D /* Version.m */,
 				7A33F12526FA390C00C48A41 /* PehrSDKConfig.m */,
 				7A33F12726FA391700C48A41 /* PehrSDKConfig.h */,
+				4B8DD4C6FE90E3E56579C3CF /* NSDate+Compare.m */,
+				4B8DDE73693A3F070218785B /* NSDate+Compare.h */,
 			);
 			name = Util;
 			path = "ehrPatientSDK-ios/Classes/Util";
@@ -716,6 +834,8 @@
 				7AD134D9275D000B00FEF5C7 /* IBConsentGranted.m */,
 				4B8DD7E62A217A2DA859B2B8 /* Convo */,
 				4B8DD1E8BF36CEB082920E4E /* Calls */,
+				4B8DD3E17A313C9797E00621 /* EHRRequests.m */,
+				4B8DD8E95776965B13A9F171 /* EHRRequests.h */,
 			);
 			path = NAO;
 			sourceTree = "<group>";
@@ -741,8 +861,8 @@
 				7ABCB83526F392970068026D /* PatientModel.m */,
 				7ABCB82C26F392970068026D /* RecordsModel.h */,
 				7ABCB83226F392970068026D /* RecordsModel.m */,
-				7ABCB82726F392970068026D /* ServicesModel.h */,
-				7ABCB82E26F392970068026D /* ServicesModel.m */,
+				FA8C0014295F1C6B008C39F1 /* ServicesModel.h */,
+				FA8C0013295F1C6B008C39F1 /* ServicesModel.m */,
 				7ABCB83126F392970068026D /* ServicesModelFilter.h */,
 				7ABCB83326F392970068026D /* ServicesModelFilter.m */,
 				7ABCB82826F392970068026D /* UserModel.h */,
@@ -755,16 +875,12 @@
 		7ABCB5B526F390D30068026D /* AppState */ = {
 			isa = PBXGroup;
 			children = (
-				7ABCB85726F3929F0068026D /* AppPreferences.h */,
-				7ABCB85326F3929F0068026D /* AppPreferences.m */,
 				7ABCB85026F3929F0068026D /* AppState.h */,
 				7ABCB85D26F3929F0068026D /* AppState.m */,
 				7ABCB85826F3929F0068026D /* PersistenceManager.h */,
 				7ABCB85126F3929F0068026D /* PersistenceManager.m */,
 				7ABCB85526F3929F0068026D /* SecureCredentials.h */,
 				7ABCB85226F3929F0068026D /* SecureCredentials.m */,
-				7ABCB85626F3929F0068026D /* ServiceSettings.h */,
-				7ABCB85A26F3929F0068026D /* ServiceSettings.m */,
 				7ABCB85426F3929F0068026D /* UICKeyChainStore.h */,
 				7ABCB85B26F3929F0068026D /* UICKeyChainStore.LICENSE.readme */,
 				7ABCB85C26F3929F0068026D /* UICKeyChainStore.m */,
@@ -971,7 +1087,7 @@
 				7ABCB87626F5B7460068026D /* EHRInstanceCounterP.h in Headers */,
 				7ABCB87526F5B7460068026D /* EHRNetworkableP.h in Headers */,
 				7ABCB84226F392970068026D /* ContactsModel.h in Headers */,
-				7ABCB86626F3929F0068026D /* AppPreferences.h in Headers */,
+				FA8C0017295F1C6B008C39F1 /* ServicesModel.h in Headers */,
 				7ABCB87926F5B7460068026D /* ScannerP.h in Headers */,
 				7ABCB83726F392970068026D /* NotificationsModelFilter.h in Headers */,
 				7ABCB7D626F392640068026D /* IBDispensaryInfo.h in Headers */,
@@ -1012,7 +1128,6 @@
 				7ABCB74126F392450068026D /* AccessOffer.h in Headers */,
 				7ABCB7D026F392640068026D /* IBHealthCareProvider.h in Headers */,
 				7ABCB7F126F392650068026D /* UserDeviceSettings.h in Headers */,
-				7ABCB86526F3929F0068026D /* ServiceSettings.h in Headers */,
 				7ABCB7BC26F392640068026D /* PatientHealthSummary.h in Headers */,
 				7ABCB7C926F392640068026D /* Record.h in Headers */,
 				7ABCB75526F3924D0068026D /* HCIN.h in Headers */,
@@ -1035,7 +1150,6 @@
 				7AD134D6275CFDAA00FEF5C7 /* IBConsentGranted.h in Headers */,
 				7ABCB81B26F3928E0068026D /* EHRApiServer.h in Headers */,
 				7ABCB72726F392330068026D /* GETimeUtil.h in Headers */,
-				7ABCB83F26F392970068026D /* ServicesModel.h in Headers */,
 				7ABCB83826F392970068026D /* PatientModel.h in Headers */,
 				7ABCB84426F392970068026D /* RecordsModel.h in Headers */,
 				7ABCB73326F392330068026D /* GERuntimeConstants.h in Headers */,
@@ -1050,10 +1164,24 @@
 				4B8DDB5FA8C4331307BF5901 /* Conversation.h in Headers */,
 				4B8DD1E2DA331884862D78A1 /* ConversationParticipant.h in Headers */,
 				4B8DD84714447DC243AFE4B1 /* ConversationEntry.h in Headers */,
-				4B8DD91FC0C5D723371CA1FC /* ConversationEntryPayload.h in Headers */,
+				4B8DD91FC0C5D723371CA1FC /* EntryMessagePayload.h in Headers */,
 				4B8DD8F496DB88AD2D8E452A /* ConversationEnvelope.h in Headers */,
 				4B8DD7107CCC67D229731B00 /* EntryAttachment.h in Headers */,
 				4B8DD52FE31BF25A2A3A470E /* ConversationEntryStatus.h in Headers */,
+				4B8DD8EE6539D71CD80A29C4 /* CommandsWS.h in Headers */,
+				4B8DDE0504DFBD0043153917 /* WebServices.h in Headers */,
+				4B8DDF6C20B46F757F149696 /* ConvoWS.h in Headers */,
+				4B8DDB2225DE31190E74288C /* EHRRequests.h in Headers */,
+				4B8DD378677DBA24E0C6BB5B /* ConsentWS.h in Headers */,
+				4B8DD4DABFB499D1832A04ED /* ConvoInfo.h in Headers */,
+				4B8DD9FDF7B729131F5A84C3 /* NSDate+Compare.h in Headers */,
+				4B8DD60423E185C2F2DAB033 /* NotificationWS.h in Headers */,
+				4B8DDDE9D0DFA517C1573D02 /* ConvoEntrySpec.h in Headers */,
+				4B8DD261565A94076BB2DB4B /* ConvoEntryPayloadSpec.h in Headers */,
+				4B8DDFF6BFFCD1ECC110BD83 /* ConvoEntryAddSpec.h in Headers */,
+				4B8DD091AA9911039C2364EA /* EntryPartipantPayload.h in Headers */,
+				4B8DDB0E9596FEDD80F82A21 /* EntryMovePayload.h in Headers */,
+				4B8DD83AE6729BE25BC27E22 /* EntryStatusChangePayload.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1061,7 +1189,29 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA8C0002295C688E008C39F1 /* EntryAttachment.h in Headers */,
+				FA8CFFFE295C688E008C39F1 /* ConversationEntryStatus.h in Headers */,
+				FA8C0004295C688E008C39F1 /* Conversation.h in Headers */,
+				FA8C000E295C6898008C39F1 /* ConvoWS.h in Headers */,
+				FA8C000C295C6898008C39F1 /* WebServices.h in Headers */,
+				FA8CFFFD295C688E008C39F1 /* ConversationEnvelope.h in Headers */,
+				FA8C0001295C688E008C39F1 /* ConversationParticipant.h in Headers */,
+				FA8CFFF9295C688E008C39F1 /* ConversationEntry.h in Headers */,
 				77E55181CD9D5F702F458A579D8C08B7 /* Pods-ehrPatientSDK-ios_Tests-umbrella.h in Headers */,
+				FA8C0006295C688E008C39F1 /* ConversationEntryPoint.h in Headers */,
+				FA8C0005295C688E008C39F1 /* EntryMessagePayload.h in Headers */,
+				FA8C000D295C6898008C39F1 /* CommandsWS.h in Headers */,
+				FA8C0018295F1C6B008C39F1 /* ServicesModel.h in Headers */,
+				4B8DDB1D463B60BA6285B1B5 /* ConsentWS.h in Headers */,
+				4B8DD5E05853A9FCC0587CAE /* ConvoInfo.h in Headers */,
+				4B8DD84D177A20C88E71ED64 /* NSDate+Compare.h in Headers */,
+				4B8DDCB62D53718E57E97AA3 /* NotificationWS.h in Headers */,
+				4B8DD0A67F175AEDF568EC10 /* ConvoEntrySpec.h in Headers */,
+				4B8DD9EC6E9BE03F07D09577 /* ConvoEntryPayloadSpec.h in Headers */,
+				4B8DD425C342489989C1F2C4 /* ConvoEntryAddSpec.h in Headers */,
+				4B8DD54EABA7C6F08998C419 /* EntryPartipantPayload.h in Headers */,
+				4B8DDA90A75ADB195015E634 /* EntryMovePayload.h in Headers */,
+				4B8DDE3988265E2E8F952C5F /* EntryStatusChangePayload.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1161,7 +1311,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA8CFFFF295C688E008C39F1 /* ConversationEntryStatus.m in Sources */,
+				FA8C0016295F1C6B008C39F1 /* ServicesModel.m in Sources */,
+				FA8CFFFB295C688E008C39F1 /* ConversationEntry.m in Sources */,
+				FA8C0003295C688E008C39F1 /* ConversationParticipant.m in Sources */,
+				FA8C0000295C688E008C39F1 /* ConversationEntryPoint.m in Sources */,
+				FA8C000B295C6898008C39F1 /* ConvoWS.m in Sources */,
+				FA8CFFFA295C688E008C39F1 /* EntryMessagePayload.m in Sources */,
+				FA8CFFFC295C688E008C39F1 /* ConversationEnvelope.m in Sources */,
+				FA8C0008295C688E008C39F1 /* Conversation.m in Sources */,
+				FA8C000A295C6898008C39F1 /* WebServices.m in Sources */,
 				54BBC7CB33F2634AF4CD386B3686F22F /* Pods-ehrPatientSDK-ios_Tests-dummy.m in Sources */,
+				FA8C0009295C6898008C39F1 /* CommandsWS.m in Sources */,
+				FA8C0007295C688E008C39F1 /* EntryAttachment.m in Sources */,
+				4B8DDB3FC96401712370B127 /* ConsentWS.m in Sources */,
+				4B8DDDB9BC831CAE65B4CDA4 /* ConvoInfo.m in Sources */,
+				4B8DD7CA426D7682393BB937 /* NSDate+Compare.m in Sources */,
+				4B8DD826A90012093DBE3360 /* NotificationWS.m in Sources */,
+				4B8DDA8E73C7FC7CF4D16C8C /* ConvoEntrySpec.m in Sources */,
+				4B8DD037CC2770F23B41B7A6 /* ConvoEntryPayloadSpec.m in Sources */,
+				4B8DDF2ED34CC7863866ABEE /* ConvoEntryAddSpec.m in Sources */,
+				4B8DDFF8F5B431315BCCC75B /* EntryPartipantPayload.m in Sources */,
+				4B8DD864B791A6BC246E9D3B /* EntryMovePayload.m in Sources */,
+				4B8DD1769C4AD2F9F016CB99 /* EntryStatusChangePayload.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1238,13 +1410,11 @@
 				7ABCB84E26F392970068026D /* Inbox.m in Sources */,
 				7ABCB86026F3929F0068026D /* PersistenceManager.m in Sources */,
 				7ABCB81826F3928E0068026D /* EHRRequestStatus.m in Sources */,
-				7ABCB86926F3929F0068026D /* ServiceSettings.m in Sources */,
 				7ABCB7E026F392650068026D /* IBPractitionerPractice.m in Sources */,
 				7ABCB84B26F392970068026D /* ServicesModelFilter.m in Sources */,
 				7ABCB75A26F392540068026D /* FactorsRequired.m in Sources */,
 				7ABCB7F226F392650068026D /* IBLabRequestTextDocument.m in Sources */,
 				7ABCB7C426F392640068026D /* IBEula.m in Sources */,
-				7ABCB86226F3929F0068026D /* AppPreferences.m in Sources */,
 				7AD134D8275CFFFE00FEF5C7 /* IBConsentInfo.m in Sources */,
 				7ABCB7D726F392640068026D /* PatientInfo.m in Sources */,
 				7ABCB7C126F392640068026D /* IBLabRequest.m in Sources */,
@@ -1253,13 +1423,13 @@
 				7ABCB80126F392650068026D /* IBPractitionerJurisdiction.m in Sources */,
 				7ABCB86126F3929F0068026D /* SecureCredentials.m in Sources */,
 				7ABCB75126F3924D0068026D /* PIN.m in Sources */,
+				FA8C0015295F1C6B008C39F1 /* ServicesModel.m in Sources */,
 				7ABCB74626F392450068026D /* OfferedPrivateMessage.m in Sources */,
 				7ABCB7F826F392650068026D /* IBLabResultTextDocument.m in Sources */,
 				7ABCB88626F5E97B0068026D /* NotificationProgressChange.m in Sources */,
 				7ABCB7CB26F392640068026D /* IBPatientInfo.m in Sources */,
 				7ABCB7C526F392640068026D /* IBLabRequestPDFDocument.m in Sources */,
 				7ABCB72926F392330068026D /* MathUtil.m in Sources */,
-				7ABCB84626F392970068026D /* ServicesModel.m in Sources */,
 				7ABCB7FB26F392650068026D /* IBMessageDistribution.m in Sources */,
 				7ABCB73226F392330068026D /* Version.m in Sources */,
 				7ABCB7C226F392640068026D /* IBPractitioner.m in Sources */,
@@ -1269,10 +1439,24 @@
 				4B8DDD6181C5D9A05D1B39EB /* Conversation.m in Sources */,
 				4B8DD1C3F58DB9E0EBE45906 /* ConversationParticipant.m in Sources */,
 				4B8DDCB34836FC9EA16CF34A /* ConversationEntry.m in Sources */,
-				4B8DDA45577D82D2DD970FD2 /* ConversationEntryPayload.m in Sources */,
+				4B8DDA45577D82D2DD970FD2 /* EntryMessagePayload.m in Sources */,
 				4B8DD1E798A4D2FD32FBACFA /* ConversationEnvelope.m in Sources */,
 				4B8DD181C5BAA6660D381815 /* EntryAttachment.m in Sources */,
 				4B8DD7BE6FFB40590CA082FF /* ConversationEntryStatus.m in Sources */,
+				4B8DD0F5F02820720F33BA83 /* CommandsWS.m in Sources */,
+				4B8DDF626959ADEEF5FA6368 /* WebServices.m in Sources */,
+				4B8DDA63C56BB3C4C152952A /* ConvoWS.m in Sources */,
+				4B8DD83823CAE8D41AD417A3 /* EHRRequests.m in Sources */,
+				4B8DDC8952CEE35F6DDFAB0D /* ConsentWS.m in Sources */,
+				4B8DD8490B02E7F2E98DB19A /* ConvoInfo.m in Sources */,
+				4B8DD3043D3B240B32665CFB /* NSDate+Compare.m in Sources */,
+				4B8DDE1043ADF9C6B11F20BA /* NotificationWS.m in Sources */,
+				4B8DD7F6A6453B4EB7043E6A /* ConvoEntrySpec.m in Sources */,
+				4B8DDE4D9DDADD31EE739601 /* ConvoEntryPayloadSpec.m in Sources */,
+				4B8DDCA89D0D87429C172771 /* ConvoEntryAddSpec.m in Sources */,
+				4B8DDF20135D8A888DDF2985 /* EntryPartipantPayload.m in Sources */,
+				4B8DDE2AA92A7520A80341F0 /* EntryMovePayload.m in Sources */,
+				4B8DD3C60427C4B01F38EBBB /* EntryStatusChangePayload.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

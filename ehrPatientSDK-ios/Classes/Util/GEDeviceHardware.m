@@ -42,6 +42,8 @@
         ref http://theiphonewiki.com/wiki/Models
         ref https://en.wikipedia.org/wiki/List_of_iOS_devices
 
+        best ref : https://gist.github.com/adamawolf/3048717
+
         This is all public Apple API's, should not be cause for rejection
 
     */
@@ -83,6 +85,19 @@
     if ([platform isEqualToString:@"iPhone12,3"]) return @"iPhone 11 Pro";
     if ([platform isEqualToString:@"iPhone12,5"]) return @"iPhone 11 Pro Max";
     if ([platform isEqualToString:@"iPhone12,8"]) return @"iPhone 11 Pro Gen";
+    if ([platform isEqualToString:@"iPhone13,1"]) return @"iPhone 12 Mini";
+    if ([platform isEqualToString:@"iPhone13,2"]) return @"iPhone 12";
+    if ([platform isEqualToString:@"iPhone13,3"]) return @"iPhone 12 Pro";
+    if ([platform isEqualToString:@"iPhone13,4"]) return @"iPhone 12 Pro Max";
+    if ([platform isEqualToString:@"iPhone14,2"]) return @"iPhone 13 Pro";
+    if ([platform isEqualToString:@"iPhone14,3"]) return @"iPhone 13 Pro Max";
+    if ([platform isEqualToString:@"iPhone14,4"]) return @"iPhone 13 Mini";
+    if ([platform isEqualToString:@"iPhone14,5"]) return @"iPhone 13";
+    if ([platform isEqualToString:@"iPhone14,6"]) return @"iPhone SE 3rd Gen";
+    if ([platform isEqualToString:@"iPhone14,7"]) return @"iPhone 14";
+    if ([platform isEqualToString:@"iPhone14,8"]) return @"iPhone 14 Plus";
+    if ([platform isEqualToString:@"iPhone15,2"]) return @"iPhone 14 Pro";
+    if ([platform isEqualToString:@"iPhone15,3"]) return @"iPhone 14 Pro Max";
 
     if ([platform isEqualToString:@"iPod1,1"]) return @"iPod Touch 1G";
     if ([platform isEqualToString:@"iPod2,1"]) return @"iPod Touch 2G";
@@ -134,7 +149,6 @@
     if ([platform isEqualToString:@"iPad7,2"]) return @"iPad Pro, 2nd gen 12.9(WiFi+LTE)";
     if ([platform isEqualToString:@"iPad7,3"]) return @"iPad Pro, 3d gen 10.5(WiFi)";
     if ([platform isEqualToString:@"iPad7,4"]) return @"iPad Pro, 3d gen 10.5(WiFi+LTE)";
-
     if ([platform isEqualToString:@"iPad8,1"]) return @"iPad Pro, 3d gen 11.0 (WiFi)";
     if ([platform isEqualToString:@"iPad8,2"]) return @"iPad Pro, 3d gen 11.0 (WiFi)";
     if ([platform isEqualToString:@"iPad8,3"]) return @"iPad Pro, 3d gen 11.0 (WiFi)";
@@ -147,7 +161,38 @@
     if ([platform isEqualToString:@"iPad8,10"]) return @"iPad Pro, 2nd gen 11.0 (WiFi+cell)";
     if ([platform isEqualToString:@"iPad8,11"]) return @"iPad Pro, 4d gen 12.9 (WiFi)";
     if ([platform isEqualToString:@"iPad8,12"]) return @"iPad Pro, 4d gen 12.9 (WiFi+cell)";
-    if ([platform isEqualToString:@"iPad8,9"]) return @"iPad Pro, 3d gen 12.9 (WiFi)";
+    if ([platform isEqualToString:@"iPad11,1"]) return @"iPad mini 5th Gen (WiFi)";
+    if ([platform isEqualToString:@"iPad11,2"]) return @"iPad mini 5th Gen";
+    if ([platform isEqualToString:@"iPad11,3"]) return @"iPad Air 3rd Gen (WiFi)";
+    if ([platform isEqualToString:@"iPad11,4"]) return @"iPad Air 3rd Gen";
+    if ([platform isEqualToString:@"iPad11,6"]) return @"iPad 8th Gen (WiFi)";
+    if ([platform isEqualToString:@"iPad11,7"]) return @"iPad 8th Gen (WiFi+Cellular)";
+    if ([platform isEqualToString:@"iPad12,1"]) return @"iPad 9th Gen (WiFi)";
+    if ([platform isEqualToString:@"iPad12,2"]) return @"iPad 9th Gen (WiFi+Cellular)";
+    if ([platform isEqualToString:@"iPad14,1"]) return @"iPad Mini 6th Gen (WiFi)";
+    if ([platform isEqualToString:@"iPad14,2"]) return @"iPad Mini 6th Gen (WiFi+Cellular)";
+    if ([platform isEqualToString:@"iPad13,1"]) return @"iPad Air 4th Gen (WiFi)";
+    if ([platform isEqualToString:@"iPad13,2"]) return @"iPad Air 4th Gen (WiFi+Cellular)";
+    if ([platform isEqualToString:@"iPad13,4"]) return @"iPad Pro 11 inch 5th Gen";
+    if ([platform isEqualToString:@"iPad13,5"]) return @"iPad Pro 11 inch 5th Gen";
+    if ([platform isEqualToString:@"iPad13,6"]) return @"iPad Pro 11 inch 5th Gen";
+    if ([platform isEqualToString:@"iPad13,7"]) return @"iPad Pro 11 inch 5th Gen";
+    if ([platform isEqualToString:@"iPad13,8"]) return @"iPad Pro 12.9 inch 5th Gen";
+    if ([platform isEqualToString:@"iPad13,9"]) return @"iPad Pro 12.9 inch 5th Gen";
+    if ([platform isEqualToString:@"iPad13,10"]) return @"iPad Pro 12.9 inch 5th Gen";
+    if ([platform isEqualToString:@"iPad13,11"]) return @"iPad Pro 12.9 inch 5th Gen";
+    if ([platform isEqualToString:@"iPad13,16"]) return @"iPad Air 5th Gen (WiFi)";
+    if ([platform isEqualToString:@"iPad13,17"]) return @"iPad Air 5th Gen (WiFi+Cellular)";
+    if ([platform isEqualToString:@"iPad13,18"]) return @"iPad 10th Gen";
+    if ([platform isEqualToString:@"iPad13,19"]) return @"iPad 10th Gen";
+    if ([platform isEqualToString:@"iPad14,3-A"]) return @"iPad Pro 11 inch 4th Gen";
+    if ([platform isEqualToString:@"iPad14,3-B"]) return @"iPad Pro 11 inch 4th Gen)";
+    if ([platform isEqualToString:@"iPad14,4-A"]) return @"iPad Pro 11 inch 4th Gen";
+    if ([platform isEqualToString:@"iPad14,4-B"]) return @"iPad Pro 11 inch 4th Gen";
+    if ([platform isEqualToString:@"iPad14,5-A"]) return @"iPad Pro 12.9 inch 6th Gen";
+    if ([platform isEqualToString:@"iPad14,5-B"]) return @"iPad Pro 12.9 inch 6th Gen";
+    if ([platform isEqualToString:@"iPad14,6-A"]) return @"iPad Pro 12.9 inch 6th Gen";
+    if ([platform isEqualToString:@"iPad14,7-B"]) return @"iPad Pro 12.9 inch 6th Gen";
 
     if ([platform isEqualToString:@"i386"]) return @"Simulator";
     if ([platform isEqualToString:@"x86_64"]) return @"Simulator";
@@ -193,16 +238,22 @@
     }
 }
 
-+ (BOOL)isDumbAssPhone __unused {
++ (BOOL)isCroppingPhone __unused {
 
-    CGSize sz = [UIScreen mainScreen].bounds.size;
-    if (sz.height == 812 || sz.width == 812) return YES;
-    if (sz.height == 896 || sz.width == 896) return YES;
-    return NO;
-    // todo : this may not be true with latest wave of apple mad devices, true for iphone X
+    if ([self isSimulator])
+        return YES;
+
+    NSString *platform       = [self platform];
+    NSString *prefixToRemove = @"iPhone";
+    NSString *newString      = [platform copy];
+    if ([platform hasPrefix:prefixToRemove])
+        newString = [platform substringFromIndex:[prefixToRemove length]];
+    newString     = [newString stringByReplacingOccurrencesOfString:@"," withString:@"."];
+    CGFloat version = [newString floatValue];
+    return version > 10.55; // 55 will take care of 10.500000000234 , chaos theory
 }
 
-+ (BOOL)isDumbAssIpad __unused {
++ (BOOL)isCroppingIpad __unused {
 
     CGSize sz = [UIScreen mainScreen].bounds.size;
     if (sz.height == 1366 || sz.width == 1366) return YES;
@@ -214,7 +265,7 @@
 + (CGBounds)windowCrop {
     CGBounds crop = CGBoundsZero;
     if ([self isTablet]) {
-        if ([self isDumbAssIpad]) {
+        if ([self isCroppingIpad]) {
             CGFloat                bottomMargin = 16.0f;
             CGFloat                leftMargin   = 16.0f;
             UIInterfaceOrientation orientation  = [[UIApplication sharedApplication] statusBarOrientation];
@@ -231,7 +282,7 @@
             }
         }
     } else if ([self isPhone]) {
-        if ([self isDumbAssPhone]) {
+        if ([self isCroppingPhone]) {
             CGFloat                bottomMargin = 16.0f;
             CGFloat                leftMargin   = 32.0f;
             UIInterfaceOrientation orientation  = [[UIApplication sharedApplication] statusBarOrientation];

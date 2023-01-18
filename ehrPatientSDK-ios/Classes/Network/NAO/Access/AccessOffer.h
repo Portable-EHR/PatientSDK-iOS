@@ -4,8 +4,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "EHRNetworkableP.h"
 #import "EHRInstanceCounterP.h"
+#import "EHRNetworkableP.h"
 
 @class IBUserInfo;
 

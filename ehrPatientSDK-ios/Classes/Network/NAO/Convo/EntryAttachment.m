@@ -6,7 +6,7 @@
 
 @implementation EntryAttachment
 
-TRACE_OFF
+TRACE_ON
 
 @synthesize id = _id;
 @synthesize name = _name;

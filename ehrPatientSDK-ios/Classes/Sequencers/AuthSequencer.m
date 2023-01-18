@@ -3,6 +3,7 @@
 // Copyright (c) 2015-2019 Portable EHR inc. All rights reserved.
 //
 
+#import <LocalAuthentication/LocalAuthentication.h>
 #import "AuthSequencer.h"
 #import "AppState.h"
 #import "IBDeviceInfo.h"

@@ -15,8 +15,6 @@
 @class IBDeviceInfo;
 @class UserDeviceSettings;
 @class PatientModel;
-@class Console;
-@protocol ConsoleProvider;
 @class AuthSequencer;
 @class ServicesModel;
 @class IBAppInfo;

@@ -11,6 +11,7 @@
 #import "AppState.h"
 #import "SecureCredentials.h"
 #import "UserCredentials.h"
+#import "IBUser.h"
 
 @implementation EHRCall
 TRACE_OFF
@@ -26,26 +27,7 @@ static CFArrayRef certs;
 
 + (void)initialize {
 
-    // for self signed certificate, for xip.io
-    // from http://stackoverflow.com/questions/11615237/nsurlconnection-sendasynchronousrequest-and-self-signed-certificates
 
-    // I had a crt certificate, needed a der one, so found this site:
-    // http://fixunix.com/openssl/537621-re-der-crt-file-conversion.html
-    // and did this from Terminal: openssl x509 -in crt.crt -outform der -out crt.der
-
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"xip.io" ofType:@"der"];
-    assert(path);
-    NSData *data = [NSData dataWithContentsOfFile:path];
-    assert(data);
-
-    SecCertificateRef rootcert = SecCertificateCreateWithData(NULL, (__bridge CFDataRef) data);
-    if (rootcert) {
-        const void *array[1] = {rootcert};
-        certs = CFArrayCreate(NULL, array, 1, &kCFTypeArrayCallBacks);
-        CFRelease(rootcert);    // for completeness, really does not matter
-    } else {
-        MPLOG(@"BIG TROUBLE - ROOT CERTIFICATE FAILED!");
-    }
 }
 
 - (id)init {
@@ -79,6 +61,12 @@ static CFArrayRef certs;
     MPLOGERROR(@"The server which may get a AUTH_FAILED\n%@", serv);
 
     MPLOGERROR(@"The creds : \n%@", [[[SecureCredentials sharedCredentials] asDictionary] asJSON]);
+}
+
+-(BOOL)startAsGuest __attribute__((unused)) {
+    self.serverRequest.apiKey=[IBUser guest].apiKey;
+    self.serverRequest.deviceGuid=nil;
+    return [self start];
 }
 
 - (BOOL)start {

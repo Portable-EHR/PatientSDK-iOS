@@ -35,6 +35,13 @@ TRACE_OFF
 
 }
 
++(EHRApiServer*)serverForRoute:(NSString *)route andCommand:(NSString *)command {
+    EHRApiServer *srv = [self defaultApiServer];
+    srv.routePrefix=route;
+    return srv;
+
+}
+
 + (EHRApiServer *)serverForHost:(NSString *)host {
 
     EHRApiServer *server = [[EHRApiServer alloc] init];

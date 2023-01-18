@@ -41,8 +41,8 @@ TRACE_OFF
     ce.guid        = WantStringFromDic(dic, @"guid");
     ce.status      = WantStringFromDic(dic, @"status");
     ce.location    = WantStringFromDic(dic, @"location");
-    ce.staffTitle  = WantStringFromDic(dic, @"staffTitle");
-    ce.clientTitle = WantStringFromDic(dic, @"clientTitle");
+    ce.staffTitle  = WantStringFromDic(dic, @"staffTittle");
+    ce.clientTitle = WantStringFromDic(dic, @"clientTittle");
     ce.teaser      = WantStringFromDic(dic, @"teaser");
     ce.lastUpdated = WantDateFromDic(dic, @"lastUpdated");
     return ce;
@@ -53,8 +53,8 @@ TRACE_OFF
     PutStringInDic(self.guid, dic, @"guid");
     PutStringInDic(self.status, dic, @"status");
     PutStringInDic(self.location, dic, @"location");
-    PutStringInDic(self.staffTitle, dic, @"staffTitle");
-    PutStringInDic(self.clientTitle, dic, @"clientTitle");
+    PutStringInDic(self.staffTitle, dic, @"staffTittle");
+    PutStringInDic(self.clientTitle, dic, @"clientTittle");
     PutStringInDic(self.teaser, dic, @"teaser");
     PutDateInDic(self.lastUpdated, dic, @"lastUpdated");
     return dic;
@@ -70,6 +70,15 @@ TRACE_OFF
     _lastUpdated = nil;
     GE_DEALLOC();
     GE_DEALLOC_ECHO();
+}
+
+-(BOOL)isOpen {
+    if (!self.status) return false;
+    return ([self.status isEqualToString:@"open"]);
+}
+-(BOOL)isClosed {
+    if (!self.status) return false;
+    return ([self.status isEqualToString:@"closed"]);
 }
 
 @end

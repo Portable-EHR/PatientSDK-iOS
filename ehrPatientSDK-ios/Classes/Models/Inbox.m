@@ -12,7 +12,7 @@
 
 @implementation Inbox
 
-static NSString *NOTIFICATION_CAPABILITY    = @"core.notification";
+static NSString *NOTIFICATION_CAPABILITY    = @"core.patientNotification";
 static NSString *PRIVATE_MESSAGE_CAPABILITY = @"core.privateMessage";
 static NSString *APPOINTMENT_CAPABILITY     = @"core.appointment";
 

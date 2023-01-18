@@ -28,4 +28,7 @@
 @property(nonatomic) NSString *teaser;
 @property(nonatomic) NSDate   *lastUpdated;
 
+@property(nonatomic, readonly) BOOL isOpen;
+@property(nonatomic, readonly) BOOL isClosed;
+
 @end

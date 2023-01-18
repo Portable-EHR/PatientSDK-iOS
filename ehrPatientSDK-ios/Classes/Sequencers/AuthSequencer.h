@@ -9,9 +9,9 @@
 
 @class AppState;
 @class EHRApiServer;
-@class Console;
 @class MenuButton;
 @class IBDeviceInfo;
+@class LAContext;
 
 @interface AuthSequencer : NSObject <EHRInstanceCounterP> {
     NSInteger _instanceNumber;

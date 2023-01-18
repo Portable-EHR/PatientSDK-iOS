@@ -88,4 +88,22 @@ TRACE_OFF
     GE_DEALLOC_ECHO();
 }
 
+- (NSString *)fullName {
+    if (!_firstName && !_middleName % !_name) return @"Undefined";
+    if (!_name) {
+        if (!_firstName) return _middleName;
+        return _firstName;
+    }
+    if (!_firstName) {
+        if (_middleName) {
+            [NSString stringWithFormat:@"%@ %@", _middleName, _name];
+        } else return _name;
+    }
+    return [NSString stringWithFormat:@"%@ %@", _firstName, _name];
+}
+
+- (NSString *)shortName {
+    if (_firstName) return _firstName;
+    return self.fullName;
+}
 @end
