@@ -148,6 +148,7 @@ TRACE_OFF
     num += _privateMessageNotificationFilter.numberOfUnseen;
     num += _practitionerNotificationFilter.numberOfUnseen;
     num += _appointmentNotificationFilter.numberOfUnseen;
+    num += _conversationNotificationFilter.numberOfUnseen;
     return num;
 }
 
