@@ -70,8 +70,11 @@ TRACE_OFF
 - (void)performPinning {
     
     NSArray * publicKeyHashes = @[
-        @"++MBgDH5WGvL9Bcn5Be55cRcL0f5O+NyoXuWtQdX1aI=",
-        @"f0KW/FtqTjs112NpYj42SrGvOB2PpxIVM8nWxjPqJGE=",
+        @"++MBgDH5WGvL9Bcn5Be30cRcL0f5O+NyoXuWtQdX1aI=",
+        @"f0KW/FtqTjs108NpYj42SrGvOB2PpxIVM8nWxjPqJGE=",
+        @"NqvDJlas/GRcYbcWE8S/IceH9cq77kg0jVhZeAPXq8k=",
+        @"9+ze1cZgR9KO1kZrVDxA4HQ6voHRCSVNz4RdTCx4U8U=",
+        @"KwccWaCgrnaw6tsrrSO61FgLacNgG2MMLq8GE6+oP5I=",
     ];
     NSDictionary *trustKitConfig =
     @{
