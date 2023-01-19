@@ -6,6 +6,8 @@
 #import "EHRRequests.h"
 #import "ConvoEntrySpec.h"
 #import "ConvoEntryAddSpec.h"
+#import "Conversation.h"
+#import "ConversationEntry.h"
 
 @interface ConvoWS () {
     NSInteger _instanceNumber;
@@ -84,6 +86,22 @@ TRACE_OFF
     PutIntegerInDic(offset, params, @"offset");
     PutIntegerInDic(maxItems, params, @"maxItems");
     EHRServerRequest *request = [EHRRequests requestWithRoute:@"/app/patient/convo" command:@"listConvos" parameters:params];
+    return [EHRCall callWithRequest:request onSuccess:successBlock onError:errorBlock];
+}
+
+- (EHRCall *)__unused  getEntryAttachmentCall:(SenderBlock)successBlock
+                                      onError:(SenderBlock)errorBlock
+                              forConversation:(Conversation *)conversation
+                                        entry:(ConversationEntry *)entry
+                                   attachment:(NSString *)guid {
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    PutStringInDic(conversation.id, params, @"convo");
+    PutStringInDic(entry.id, params, @"entry");
+    PutStringInDic(guid, params, @"attachment");
+    EHRServerRequest *request =
+                             [EHRRequests requestWithRoute:@"/app/patient/convo"
+                                                   command:@"pullAttachment" parameters:params
+                             ];
     return [EHRCall callWithRequest:request onSuccess:successBlock onError:errorBlock];
 }
 

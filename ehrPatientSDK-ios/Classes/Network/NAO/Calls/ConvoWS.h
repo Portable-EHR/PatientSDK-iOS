@@ -10,6 +10,8 @@
 @class EHRCall;
 @class ConvoEntrySpec;
 @class ConvoEntryAddSpec;
+@class Conversation;
+@class ConversationEntry;
 
 @interface ConvoWS : NSObject <EHRInstanceCounterP>
 
@@ -40,7 +42,12 @@
                                     atOffset:(NSInteger)offset
                                 withMaxItems:(NSInteger)maxItems;
 
-- (EHRCall *)__unused  getEntryAttachmentCall:(SenderBlock)successBlock onError:(SenderBlock)errorBlock;
+- (EHRCall *)__unused  getEntryAttachmentCall:(SenderBlock)successBlock
+                                      onError:(SenderBlock)errorBlock
+                              forConversation:(Conversation*)conversation
+                                        entry:(ConversationEntry*) entry
+                                   attachment:(NSString*) guid;
+
 - (EHRCall *)__unused  getEntryPointsCall:(SenderBlock)successBlock onError:(SenderBlock)errorBlock;
 
 @end
