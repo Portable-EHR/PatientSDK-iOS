@@ -18,6 +18,7 @@
     NSString  *_clientTitle;
     NSString  *_teaser;
     NSDate    *_lastUpdated;
+    NSDate    *_createdOn;
 }
 
 @property(nonatomic) NSString *guid;
@@ -27,6 +28,7 @@
 @property(nonatomic) NSString *clientTitle;
 @property(nonatomic) NSString *teaser;
 @property(nonatomic) NSDate   *lastUpdated;
+@property(nonatomic) NSDate   *createdOn;
 
 @property(nonatomic, readonly) BOOL isOpen;
 @property(nonatomic, readonly) BOOL isClosed;

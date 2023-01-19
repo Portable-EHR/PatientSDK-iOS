@@ -45,6 +45,7 @@ TRACE_OFF
     ce.clientTitle = WantStringFromDic(dic, @"clientTittle");
     ce.teaser      = WantStringFromDic(dic, @"teaser");
     ce.lastUpdated = WantDateFromDic(dic, @"lastUpdated");
+    ce.createdOn   = WantDateFromDic(dic, @"createdOn");
     return ce;
 }
 
@@ -57,6 +58,7 @@ TRACE_OFF
     PutStringInDic(self.clientTitle, dic, @"clientTittle");
     PutStringInDic(self.teaser, dic, @"teaser");
     PutDateInDic(self.lastUpdated, dic, @"lastUpdated");
+    PutDateInDic(self.createdOn, dic, @"createdOn");
     return dic;
 }
 
@@ -68,15 +70,17 @@ TRACE_OFF
     _clientTitle = nil;
     _teaser      = nil;
     _lastUpdated = nil;
+    _createdOn   = nil;
     GE_DEALLOC();
     GE_DEALLOC_ECHO();
 }
 
--(BOOL)isOpen {
+- (BOOL)isOpen {
     if (!self.status) return false;
     return ([self.status isEqualToString:@"open"]);
 }
--(BOOL)isClosed {
+
+- (BOOL)isClosed {
     if (!self.status) return false;
     return ([self.status isEqualToString:@"closed"]);
 }

@@ -73,7 +73,6 @@ TRACE_OFF
                 return self.telexInfo.acknowledgedOn == nil;
             } else if (self.isConvoList) {
                 if (self.isArchived) return NO;
-                if ([self.convo.lastUpdated isLaterThan:self.lastSeen]) return YES;
             } else {
                 // sponsor and medical notifications , once seen have no further
                 // action required from l'user
@@ -102,10 +101,6 @@ TRACE_OFF
 - (BOOL)isArchived {
     if (nil != self.archivedOn) return YES;
     if ([self.progress isEqualToString:@"archived"]) return YES;
-    if (nil != self.convo) {
-        if ([self.convo.status isEqualToString:@"closed"]) return YES;
-    }
-
     return NO;
 }
 
