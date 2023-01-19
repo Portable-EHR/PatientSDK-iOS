@@ -11,6 +11,7 @@
 #import "AppState.h"
 #import "SecureCredentials.h"
 #import "UserCredentials.h"
+#import <TrustKit/TrustKit.h>
 
 @implementation EHRCall
 TRACE_OFF
@@ -242,7 +243,6 @@ static CFArrayRef certs;
 #pragma  unused(connection)
 
     TRACE_KILLROY
-
     /* Setup */
     NSURLProtectionSpace *protectionSpace = [challenge protectionSpace];
     assert(protectionSpace);
@@ -288,8 +288,42 @@ static CFArrayRef certs;
 }
 
 - (void)connection:(NSURLConnection *)connection willSendRequestForAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {
-
-    [challenge.sender continueWithoutCredentialForAuthenticationChallenge:challenge];
+    
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+//
+//        TSKPinningValidator *pinningValidator = [[TrustKit sharedInstance] pinningValidator];
+//        if (![pinningValidator handleChallenge:challenge completionHandler:nil])
+//        {
+//            // TrustKit did not handle this challenge: perhaps it was not for server trust
+//            // or the domain was not pinned. Fall back to the default behavior
+//    //        completionHandler(NSURLSessionAuthChallengePerformDefaultHandling, nil);
+//    //        [[challenge sender] cancelAuthenticationChallenge:challenge];
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                [challenge.sender cancelAuthenticationChallenge:challenge];
+//            });
+//            return;
+//        }
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            [challenge.sender continueWithoutCredentialForAuthenticationChallenge:challenge];
+//        });
+//    });
+//
+    TSKPinningValidator *pinningValidator = [[TrustKit sharedInstance] pinningValidator];
+    if (![pinningValidator handleChallenge:challenge
+                         completionHandler:^(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential * _Nullable credential){
+//        NSLog(@"disposition: %@", disposition);
+        if (disposition == NSURLSessionAuthChallengeCancelAuthenticationChallenge) {
+            [challenge.sender cancelAuthenticationChallenge:challenge];
+        } else {
+            [challenge.sender continueWithoutCredentialForAuthenticationChallenge:challenge];
+        }
+    }])
+    {
+        [challenge.sender rejectProtectionSpaceAndContinueWithChallenge:challenge];
+        return;
+//    } else {
+//        [challenge.sender continueWithoutCredentialForAuthenticationChallenge:challenge];
+    }
     TRACE_KILLROY
 }
 

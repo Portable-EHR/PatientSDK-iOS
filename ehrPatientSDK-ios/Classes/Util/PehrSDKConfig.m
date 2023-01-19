@@ -7,6 +7,7 @@
 
 #import "PehrSDKConfig.h"
 #import "GEMacros.h"
+#import <TrustKit/TrustKit.h>
 
 @implementation PehrSDKConfig
 
@@ -61,7 +62,44 @@ TRACE_OFF
     self->_appAlias = appAlias;
     self->_appVersion = appVersion;
     self->_stackKey = stackKey;
+    [self performPinning];
     return self;
+}
+
+
+- (void)performPinning {
+    
+    NSArray * publicKeyHashes = @[
+        @"++MBgDH5WGvL9Bcn5Be55cRcL0f5O+NyoXuWtQdX1aI=",
+        @"f0KW/FtqTjs112NpYj42SrGvOB2PpxIVM8nWxjPqJGE=",
+    ];
+    NSDictionary *trustKitConfig =
+    @{
+      // The list of domains we want to pin and their configuration
+      kTSKPinnedDomains: @{
+              
+              @"api.portableehr.ca" : @{
+                      kTSKIncludeSubdomains:@YES,
+                      kTSKEnforcePinning:@YES,
+                      kTSKPublicKeyHashes : publicKeyHashes,
+                      kTSKPublicKeyAlgorithms : @[kTSKAlgorithmRsa2048],
+              },
+              
+              @"api.portableehr.net" : @{
+                      kTSKIncludeSubdomains:@YES,
+                      kTSKEnforcePinning:@YES,
+                      kTSKPublicKeyHashes : publicKeyHashes,
+                      kTSKPublicKeyAlgorithms : @[kTSKAlgorithmRsa2048],
+              },
+              
+              @"api.portableehr.io" : @{
+                      kTSKIncludeSubdomains:@YES,
+                      kTSKEnforcePinning:@YES,
+                      kTSKPublicKeyHashes : publicKeyHashes,
+                      kTSKPublicKeyAlgorithms : @[kTSKAlgorithmRsa2048],
+              }
+    }};
+    [TrustKit initSharedInstanceWithConfiguration:trustKitConfig];
 }
 
 

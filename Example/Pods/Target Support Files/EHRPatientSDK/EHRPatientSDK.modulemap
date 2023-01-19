@@ -1,0 +1,6 @@
+framework module EHRPatientSDK {
+  umbrella header "EHRPatientSDK-umbrella.h"
+
+  export *
+  module * { export * }
+}

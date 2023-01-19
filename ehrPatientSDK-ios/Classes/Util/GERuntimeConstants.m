@@ -145,6 +145,7 @@ static __strong NSMutableArray *allocatedClasses;
     NSMutableDictionary *kvps = [NSMutableDictionary dictionary];
     kvps[@"CA.prod"]      = @"portableehr.ca";
     kvps[@"CA.staging"]   = @"portableehr.net";
+    kvps[@"CA.dev"]       = @"portableehr.dev";
     kvps[@"CA.devhome"]   = @"10.0.1.21";
     kvps[@"CA.devoffice"] = @"192.168.32.32";
     kvps[@"CA.partner"]   = @"api.portableehr.io";

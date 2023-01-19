@@ -1,16 +1,24 @@
 PODS:
-  - ehrPatientSDK-ios (0.1.0)
+  - EHRPatientSDK (1.0.1):
+    - TrustKit
+  - TrustKit (2.0.1)
 
 DEPENDENCIES:
-  - ehrPatientSDK-ios (from `../`)
+  - EHRPatientSDK (from `../`)
+  - TrustKit
+
+SPEC REPOS:
+  trunk:
+    - TrustKit
 
 EXTERNAL SOURCES:
-  ehrPatientSDK-ios:
+  EHRPatientSDK:
     :path: "../"
 
 SPEC CHECKSUMS:
-  ehrPatientSDK-ios: 4bf78ba17838cb077881d64724b9ddd46ee14f3e
+  EHRPatientSDK: 2553f3dd5dd2a6b70f6e77fa0f66b698f24416e3
+  TrustKit: dad4c3a08248c21fcb9a3b5be3c2e2b9d4f9b973
 
-PODFILE CHECKSUM: e1be283be7e96ba663e06d5e1c1b640891682ef7
+PODFILE CHECKSUM: cc6679e356a26328a9499e33c75655d5e96ba9ea
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.2
