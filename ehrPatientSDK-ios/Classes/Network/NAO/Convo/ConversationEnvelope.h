@@ -19,18 +19,21 @@
     NSString  *_teaser;
     NSDate    *_lastUpdated;
     NSDate    *_createdOn;
+    NSString  *_dispensaryName;
 }
 
-@property(nonatomic) NSString *guid;
-@property(nonatomic) NSString *status;
-@property(nonatomic) NSString *location;
-@property(nonatomic) NSString *staffTitle;
-@property(nonatomic) NSString *clientTitle;
-@property(nonatomic) NSString *teaser;
-@property(nonatomic) NSDate   *lastUpdated;
-@property(nonatomic) NSDate   *createdOn;
-
+@property(nonatomic) NSString       *guid;
+@property(nonatomic) NSString       *status;
+@property(nonatomic) NSString       *location;
+@property(nonatomic) NSString       *staffTitle;
+@property(nonatomic) NSString       *clientTitle;
+@property(nonatomic) NSString       *teaser;
+@property(nonatomic) NSDate         *lastUpdated;
+@property(nonatomic) NSDate         *createdOn;
+@property(nonatomic) NSString       *dispensaryName;
 @property(nonatomic, readonly) BOOL isOpen;
 @property(nonatomic, readonly) BOOL isClosed;
+
+- (NSString *)getFullLocation;
 
 @end

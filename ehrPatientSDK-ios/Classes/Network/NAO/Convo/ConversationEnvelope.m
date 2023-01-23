@@ -38,14 +38,15 @@ TRACE_OFF
 
 + (id)objectWithContentsOfDictionary:(NSDictionary *)dic {
     ConversationEnvelope *ce = [[ConversationEnvelope alloc] init];
-    ce.guid        = WantStringFromDic(dic, @"guid");
-    ce.status      = WantStringFromDic(dic, @"status");
-    ce.location    = WantStringFromDic(dic, @"location");
-    ce.staffTitle  = WantStringFromDic(dic, @"staffTittle");
-    ce.clientTitle = WantStringFromDic(dic, @"clientTittle");
-    ce.teaser      = WantStringFromDic(dic, @"teaser");
-    ce.lastUpdated = WantDateFromDic(dic, @"lastUpdated");
-    ce.createdOn   = WantDateFromDic(dic, @"createdOn");
+    ce.guid           = WantStringFromDic(dic, @"guid");
+    ce.status         = WantStringFromDic(dic, @"status");
+    ce.location       = WantStringFromDic(dic, @"location");
+    ce.staffTitle     = WantStringFromDic(dic, @"staffTittle");
+    ce.clientTitle    = WantStringFromDic(dic, @"clientTittle");
+    ce.teaser         = WantStringFromDic(dic, @"teaser");
+    ce.lastUpdated    = WantDateFromDic(dic, @"lastUpdated");
+    ce.dispensaryName = WantStringFromDic(dic, @"dispensaryName");
+    ce.createdOn      = WantDateFromDic(dic, @"createdOn");
     return ce;
 }
 
@@ -57,22 +58,33 @@ TRACE_OFF
     PutStringInDic(self.staffTitle, dic, @"staffTittle");
     PutStringInDic(self.clientTitle, dic, @"clientTittle");
     PutStringInDic(self.teaser, dic, @"teaser");
+    PutStringInDic(self.dispensaryName, dic, @"dispensaryName");
     PutDateInDic(self.lastUpdated, dic, @"lastUpdated");
     PutDateInDic(self.createdOn, dic, @"createdOn");
     return dic;
 }
 
 - (void)dealloc {
-    _guid        = nil;
-    _status      = nil;
-    _location    = nil;
-    _staffTitle  = nil;
-    _clientTitle = nil;
-    _teaser      = nil;
-    _lastUpdated = nil;
-    _createdOn   = nil;
+    _guid           = nil;
+    _status         = nil;
+    _location       = nil;
+    _staffTitle     = nil;
+    _clientTitle    = nil;
+    _teaser         = nil;
+    _lastUpdated    = nil;
+    _createdOn      = nil;
+    _dispensaryName = nil;
     GE_DEALLOC();
     GE_DEALLOC_ECHO();
+}
+
+- (NSString *)getFullLocation {
+    if (self.dispensaryName && self.location) {
+        NSString *fmt = @"%@ ( %@ )";
+        return [NSString stringWithFormat:fmt, self.dispensaryName, self.location];
+    } else {
+        return self.location;
+    }
 }
 
 - (BOOL)isOpen {
