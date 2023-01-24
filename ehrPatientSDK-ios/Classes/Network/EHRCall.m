@@ -289,25 +289,9 @@ static CFArrayRef certs;
 
 - (void)connection:(NSURLConnection *)connection willSendRequestForAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {
     
-//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-//
-//        TSKPinningValidator *pinningValidator = [[TrustKit sharedInstance] pinningValidator];
-//        if (![pinningValidator handleChallenge:challenge completionHandler:nil])
-//        {
-//            // TrustKit did not handle this challenge: perhaps it was not for server trust
-//            // or the domain was not pinned. Fall back to the default behavior
-//    //        completionHandler(NSURLSessionAuthChallengePerformDefaultHandling, nil);
-//    //        [[challenge sender] cancelAuthenticationChallenge:challenge];
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                [challenge.sender cancelAuthenticationChallenge:challenge];
-//            });
-//            return;
-//        }
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            [challenge.sender continueWithoutCredentialForAuthenticationChallenge:challenge];
-//        });
-//    });
-//
+#ifndef NDEBUG
+    [challenge.sender continueWithoutCredentialForAuthenticationChallenge:challenge];
+#else
     TSKPinningValidator *pinningValidator = [[TrustKit sharedInstance] pinningValidator];
     if (![pinningValidator handleChallenge:challenge
                          completionHandler:^(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential * _Nullable credential){
@@ -324,6 +308,7 @@ static CFArrayRef certs;
 //    } else {
 //        [challenge.sender continueWithoutCredentialForAuthenticationChallenge:challenge];
     }
+#endif
     TRACE_KILLROY
 }
 

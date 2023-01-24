@@ -102,7 +102,11 @@ TRACE_OFF
                       kTSKPublicKeyAlgorithms : @[kTSKAlgorithmRsa2048],
               }
     }};
+#ifndef NDEBUG
+    // do not pin in debug mode
+#else
     [TrustKit initSharedInstanceWithConfiguration:trustKitConfig];
+#endif
 }
 
 
