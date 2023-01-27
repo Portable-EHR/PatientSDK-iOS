@@ -148,6 +148,11 @@
 				CLASSPREFIX = EHR;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "rasthana@gmail.com";
+				TargetAttributes = {
+					6003F5AD195388D20070C39A = {
+						DevelopmentTeam = 8QU9JR75UM;
+					};
+				};
 			};
 			buildConfigurationList = 6003F585195388D10070C39A /* Build configuration list for PBXProject "ehrPatientSDK-ios" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -187,11 +192,13 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-ehrPatientSDK-ios_Tests/Pods-ehrPatientSDK-ios_Tests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/ehrPatientSDK-ios/ehrPatientSDK_ios.framework",
+				"${BUILT_PRODUCTS_DIR}/EHRPatientSDK/EHRPatientSDK.framework",
+				"${BUILT_PRODUCTS_DIR}/TrustKit/TrustKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ehrPatientSDK_ios.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EHRPatientSDK.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TrustKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -322,6 +329,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 138A723CA377230B1871FFE0 /* Pods-ehrPatientSDK-ios_Tests.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 8QU9JR75UM;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -345,6 +353,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 101A37AD616323DD3EEF7246 /* Pods-ehrPatientSDK-ios_Tests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 8QU9JR75UM;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",

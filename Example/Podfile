@@ -1,6 +1,6 @@
 use_frameworks!
 target 'ehrPatientSDK-ios_Tests' do
-  pod 'ehrPatientSDK-ios', :path => '../'
-  
+  pod 'TrustKit'
+  pod 'EHRPatientSDK', :path => '../'
   
 end
