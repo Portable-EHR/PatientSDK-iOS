@@ -43,7 +43,6 @@
 		1CBD19B1EA5179BBD610E2CB4F701138 /* AppState.h in Headers */ = {isa = PBXBuildFile; fileRef = 03BDEFCDED1DF0E896DB6DE581DF7654 /* AppState.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1CF101695C78CF3F5446AF19079D3E22 /* IBTelexInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 724E05943DA4EE5227E1712E8BFB8E9E /* IBTelexInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1EC9E4B5DA39F17D8E3ECFA932268BA8 /* IBLabResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 32F10ADA3F82ED521197BE105792E108 /* IBLabResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		20AB3395E220D9B42680F153D9211F6E /* AppPreferences.h in Headers */ = {isa = PBXBuildFile; fileRef = D55015A47E39095137D98CE0B7E0757C /* AppPreferences.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		211F54E9EF8295F25E98AAF3F8C71D9C /* AccessRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 1712EDD52E86A4FE4671CA1058CC116C /* AccessRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		227D91346A8CAB58DE34E14BC63EA369 /* IBAnnotation.h in Headers */ = {isa = PBXBuildFile; fileRef = 53607158C7FA569546A968FD3AA70A04 /* IBAnnotation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		23502BC9A6CD320323212E9278CBD581 /* TSKReportsRateLimiter.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9BC94C78A646D376784797AFCADE3E /* TSKReportsRateLimiter.m */; };
@@ -97,7 +96,20 @@
 		4951901D6F492803CD28AD74DB4D9883 /* NotificationsModelFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6011CF64C15A5BC30EFBB7103F6F6149 /* NotificationsModelFilter.m */; };
 		4961CDC65393BA46B58EBEB0395267FA /* PatientHealthSummary.h in Headers */ = {isa = PBXBuildFile; fileRef = DDD53B8722432DEF8A8E2417BCFACDD5 /* PatientHealthSummary.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		49F54DD346BA48D287BD631EA50EAE44 /* RSSwizzle.h in Headers */ = {isa = PBXBuildFile; fileRef = D0D8B3B459E51F83788F33D555B450A1 /* RSSwizzle.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		4C5F4179DA70FF7595225079828540E1 /* MessagesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B3B5CEAFCED3BA045B01F7C79A6964 /* MessagesModel.m */; };
+		4B8DD176BADDFDD78EB635AD /* EHRLibState.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD7794B521E0AA86FB78B /* EHRLibState.h */; };
+		4B8DD1EF835A96E6C1597B4B /* EHRUserRegistrationManifest.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD60EE5A38B85DDD574E2 /* EHRUserRegistrationManifest.h */; };
+		4B8DD40CE1FD0E377DA1DC1F /* EHRUserRegistrationManifest.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD60EE5A38B85DDD574E2 /* EHRUserRegistrationManifest.h */; };
+		4B8DD42C3F14CB8272C3EACE /* EHRLibRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DDE28109D1D2CB68E4449 /* EHRLibRuntime.m */; };
+		4B8DD51B5A17E4DE9F5911A9 /* ConvoPlacesModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DDF21E10D7DF2E76E2080 /* ConvoPlacesModel.h */; };
+		4B8DD58D7CE87F69DA056788 /* EHRPatientSDK.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 5E0F52B7ACC867B4A93D9525CD48A60C /* EHRPatientSDK.podspec */; };
+		4B8DD6AE03845D4212CBD114 /* Models.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DDCE320CA9CAF1A32D947 /* Models.h */; };
+		4B8DD70AF53B4395894C4B45 /* EHRUserRegistrationManifest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DDC717C524E4D8EDD97F8 /* EHRUserRegistrationManifest.m */; };
+		4B8DD7D835005069828E5661 /* EHRLibRuntime.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD101C8B9AB071B08060C /* EHRLibRuntime.h */; };
+		4B8DD85BDF80C8BE9304609A /* Models.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD8565B9DD59E6A046372 /* Models.m */; };
+		4B8DD87E2862EEFFA83F761E /* ConvoPlacesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD1B743CDC34BF24A76AD /* ConvoPlacesModel.m */; };
+		4B8DDCD026E93E34B80B783E /* EHRPatientSDK.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 5E0F52B7ACC867B4A93D9525CD48A60C /* EHRPatientSDK.podspec */; };
+		4B8DDD2817CC54B2C3065E45 /* EHRLibState.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD529D64AD379FDF4B297 /* EHRLibState.m */; };
+		4B8DDED49BCC40F59B867BCA /* EHRUserRegistrationManifest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DDC717C524E4D8EDD97F8 /* EHRUserRegistrationManifest.m */; };
 		4E60953C3278F86ED04B0D12322D0A61 /* domain_registry.h in Headers */ = {isa = PBXBuildFile; fileRef = 98AAD5140E1081E539DFC1F5EFB72D9A /* domain_registry.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		4E9CBEFE2687FAFFF38EB49F5611C510 /* TSKNSURLConnectionDelegateProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = D0536AF6A9BBB837D94319C9E87951D9 /* TSKNSURLConnectionDelegateProxy.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		4FF3FEC9F75EBB9A135FA4C85D4ED548 /* TSKPinningValidatorCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = D59F3516348CEE3DDE220703992E17EF /* TSKPinningValidatorCallback.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -128,7 +140,6 @@
 		6AE572A1A3F6EA1156C2A28AFA9DC7E3 /* configuration_utils.h in Headers */ = {isa = PBXBuildFile; fileRef = A84B500BA86A6AF30385356CDF6C8B2E /* configuration_utils.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		6B8CD79C328E94ED57507436EFE98BCA /* AccessOffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 926E9257964F430D042B6A63F2168A43 /* AccessOffer.m */; };
 		6D2020ADBDDCB206B23CA9C9E899D001 /* UserModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 41252A391D4B12F73BFEC217B7D0C004 /* UserModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6E653B0632D5784457E2A3D698F019C1 /* AppPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D92F524D11A60D7E94BB676369D5071 /* AppPreferences.m */; };
 		6E792D78684BEE77F49718B2E621189B /* ServicesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B33534C835A061A3CF9BDB9043AF51C5 /* ServicesModel.m */; };
 		6F9E84C0EFE0BE5092D8276D656F6A36 /* EHRPatientSDK-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F7E5BD45F708676EA1F88E9798CB4A7 /* EHRPatientSDK-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7040269E13033BF4FA6FEF5D111950AB /* PatientModel.h in Headers */ = {isa = PBXBuildFile; fileRef = A69BDC2F514AE3B0C044C747B35C4AB1 /* PatientModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -146,7 +157,6 @@
 		80B014A41EC69DEA23BA2DE2173104FA /* EHRServerResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD985C68AF782891C105A83C52EFF7A /* EHRServerResponse.m */; };
 		834406E44F04ACD64F9A2F80256B7DE6 /* Pods-ehrPatientSDK-ios_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0265783E41FDD503EB727CE1FCFAF9 /* Pods-ehrPatientSDK-ios_Tests-dummy.m */; };
 		8468C3DCBB57E266D1E4DCCDA6ECCD15 /* TSKNSURLSessionDelegateProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 027F99D99B453B1B8481152A04939512 /* TSKNSURLSessionDelegateProxy.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		856BA712269E58E9F7EA0F514C75C89D /* ServiceSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 624B691983F77AE12EB66E2604AD0845 /* ServiceSettings.m */; };
 		85C0BCA46F753A7905A213A8E93097D2 /* IBCapability.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C6E074B3A81D05C3EB67A1DADCBB9A3 /* IBCapability.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		85E4DF0AC6CD1B75E3D17CAA28C214B3 /* HCIN.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C6EC7C50D9BCA4F64544F38DA4ADC15 /* HCIN.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		86B943942E9307AB4A8EBB6758DF7A6E /* IBService.m in Sources */ = {isa = PBXBuildFile; fileRef = 19CBC8048B5A2CF4FCBDF1E3581CE8C1 /* IBService.m */; };
@@ -206,7 +216,6 @@
 		C3B68E2D5B2729716FEB51B92BCB4126 /* IBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = B32EE88A22D2ED5B11383B0500E400A4 /* IBUser.m */; };
 		C5C985D1855F7D661D6D6D8F30F21021 /* ContactsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A95929D7544B3AC2591BE2B121353B06 /* ContactsModel.m */; };
 		C5DF1E21669EAE4894AFC5452F44CDBD /* IBMessageContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BB3226B9DC54F88338AB4626E285B0 /* IBMessageContent.m */; };
-		C5EC513B330429FFF2153C06DB115E75 /* MessagesModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 8BEE30B16D3770C79953776A1258ABA4 /* MessagesModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C61802D03113127D2015490C847B7C79 /* ScannerP.h in Headers */ = {isa = PBXBuildFile; fileRef = B7939262AE62AF8B6A4A2134D384F36B /* ScannerP.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C78098934331614AB582A29216E0D5B8 /* NSDictionary+JSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 36706304780482100A189E7F27F6E3E9 /* NSDictionary+JSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C8985BF4993CBE89EFC0BE73A484B741 /* IBAppSummary.h in Headers */ = {isa = PBXBuildFile; fileRef = 16BC861D16263D6B2E99E1379E954B51 /* IBAppSummary.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -217,7 +226,6 @@
 		CD2C033413D3AB9F2DA1082A5908D5B3 /* ssl_pin_verifier.h in Headers */ = {isa = PBXBuildFile; fileRef = C02EB75CD4E9A8CB8D83BE0CF93C613A /* ssl_pin_verifier.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		CD2DDBEDDBE5DA4B7802ECBF84DE2BC9 /* TSKBackgroundReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE805D05CFD8DC4273630FBF19981355 /* TSKBackgroundReporter.m */; };
 		CD34F5F96720342898E0253A69E265A2 /* AccessState.h in Headers */ = {isa = PBXBuildFile; fileRef = 6261B99E8C44FC887F5068AD598AB1DA /* AccessState.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CDDC9EDF7E2F26C65D8C0DA099BBA8E9 /* ServiceSettings.h in Headers */ = {isa = PBXBuildFile; fileRef = A5969F8704BF9888485BC1BD611A9797 /* ServiceSettings.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CEE6F4ED52358FB16AEE828A29270BD9 /* EulaModelFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = D85064AF28351D71A9C36F778EEFF798 /* EulaModelFilter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CEEF447A9019A7AC377DDEC512FDF638 /* EHRCall.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3EAD094936ADD795075AAA034A19A0 /* EHRCall.m */; };
 		CF6D649C10A81DFD7246A6C59FE85793 /* UIView+EHR.h in Headers */ = {isa = PBXBuildFile; fileRef = 72383098338782321821E34DCC518BA0 /* UIView+EHR.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -259,6 +267,95 @@
 		F53FB9D99E56BD26AC990DBC3A5D0CDD /* IBService.h in Headers */ = {isa = PBXBuildFile; fileRef = A5155AD02A1A037E59A29164A939F25A /* IBService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F76BDB0E410C0F37589966E4D7485F0D /* TSKPinFailureReport.m in Sources */ = {isa = PBXBuildFile; fileRef = F4451D2E3B55DB274D0F4411FF0636F3 /* TSKPinFailureReport.m */; };
 		F88832A68BE80AD7D8D1112DAE8C880E /* IBHealthCareProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 450630DCBADC013AB64270BFCEEC64CA /* IBHealthCareProvider.m */; };
+		FAD79AC629845F580011388E /* EntryMessagePayload.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79AA729845F570011388E /* EntryMessagePayload.h */; };
+		FAD79AC729845F580011388E /* EntryMessagePayload.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79AA729845F570011388E /* EntryMessagePayload.h */; };
+		FAD79AC829845F580011388E /* ConvoInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79AA829845F570011388E /* ConvoInfo.m */; };
+		FAD79AC929845F580011388E /* ConvoInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79AA829845F570011388E /* ConvoInfo.m */; };
+		FAD79ACA29845F580011388E /* EntryStatusChangePayload.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79AA929845F570011388E /* EntryStatusChangePayload.h */; };
+		FAD79ACB29845F580011388E /* EntryStatusChangePayload.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79AA929845F570011388E /* EntryStatusChangePayload.h */; };
+		FAD79ACC29845F580011388E /* EntryPartipantPayload.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79AAA29845F570011388E /* EntryPartipantPayload.h */; };
+		FAD79ACD29845F580011388E /* EntryPartipantPayload.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79AAA29845F570011388E /* EntryPartipantPayload.h */; };
+		FAD79ACE29845F580011388E /* ConversationEntryPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79AAB29845F570011388E /* ConversationEntryPoint.m */; };
+		FAD79ACF29845F580011388E /* ConversationEntryPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79AAB29845F570011388E /* ConversationEntryPoint.m */; };
+		FAD79AD029845F580011388E /* ConversationParticipant.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79AAC29845F570011388E /* ConversationParticipant.h */; };
+		FAD79AD129845F580011388E /* ConversationParticipant.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79AAC29845F570011388E /* ConversationParticipant.h */; };
+		FAD79AD229845F580011388E /* Conversation.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79AAD29845F570011388E /* Conversation.m */; };
+		FAD79AD329845F580011388E /* Conversation.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79AAD29845F570011388E /* Conversation.m */; };
+		FAD79AD429845F580011388E /* ConversationEntryStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79AAE29845F570011388E /* ConversationEntryStatus.m */; };
+		FAD79AD529845F580011388E /* ConversationEntryStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79AAE29845F570011388E /* ConversationEntryStatus.m */; };
+		FAD79AD629845F580011388E /* ConversationEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79AAF29845F570011388E /* ConversationEntry.h */; };
+		FAD79AD729845F580011388E /* ConversationEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79AAF29845F570011388E /* ConversationEntry.h */; };
+		FAD79AD829845F580011388E /* ConversationEnvelope.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79AB029845F570011388E /* ConversationEnvelope.m */; };
+		FAD79AD929845F580011388E /* ConversationEnvelope.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79AB029845F570011388E /* ConversationEnvelope.m */; };
+		FAD79ADA29845F580011388E /* EntryAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79AB129845F570011388E /* EntryAttachment.m */; };
+		FAD79ADB29845F580011388E /* EntryAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79AB129845F570011388E /* EntryAttachment.m */; };
+		FAD79ADC29845F580011388E /* EntryMovePayload.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79AB229845F570011388E /* EntryMovePayload.m */; };
+		FAD79ADD29845F580011388E /* EntryMovePayload.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79AB229845F570011388E /* EntryMovePayload.m */; };
+		FAD79ADE29845F580011388E /* EntryStatusChangePayload.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79AB329845F570011388E /* EntryStatusChangePayload.m */; };
+		FAD79ADF29845F580011388E /* EntryStatusChangePayload.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79AB329845F570011388E /* EntryStatusChangePayload.m */; };
+		FAD79AE029845F580011388E /* ConvoInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79AB429845F570011388E /* ConvoInfo.h */; };
+		FAD79AE129845F580011388E /* ConvoInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79AB429845F570011388E /* ConvoInfo.h */; };
+		FAD79AE229845F580011388E /* EntryMessagePayload.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79AB529845F580011388E /* EntryMessagePayload.m */; };
+		FAD79AE329845F580011388E /* EntryMessagePayload.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79AB529845F580011388E /* EntryMessagePayload.m */; };
+		FAD79AE429845F580011388E /* ConversationParticipant.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79AB629845F580011388E /* ConversationParticipant.m */; };
+		FAD79AE529845F580011388E /* ConversationParticipant.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79AB629845F580011388E /* ConversationParticipant.m */; };
+		FAD79AE629845F580011388E /* ConversationEntryPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79AB729845F580011388E /* ConversationEntryPoint.h */; };
+		FAD79AE729845F580011388E /* ConversationEntryPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79AB729845F580011388E /* ConversationEntryPoint.h */; };
+		FAD79AE829845F580011388E /* EntryPartipantPayload.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79AB829845F580011388E /* EntryPartipantPayload.m */; };
+		FAD79AE929845F580011388E /* EntryPartipantPayload.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79AB829845F580011388E /* EntryPartipantPayload.m */; };
+		FAD79AEA29845F580011388E /* ConvoEntrySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79ABA29845F580011388E /* ConvoEntrySpec.m */; };
+		FAD79AEB29845F580011388E /* ConvoEntrySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79ABA29845F580011388E /* ConvoEntrySpec.m */; };
+		FAD79AEC29845F580011388E /* ConvoEntryAddSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79ABB29845F580011388E /* ConvoEntryAddSpec.m */; };
+		FAD79AED29845F580011388E /* ConvoEntryAddSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79ABB29845F580011388E /* ConvoEntryAddSpec.m */; };
+		FAD79AEE29845F580011388E /* ConvoEntryPayloadSpec.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79ABC29845F580011388E /* ConvoEntryPayloadSpec.h */; };
+		FAD79AEF29845F580011388E /* ConvoEntryPayloadSpec.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79ABC29845F580011388E /* ConvoEntryPayloadSpec.h */; };
+		FAD79AF029845F580011388E /* ConvoEntrySpec.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79ABD29845F580011388E /* ConvoEntrySpec.h */; };
+		FAD79AF129845F580011388E /* ConvoEntrySpec.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79ABD29845F580011388E /* ConvoEntrySpec.h */; };
+		FAD79AF229845F580011388E /* ConvoEntryAddSpec.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79ABE29845F580011388E /* ConvoEntryAddSpec.h */; };
+		FAD79AF329845F580011388E /* ConvoEntryAddSpec.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79ABE29845F580011388E /* ConvoEntryAddSpec.h */; };
+		FAD79AF429845F580011388E /* ConvoEntryPayloadSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79ABF29845F580011388E /* ConvoEntryPayloadSpec.m */; };
+		FAD79AF529845F580011388E /* ConvoEntryPayloadSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79ABF29845F580011388E /* ConvoEntryPayloadSpec.m */; };
+		FAD79AF629845F580011388E /* ConversationEntryStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79AC029845F580011388E /* ConversationEntryStatus.h */; };
+		FAD79AF729845F580011388E /* ConversationEntryStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79AC029845F580011388E /* ConversationEntryStatus.h */; };
+		FAD79AF829845F580011388E /* Conversation.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79AC129845F580011388E /* Conversation.h */; };
+		FAD79AF929845F580011388E /* Conversation.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79AC129845F580011388E /* Conversation.h */; };
+		FAD79AFA29845F580011388E /* EntryMovePayload.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79AC229845F580011388E /* EntryMovePayload.h */; };
+		FAD79AFB29845F580011388E /* EntryMovePayload.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79AC229845F580011388E /* EntryMovePayload.h */; };
+		FAD79AFC29845F580011388E /* EntryAttachment.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79AC329845F580011388E /* EntryAttachment.h */; };
+		FAD79AFD29845F580011388E /* EntryAttachment.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79AC329845F580011388E /* EntryAttachment.h */; };
+		FAD79AFE29845F580011388E /* ConversationEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79AC429845F580011388E /* ConversationEntry.m */; };
+		FAD79AFF29845F580011388E /* ConversationEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79AC429845F580011388E /* ConversationEntry.m */; };
+		FAD79B0029845F580011388E /* ConversationEnvelope.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79AC529845F580011388E /* ConversationEnvelope.h */; };
+		FAD79B0129845F580011388E /* ConversationEnvelope.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79AC529845F580011388E /* ConversationEnvelope.h */; };
+		FAD79B042984616F0011388E /* NSDate+Compare.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79B022984616F0011388E /* NSDate+Compare.h */; };
+		FAD79B052984616F0011388E /* NSDate+Compare.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79B022984616F0011388E /* NSDate+Compare.h */; };
+		FAD79B062984616F0011388E /* NSDate+Compare.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79B032984616F0011388E /* NSDate+Compare.m */; };
+		FAD79B072984616F0011388E /* NSDate+Compare.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79B032984616F0011388E /* NSDate+Compare.m */; };
+		FAD79B132984623E0011388E /* CommandsWS.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79B092984623E0011388E /* CommandsWS.m */; };
+		FAD79B142984623E0011388E /* CommandsWS.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79B092984623E0011388E /* CommandsWS.m */; };
+		FAD79B152984623E0011388E /* ConsentWS.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79B0A2984623E0011388E /* ConsentWS.m */; };
+		FAD79B162984623E0011388E /* ConsentWS.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79B0A2984623E0011388E /* ConsentWS.m */; };
+		FAD79B172984623E0011388E /* WebServices.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79B0B2984623E0011388E /* WebServices.m */; };
+		FAD79B182984623E0011388E /* WebServices.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79B0B2984623E0011388E /* WebServices.m */; };
+		FAD79B192984623E0011388E /* ConvoWS.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79B0C2984623E0011388E /* ConvoWS.h */; };
+		FAD79B1A2984623E0011388E /* ConvoWS.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79B0C2984623E0011388E /* ConvoWS.h */; };
+		FAD79B1B2984623E0011388E /* NotificationWS.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79B0D2984623E0011388E /* NotificationWS.m */; };
+		FAD79B1C2984623E0011388E /* NotificationWS.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79B0D2984623E0011388E /* NotificationWS.m */; };
+		FAD79B1D2984623E0011388E /* CommandsWS.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79B0E2984623E0011388E /* CommandsWS.h */; };
+		FAD79B1E2984623E0011388E /* CommandsWS.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79B0E2984623E0011388E /* CommandsWS.h */; };
+		FAD79B1F2984623E0011388E /* ConsentWS.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79B0F2984623E0011388E /* ConsentWS.h */; };
+		FAD79B202984623E0011388E /* ConsentWS.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79B0F2984623E0011388E /* ConsentWS.h */; };
+		FAD79B212984623E0011388E /* WebServices.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79B102984623E0011388E /* WebServices.h */; };
+		FAD79B222984623E0011388E /* WebServices.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79B102984623E0011388E /* WebServices.h */; };
+		FAD79B232984623E0011388E /* NotificationWS.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79B112984623E0011388E /* NotificationWS.h */; };
+		FAD79B242984623E0011388E /* NotificationWS.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79B112984623E0011388E /* NotificationWS.h */; };
+		FAD79B252984623E0011388E /* ConvoWS.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79B122984623E0011388E /* ConvoWS.m */; };
+		FAD79B262984623E0011388E /* ConvoWS.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79B122984623E0011388E /* ConvoWS.m */; };
+		FAD79B29298462920011388E /* EHRRequests.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79B27298462920011388E /* EHRRequests.m */; };
+		FAD79B2A298462920011388E /* EHRRequests.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79B27298462920011388E /* EHRRequests.m */; };
+		FAD79B2B298462920011388E /* EHRRequests.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79B28298462920011388E /* EHRRequests.h */; };
+		FAD79B2C298462920011388E /* EHRRequests.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79B28298462920011388E /* EHRRequests.h */; };
+		FAD79B3829867EF50011388E /* sdk.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79B3729867EF50011388E /* sdk.h */; };
 		FC01A1151EF80DA9CEFDBA19847A87A0 /* IBMediaInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 941917E7C50B4DF2ACEE0E328FB4DC7E /* IBMediaInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FC1078C0018662F81AFB1A79B8C7A81D /* IBPractitionerJurisdiction.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA23E880DF3BD1CFC5B5E944905526B /* IBPractitionerJurisdiction.m */; };
 		FC57817200F7714C5B828D9D1F6364AB /* EHRRequestStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = 260DEC11B7626B2EDC78112661BB890A /* EHRRequestStatus.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -305,7 +402,7 @@
 		107865F1DD3C6747DB33EE9CB8EC475B /* IBEula.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = IBEula.h; sourceTree = "<group>"; };
 		10B15F1C3485941393E6917B2AB9329B /* GEDeviceHardware.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = GEDeviceHardware.m; sourceTree = "<group>"; };
 		115B2F531ACE686EC72228F19F888F9C /* IBConsentInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = IBConsentInfo.h; sourceTree = "<group>"; };
-		1260DFE96EC4ECC75CF2F3B8F6432FC4 /* init_registry_tables.c */ = {isa = PBXFileReference; includeInIndex = 1; name = init_registry_tables.c; path = TrustKit/Dependencies/domain_registry/private/init_registry_tables.c; sourceTree = "<group>"; };
+		1260DFE96EC4ECC75CF2F3B8F6432FC4 /* init_registry_tables.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = init_registry_tables.c; path = TrustKit/Dependencies/domain_registry/private/init_registry_tables.c; sourceTree = "<group>"; };
 		1296E8B4003771A8F3065A0B49005A1D /* IBContact.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = IBContact.m; sourceTree = "<group>"; };
 		1517737CE52E666CC7A61793DB3A5F49 /* NotificationCellListenerP.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = NotificationCellListenerP.h; sourceTree = "<group>"; };
 		1586FE5FB806A8D7C70BFC5A4F4DAAA2 /* DateUtil.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DateUtil.h; sourceTree = "<group>"; };
@@ -318,7 +415,7 @@
 		1C6EC7C50D9BCA4F64544F38DA4ADC15 /* HCIN.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HCIN.h; sourceTree = "<group>"; };
 		1F9726695B0D8BED75256683AE63EEBA /* IBLabResult.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = IBLabResult.m; sourceTree = "<group>"; };
 		2082CD9BBF119F7B9895223BC244439B /* RSSwizzle.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RSSwizzle.m; path = TrustKit/Dependencies/RSSwizzle/RSSwizzle.m; sourceTree = "<group>"; };
-		20DB8B363F15C9BE17D8FFC1D9540852 /* trie_search.c */ = {isa = PBXFileReference; includeInIndex = 1; name = trie_search.c; path = TrustKit/Dependencies/domain_registry/private/trie_search.c; sourceTree = "<group>"; };
+		20DB8B363F15C9BE17D8FFC1D9540852 /* trie_search.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = trie_search.c; path = TrustKit/Dependencies/domain_registry/private/trie_search.c; sourceTree = "<group>"; };
 		21E18FA4322E0473F13CD3861350E6E2 /* IBMessageDistribution.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = IBMessageDistribution.h; sourceTree = "<group>"; };
 		260DEC11B7626B2EDC78112661BB890A /* EHRRequestStatus.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = EHRRequestStatus.h; sourceTree = "<group>"; };
 		2637F8A236C9D4E85410F2EC655A87C7 /* IBAppInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = IBAppInfo.h; sourceTree = "<group>"; };
@@ -326,7 +423,7 @@
 		2767559D7E464C15DA5335A9AF7E9BAF /* EHRPatientSDK-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "EHRPatientSDK-prefix.pch"; sourceTree = "<group>"; };
 		281AE6298D5A003864A24F699CEBB322 /* AuthSequencer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = AuthSequencer.m; sourceTree = "<group>"; };
 		2A990CF1C540E363D58A570B32B4319A /* ServicesModelFilter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ServicesModelFilter.m; sourceTree = "<group>"; };
-		2C29E22E634E9E560FFDE8DB4CE934CC /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		2C29E22E634E9E560FFDE8DB4CE934CC /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		2C32CFB847B8841BD047D8FA9CCA02FC /* GEFileUtil.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = GEFileUtil.h; sourceTree = "<group>"; };
 		2D8B424A6BDF4825157CDB6151C5B233 /* EHRApiServer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = EHRApiServer.h; sourceTree = "<group>"; };
 		2DF7ACB5F848366FA8F80223A2881CD3 /* UICKeyChainStore.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = UICKeyChainStore.h; sourceTree = "<group>"; };
@@ -364,11 +461,21 @@
 		4A852EF78BF4958FF1FD6C2B711E1DBF /* MessageDistributionProgressChange.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MessageDistributionProgressChange.m; sourceTree = "<group>"; };
 		4A9787E064271D14317E935340396C8A /* AppSignature.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = AppSignature.m; sourceTree = "<group>"; };
 		4AAC20A3F0274DC62BA677629C26C893 /* GEMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = GEMacros.h; sourceTree = "<group>"; };
+		4B8DD101C8B9AB071B08060C /* EHRLibRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EHRLibRuntime.h; sourceTree = "<group>"; };
+		4B8DD1B743CDC34BF24A76AD /* ConvoPlacesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConvoPlacesModel.m; sourceTree = "<group>"; };
+		4B8DD529D64AD379FDF4B297 /* EHRLibState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EHRLibState.m; sourceTree = "<group>"; };
+		4B8DD60EE5A38B85DDD574E2 /* EHRUserRegistrationManifest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EHRUserRegistrationManifest.h; sourceTree = "<group>"; };
+		4B8DD7794B521E0AA86FB78B /* EHRLibState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EHRLibState.h; sourceTree = "<group>"; };
+		4B8DD8565B9DD59E6A046372 /* Models.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Models.m; sourceTree = "<group>"; };
+		4B8DDC717C524E4D8EDD97F8 /* EHRUserRegistrationManifest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EHRUserRegistrationManifest.m; sourceTree = "<group>"; };
+		4B8DDCE320CA9CAF1A32D947 /* Models.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Models.h; sourceTree = "<group>"; };
+		4B8DDE28109D1D2CB68E4449 /* EHRLibRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EHRLibRuntime.m; sourceTree = "<group>"; };
+		4B8DDF21E10D7DF2E76E2080 /* ConvoPlacesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConvoPlacesModel.h; sourceTree = "<group>"; };
 		4C6E074B3A81D05C3EB67A1DADCBB9A3 /* IBCapability.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = IBCapability.h; sourceTree = "<group>"; };
 		4CBB56DB416ABBDF8865CA08855BB29A /* IBConsentInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = IBConsentInfo.m; sourceTree = "<group>"; };
 		4D3B34E67AFC42D6BFBB113E195E0BB7 /* IBUserCapability.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = IBUserCapability.h; sourceTree = "<group>"; };
 		4D9942DE94EB5AADBA18610704E2E14C /* IBAppSummary.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = IBAppSummary.m; sourceTree = "<group>"; };
-		50A7CAF519FD4DC9DD05EC6E358D0446 /* EHRPatientSDK */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = EHRPatientSDK; path = EHRPatientSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		50A7CAF519FD4DC9DD05EC6E358D0446 /* EHRPatientSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EHRPatientSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5121226C17B823E4D8ABF66D2C4861B3 /* IBUser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = IBUser.h; sourceTree = "<group>"; };
 		5158321717E0C62DE48A70B6E98DEB46 /* IBLabResultPDFDocument.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = IBLabResultPDFDocument.h; sourceTree = "<group>"; };
 		53607158C7FA569546A968FD3AA70A04 /* IBAnnotation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = IBAnnotation.h; sourceTree = "<group>"; };
@@ -381,10 +488,9 @@
 		5C904CD1A8AABC975C961FD96CD2D9AE /* EHRPatientSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = EHRPatientSDK.debug.xcconfig; sourceTree = "<group>"; };
 		5CF0DA8315BA90E1AE5C5DEAAB275AA5 /* IBPractitioner.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = IBPractitioner.h; sourceTree = "<group>"; };
 		5D0265783E41FDD503EB727CE1FCFAF9 /* Pods-ehrPatientSDK-ios_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ehrPatientSDK-ios_Tests-dummy.m"; sourceTree = "<group>"; };
-		5E0F52B7ACC867B4A93D9525CD48A60C /* EHRPatientSDK.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = EHRPatientSDK.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		5E0F52B7ACC867B4A93D9525CD48A60C /* EHRPatientSDK.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = EHRPatientSDK.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		5F15982C9D0592AF9A546E2B2C757281 /* PehrSDKConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PehrSDKConfig.h; sourceTree = "<group>"; };
 		6011CF64C15A5BC30EFBB7103F6F6149 /* NotificationsModelFilter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = NotificationsModelFilter.m; sourceTree = "<group>"; };
-		624B691983F77AE12EB66E2604AD0845 /* ServiceSettings.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ServiceSettings.m; sourceTree = "<group>"; };
 		6261B99E8C44FC887F5068AD598AB1DA /* AccessState.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AccessState.h; sourceTree = "<group>"; };
 		639192191D3D599CF538B64276F624A8 /* TSKPinningValidatorResult.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TSKPinningValidatorResult.m; path = TrustKit/TSKPinningValidatorResult.m; sourceTree = "<group>"; };
 		63BA7798B8D98D0261137AA6885A4F11 /* IBUserInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = IBUserInfo.m; sourceTree = "<group>"; };
@@ -425,15 +531,12 @@
 		8B38D7E2B4E5F79A2A720C1088D5FF9A /* IBLabResultTextDocument.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = IBLabResultTextDocument.m; sourceTree = "<group>"; };
 		8B4F8E10912D512913D8433FB48EF210 /* Pods-ehrPatientSDK-ios_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ehrPatientSDK-ios_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		8B84FFFD9F8EC1D704E94C1F3313C11B /* IBUserEula.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = IBUserEula.m; sourceTree = "<group>"; };
-		8BEE30B16D3770C79953776A1258ABA4 /* MessagesModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MessagesModel.h; sourceTree = "<group>"; };
 		8C7E29626DE4841E7F88D63528DCF896 /* NSDictionary+JSON.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+JSON.m"; sourceTree = "<group>"; };
-		8D92F524D11A60D7E94BB676369D5071 /* AppPreferences.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = AppPreferences.m; sourceTree = "<group>"; };
 		8E29659D9362A975CC8D4168C9F9B2A3 /* Pods-ehrPatientSDK-ios_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ehrPatientSDK-ios_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		8EA1E644CB812374DFB53174220046B6 /* TrustKit-Bridging-Header.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "TrustKit-Bridging-Header.h"; path = "TrustKit/TrustKit-Bridging-Header.h"; sourceTree = "<group>"; };
 		8FDE789F57927482A36EADD0E80FBBAE /* IBPractitionerPractice.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = IBPractitionerPractice.m; sourceTree = "<group>"; };
 		904F313E16BE83F31023B3B93B9A945C /* EHRPersistableP.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = EHRPersistableP.h; sourceTree = "<group>"; };
 		90E12343240C30B328260800DCC33D79 /* TrustKit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TrustKit.m; path = TrustKit/TrustKit.m; sourceTree = "<group>"; };
-		91B3B5CEAFCED3BA045B01F7C79A6964 /* MessagesModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MessagesModel.m; sourceTree = "<group>"; };
 		926E9257964F430D042B6A63F2168A43 /* AccessOffer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = AccessOffer.m; sourceTree = "<group>"; };
 		941917E7C50B4DF2ACEE0E328FB4DC7E /* IBMediaInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = IBMediaInfo.h; sourceTree = "<group>"; };
 		952925E838A0DE4D7BDC4EE54022633D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
@@ -442,7 +545,7 @@
 		9B0775EB5B188747DC08827E8DB48540 /* FactorsRequired.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FactorsRequired.m; sourceTree = "<group>"; };
 		9C0C5F4792319F15F7CEB043CFDD16C0 /* DateUtil.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DateUtil.m; sourceTree = "<group>"; };
 		9D69BFE73D2FC29DA638D925690F0654 /* vendor_identifier.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = vendor_identifier.h; path = TrustKit/Reporting/vendor_identifier.h; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9DEC28495A98FA696C9837048D1F37E8 /* UserModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
 		9F3CB7378F5778680A794B575A2472D4 /* Version.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = Version.h; sourceTree = "<group>"; };
 		9F530F46DD39FF219639CB1A5029B20E /* IBDeviceInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = IBDeviceInfo.m; sourceTree = "<group>"; };
@@ -455,7 +558,6 @@
 		A4B3B4F81961BDAC8DC3A3A50D80B7D3 /* AuthSequencer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AuthSequencer.h; sourceTree = "<group>"; };
 		A50C92575F3E1FD1BF3D967128E9356F /* TSKPinFailureReport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TSKPinFailureReport.h; path = TrustKit/Reporting/TSKPinFailureReport.h; sourceTree = "<group>"; };
 		A5155AD02A1A037E59A29164A939F25A /* IBService.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = IBService.h; sourceTree = "<group>"; };
-		A5969F8704BF9888485BC1BD611A9797 /* ServiceSettings.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ServiceSettings.h; sourceTree = "<group>"; };
 		A61FA57EA11A7760679AD82CA2370C25 /* ServicesModelFilter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ServicesModelFilter.h; sourceTree = "<group>"; };
 		A69BDC2F514AE3B0C044C747B35C4AB1 /* PatientModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PatientModel.h; sourceTree = "<group>"; };
 		A7E413E4061557A61CCEAB8C2C41C68C /* TrustKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TrustKit.debug.xcconfig; sourceTree = "<group>"; };
@@ -481,7 +583,7 @@
 		AFF453D21E597E0C02844A3C2E6C7AB7 /* PersistenceManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PersistenceManager.h; sourceTree = "<group>"; };
 		B09960855CC4B1E92D32F0784AA8F21A /* IBTelexInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = IBTelexInfo.m; sourceTree = "<group>"; };
 		B0B4680702960A67A1128A44953F0CE0 /* TSKTrustKitConfig.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TSKTrustKitConfig.m; path = TrustKit/TSKTrustKitConfig.m; sourceTree = "<group>"; };
-		B23001E03561B321FFBE8EEBD2EA5448 /* UICKeyChainStore.LICENSE.readme */ = {isa = PBXFileReference; includeInIndex = 1; path = UICKeyChainStore.LICENSE.readme; sourceTree = "<group>"; };
+		B23001E03561B321FFBE8EEBD2EA5448 /* UICKeyChainStore.LICENSE.readme */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = UICKeyChainStore.LICENSE.readme; sourceTree = "<group>"; };
 		B29A6D14F953D27E9C58C9DA8C2D09BA /* TrustKit */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = TrustKit; path = TrustKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B32EE88A22D2ED5B11383B0500E400A4 /* IBUser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = IBUser.m; sourceTree = "<group>"; };
 		B3340778932A7287561AAEC5762A0B09 /* SIN.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SIN.h; sourceTree = "<group>"; };
@@ -522,22 +624,21 @@
 		CC7B2F99BD0394C5DA32D4C049647C5B /* Pods-ehrPatientSDK-ios_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ehrPatientSDK-ios_Tests-umbrella.h"; sourceTree = "<group>"; };
 		CE046D974509E8D9151787A8E6644205 /* IBPractitioner.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = IBPractitioner.m; sourceTree = "<group>"; };
 		CE0E1AA1DF5056488600E24F8F804795 /* PersistenceManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PersistenceManager.m; sourceTree = "<group>"; };
-		CF188CB07765C9406AB5C397BC8B3D58 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
-		CFD39AB83FA7A910F0EB37B7DA79950C /* tsk_assert.c */ = {isa = PBXFileReference; includeInIndex = 1; name = tsk_assert.c; path = TrustKit/Dependencies/domain_registry/private/tsk_assert.c; sourceTree = "<group>"; };
+		CF188CB07765C9406AB5C397BC8B3D58 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		CFD39AB83FA7A910F0EB37B7DA79950C /* tsk_assert.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = tsk_assert.c; path = TrustKit/Dependencies/domain_registry/private/tsk_assert.c; sourceTree = "<group>"; };
 		CFE6471594C6F90FEF640514232DA31B /* PIN.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PIN.m; sourceTree = "<group>"; };
 		CFEA7F61D1F5C03B27C29FA53B79C3B1 /* IBAppointment.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = IBAppointment.m; sourceTree = "<group>"; };
 		D0536AF6A9BBB837D94319C9E87951D9 /* TSKNSURLConnectionDelegateProxy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TSKNSURLConnectionDelegateProxy.h; path = TrustKit/Swizzling/TSKNSURLConnectionDelegateProxy.h; sourceTree = "<group>"; };
 		D0D8B3B459E51F83788F33D555B450A1 /* RSSwizzle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RSSwizzle.h; path = TrustKit/Dependencies/RSSwizzle/RSSwizzle.h; sourceTree = "<group>"; };
 		D0F773B64F03C500C82C55AE98D1500F /* IBDeviceInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = IBDeviceInfo.h; sourceTree = "<group>"; };
 		D3D5107F64DCB0082811A5C45FA1D0E9 /* IBAgentInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = IBAgentInfo.h; sourceTree = "<group>"; };
-		D55015A47E39095137D98CE0B7E0757C /* AppPreferences.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AppPreferences.h; sourceTree = "<group>"; };
 		D59F3516348CEE3DDE220703992E17EF /* TSKPinningValidatorCallback.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TSKPinningValidatorCallback.h; path = TrustKit/public/TSKPinningValidatorCallback.h; sourceTree = "<group>"; };
 		D6EA73F9C7CC9DD3E2E58EC231B0EB41 /* FactorsRequired.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FactorsRequired.h; sourceTree = "<group>"; };
 		D6F20BD2A55803E21E84AAD8C313D850 /* HCIN.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HCIN.m; sourceTree = "<group>"; };
 		D85064AF28351D71A9C36F778EEFF798 /* EulaModelFilter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = EulaModelFilter.h; sourceTree = "<group>"; };
 		D9408BD1FCCFA055492171EF44C913C5 /* TrustKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "TrustKit-Info.plist"; sourceTree = "<group>"; };
 		D9AD3D29FD5B87BD09A4C211F5AE96D5 /* TSKPinningValidator_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TSKPinningValidator_Private.h; path = TrustKit/TSKPinningValidator_Private.h; sourceTree = "<group>"; };
-		DA94012F303AB2C479849911A4B0C8BE /* registry_search.c */ = {isa = PBXFileReference; includeInIndex = 1; name = registry_search.c; path = TrustKit/Dependencies/domain_registry/private/registry_search.c; sourceTree = "<group>"; };
+		DA94012F303AB2C479849911A4B0C8BE /* registry_search.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = registry_search.c; path = TrustKit/Dependencies/domain_registry/private/registry_search.c; sourceTree = "<group>"; };
 		DAB602B91599A80DE674F2206D65B18A /* TrustKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TrustKit.release.xcconfig; sourceTree = "<group>"; };
 		DC334C7FB8B1581FBD7CF28CBEAE376C /* EHRPatientSDK-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "EHRPatientSDK-dummy.m"; sourceTree = "<group>"; };
 		DC638538AF63EC13C0D6F00BDFC3DEF9 /* TSKTrustKitConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TSKTrustKitConfig.h; path = TrustKit/public/TSKTrustKitConfig.h; sourceTree = "<group>"; };
@@ -564,6 +665,51 @@
 		F7E00D47417C1FBAAAD7384352383AC3 /* IBPractitionerPractice.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = IBPractitionerPractice.h; sourceTree = "<group>"; };
 		F975D6EDD08E0DFC24A3A616D2AFC8C4 /* IBMedia.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = IBMedia.h; sourceTree = "<group>"; };
 		F9D95554821EA8D4B7BB3FAAF99D76C1 /* TSKNSURLConnectionDelegateProxy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TSKNSURLConnectionDelegateProxy.m; path = TrustKit/Swizzling/TSKNSURLConnectionDelegateProxy.m; sourceTree = "<group>"; };
+		FAD79AA729845F570011388E /* EntryMessagePayload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryMessagePayload.h; sourceTree = "<group>"; };
+		FAD79AA829845F570011388E /* ConvoInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConvoInfo.m; sourceTree = "<group>"; };
+		FAD79AA929845F570011388E /* EntryStatusChangePayload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryStatusChangePayload.h; sourceTree = "<group>"; };
+		FAD79AAA29845F570011388E /* EntryPartipantPayload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryPartipantPayload.h; sourceTree = "<group>"; };
+		FAD79AAB29845F570011388E /* ConversationEntryPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationEntryPoint.m; sourceTree = "<group>"; };
+		FAD79AAC29845F570011388E /* ConversationParticipant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversationParticipant.h; sourceTree = "<group>"; };
+		FAD79AAD29845F570011388E /* Conversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Conversation.m; sourceTree = "<group>"; };
+		FAD79AAE29845F570011388E /* ConversationEntryStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationEntryStatus.m; sourceTree = "<group>"; };
+		FAD79AAF29845F570011388E /* ConversationEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversationEntry.h; sourceTree = "<group>"; };
+		FAD79AB029845F570011388E /* ConversationEnvelope.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationEnvelope.m; sourceTree = "<group>"; };
+		FAD79AB129845F570011388E /* EntryAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryAttachment.m; sourceTree = "<group>"; };
+		FAD79AB229845F570011388E /* EntryMovePayload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryMovePayload.m; sourceTree = "<group>"; };
+		FAD79AB329845F570011388E /* EntryStatusChangePayload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryStatusChangePayload.m; sourceTree = "<group>"; };
+		FAD79AB429845F570011388E /* ConvoInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConvoInfo.h; sourceTree = "<group>"; };
+		FAD79AB529845F580011388E /* EntryMessagePayload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryMessagePayload.m; sourceTree = "<group>"; };
+		FAD79AB629845F580011388E /* ConversationParticipant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationParticipant.m; sourceTree = "<group>"; };
+		FAD79AB729845F580011388E /* ConversationEntryPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversationEntryPoint.h; sourceTree = "<group>"; };
+		FAD79AB829845F580011388E /* EntryPartipantPayload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryPartipantPayload.m; sourceTree = "<group>"; };
+		FAD79ABA29845F580011388E /* ConvoEntrySpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConvoEntrySpec.m; sourceTree = "<group>"; };
+		FAD79ABB29845F580011388E /* ConvoEntryAddSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConvoEntryAddSpec.m; sourceTree = "<group>"; };
+		FAD79ABC29845F580011388E /* ConvoEntryPayloadSpec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConvoEntryPayloadSpec.h; sourceTree = "<group>"; };
+		FAD79ABD29845F580011388E /* ConvoEntrySpec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConvoEntrySpec.h; sourceTree = "<group>"; };
+		FAD79ABE29845F580011388E /* ConvoEntryAddSpec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConvoEntryAddSpec.h; sourceTree = "<group>"; };
+		FAD79ABF29845F580011388E /* ConvoEntryPayloadSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConvoEntryPayloadSpec.m; sourceTree = "<group>"; };
+		FAD79AC029845F580011388E /* ConversationEntryStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversationEntryStatus.h; sourceTree = "<group>"; };
+		FAD79AC129845F580011388E /* Conversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Conversation.h; sourceTree = "<group>"; };
+		FAD79AC229845F580011388E /* EntryMovePayload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryMovePayload.h; sourceTree = "<group>"; };
+		FAD79AC329845F580011388E /* EntryAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryAttachment.h; sourceTree = "<group>"; };
+		FAD79AC429845F580011388E /* ConversationEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationEntry.m; sourceTree = "<group>"; };
+		FAD79AC529845F580011388E /* ConversationEnvelope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversationEnvelope.h; sourceTree = "<group>"; };
+		FAD79B022984616F0011388E /* NSDate+Compare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Compare.h"; sourceTree = "<group>"; };
+		FAD79B032984616F0011388E /* NSDate+Compare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Compare.m"; sourceTree = "<group>"; };
+		FAD79B092984623E0011388E /* CommandsWS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommandsWS.m; sourceTree = "<group>"; };
+		FAD79B0A2984623E0011388E /* ConsentWS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConsentWS.m; sourceTree = "<group>"; };
+		FAD79B0B2984623E0011388E /* WebServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebServices.m; sourceTree = "<group>"; };
+		FAD79B0C2984623E0011388E /* ConvoWS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConvoWS.h; sourceTree = "<group>"; };
+		FAD79B0D2984623E0011388E /* NotificationWS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationWS.m; sourceTree = "<group>"; };
+		FAD79B0E2984623E0011388E /* CommandsWS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommandsWS.h; sourceTree = "<group>"; };
+		FAD79B0F2984623E0011388E /* ConsentWS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsentWS.h; sourceTree = "<group>"; };
+		FAD79B102984623E0011388E /* WebServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebServices.h; sourceTree = "<group>"; };
+		FAD79B112984623E0011388E /* NotificationWS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationWS.h; sourceTree = "<group>"; };
+		FAD79B122984623E0011388E /* ConvoWS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConvoWS.m; sourceTree = "<group>"; };
+		FAD79B27298462920011388E /* EHRRequests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EHRRequests.m; sourceTree = "<group>"; };
+		FAD79B28298462920011388E /* EHRRequests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EHRRequests.h; sourceTree = "<group>"; };
+		FAD79B3729867EF50011388E /* sdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = sdk.h; path = "ehrPatientSDK-ios/Classes/sdk.h"; sourceTree = "<group>"; };
 		FB65668B38041413FD3996416D4EF8EF /* PIN.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PIN.h; sourceTree = "<group>"; };
 		FB689E2A5D890D97FD051AD7C5549130 /* IBLabRequestTextDocument.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = IBLabRequestTextDocument.h; sourceTree = "<group>"; };
 		FB76E3CE99E1D7CECA07DE9660D63F00 /* IBDispensaryInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = IBDispensaryInfo.m; sourceTree = "<group>"; };
@@ -665,7 +811,6 @@
 				36FFDACE44D7D7B5236F20704BCF013A /* vendor_identifier.m */,
 				3999A0B58FA1019AC2FAD0580743B2E2 /* Support Files */,
 			);
-			name = TrustKit;
 			path = TrustKit;
 			sourceTree = "<group>";
 		};
@@ -720,21 +865,21 @@
 		3CAAA75031A723FFAA237EBC6DB11862 /* AppState */ = {
 			isa = PBXGroup;
 			children = (
-				D55015A47E39095137D98CE0B7E0757C /* AppPreferences.h */,
-				8D92F524D11A60D7E94BB676369D5071 /* AppPreferences.m */,
 				03BDEFCDED1DF0E896DB6DE581DF7654 /* AppState.h */,
 				BBEE2FC7D95863751963484454588EFD /* AppState.m */,
 				AFF453D21E597E0C02844A3C2E6C7AB7 /* PersistenceManager.h */,
 				CE0E1AA1DF5056488600E24F8F804795 /* PersistenceManager.m */,
 				5AA7C64B60E8BAC00B4597F4EBC58C22 /* SecureCredentials.h */,
 				7827D8AEDB6348EB867EC7AEBED540B3 /* SecureCredentials.m */,
-				A5969F8704BF9888485BC1BD611A9797 /* ServiceSettings.h */,
-				624B691983F77AE12EB66E2604AD0845 /* ServiceSettings.m */,
 				2DF7ACB5F848366FA8F80223A2881CD3 /* UICKeyChainStore.h */,
 				6D05048D126792836891D5FE662D20BD /* UICKeyChainStore.m */,
 				B23001E03561B321FFBE8EEBD2EA5448 /* UICKeyChainStore.LICENSE.readme */,
 				FCC11CCB6A0CC3AC51B0C199404ADD69 /* UserCredentials.h */,
 				CC5965086B1D9195B95402C9C7ECAF70 /* UserCredentials.m */,
+				4B8DD529D64AD379FDF4B297 /* EHRLibState.m */,
+				4B8DD7794B521E0AA86FB78B /* EHRLibState.h */,
+				4B8DDC717C524E4D8EDD97F8 /* EHRUserRegistrationManifest.m */,
+				4B8DD60EE5A38B85DDD574E2 /* EHRUserRegistrationManifest.h */,
 			);
 			name = AppState;
 			path = "ehrPatientSDK-ios/Classes/AppState";
@@ -771,8 +916,6 @@
 				EE983B43E899015551879827FA76E367 /* EulaModelFilter.m */,
 				8612F33C6C09E0CE4A9EAEF7DA94DD52 /* Inbox.h */,
 				09F56928762C9399764CB0D632DD42E1 /* Inbox.m */,
-				8BEE30B16D3770C79953776A1258ABA4 /* MessagesModel.h */,
-				91B3B5CEAFCED3BA045B01F7C79A6964 /* MessagesModel.m */,
 				6A7FEE308517F4ECC34418FDD0755931 /* NotificationsModel.h */,
 				00B88BECDFBCF613E0F979EF0F42D5BF /* NotificationsModel.m */,
 				44CC4212A0BAD5B7BAD49662D4D34865 /* NotificationsModelFilter.h */,
@@ -787,6 +930,10 @@
 				2A990CF1C540E363D58A570B32B4319A /* ServicesModelFilter.m */,
 				41252A391D4B12F73BFEC217B7D0C004 /* UserModel.h */,
 				9DEC28495A98FA696C9837048D1F37E8 /* UserModel.m */,
+				4B8DD1B743CDC34BF24A76AD /* ConvoPlacesModel.m */,
+				4B8DDF21E10D7DF2E76E2080 /* ConvoPlacesModel.h */,
+				4B8DD8565B9DD59E6A046372 /* Models.m */,
+				4B8DDCE320CA9CAF1A32D947 /* Models.h */,
 			);
 			name = Models;
 			path = "ehrPatientSDK-ios/Classes/Models";
@@ -818,7 +965,6 @@
 				BF9D980CEAE3DBF3C73CFEFDB1E14728 /* OfferedPrivateMessage.h */,
 				E69D529F276913312E7854019F4BC022 /* OfferedPrivateMessage.m */,
 			);
-			name = Access;
 			path = Access;
 			sourceTree = "<group>";
 		};
@@ -828,7 +974,6 @@
 				D6EA73F9C7CC9DD3E2E58EC231B0EB41 /* FactorsRequired.h */,
 				9B0775EB5B188747DC08827E8DB48540 /* FactorsRequired.m */,
 			);
-			name = Properties;
 			path = Properties;
 			sourceTree = "<group>";
 		};
@@ -852,6 +997,8 @@
 		8228BCC70B9E564407EF0EC4962016E5 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				FAD79B022984616F0011388E /* NSDate+Compare.h */,
+				FAD79B032984616F0011388E /* NSDate+Compare.m */,
 				782F6992FF85BE9E2E2C682C60CCC7CC /* AppSignature.h */,
 				4A9787E064271D14317E935340396C8A /* AppSignature.m */,
 				1586FE5FB806A8D7C70BFC5A4F4DAAA2 /* DateUtil.h */,
@@ -877,6 +1024,8 @@
 				A022A98F0F0B7203FBAE40B786872785 /* UIView+EHR.m */,
 				9F3CB7378F5778680A794B575A2472D4 /* Version.h */,
 				385C07CEB81A51A729F59A8DE5C36329 /* Version.m */,
+				4B8DDE28109D1D2CB68E4449 /* EHRLibRuntime.m */,
+				4B8DD101C8B9AB071B08060C /* EHRLibRuntime.h */,
 			);
 			name = Util;
 			path = "ehrPatientSDK-ios/Classes/Util";
@@ -894,14 +1043,13 @@
 				B3340778932A7287561AAEC5762A0B09 /* SIN.h */,
 				1C142EAD73F5998CA40B3BEAD9C5684B /* SIN.m */,
 			);
-			name = Jurisdictions;
 			path = Jurisdictions;
 			sourceTree = "<group>";
 		};
 		957936481C57FAA430A9F09D635A0BA1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				50A7CAF519FD4DC9DD05EC6E358D0446 /* EHRPatientSDK */,
+				50A7CAF519FD4DC9DD05EC6E358D0446 /* EHRPatientSDK.framework */,
 				3E79ED857B0ED5E54DF85B0D9942E352 /* Pods-ehrPatientSDK-ios_Tests */,
 				B29A6D14F953D27E9C58C9DA8C2D09BA /* TrustKit */,
 			);
@@ -941,6 +1089,7 @@
 				108FBF3BC1CB66C01E7DF1325F191EE9 /* Support Files */,
 				45DAF592A9EFA29BCA2E1D9F16D013E7 /* UI */,
 				8228BCC70B9E564407EF0EC4962016E5 /* Util */,
+				FAD79B3729867EF50011388E /* sdk.h */,
 			);
 			name = EHRPatientSDK;
 			path = ../..;
@@ -983,9 +1132,75 @@
 			name = "Development Pods";
 			sourceTree = "<group>";
 		};
+		FAD79AA629845F570011388E /* Convo */ = {
+			isa = PBXGroup;
+			children = (
+				FAD79AA729845F570011388E /* EntryMessagePayload.h */,
+				FAD79AA829845F570011388E /* ConvoInfo.m */,
+				FAD79AA929845F570011388E /* EntryStatusChangePayload.h */,
+				FAD79AAA29845F570011388E /* EntryPartipantPayload.h */,
+				FAD79AAB29845F570011388E /* ConversationEntryPoint.m */,
+				FAD79AAC29845F570011388E /* ConversationParticipant.h */,
+				FAD79AC129845F580011388E /* Conversation.h */,
+				FAD79AAD29845F570011388E /* Conversation.m */,
+				FAD79AAE29845F570011388E /* ConversationEntryStatus.m */,
+				FAD79AAF29845F570011388E /* ConversationEntry.h */,
+				FAD79AB029845F570011388E /* ConversationEnvelope.m */,
+				FAD79AB129845F570011388E /* EntryAttachment.m */,
+				FAD79AB229845F570011388E /* EntryMovePayload.m */,
+				FAD79AB329845F570011388E /* EntryStatusChangePayload.m */,
+				FAD79AB429845F570011388E /* ConvoInfo.h */,
+				FAD79AB529845F580011388E /* EntryMessagePayload.m */,
+				FAD79AB629845F580011388E /* ConversationParticipant.m */,
+				FAD79AB729845F580011388E /* ConversationEntryPoint.h */,
+				FAD79AB829845F580011388E /* EntryPartipantPayload.m */,
+				FAD79AB929845F580011388E /* Outbound */,
+				FAD79AC029845F580011388E /* ConversationEntryStatus.h */,
+				FAD79AC229845F580011388E /* EntryMovePayload.h */,
+				FAD79AC329845F580011388E /* EntryAttachment.h */,
+				FAD79AC429845F580011388E /* ConversationEntry.m */,
+				FAD79AC529845F580011388E /* ConversationEnvelope.h */,
+			);
+			path = Convo;
+			sourceTree = "<group>";
+		};
+		FAD79AB929845F580011388E /* Outbound */ = {
+			isa = PBXGroup;
+			children = (
+				FAD79ABA29845F580011388E /* ConvoEntrySpec.m */,
+				FAD79ABB29845F580011388E /* ConvoEntryAddSpec.m */,
+				FAD79ABC29845F580011388E /* ConvoEntryPayloadSpec.h */,
+				FAD79ABD29845F580011388E /* ConvoEntrySpec.h */,
+				FAD79ABE29845F580011388E /* ConvoEntryAddSpec.h */,
+				FAD79ABF29845F580011388E /* ConvoEntryPayloadSpec.m */,
+			);
+			path = Outbound;
+			sourceTree = "<group>";
+		};
+		FAD79B082984623E0011388E /* Calls */ = {
+			isa = PBXGroup;
+			children = (
+				FAD79B092984623E0011388E /* CommandsWS.m */,
+				FAD79B0A2984623E0011388E /* ConsentWS.m */,
+				FAD79B0B2984623E0011388E /* WebServices.m */,
+				FAD79B0C2984623E0011388E /* ConvoWS.h */,
+				FAD79B0D2984623E0011388E /* NotificationWS.m */,
+				FAD79B0E2984623E0011388E /* CommandsWS.h */,
+				FAD79B0F2984623E0011388E /* ConsentWS.h */,
+				FAD79B102984623E0011388E /* WebServices.h */,
+				FAD79B112984623E0011388E /* NotificationWS.h */,
+				FAD79B122984623E0011388E /* ConvoWS.m */,
+			);
+			path = Calls;
+			sourceTree = "<group>";
+		};
 		FFEE326550D575350CD7D50384806281 /* NAO */ = {
 			isa = PBXGroup;
 			children = (
+				FAD79B28298462920011388E /* EHRRequests.h */,
+				FAD79B27298462920011388E /* EHRRequests.m */,
+				FAD79B082984623E0011388E /* Calls */,
+				FAD79AA629845F570011388E /* Convo */,
 				3E4B9F0AB7B60BDE1DC50D57B5D257B3 /* IBAddress.h */,
 				57F813789327EB7881545DBA48B75FCB /* IBAddress.m */,
 				D3D5107F64DCB0082811A5C45FA1D0E9 /* IBAgentInfo.h */,
@@ -1082,7 +1297,6 @@
 				912F65931C53621D013B474C1C5DB6F7 /* Jurisdictions */,
 				76960F8BEB5B38EEB901C77B71BA0169 /* Properties */,
 			);
-			name = NAO;
 			path = NAO;
 			sourceTree = "<group>";
 		};
@@ -1133,9 +1347,9 @@
 				57FB5057DF8F02968E5A2901AA647C95 /* AccessOffer.h in Headers */,
 				211F54E9EF8295F25E98AAF3F8C71D9C /* AccessRequest.h in Headers */,
 				CD34F5F96720342898E0253A69E265A2 /* AccessState.h in Headers */,
-				20AB3395E220D9B42680F153D9211F6E /* AppPreferences.h in Headers */,
 				09C12646EA60E35C149C3391C15AED81 /* AppSignature.h in Headers */,
 				1CBD19B1EA5179BBD610E2CB4F701138 /* AppState.h in Headers */,
+				FAD79AF629845F580011388E /* ConversationEntryStatus.h in Headers */,
 				D7D3C745BE2D474F9202A767C1EE96AD /* AuthSequencer.h in Headers */,
 				9B547DB4823FEA13E5BD1546300D8946 /* ContactsModel.h in Headers */,
 				1649E9A7F289061E2CE7ED536203CF53 /* DateUtil.h in Headers */,
@@ -1151,31 +1365,43 @@
 				FC57817200F7714C5B828D9D1F6364AB /* EHRRequestStatus.h in Headers */,
 				7D8D2EC925737080D74FF6DD0C6B6094 /* EHRServerRequest.h in Headers */,
 				DDD1A3C4A9A9093BA40CC783481AC17C /* EHRServerResponse.h in Headers */,
+				FAD79B042984616F0011388E /* NSDate+Compare.h in Headers */,
 				C10E2F02A37B87453ED39760E0680174 /* EulaModel.h in Headers */,
 				CEE6F4ED52358FB16AEE828A29270BD9 /* EulaModelFilter.h in Headers */,
 				D0B2DC03CD51729812EC4D886B6578BB /* FactorsRequired.h in Headers */,
 				B72DE122A25165994BCF3F2304EA37B5 /* GEDeviceHardware.h in Headers */,
+				FAD79ACA29845F580011388E /* EntryStatusChangePayload.h in Headers */,
 				E34E7B608D31CA56D7424CE0D86749AC /* GEFileUtil.h in Headers */,
 				C15EDA66A819EEC42F410E4845B9212E /* GEMacros.h in Headers */,
 				A03CFE243F714EF34DA739A1B97479E9 /* GERuntimeConstants.h in Headers */,
+				FAD79AF829845F580011388E /* Conversation.h in Headers */,
 				F2D8283B55EA79AB2ADA4320044ECD94 /* GETimeUtil.h in Headers */,
+				FAD79AEE29845F580011388E /* ConvoEntryPayloadSpec.h in Headers */,
+				FAD79AE029845F580011388E /* ConvoInfo.h in Headers */,
 				85E4DF0AC6CD1B75E3D17CAA28C214B3 /* HCIN.h in Headers */,
 				B83445ED9654A3CFEE4E458E6139758B /* IBAddress.h in Headers */,
 				50EE8A02BDBD59803C56BDC02F946869 /* IBAgentInfo.h in Headers */,
 				227D91346A8CAB58DE34E14BC63EA369 /* IBAnnotation.h in Headers */,
 				BAFFFF228517C59DF24E3D822EAF37AE /* IBAppInfo.h in Headers */,
+				FAD79B232984623E0011388E /* NotificationWS.h in Headers */,
 				0B31DE35D043AAA321728DBB1B90A3D4 /* IBAppointment.h in Headers */,
 				C8985BF4993CBE89EFC0BE73A484B741 /* IBAppSummary.h in Headers */,
+				FAD79AC629845F580011388E /* EntryMessagePayload.h in Headers */,
 				85C0BCA46F753A7905A213A8E93097D2 /* IBCapability.h in Headers */,
+				FAD79AFA29845F580011388E /* EntryMovePayload.h in Headers */,
 				7A92084FAEA57A550D15C22E8A56B482 /* IBConsent.h in Headers */,
 				42C88738D9D92F1F00B4C46F550506FE /* IBConsentGranted.h in Headers */,
 				308C79E5A01D2FE3CE9F5C59CB2089B5 /* IBConsentInfo.h in Headers */,
+				FAD79B212984623E0011388E /* WebServices.h in Headers */,
+				FAD79AD629845F580011388E /* ConversationEntry.h in Headers */,
 				8A6C58002513B4C2F90B33520FAE5675 /* IBContact.h in Headers */,
 				00409F2CA83AB821BACA27F86565C937 /* IBDeviceInfo.h in Headers */,
 				31998C0C8F6DEBF869E7680BC4B94D55 /* IBDispensaryInfo.h in Headers */,
+				FAD79AD029845F580011388E /* ConversationParticipant.h in Headers */,
 				2B67CA912B4D708DE9028A2E1AA8A5D9 /* IBEula.h in Headers */,
 				CC5E270E81C3633E3F58D792A938E144 /* IBHealthCareProvider.h in Headers */,
 				2F24B589773F0E48ABBD7055052C8C6D /* IBLab.h in Headers */,
+				FAD79B3829867EF50011388E /* sdk.h in Headers */,
 				E76D47778096A26C5CE3617F9A675A72 /* IBLabRequest.h in Headers */,
 				2ADF49D75B3492031D6E0B44BCD804D9 /* IBLabRequestPDFDocument.h in Headers */,
 				0ECBA1E86035D5DCBDDF2B91B09C2DCA /* IBLabRequestTextDocument.h in Headers */,
@@ -1190,10 +1416,15 @@
 				A530CFD200B128ADDF006E9212D91F35 /* IBPatientInfo.h in Headers */,
 				56B297BA35B39F97397E7AC33A36E6C5 /* IBPractitioner.h in Headers */,
 				B84192AE8E21F69BC37914E16EAFE518 /* IBPractitionerJurisdiction.h in Headers */,
+				FAD79B1F2984623E0011388E /* ConsentWS.h in Headers */,
 				9BEC753AC50E241645D58EE054DC7B1E /* IBPractitionerPractice.h in Headers */,
 				F53FB9D99E56BD26AC990DBC3A5D0CDD /* IBService.h in Headers */,
+				FAD79ACC29845F580011388E /* EntryPartipantPayload.h in Headers */,
+				FAD79B1D2984623E0011388E /* CommandsWS.h in Headers */,
 				740D17A1660213A2F33A69B68D1E1FCB /* IBTelex.h in Headers */,
+				FAD79AE629845F580011388E /* ConversationEntryPoint.h in Headers */,
 				1CF101695C78CF3F5446AF19079D3E22 /* IBTelexInfo.h in Headers */,
+				FAD79AF029845F580011388E /* ConvoEntrySpec.h in Headers */,
 				EFDA77BE8FF452560F3BFD8D8B345F41 /* IBUser.h in Headers */,
 				320575B0EC1CB9C8DCE197775D0832F9 /* IBUserCapability.h in Headers */,
 				A920B67D33AA3265508128BEC5F6C631 /* IBUserEula.h in Headers */,
@@ -1202,15 +1433,17 @@
 				8EF65B6A7F67089AF4A8D02EB7C9A686 /* IBVersion.h in Headers */,
 				E784E9271207E67ED0D00F8E7C0E26B9 /* Inbox.h in Headers */,
 				2C037ADC7376A3038F3A8F0A53AC7BC4 /* InsuranceNumber.h in Headers */,
+				FAD79AFC29845F580011388E /* EntryAttachment.h in Headers */,
+				FAD79B2B298462920011388E /* EHRRequests.h in Headers */,
 				42028330767C4834B66188B4C59BC237 /* MathUtil.h in Headers */,
 				EC9422E26431E9DC9CB8CD85073A7AC3 /* MessageDistributionProgressChange.h in Headers */,
-				C5EC513B330429FFF2153C06DB115E75 /* MessagesModel.h in Headers */,
 				15CE2D5C34A78CE28833C7C05D770A9E /* NotificationCellListenerP.h in Headers */,
 				452AAA0B658F8D3D504C0585F580293D /* NotificationProgressChange.h in Headers */,
 				7234EC7B46DBEF8197AE77D6F7C75495 /* NotificationsModel.h in Headers */,
 				DEB5FAFD7420C626BD9B86C66DB485F9 /* NotificationsModelFilter.h in Headers */,
 				C78098934331614AB582A29216E0D5B8 /* NSDictionary+JSON.h in Headers */,
 				2F2EDCFF5233BA2D13226C2E5CA00873 /* OfferedPrivateMessage.h in Headers */,
+				FAD79B192984623E0011388E /* ConvoWS.h in Headers */,
 				F2DD17CC25D19AC5E92087A18B292CA1 /* Patient.h in Headers */,
 				4961CDC65393BA46B58EBEB0395267FA /* PatientHealthSummary.h in Headers */,
 				44ED96062A5805A9ED491097845E1422 /* PatientInfo.h in Headers */,
@@ -1223,16 +1456,18 @@
 				3787E546A0AB33321FC0C4AEA945C924 /* RecordsModel.h in Headers */,
 				C61802D03113127D2015490C847B7C79 /* ScannerP.h in Headers */,
 				9EF65D69E0E3A1C50B3437C75D9B2C2C /* SecureCredentials.h in Headers */,
-				CDDC9EDF7E2F26C65D8C0DA099BBA8E9 /* ServiceSettings.h in Headers */,
 				0D659DACAE8FE6335F481628873CFEDE /* ServicesModel.h in Headers */,
 				3BFBB0AC80778DD600F9B88C65A0F07F /* ServicesModelFilter.h in Headers */,
 				439E1BF4DC9E9FBDCDBCCBC7F5E2F66F /* SIN.h in Headers */,
 				022C513B255B6FDFDA2FB8917A87D9BD /* UICKeyChainStore.h in Headers */,
+				FAD79B0029845F580011388E /* ConversationEnvelope.h in Headers */,
 				CF6D649C10A81DFD7246A6C59FE85793 /* UIView+EHR.h in Headers */,
 				2C5BCD915FB906AE027FAAA322CB8EA9 /* UserCredentials.h in Headers */,
 				94AE9D6B713A53008C2F2458957E0223 /* UserDeviceSettings.h in Headers */,
 				6D2020ADBDDCB206B23CA9C9E899D001 /* UserModel.h in Headers */,
 				88511000756CD136EB759E66C611163E /* Version.h in Headers */,
+				FAD79AF229845F580011388E /* ConvoEntryAddSpec.h in Headers */,
+				4B8DD40CE1FD0E377DA1DC1F /* EHRUserRegistrationManifest.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1240,7 +1475,34 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAD79AF729845F580011388E /* ConversationEntryStatus.h in Headers */,
+				FAD79B2C298462920011388E /* EHRRequests.h in Headers */,
+				FAD79B222984623E0011388E /* WebServices.h in Headers */,
+				FAD79AFB29845F580011388E /* EntryMovePayload.h in Headers */,
+				FAD79B1E2984623E0011388E /* CommandsWS.h in Headers */,
+				FAD79AE129845F580011388E /* ConvoInfo.h in Headers */,
+				FAD79B242984623E0011388E /* NotificationWS.h in Headers */,
+				FAD79AD729845F580011388E /* ConversationEntry.h in Headers */,
+				FAD79ACD29845F580011388E /* EntryPartipantPayload.h in Headers */,
+				FAD79B0129845F580011388E /* ConversationEnvelope.h in Headers */,
+				FAD79B052984616F0011388E /* NSDate+Compare.h in Headers */,
+				FAD79AF929845F580011388E /* Conversation.h in Headers */,
+				FAD79B202984623E0011388E /* ConsentWS.h in Headers */,
+				FAD79AEF29845F580011388E /* ConvoEntryPayloadSpec.h in Headers */,
+				FAD79AF329845F580011388E /* ConvoEntryAddSpec.h in Headers */,
+				FAD79AC729845F580011388E /* EntryMessagePayload.h in Headers */,
+				FAD79AD129845F580011388E /* ConversationParticipant.h in Headers */,
+				FAD79AE729845F580011388E /* ConversationEntryPoint.h in Headers */,
+				FAD79ACB29845F580011388E /* EntryStatusChangePayload.h in Headers */,
+				FAD79AFD29845F580011388E /* EntryAttachment.h in Headers */,
+				FAD79AF129845F580011388E /* ConvoEntrySpec.h in Headers */,
+				FAD79B1A2984623E0011388E /* ConvoWS.h in Headers */,
 				DD2E77FC40217B4F9FFDD2730686B97C /* Pods-ehrPatientSDK-ios_Tests-umbrella.h in Headers */,
+				4B8DD7D835005069828E5661 /* EHRLibRuntime.h in Headers */,
+				4B8DD51B5A17E4DE9F5911A9 /* ConvoPlacesModel.h in Headers */,
+				4B8DD6AE03845D4212CBD114 /* Models.h in Headers */,
+				4B8DD176BADDFDD78EB635AD /* EHRLibState.h in Headers */,
+				4B8DD1EF835A96E6C1597B4B /* EHRUserRegistrationManifest.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1301,7 +1563,7 @@
 			);
 			name = EHRPatientSDK;
 			productName = EHRPatientSDK;
-			productReference = 50A7CAF519FD4DC9DD05EC6E358D0446 /* EHRPatientSDK */;
+			productReference = 50A7CAF519FD4DC9DD05EC6E358D0446 /* EHRPatientSDK.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -1338,6 +1600,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B8DD58D7CE87F69DA056788 /* EHRPatientSDK.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1352,6 +1615,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B8DDCD026E93E34B80B783E /* EHRPatientSDK.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1365,13 +1629,14 @@
 				6B8CD79C328E94ED57507436EFE98BCA /* AccessOffer.m in Sources */,
 				27DB6BD9A3689CF9C1C00AA73D2AD857 /* AccessRequest.m in Sources */,
 				45A5D405D8D2A029C8A8FB2DF6DBF00C /* AccessState.m in Sources */,
-				6E653B0632D5784457E2A3D698F019C1 /* AppPreferences.m in Sources */,
 				3C8E8BB50C0743EEBD7FC2D6911AF56F /* AppSignature.m in Sources */,
+				FAD79AE829845F580011388E /* EntryPartipantPayload.m in Sources */,
 				6957F80A7972C41270721FAFB6282EB9 /* AppState.m in Sources */,
 				715AC700DA938B37B7E030C5EF248A09 /* AuthSequencer.m in Sources */,
 				C5C985D1855F7D661D6D6D8F30F21021 /* ContactsModel.m in Sources */,
 				06CE2198DBC70423A8178C9A09C65EF2 /* DateUtil.m in Sources */,
 				A69A0E1F40F68CF2A62C8CD2690ECEF3 /* EHRApiServer.m in Sources */,
+				FAD79B172984623E0011388E /* WebServices.m in Sources */,
 				CEEF447A9019A7AC377DDEC512FDF638 /* EHRCall.m in Sources */,
 				D64FA91D6FD76D31182B8AD1C310407A /* EHRGuid.m in Sources */,
 				91C235C5686B6D2018C94D3C5375F5F4 /* EHRPatientSDK-dummy.m in Sources */,
@@ -1381,10 +1646,13 @@
 				80B014A41EC69DEA23BA2DE2173104FA /* EHRServerResponse.m in Sources */,
 				EF217235CD9222EA49EF57B84B0F6703 /* EulaModel.m in Sources */,
 				349756C2723C924313376D78C3ADF2DB /* EulaModelFilter.m in Sources */,
+				FAD79B132984623E0011388E /* CommandsWS.m in Sources */,
 				39C149B8C547C737E8F88CA24D633DFA /* FactorsRequired.m in Sources */,
+				FAD79AD229845F580011388E /* Conversation.m in Sources */,
 				64925594686D2450190E4FEFB367423C /* GEDeviceHardware.m in Sources */,
 				0924F8239090EEDE949C438BFDFE15B1 /* GEFileUtil.m in Sources */,
 				191D570AA4735B83EBEB389BB326BBCF /* GERuntimeConstants.m in Sources */,
+				FAD79ADC29845F580011388E /* EntryMovePayload.m in Sources */,
 				D50ED4454F3A54FF7A1809F2866ABA13 /* GETimeUtil.m in Sources */,
 				658F8B0B22E05ACD67419727F8D261C6 /* HCIN.m in Sources */,
 				43688716AFFA6AD8B3316A1E2D35329D /* IBAddress.m in Sources */,
@@ -1395,33 +1663,45 @@
 				DB0FD0DD9DEC36A74651DCB32611D5FC /* IBAppSummary.m in Sources */,
 				8722D688B1CFA79C06ACC9D94FC26C10 /* IBCapability.m in Sources */,
 				47F4B38ADC34A3A83537BCE1C46E955D /* IBConsent.m in Sources */,
+				FAD79AE229845F580011388E /* EntryMessagePayload.m in Sources */,
 				59B81EAE6AC0F43214A9080ABEAD4677 /* IBConsentGranted.m in Sources */,
 				3ED89C8421502754F65FF04389A7C315 /* IBConsentInfo.m in Sources */,
 				9EBF6BD855A0F3E16E25333CBF13D3BD /* IBContact.m in Sources */,
 				A62156340D48D941C56BFBB29C71FD18 /* IBDeviceInfo.m in Sources */,
 				A4E68ED15D32347305637B796F886761 /* IBDispensaryInfo.m in Sources */,
 				C223112E5F2060C9AB7B99B939375C14 /* IBEula.m in Sources */,
+				FAD79AFE29845F580011388E /* ConversationEntry.m in Sources */,
+				FAD79AC829845F580011388E /* ConvoInfo.m in Sources */,
 				F88832A68BE80AD7D8D1112DAE8C880E /* IBHealthCareProvider.m in Sources */,
 				376CC7209CB54E51C93E65ABFCD14C6D /* IBLab.m in Sources */,
 				237D3E6E6C43BAC432423D14553953B6 /* IBLabRequest.m in Sources */,
 				64DF7A37E9D95372AB644B229316292C /* IBLabRequestPDFDocument.m in Sources */,
+				FAD79ACE29845F580011388E /* ConversationEntryPoint.m in Sources */,
 				E9BE94DF1CB8CF569F7280AFEEF74577 /* IBLabRequestTextDocument.m in Sources */,
 				1C732A91ED4038473F4ED7F99DFD8FD8 /* IBLabResult.m in Sources */,
 				16E5EAF6DC6C352DA18CF5B0619CB9FD /* IBLabResultPDFDocument.m in Sources */,
+				FAD79AEA29845F580011388E /* ConvoEntrySpec.m in Sources */,
+				FAD79ADE29845F580011388E /* EntryStatusChangePayload.m in Sources */,
 				9C6B2B18CCE3CC789F44A9CEA502FEF6 /* IBLabResultTextDocument.m in Sources */,
 				3BCB985AF21AC1AE1DBA9363FC88D280 /* IBMedia.m in Sources */,
 				3F773679A258910D37100C1869E8B976 /* IBMediaInfo.m in Sources */,
 				C5DF1E21669EAE4894AFC5452F44CDBD /* IBMessageContent.m in Sources */,
 				EB0C6B090DE5AFE4F12805E251B0FDF9 /* IBMessageDistribution.m in Sources */,
 				D6E28A917B3519DAE78FFFA69EBD0B61 /* IBPatientContact.m in Sources */,
+				FAD79AF429845F580011388E /* ConvoEntryPayloadSpec.m in Sources */,
 				E230D348AA29A2266ED7BDCEC20CB316 /* IBPatientInfo.m in Sources */,
+				FAD79B152984623E0011388E /* ConsentWS.m in Sources */,
 				5D37FBCD3380DA50A0E669A9DA74D73B /* IBPractitioner.m in Sources */,
 				FC1078C0018662F81AFB1A79B8C7A81D /* IBPractitionerJurisdiction.m in Sources */,
 				19C2699CE174A31304235E603568AAE8 /* IBPractitionerPractice.m in Sources */,
+				FAD79AE429845F580011388E /* ConversationParticipant.m in Sources */,
+				FAD79AD429845F580011388E /* ConversationEntryStatus.m in Sources */,
+				FAD79B062984616F0011388E /* NSDate+Compare.m in Sources */,
 				86B943942E9307AB4A8EBB6758DF7A6E /* IBService.m in Sources */,
 				68B1C6A50A02E37156B5B6E3205294D1 /* IBTelex.m in Sources */,
 				196BD7954F55DC42202C8CA4BF2A3FD1 /* IBTelexInfo.m in Sources */,
 				C3B68E2D5B2729716FEB51B92BCB4126 /* IBUser.m in Sources */,
+				FAD79ADA29845F580011388E /* EntryAttachment.m in Sources */,
 				3261FC3E3E1EA57DE9D54AD00AEA26DF /* IBUserCapability.m in Sources */,
 				EAC4D13F9241D94E1FC36EC9B3EC2E87 /* IBUserEula.m in Sources */,
 				BC35BAE2C91E8EAB49E7BBCE6D22309D /* IBUserInfo.m in Sources */,
@@ -1429,11 +1709,12 @@
 				E75C68E4D176B2EDDD683D703D364BEE /* IBVersion.m in Sources */,
 				A8AA3C37B1240AB52794A90F872A5FB2 /* Inbox.m in Sources */,
 				9AB225D7F94F62159DC92D737A6FBB71 /* InsuranceNumber.m in Sources */,
+				FAD79B29298462920011388E /* EHRRequests.m in Sources */,
 				26676B6B81FD4EFD2473E62A11120C65 /* MathUtil.m in Sources */,
 				698B0FCF3C2C261245CFD7DFDE69CDA8 /* MessageDistributionProgressChange.m in Sources */,
-				4C5F4179DA70FF7595225079828540E1 /* MessagesModel.m in Sources */,
 				D9E5D0601082C622B94D8672DFCFBF22 /* NotificationProgressChange.m in Sources */,
 				25F93BD05111D6E99DD5F62991DF8BA8 /* NotificationsModel.m in Sources */,
+				FAD79AEC29845F580011388E /* ConvoEntryAddSpec.m in Sources */,
 				4951901D6F492803CD28AD74DB4D9883 /* NotificationsModelFilter.m in Sources */,
 				9E65720403E659442609A845404979A1 /* NSDictionary+JSON.m in Sources */,
 				3DCA4BDB452E7A005F122AEC15EAB003 /* OfferedPrivateMessage.m in Sources */,
@@ -1445,10 +1726,12 @@
 				06C43F962385FEB10AB500A5B5E33271 /* PehrSDKConfig.m in Sources */,
 				6009718B779F7D8DF475CC8944364326 /* PersistenceManager.m in Sources */,
 				6179A42BABBD3C6399F392CFCEC8CF0A /* PIN.m in Sources */,
+				FAD79B1B2984623E0011388E /* NotificationWS.m in Sources */,
 				CB8B7E8E50DFF3138057215D215CA223 /* Record.m in Sources */,
+				FAD79AD829845F580011388E /* ConversationEnvelope.m in Sources */,
+				FAD79B252984623E0011388E /* ConvoWS.m in Sources */,
 				65897CF6B3ED0DCC11ACF79105669B40 /* RecordsModel.m in Sources */,
 				491E00FB5D91613D8E4B9F08F7576890 /* SecureCredentials.m in Sources */,
-				856BA712269E58E9F7EA0F514C75C89D /* ServiceSettings.m in Sources */,
 				6E792D78684BEE77F49718B2E621189B /* ServicesModel.m in Sources */,
 				27083D2197053AC7799AE4F4948C8AF6 /* ServicesModelFilter.m in Sources */,
 				B89C0EE96AF1D3D89D1B578633DFC289 /* SIN.m in Sources */,
@@ -1459,6 +1742,7 @@
 				9B2ADFC7ABA8CA153E9D4D16998E68F4 /* UserDeviceSettings.m in Sources */,
 				9FEB28E3085EC562F0043E47602928D9 /* UserModel.m in Sources */,
 				3F47DA177DA18560DA390EAA94ABB987 /* Version.m in Sources */,
+				4B8DDED49BCC40F59B867BCA /* EHRUserRegistrationManifest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1494,7 +1778,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAD79ADD29845F580011388E /* EntryMovePayload.m in Sources */,
+				FAD79AD529845F580011388E /* ConversationEntryStatus.m in Sources */,
+				FAD79AD329845F580011388E /* Conversation.m in Sources */,
+				FAD79B2A298462920011388E /* EHRRequests.m in Sources */,
+				FAD79AED29845F580011388E /* ConvoEntryAddSpec.m in Sources */,
+				FAD79B1C2984623E0011388E /* NotificationWS.m in Sources */,
 				834406E44F04ACD64F9A2F80256B7DE6 /* Pods-ehrPatientSDK-ios_Tests-dummy.m in Sources */,
+				FAD79B162984623E0011388E /* ConsentWS.m in Sources */,
+				FAD79B182984623E0011388E /* WebServices.m in Sources */,
+				FAD79AC929845F580011388E /* ConvoInfo.m in Sources */,
+				FAD79AF529845F580011388E /* ConvoEntryPayloadSpec.m in Sources */,
+				FAD79AE929845F580011388E /* EntryPartipantPayload.m in Sources */,
+				FAD79AD929845F580011388E /* ConversationEnvelope.m in Sources */,
+				FAD79ACF29845F580011388E /* ConversationEntryPoint.m in Sources */,
+				FAD79ADB29845F580011388E /* EntryAttachment.m in Sources */,
+				FAD79AFF29845F580011388E /* ConversationEntry.m in Sources */,
+				FAD79ADF29845F580011388E /* EntryStatusChangePayload.m in Sources */,
+				FAD79AE329845F580011388E /* EntryMessagePayload.m in Sources */,
+				FAD79B262984623E0011388E /* ConvoWS.m in Sources */,
+				FAD79AEB29845F580011388E /* ConvoEntrySpec.m in Sources */,
+				FAD79B142984623E0011388E /* CommandsWS.m in Sources */,
+				FAD79AE529845F580011388E /* ConversationParticipant.m in Sources */,
+				FAD79B072984616F0011388E /* NSDate+Compare.m in Sources */,
+				4B8DD42C3F14CB8272C3EACE /* EHRLibRuntime.m in Sources */,
+				4B8DD87E2862EEFFA83F761E /* ConvoPlacesModel.m in Sources */,
+				4B8DD85BDF80C8BE9304609A /* Models.m in Sources */,
+				4B8DDD2817CC54B2C3065E45 /* EHRLibState.m in Sources */,
+				4B8DD70AF53B4395894C4B45 /* EHRUserRegistrationManifest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1639,7 +1950,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/EHRPatientSDK/EHRPatientSDK-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/EHRPatientSDK/EHRPatientSDK-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/EHRPatientSDK/EHRPatientSDK.modulemap";
 				PRODUCT_MODULE_NAME = EHRPatientSDK;
@@ -1806,8 +2117,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
@@ -1829,7 +2139,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/EHRPatientSDK/EHRPatientSDK-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/EHRPatientSDK/EHRPatientSDK-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/EHRPatientSDK/EHRPatientSDK.modulemap";
 				PRODUCT_MODULE_NAME = EHRPatientSDK;

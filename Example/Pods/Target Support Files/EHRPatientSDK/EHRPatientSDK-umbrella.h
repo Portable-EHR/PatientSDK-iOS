@@ -10,18 +10,18 @@
 #endif
 #endif
 
-#import "AppPreferences.h"
+#import "EHRInstanceCounterP.h"
+#import "EHRPersistableP.h"
+
 #import "AppState.h"
 #import "PersistenceManager.h"
 #import "SecureCredentials.h"
-#import "ServiceSettings.h"
 #import "UICKeyChainStore.h"
 #import "UserCredentials.h"
 #import "ContactsModel.h"
 #import "EulaModel.h"
 #import "EulaModelFilter.h"
 #import "Inbox.h"
-#import "MessagesModel.h"
 #import "NotificationsModel.h"
 #import "NotificationsModelFilter.h"
 #import "PatientModel.h"
@@ -29,12 +29,6 @@
 #import "ServicesModel.h"
 #import "ServicesModelFilter.h"
 #import "UserModel.h"
-#import "EHRApiServer.h"
-#import "EHRCall.h"
-#import "EHRReachability.h"
-#import "EHRRequestStatus.h"
-#import "EHRServerRequest.h"
-#import "EHRServerResponse.h"
 #import "AccessOffer.h"
 #import "AccessRequest.h"
 #import "AccessState.h"
@@ -109,9 +103,30 @@
 #import "GETimeUtil.h"
 #import "MathUtil.h"
 #import "NSDictionary+JSON.h"
+#import "EHRLibRuntime.h"
+#import "EHRLibState.h"
 #import "PehrSDKConfig.h"
 #import "UIView+EHR.h"
 #import "Version.h"
+
+//EHRLib gadgets
+
+
+#import "EHRApiServer.h"
+#import "EHRCall.h"
+#import "EHRLibRuntime.h"
+#import "EHRReachability.h"
+#import "EHRRequestStatus.h"
+#import "EHRServerRequest.h"
+#import "EHRServerResponse.h"
+
+#import "WebServices.h"
+#import "CommandsWS.h"
+#import "EHRRequests.h"
+
+#import "EHRUserRegistrationManifest.h"
+
+
 
 FOUNDATION_EXPORT double EHRPatientSDKVersionNumber;
 FOUNDATION_EXPORT const unsigned char EHRPatientSDKVersionString[];
