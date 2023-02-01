@@ -7,12 +7,14 @@
 #import "IBAppInfo.h"
 #import "IBDeviceInfo.h"
 #import "IBUser.h"
+#import "SecureCredentials.h"
 
 @interface EHRLibState () {
-    NSInteger    _instanceNumber;
-    IBAppInfo    *_app;
-    IBDeviceInfo *_device;
-    IBUser       *_user;
+    NSInteger         _instanceNumber;
+    IBAppInfo         *_app;
+    IBDeviceInfo      *_device;
+    IBUser            *_user;
+    SecureCredentials *_secureCredentials;
 }
 @end;
 
@@ -24,9 +26,10 @@ TRACE_ON
     if ((self = [super init])) {
         GE_ALLOC();
         GE_ALLOC_ECHO();
-        _app    = [[IBAppInfo alloc] init];
-        _device = [IBDeviceInfo initFromDevice];
-        _user   = [IBUser guest];
+        _app               = [[IBAppInfo alloc] init];
+        _device            = [IBDeviceInfo initFromDevice];
+        _user              = [IBUser guest];
+        _secureCredentials = [SecureCredentials sharedCredentials];
     } else {
         TRACE(@"*** super returned nil!");
     }
@@ -34,10 +37,10 @@ TRACE_ON
 }
 
 - (void)dealloc {
-    _app    = nil;
-    _device = nil;
-    _user   = nil;
-
+    _app               = nil;
+    _device            = nil;
+    _user              = nil;
+    _secureCredentials = nil;
     GE_DEALLOC();
     GE_DEALLOC_ECHO();
 }

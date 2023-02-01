@@ -11,6 +11,7 @@
 #import "AppState.h"
 #import "SecureCredentials.h"
 #import "UserCredentials.h"
+#import "IBUser.h"
 #import <TrustKit/TrustKit.h>
 
 @implementation EHRCall
@@ -34,19 +35,19 @@ static CFArrayRef certs;
     // http://fixunix.com/openssl/537621-re-der-crt-file-conversion.html
     // and did this from Terminal: openssl x509 -in crt.crt -outform der -out crt.der
 
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"xip.io" ofType:@"der"];
-    assert(path);
-    NSData *data = [NSData dataWithContentsOfFile:path];
-    assert(data);
-
-    SecCertificateRef rootcert = SecCertificateCreateWithData(NULL, (__bridge CFDataRef) data);
-    if (rootcert) {
-        const void *array[1] = {rootcert};
-        certs = CFArrayCreate(NULL, array, 1, &kCFTypeArrayCallBacks);
-        CFRelease(rootcert);    // for completeness, really does not matter
-    } else {
-        MPLOG(@"BIG TROUBLE - ROOT CERTIFICATE FAILED!");
-    }
+//    NSString *path = [[NSBundle mainBundle] pathForResource:@"xip.io" ofType:@"der"];
+//    assert(path);
+//    NSData *data = [NSData dataWithContentsOfFile:path];
+//    assert(data);
+//
+//    SecCertificateRef rootcert = SecCertificateCreateWithData(NULL, (__bridge CFDataRef) data);
+//    if (rootcert) {
+//        const void *array[1] = {rootcert};
+//        certs = CFArrayCreate(NULL, array, 1, &kCFTypeArrayCallBacks);
+//        CFRelease(rootcert);    // for completeness, really does not matter
+//    } else {
+//        MPLOG(@"BIG TROUBLE - ROOT CERTIFICATE FAILED!");
+//    }
 }
 
 - (id)init {
@@ -82,11 +83,16 @@ static CFArrayRef certs;
     MPLOGERROR(@"The creds : \n%@", [[[SecureCredentials sharedCredentials] asDictionary] asJSON]);
 }
 
-- (BOOL)start {
+-(void)startAsGuest {
+    self.serverRequest.apiKey=[IBUser guest].apiKey;
+    [self start];
+}
+
+- (void)start {
 
     if (_isCallingServer) {
         MPLOG(@"*** Attempt to call while a call is already in progress.");
-        return NO;
+        return;
     }
 
     if (nil == self.serverRequest
@@ -115,7 +121,6 @@ static CFArrayRef certs;
     _isCallingServer     = YES;
     _wasResponseReceived = NO;
     [[AppState sharedAppState] setNetworkActivityIndicatorVisible:YES];
-    return YES;
 }
 
 - (BOOL)isCallInProgress {

@@ -31,9 +31,17 @@
 - (EHRCall *)__unused listConvosCall:(SenderBlock)successBlock
                              onError:(SenderBlock)errorBlock
                             atOffset:(NSInteger)offset
-                        withMaxItems:(NSInteger)maxItems;;
+                        withMaxItems:(NSInteger)maxItems;
 
-- (EHRCall *)__unused  getConvoDispensariesCall:(SenderBlock)successBlock onError:(SenderBlock)errorBlock;
+- (EHRCall*)__unused getMyEntryPointsCall:(SenderBlock)successBlock
+                                  onError:(SenderBlock)errorBlock;
+
+- (EHRCall*)__unused getMyConvoDispensariesCall:(SenderBlock)successBlock
+                                        onError:(SenderBlock)errorBlock;
+
+- (void)__unused getMyEntryPoints:(SenderBlock)successBlock
+                          onError:(SenderBlock)errorBlock;
+
 
 - (EHRCall *)__unused  getConvoEntriesCall:(SenderBlock)successBlock onError:(SenderBlock)errorBlock;
 
@@ -48,6 +56,5 @@
                                         entry:(ConversationEntry*) entry
                                    attachment:(NSString*) guid;
 
-- (EHRCall *)__unused  getEntryPointsCall:(SenderBlock)successBlock onError:(SenderBlock)errorBlock;
 
 @end

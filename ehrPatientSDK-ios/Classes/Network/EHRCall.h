@@ -6,6 +6,9 @@
 #import <Foundation/Foundation.h>
 #import "GERuntimeConstants.h"
 #import "EHRInstanceCounterP.h"
+#import "EHRServerRequest.h"
+#import "EHRServerResponse.h"
+#import "EHRRequestStatus.h"
 
 @class EHRServerRequest;
 @class EHRServerResponse;
@@ -40,10 +43,17 @@
 @property(nonatomic) BOOL                        verbose;
 
 + (id)callWithRequest:(EHRServerRequest *)request onSuccess:(SenderBlock)success onError:(SenderBlock)error;
-- (BOOL)startAsGuest __attribute__((unused));
-- (BOOL)start;
+- (void)startAsGuest ;
+- (void)start;
 - (void)cancel;
 - (void)setOnStart:(VoidBlock)onStart;
 - (void)setOnEnd:(VoidBlock)onEnd;
+
+// deprecated methods being implemented here
+
+- (void)connection:(NSURLConnection *)connection didCancelAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge;
+- (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge;
+- (BOOL)connection:(NSURLConnection *)connection canAuthenticateAgainstProtectionSpace:(NSURLProtectionSpace *)protectionSpace;
+
 
 @end

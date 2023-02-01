@@ -18,6 +18,7 @@
 
 #import "EHRPersistableP.h"
 #import "EHRInstanceCounterP.h"
+#import "PehrSDKConfig.h"
 #import "EHRLibRuntime.h"
 #import "Version.h"
 #import "GERuntimeConstants.h"

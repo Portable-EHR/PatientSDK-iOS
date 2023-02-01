@@ -4,6 +4,7 @@
 
 #import <Foundation/Foundation.h>
 #import "GERuntimeConstants.h"
+
 @class EHRCall;
 @class PatientNotification;
 
@@ -11,6 +12,8 @@
 
 }
 
--(EHRCall*) __unused setSeen:(PatientNotification*) notification onSuccess:(SenderBlock) successBlock onError:(SenderBlock) errorBlock;
+- (EHRCall *)__unused  setSeen:(PatientNotification *)
+        notification onSuccess:(SenderBlock)successBlock
+                       onError:(SenderBlock)errorBlock;
 
 @end

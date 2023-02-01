@@ -5,6 +5,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EHRInstanceCounterP.h"
+#import "EHRPersistableP.h"
 
 @class UserCredentials;
 @class UICKeyChainStore;

@@ -5,6 +5,12 @@
 #import "ConvoEntrySpec.h"
 #import "ConvoEntryPayloadSpec.h"
 
+@interface ConvoEntrySpec() {
+    NSInteger _instanceNumber;
+}
+
+@end
+
 @implementation ConvoEntrySpec
 
 @synthesize type, audience, payload, attachmentCount, createdOn;
@@ -35,8 +41,6 @@ TRACE_ON
     self.type            = nil;
     self.audience        = nil;
     self.payload         = nil;
-    self.attachmentCount = nil;
-
     GE_DEALLOC();
     GE_DEALLOC_ECHO();
 }

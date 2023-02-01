@@ -10,16 +10,17 @@
     NSInteger _instanceNumber;
 }
 
-- (EHRCall *)getAppInfoCallWithSuccessBlock:(SenderBlock) success
-                                    onError:(SenderBlock) error
+- (EHRCall *)getAppInfoCallWithSuccessBlock:(SenderBlock)success
+                                    onError:(SenderBlock)error
 __attribute__((unused));
 
-- (EHRCall *)getPingServerCallWithSuccessBlock:(SenderBlock) success
-                                       onError:(SenderBlock) error
+- (EHRCall *)getPingServerCallWithSuccessBlock:(SenderBlock)success
+                                       onError:(SenderBlock)error
 __attribute__((unused));
 
 - (EHRCall *)getGetUserInfoCall:(SenderBlock)success
-                     onError:(SenderBlock)error
+                        onError:(SenderBlock)error
 __attribute__((unused));
+
 
 @end

@@ -10,7 +10,6 @@
 #import "NotificationsModel.h"
 #import "PatientModel.h"
 #import "UserDeviceSettings.h"
-#import "MessagesModel.h"
 #import "ServicesModel.h"
 
 @implementation UserModel
@@ -22,11 +21,10 @@ static GEFileUtil *_fileUtils;
 @synthesize user = _user;
 @synthesize notificationsModel = _notificationsModel;
 @synthesize servicesModel = _servicesModel;
-@synthesize messagesModel = _messagesModel;
 @synthesize patientModels = _patientModels;
 @synthesize deviceSettings = _deviceSettings;
 @dynamic isGuest;
-TRACE_OFF
+TRACE_ON
 
 + (void)initialize {
     _fileUtils      = [GEFileUtil sharedFileUtil];
@@ -42,7 +40,6 @@ TRACE_OFF
         _lastRefreshed      = [NSDate dateWithTimeIntervalSince1970:0];
         _notificationsModel = [[NotificationsModel alloc] init];
         _servicesModel      = [[ServicesModel alloc] init];
-        _messagesModel      = [[MessagesModel alloc] init];
         _patientModels      = [NSMutableDictionary dictionary];
         _deviceSettings     = [[UserDeviceSettings alloc] init];
     } else {
@@ -66,20 +63,20 @@ TRACE_OFF
 
     if (user.patient) {
         PatientModel *pm = [PatientModel patientModelFor:user.patient];
-        [us->_patientModels setObject:pm forKey:user.patient.guid];
+        us->_patientModels[user.patient.guid] = pm;
     }
 
     if (user.proxies.count > 0) {
         for (Patient *pa in [user.proxies allValues]) {
             PatientModel *pm = [PatientModel patientModelFor:pa];
-            [us->_patientModels setObject:pm forKey:pa.guid];
+            us->_patientModels[pa.guid] = pm;
         }
     }
 
     if (user.visits.count > 0) {
         for (Patient *pa in [user.visits allValues]) {
             PatientModel *pm = [PatientModel patientModelFor:pa];
-            [us->_patientModels setObject:pm forKey:pa.guid];
+            us->_patientModels[pa.guid] = pm;
         }
     }
 
@@ -152,19 +149,19 @@ TRACE_OFF
 
 - (NSDictionary *)asDictionary {
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-    [dic setObject:[_user asDictionary] forKey:@"user"];
+    dic[@"user"] = [_user asDictionary];
     PutDateInDic(_lastRefreshed, dic, @"lastRefreshed");
-    if (self.deviceSettings) [dic setObject:[self.deviceSettings asDictionary] forKey:@"deviceSettings"];
+    if (self.deviceSettings) dic[@"deviceSettings"] = [self.deviceSettings asDictionary];
     return dic;
 }
 
 + (instancetype)objectWithContentsOfDictionary:(NSDictionary *)dic {
     UserModel *nm = [[self alloc] init];
-    nm->_user          = [IBUser objectWithContentsOfDictionary:[dic objectForKey:@"user"]];
+    nm->_user          = [IBUser objectWithContentsOfDictionary:dic[@"user"]];
     nm->_lastRefreshed = WantDateFromDic(dic, @"lastRefreshed");
 
     id val;
-    if ((val = [dic objectForKey:@"deviceSettings"])) {
+    if ((val = dic[@"deviceSettings"])) {
         nm.deviceSettings = [UserDeviceSettings objectWithContentsOfDictionary:val];
     } else {
         nm.deviceSettings = [[UserDeviceSettings alloc] init];
@@ -349,7 +346,6 @@ TRACE_OFF
     _deviceSettings     = nil;
     _user               = nil;
     _notificationsModel = nil;
-    _messagesModel      = nil;
     _lastRefreshed      = nil;
     [_patientModels removeAllObjects];
     _patientModels = nil;

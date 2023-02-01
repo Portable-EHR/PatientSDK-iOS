@@ -70,8 +70,15 @@ TRACE_OFF
     return [EHRCall callWithRequest:request onSuccess:successBlock onError:errorBlock];
 }
 
-- (EHRCall *)__unused  getConvoDispensariesCall:(SenderBlock)successBlock onError:(SenderBlock)errorBlock {
-    return nil;
+- (EHRCall *)__unused  getMyConvoDispensariesCall:(SenderBlock)successBlock onError:(SenderBlock)errorBlock {
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    EHRServerRequest *request = [EHRRequests requestWithRoute:@"/app/patient/convo"
+                                                      command:@"listConvos"
+                                                   parameters:params
+    ];
+    return [EHRCall callWithRequest:request onSuccess:successBlock onError:errorBlock];
+
+
 }
 
 - (EHRCall *)__unused  getConvoEntriesCall:(SenderBlock)successBlock onError:(SenderBlock)errorBlock {
@@ -109,10 +116,40 @@ TRACE_OFF
     return nil;
 }
 
-- (EHRCall *)__unused  getEntryPointsCall:(SenderBlock)successBlock onError:(SenderBlock)errorBlock {
+- (EHRCall *)__unused getMyEntryPointsCall:(SenderBlock)successBlock
+                                   onError:(SenderBlock)errorBlock {
     return nil;
 }
 
+- (EHRCall *)__unused listMyDispensaries:(SenderBlock)successBlock
+                                 onError:(SenderBlock)errorBlock {
+    return nil;
+}
+
+//endregion
+
+//region WorkFlows
+
+- (void)__unused getMyEntryPoints:(SenderBlock)successBlock
+                          onError:(SenderBlock)errorBlock {
+
+    EHRCall *dispCall;
+    EHRCall *entryPointsCall;
+
+    NSMutableDictionary *myDispensaries;
+    NSMutableDictionary *myEntryPoints;
+
+    SenderBlock dispSuccess        = ^(id theCall) {
+        [entryPointsCall start];
+    };
+    SenderBlock entryPointsSuccess = ^(id theCall) {
+        successBlock(myDispensaries);
+    };
+    entryPointsCall   = [self getMyEntryPointsCall:entryPointsSuccess onError:errorBlock];
+    dispCall          = [self getMyConvoDispensariesCall:dispSuccess onError:errorBlock];
+    [dispCall start];
+
+}
 
 
 //endregion

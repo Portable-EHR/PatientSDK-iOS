@@ -122,7 +122,9 @@
 
 #import "WebServices.h"
 #import "CommandsWS.h"
+#import "ActivationWS.h"
 #import "EHRRequests.h"
+#import "ConvoDispensary.h"
 
 #import "EHRUserRegistrationManifest.h"
 

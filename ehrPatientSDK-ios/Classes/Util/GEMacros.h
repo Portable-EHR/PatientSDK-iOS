@@ -9,7 +9,7 @@
 //#define MP_DEBUG 1
 
 #import <Foundation/Foundation.h>
-#include "GERuntimeConstants.h"
+#import "GERuntimeConstants.h"
 #import "PehrSDKConfig.h"
 
 

@@ -11,14 +11,12 @@
 @class IBUser;
 @class NotificationsModel;
 @class UserDeviceSettings;
-@class MessagesModel;
 @class ServicesModel;
 
 @interface UserModel : NSObject <EHRInstanceCounterP, EHRPersistableP, EHRModelSequencerP> {
     NSInteger           _instanceNumber;
     NSDate              *_lastRefreshed;
     IBUser                *_user;
-    MessagesModel       *_messagesModel;
     NotificationsModel  *_notificationsModel;
     ServicesModel       *_servicesModel;
     NSMutableDictionary *_patientModels;
@@ -30,7 +28,6 @@
 + (UserModel *)guest;
 + (UserModel *)userModelFor:(IBUser *)user;
 
-@property(nonatomic, readonly) MessagesModel      *messagesModel;
 @property(nonatomic, readonly) NotificationsModel *notificationsModel;
 @property(nonatomic, readonly) ServicesModel      *servicesModel;
 @property(nonatomic, readonly) NSDictionary       *patientModels;

@@ -11,6 +11,7 @@
 #include <mach/mach.h>
 #import <sys/proc.h>
 #import "EHRInstanceCounterP.h"
+#import "Version.h"
 #pragma clang diagnostic push
 #pragma ide diagnostic ignored "OCUnusedMacroInspection"
 #pragma ide diagnostic ignored "OCUnusedMethodInspection"
@@ -110,9 +111,9 @@ extern BOOL isDarkMode(void);
 
 extern NSString *NSStringFromCGBounds(CGBounds b);
 
-typedef void(^VoidBlock)(void);
-typedef void(^SenderBlock)(id call);
-typedef void(^NSErrorBlock)(NSError *);
+//typedef void(^VoidBlock)(void);
+//typedef void(^SenderBlock)(id call);
+//typedef void(^NSErrorBlock)(NSError *);
 
 extern CGBounds CGBoundsMake(CGFloat start, CGFloat top, CGFloat end, CGFloat bottom);
 

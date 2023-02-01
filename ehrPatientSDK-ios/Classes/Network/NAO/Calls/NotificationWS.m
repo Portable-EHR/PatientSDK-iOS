@@ -16,9 +16,12 @@
 
 TRACE_ON
 
-- (EHRCall *)setSeen:(PatientNotification *)notification onSuccess:(SenderBlock)successBlock onError:(SenderBlock)errorBlock {
+- (EHRCall *)setSeen:(PatientNotification *)notification
+           onSuccess:(SenderBlock)successBlock
+             onError:(SenderBlock)errorBlock {
     NSMutableDictionary *params  = [@{@"guids": @[notification.guid]} mutableCopy];
-    EHRServerRequest    *request = [EHRRequests requestWithRoute:@"/app/notification" command:@"seen" parameters:params];
+    EHRServerRequest    *request = [EHRRequests requestWithRoute:@"/app/notification"
+                                                         command:@"seen" parameters:params];
     return [EHRCall callWithRequest:request onSuccess:successBlock onError:errorBlock];
 }
 

@@ -7,6 +7,12 @@
 #import "Conversation.h"
 #import "ConvoEntrySpec.h"
 
+@interface ConvoEntryAddSpec() {
+    NSInteger _instanceNumber;
+}
+
+@end
+
 @implementation ConvoEntryAddSpec
 
 @synthesize id, entry;

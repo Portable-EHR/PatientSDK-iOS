@@ -5,6 +5,12 @@
 
 #include "Version.h"
 
+@interface Version() {
+    NSInteger _instanceNumber;
+}
+
+@end
+
 @implementation Version
 
 TRACE_OFF
