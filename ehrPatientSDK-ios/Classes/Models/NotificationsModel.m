@@ -371,13 +371,30 @@ TRACE_OFF
     [self refreshFilters];
     [self saveOnDevice];
     [self tellListenersAboutRefresh];
+    [self tellListenersAboutAnUpdate:pn];
+}
+
+-(void) tellListenersAboutAnUpdate:(PatientNotification*) notification{
+    if (![AppState sharedAppState].isInBackground) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            TRACE(@"Posting a single notification refresh event.");
+            [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationUpdated
+                                                                object:nil
+                                                              userInfo:[notification asDictionary]];
+        });
+    } else {
+        // theory that this could cause the mysterious app disabling account while in background
+        MPLOG(@"NOT posting notifications refresh event while in background.");
+    }
 }
 
 - (void)tellListenersAboutRefresh {
     if (![AppState sharedAppState].isInBackground) {
         dispatch_async(dispatch_get_main_queue(), ^{
             TRACE(@"Posting patientNotification refresh event.");
-            [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationsModelRefreshNotification object:nil userInfo:nil];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationsModelRefreshNotification
+                                                                object:nil
+                                                              userInfo:nil];
         });
     } else {
         // theory that this could cause the mysterious app disabling account while in background

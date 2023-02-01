@@ -71,13 +71,12 @@ TRACE_OFF
 }
 
 - (EHRCall *)__unused  getMyConvoDispensariesCall:(SenderBlock)successBlock onError:(SenderBlock)errorBlock {
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    EHRServerRequest *request = [EHRRequests requestWithRoute:@"/app/patient/convo"
-                                                      command:@"listConvos"
-                                                   parameters:params
+    NSMutableDictionary *params  = [NSMutableDictionary dictionary];
+    EHRServerRequest    *request = [EHRRequests requestWithRoute:@"/app/patient/convo"
+                                                         command:@"listMyConvoDispensaries"
+                                                      parameters:params
     ];
     return [EHRCall callWithRequest:request onSuccess:successBlock onError:errorBlock];
-
 
 }
 
@@ -116,9 +115,16 @@ TRACE_OFF
     return nil;
 }
 
-- (EHRCall *)__unused getMyEntryPointsCall:(SenderBlock)successBlock
-                                   onError:(SenderBlock)errorBlock {
-    return nil;
+- (EHRCall *)__unused getEntryPointsCallFor:(NSString *)dispensaryGuid
+                                  onSuccess:(SenderBlock)successBlock
+                                    onError:(SenderBlock)errorBlock {
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"guid"] = dispensaryGuid;
+    EHRServerRequest *request = [EHRRequests requestWithRoute:@"/app/patient/convo"
+                                                      command:@"pullEntryPoints"
+                                                   parameters:params
+    ];
+    return [EHRCall callWithRequest:request onSuccess:successBlock onError:errorBlock];
 }
 
 - (EHRCall *)__unused listMyDispensaries:(SenderBlock)successBlock
@@ -134,19 +140,43 @@ TRACE_OFF
                           onError:(SenderBlock)errorBlock {
 
     EHRCall *dispCall;
-    EHRCall *entryPointsCall;
 
     NSMutableDictionary *myDispensaries;
     NSMutableDictionary *myEntryPoints;
 
-    SenderBlock dispSuccess        = ^(id theCall) {
-        [entryPointsCall start];
+    SenderBlock dispSuccess = ^(id someCall) {
+        EHRCall      *theCall = someCall;
+        NSDictionary *results = theCall.serverResponse.responseContent;
+
+        for (NSDictionary *result in results) {
+            ConvoDispensary *cd       = [ConvoDispensary objectWithContentsOfDictionary:result];
+            NSString        *dispGuid = cd.guid;
+            if (!dispGuid) {
+                errorBlock(theCall);
+                return;
+            }
+            SenderBlock entryPointsError = ^(id theCall) {
+                errorBlock(theCall);
+            };
+
+            SenderBlock entryPointsSuccess = ^(id theCall) {
+                successBlock(myDispensaries);
+            };
+            EHRCall     *entryPointsCall;
+            entryPointsCall = [self getEntryPointsCallFor:dispGuid
+                                                onSuccess:entryPointsSuccess
+                                                  onError:entryPointsError];
+            [entryPointsCall start];
+        }
     };
-    SenderBlock entryPointsSuccess = ^(id theCall) {
-        successBlock(myDispensaries);
+
+    SenderBlock dispError = ^(id someCall) {
+
+        NOOP
+        errorBlock(someCall);
     };
-    entryPointsCall   = [self getMyEntryPointsCall:entryPointsSuccess onError:errorBlock];
-    dispCall          = [self getMyConvoDispensariesCall:dispSuccess onError:errorBlock];
+
+    dispCall = [self getMyConvoDispensariesCall:dispSuccess onError:dispError];
     [dispCall start];
 
 }

@@ -15,6 +15,6 @@
 -(void) showNetworkIndicator;
 -(void) hideNetworkIndicator;
 
-@end EHRListenerP : @pro
+@end
 
 #endif /* EHRListenerP_h */

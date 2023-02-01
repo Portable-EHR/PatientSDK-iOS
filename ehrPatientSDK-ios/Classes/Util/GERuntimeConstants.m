@@ -20,6 +20,7 @@ NSString *kAppGuid;
 
 NSString *kSystemVersion = @"000000";
 
+NSString            *kNotificationUpdated                   = @"kNotificationUpdated";
 NSString            *kNotificationsModelRefreshNotification = @"kNotificationsModelRefreshNotification";
 NSString            *kEulaModelRefreshNotification          = @"kEulaModelRefreshNotification";
 NSString            *kPatientModelRefreshNotification       = @"kPatientModelRefreshNotification";
@@ -134,7 +135,7 @@ static __strong NSMutableArray *allocatedClasses;
     kColorSelected            = [UIColor colorWithRed:177.f / 255.f green:240.f / 255.f blue:230.f / 255.f alpha:.41];
     kColorArchive             = [UIColor colorWithRed:171.0f / 255.0f green:31.0f / 255.0f blue:32.0f / 255.0f alpha:1.0f];
     kColorAppleBlue           = [[UIColor colorWithRed:0. green:136. / 255. blue:204. / 255. alpha:1.] colorWithAlphaComponent:1.0f];
-    kColorAppleImessageBlue   = [[UIColor colorWithRed:25./255. green:130. / 255. blue:252. / 255. alpha:1.] colorWithAlphaComponent:1.0f];
+    kColorAppleImessageBlue   = [[UIColor colorWithRed:25. / 255. green:130. / 255. blue:252. / 255. alpha:1.] colorWithAlphaComponent:1.0f];
     kColorHide                = [UIColor colorWithRed:50.0f / 255.0f green:153.0f / 255.0f blue:187.0f / 255.0f alpha:1.0f];
     kColorTransparent         = [UIColor colorWithRed:0 green:0 blue:0 alpha:0];
     kColorCyan                = [UIColor cyanColor];

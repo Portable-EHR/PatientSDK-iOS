@@ -6,6 +6,7 @@
 #import "GERuntimeConstants.h"
 #import "EHRInstanceCounterP.h"
 #import "EHRCall.h"
+#import "ConvoDispensary.h"
 
 @class EHRCall;
 @class ConvoEntrySpec;
@@ -33,8 +34,9 @@
                             atOffset:(NSInteger)offset
                         withMaxItems:(NSInteger)maxItems;
 
-- (EHRCall*)__unused getMyEntryPointsCall:(SenderBlock)successBlock
-                                  onError:(SenderBlock)errorBlock;
+- (EHRCall *)__unused getEntryPointsCallFor:(NSString *)dispensaryGuid
+                                  onSuccess:(SenderBlock)successBlock
+                                      onError:(SenderBlock)errorBlock;
 
 - (EHRCall*)__unused getMyConvoDispensariesCall:(SenderBlock)successBlock
                                         onError:(SenderBlock)errorBlock;
