@@ -321,6 +321,11 @@ TRACE_OFF
                 }
             } else {
 
+                PatientNotification *strawMan = _allNotifications[pn.seq];
+                if (!strawMan) {
+                    // new kid on the block, should tell peeps no ?
+                    [self tellListenersAboutAnewNotification:strawMan];
+                }
                 _allNotifications[pn.seq] = pn;
 
             }
@@ -372,6 +377,21 @@ TRACE_OFF
     [self saveOnDevice];
     [self tellListenersAboutRefresh];
     [self tellListenersAboutAnUpdate:pn];
+}
+
+
+-(void) tellListenersAboutAnewNotification:(PatientNotification*) notification{
+    if (![AppState sharedAppState].isInBackground) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            TRACE(@"Posting a single notification refresh event.");
+            [[NSNotificationCenter defaultCenter] postNotificationName:kNewNotification
+                                                                object:nil
+                                                              userInfo:[notification asDictionary]];
+        });
+    } else {
+        // theory that this could cause the mysterious app disabling account while in background
+        MPLOG(@"NOT posting notifications refresh event while in background.");
+    }
 }
 
 -(void) tellListenersAboutAnUpdate:(PatientNotification*) notification{

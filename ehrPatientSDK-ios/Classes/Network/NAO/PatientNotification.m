@@ -312,6 +312,7 @@ TRACE_OFF
 
         if ((val = dic[@"convo"])) {
             pn.convo = [ConversationEnvelope objectWithContentsOfDictionary:val];
+            pn.convo.hasUnseenContent= (pn.lastSeen<pn.lastUpdated);
         }
 
     } @catch (NSException *e) {

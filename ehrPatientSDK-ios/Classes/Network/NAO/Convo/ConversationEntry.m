@@ -121,12 +121,17 @@ TRACE_OFF
 
 - (BOOL)isStatusChangeType {
     if (!_type) return false;
-    return [_type isEqualToString:@"status-change"];
+    return ([_type isEqualToString:@"status-change"] || [_type isEqualToString:@"status_change"]);
 }
 
 - (BOOL)isMoveType {
     if (!_type) return false;
     return [_type isEqualToString:@"move"];
+}
+
+- (BOOL)isShareType {
+    if (!_type) return false;
+    return [_type isEqualToString:@"share"];
 }
 
 - (BOOL)isParticipantType {

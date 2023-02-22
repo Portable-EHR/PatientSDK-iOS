@@ -11,6 +11,8 @@
 #import "EntryMessagePayload.h"
 #import "ConversationEntryStatus.h"
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wignored-attributes"
 @class EntryMessagePayload;
 
 @interface ConversationEntry : NSObject <EHRInstanceCounterP, EHRNetworkableP> {
@@ -25,18 +27,19 @@
     NSDate              *_createdOn;
 }
 
-@property(nonatomic) NSString  *id;
-@property(nonatomic) NSString  *from;
-@property(nonatomic) NSString  *type;
-@property(nonatomic) NSString  *audience;
-@property(nonatomic) NSArray   *status;
-@property(nonatomic) NSInteger attachmentCount;
-@property(nonatomic) id        payload;
-@property(nonatomic) NSDate    *createdOn;
-@property (nonatomic, readonly) BOOL isMessageType;
-@property (nonatomic, readonly) BOOL isParticipantType;
-@property (nonatomic, readonly) BOOL isMoveType;
-@property (nonatomic, readonly) BOOL isStatusChangeType;
-
+@property(nonatomic) NSString       *id;
+@property(nonatomic) NSString       *from;
+@property(nonatomic) NSString       *type;
+@property(nonatomic) NSString       *audience __unused;
+@property(nonatomic) NSArray        *status;
+@property(nonatomic) NSInteger      attachmentCount __unused;
+@property(nonatomic) id             payload __unused;
+@property(nonatomic) NSDate         *createdOn;
+@property(nonatomic, readonly) BOOL isMessageType;
+@property(nonatomic, readonly) BOOL isParticipantType;
+@property(nonatomic, readonly) BOOL isMoveType;
+@property(nonatomic, readonly) BOOL isStatusChangeType;
+@property(nonatomic, readonly) BOOL isShareType __unused;
 
 @end
+#pragma clang diagnostic pop

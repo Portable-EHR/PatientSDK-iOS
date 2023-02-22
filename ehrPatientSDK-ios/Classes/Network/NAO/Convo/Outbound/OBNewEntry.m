@@ -2,27 +2,24 @@
 // Created by Yves Le Borgne on 2023-01-05.
 //
 
-#import "ConvoEntryAddSpec.h"
-#import "ConvoEntrySpec.h"
-#import "Conversation.h"
-#import "ConvoEntrySpec.h"
+#import "OBNewEntry.h"
 
-@interface ConvoEntryAddSpec() {
+@interface OBNewEntry() {
     NSInteger _instanceNumber;
 }
 
 @end
 
-@implementation ConvoEntryAddSpec
+@implementation OBNewEntry
 
 @synthesize id, entry;
 
 TRACE_OFF
 
 + (instancetype)defaultForConvo:(Conversation *)conversation __attribute__((unused)) {
-    ConvoEntryAddSpec *ceas = [[self alloc] init];
+    OBNewEntry *ceas = [[self alloc] init];
     ceas.id    = conversation.id;
-    ceas.entry = [ConvoEntrySpec default];
+    ceas.entry = [OBEntry default];
     return ceas;
 }
 

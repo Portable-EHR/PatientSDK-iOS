@@ -2,28 +2,25 @@
 // Created by Yves Le Borgne on 2023-01-04.
 //
 
-#import "ConvoEntrySpec.h"
-#import "ConvoEntryPayloadSpec.h"
+#import "OBEntry.h"
+#import "OBMessageEntry.h"
 
-@interface ConvoEntrySpec() {
+@interface OBEntry () {
     NSInteger _instanceNumber;
 }
 
 @end
 
-@implementation ConvoEntrySpec
+@implementation OBEntry
 
-@synthesize type, audience, payload, attachmentCount, createdOn;
+@synthesize type, audience;
 
 TRACE_ON
 
 + (instancetype)default {
-    ConvoEntrySpec *ces = [[self alloc] init];
-    ces.type            = @"message";
-    ces.audience        = @"all";
-    ces.attachmentCount = 0;
-    ces.payload         = [ConvoEntryPayloadSpec default];
-    ces.createdOn       = [NSDate date];
+    OBEntry *ces = [[self alloc] init];
+    ces.type     = @"message";
+    ces.audience = @"all";
     return ces;
 }
 
@@ -38,22 +35,33 @@ TRACE_ON
 }
 
 - (void)dealloc {
-    self.type            = nil;
-    self.audience        = nil;
-    self.payload         = nil;
+    self.type     = nil;
+    self.audience = nil;
+    self.payload  = nil;
     GE_DEALLOC();
     GE_DEALLOC_ECHO();
 }
 
 + (instancetype)objectWithContentsOfDictionary:(NSDictionary *)dic {
-    return nil;
+    OBEntry *oe = [[self alloc] init];
+    oe.type= WantStringFromDic(dic, @"tyep");
+    oe.audience= WantStringFromDic(dic, @"audience");
+
+    NSDictionary *payloadDic = WantDicFromDic(dic, @"payload");
+    if (payloadDic) {
+        if ([oe.type isEqualToString:@"message"]) {
+            oe.payload=[OBMessageEntry objectWithContentsOfDictionary:payloadDic];
+        } else {
+            MPLOGERROR(@"OBEntry : dont know how to deserialize entry type [%@]",oe.type);
+        }
+    }
+    return oe;
 }
 
 - (NSDictionary *)asDictionary {
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     PutStringInDic(self.type, dic, @"type");
     PutStringInDic(self.audience, dic, @"audience");
-    PutIntegerInDic(self.attachmentCount, dic, @"attachmentCount");
     PutPersistableInDic(self.payload, dic, @"payload");
     return dic;
 }

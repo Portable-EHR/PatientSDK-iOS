@@ -76,6 +76,7 @@ extern CGFloat kToolbarItemSize;
 // notifications
 
 extern NSString *kNotificationUpdated;
+extern NSString *kNewNotification;
 extern NSString *kNotificationsModelRefreshNotification;
 extern NSString *kEulaModelRefreshNotification;
 extern NSString *kPatientModelRefreshNotification;

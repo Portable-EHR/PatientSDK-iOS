@@ -20,6 +20,7 @@
     NSDate    *_lastUpdated;
     NSDate    *_createdOn;
     NSString  *_dispensaryName;
+    BOOL      _hasUnseenContent;
 }
 
 @property(nonatomic) NSString       *guid;
@@ -31,6 +32,7 @@
 @property(nonatomic) NSDate         *lastUpdated;
 @property(nonatomic) NSDate         *createdOn;
 @property(nonatomic) NSString       *dispensaryName;
+@property(nonatomic) BOOL           hasUnseenContent;
 @property(nonatomic, readonly) BOOL isOpen;
 @property(nonatomic, readonly) BOOL isClosed;
 

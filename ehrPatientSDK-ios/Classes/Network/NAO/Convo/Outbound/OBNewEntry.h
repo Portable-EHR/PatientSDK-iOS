@@ -6,17 +6,16 @@
 #import "GERuntimeConstants.h"
 #import "EHRNetworkableP.h"
 #import "EHRInstanceCounterP.h"
+#import "OBEntry.h"
+#import "Conversation.h"
 
-@class ConvoEntrySpec;
-@class Conversation;
-
-@interface ConvoEntryAddSpec : NSObject <EHRNetworkableP, EHRInstanceCounterP> {
+@interface OBNewEntry : NSObject <EHRNetworkableP, EHRInstanceCounterP> {
 
 }
 
 +(instancetype) defaultForConvo:(Conversation*) conversation __attribute__((unused));
 
 @property(nonatomic) NSString *id;
-@property(nonatomic) ConvoEntrySpec *entry;
+@property(nonatomic) OBEntry  *entry;
 
 @end

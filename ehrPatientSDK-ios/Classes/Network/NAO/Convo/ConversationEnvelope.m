@@ -8,6 +8,8 @@
 
 TRACE_OFF
 
+@synthesize hasUnseenContent = _hasUnseenContent;
+
 - (instancetype)init {
     if ((self = [super init])) {
         GE_ALLOC();
@@ -65,15 +67,15 @@ TRACE_OFF
 }
 
 - (void)dealloc {
-    _guid           = nil;
-    _status         = nil;
-    _location       = nil;
-    _staffTitle     = nil;
-    _clientTitle    = nil;
-    _teaser         = nil;
-    _lastUpdated    = nil;
-    _createdOn      = nil;
-    _dispensaryName = nil;
+    _guid             = nil;
+    _status           = nil;
+    _location         = nil;
+    _staffTitle       = nil;
+    _clientTitle      = nil;
+    _teaser           = nil;
+    _lastUpdated      = nil;
+    _createdOn        = nil;
+    _dispensaryName   = nil;
     GE_DEALLOC();
     GE_DEALLOC_ECHO();
 }

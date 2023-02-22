@@ -4,10 +4,12 @@
 
 #import "ConvoWS.h"
 #import "EHRRequests.h"
-#import "ConvoEntrySpec.h"
-#import "ConvoEntryAddSpec.h"
+#import "OBEntry.h"
+#import "OBNewEntry.h"
 #import "Conversation.h"
 #import "ConversationEntry.h"
+#import "ConversationEntryPoint.h"
+#import "OBNewConvo.h"
 
 @interface ConvoWS () {
     NSInteger _instanceNumber;
@@ -30,15 +32,33 @@ TRACE_OFF
 
 //region calls
 
-- (EHRCall *)__unused  addConvoEntryCall:(SenderBlock)successBlock onError:(SenderBlock)errorBlock withSpec:(ConvoEntryAddSpec *)spec {
+- (EHRCall *)__unused  addConvoEntryCall:(SenderBlock)successBlock onError:(SenderBlock)errorBlock withSpec:(OBNewEntry *)spec {
 
     NSMutableDictionary *params  = [NSMutableDictionary dictionaryWithDictionary:[spec asDictionary]];
     EHRServerRequest    *request = [EHRRequests requestWithRoute:@"/app/patient/convo" command:@"addEntry" parameters:params];
     return [EHRCall callWithRequest:request onSuccess:successBlock onError:errorBlock];
 }
 
-- (EHRCall *)__unused  createConvoCall:(SenderBlock)successBlock onError:(SenderBlock)errorBlock {
-    return nil;
+- (EHRCall *)__unused  createConvoCall:(SenderBlock)successBlock onError:(SenderBlock)errorBlock spec:(OBNewConvo *)spec {
+    NSMutableDictionary *params  = [NSMutableDictionary dictionaryWithDictionary:[spec asDictionary]];
+    EHRServerRequest    *request = [EHRRequests requestWithRoute:@"/app/patient/convo" command:@"create" parameters:params];
+    EHRCall             *theCall = [EHRCall callWithRequest:request onSuccess:successBlock onError:errorBlock];
+    return theCall;
+}
+
+- (void)__unused createConvo:(OBNewConvo *)spec
+                   onSuccess:(SenderBlock)successBlock
+                     onError:(SenderBlock)errorBlock {
+
+    SenderBlock callSuccess = ^(EHRCall *theCall) {
+        NSDictionary *obConvo = theCall.serverResponse.responseContent;
+        Conversation *convo   = [Conversation objectWithContentsOfDictionary:obConvo];
+        successBlock(convo);
+    };
+
+    EHRCall *theCall = [self createConvoCall:callSuccess onError:errorBlock spec:spec];
+    [theCall start];
+
 }
 
 - (EHRCall *)__unused getConvoDetailCall:(SenderBlock)successBlock
@@ -127,57 +147,53 @@ TRACE_OFF
     return [EHRCall callWithRequest:request onSuccess:successBlock onError:errorBlock];
 }
 
-- (EHRCall *)__unused listMyDispensaries:(SenderBlock)successBlock
+- (void)__unused listMyConvoDispensaries:(SenderBlock)successBlock
                                  onError:(SenderBlock)errorBlock {
-    return nil;
+    SenderBlock goodCall = ^(EHRCall *theCall) {
+        id                  rc     = theCall.serverResponse.responseContent;
+        NSArray             *array = rc;
+        NSMutableDictionary *list  = [NSMutableDictionary dictionary];
+        for (NSDictionary   *dic in array) {
+            list[dic[@"guid"]] = [ConvoDispensary objectWithContentsOfDictionary:dic];
+        }
+        successBlock(list);
+    };
+
+    EHRCall *listCall = [self getMyConvoDispensariesCall:goodCall onError:errorBlock];
+    [listCall start];
+
 }
 
 //endregion
 
 //region WorkFlows
 
-- (void)__unused getMyEntryPoints:(SenderBlock)successBlock
-                          onError:(SenderBlock)errorBlock {
+- (void)__unused getEntryPointsFor:(NSString *)dispensaryGuid onSuccess:(SenderBlock)successBlock onError:(SenderBlock)errorBlock {
 
-    EHRCall *dispCall;
-
-    NSMutableDictionary *myDispensaries;
-    NSMutableDictionary *myEntryPoints;
-
-    SenderBlock dispSuccess = ^(id someCall) {
+    EHRCall             *entryPointsCalls;
+    NSMutableDictionary *entryPoints = [NSMutableDictionary dictionary];
+    SenderBlock         entrySuccess = ^(id someCall) {
         EHRCall      *theCall = someCall;
         NSDictionary *results = theCall.serverResponse.responseContent;
 
         for (NSDictionary *result in results) {
-            ConvoDispensary *cd       = [ConvoDispensary objectWithContentsOfDictionary:result];
-            NSString        *dispGuid = cd.guid;
-            if (!dispGuid) {
+            ConversationEntryPoint *cep  = [ConversationEntryPoint objectWithContentsOfDictionary:result];
+            NSString               *idee = cep.id;
+            if (!idee) {
                 errorBlock(theCall);
                 return;
             }
-            SenderBlock entryPointsError = ^(id theCall) {
-                errorBlock(theCall);
-            };
-
-            SenderBlock entryPointsSuccess = ^(id theCall) {
-                successBlock(myDispensaries);
-            };
-            EHRCall     *entryPointsCall;
-            entryPointsCall = [self getEntryPointsCallFor:dispGuid
-                                                onSuccess:entryPointsSuccess
-                                                  onError:entryPointsError];
-            [entryPointsCall start];
+            entryPoints[idee] = cep;
         }
+        successBlock(entryPoints);
     };
 
     SenderBlock dispError = ^(id someCall) {
-
-        NOOP
         errorBlock(someCall);
     };
 
-    dispCall = [self getMyConvoDispensariesCall:dispSuccess onError:dispError];
-    [dispCall start];
+    entryPointsCalls = [self getEntryPointsCallFor:dispensaryGuid onSuccess:entrySuccess onError:dispError];
+    [entryPointsCalls start];
 
 }
 

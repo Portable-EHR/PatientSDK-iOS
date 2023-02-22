@@ -21,6 +21,7 @@ NSString *kAppGuid;
 NSString *kSystemVersion = @"000000";
 
 NSString            *kNotificationUpdated                   = @"kNotificationUpdated";
+NSString            *kNewNotification                       = @"kNewNotification";
 NSString            *kNotificationsModelRefreshNotification = @"kNotificationsModelRefreshNotification";
 NSString            *kEulaModelRefreshNotification          = @"kEulaModelRefreshNotification";
 NSString            *kPatientModelRefreshNotification       = @"kPatientModelRefreshNotification";
