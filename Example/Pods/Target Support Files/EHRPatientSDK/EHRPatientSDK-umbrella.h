@@ -138,7 +138,12 @@
 #import "ConversationParticipant.h"
 #import "ConvoDispensary.h"
 #import "ConvoInfo.h"
-
+#import "EntryAttachment.h"
+#import "EntryMessagePayload.h"
+#import "EntryMovePayload.h"
+#import "EntryPartipantPayload.h"
+#import "EntrySharePayload.h"
+#import "EntryStatusChangePayload.h"
 #import "EHRUserRegistrationManifest.h"
 
 

@@ -29,6 +29,7 @@
 #import "OBMessageEntryAttachment.h"
 #import "OBNewConvo.h"
 #import "OBNewEntry.h"
+#import "DateUtil.h"
 //#import "IBUser.h"
 //#import "UserCredentials.h"
 //#import "SecureCredentials.h"

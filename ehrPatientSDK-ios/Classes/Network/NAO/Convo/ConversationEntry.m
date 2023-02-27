@@ -6,6 +6,7 @@
 #import "EntryPartipantPayload.h"
 #import "EntryMovePayload.h"
 #import "EntryStatusChangePayload.h"
+#import "EntrySharePayload.h"
 
 @implementation ConversationEntry
 
@@ -66,6 +67,8 @@ TRACE_OFF
             ce.payload = [EntryMovePayload objectWithContentsOfDictionary:payloadAsDic];
         } else if (ce.isStatusChangeType) {
             ce.payload = [EntryStatusChangePayload objectWithContentsOfDictionary:payloadAsDic];
+        } else if (ce.isShareType) {
+            ce.payload = [EntrySharePayload objectWithContentsOfDictionary:payloadAsDic];
         }
     }
     NSArray        *statusAsArray = WantArrayFromDic(dic, @"status");
