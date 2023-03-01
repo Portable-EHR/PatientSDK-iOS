@@ -10,6 +10,8 @@
 #import "ConversationEntry.h"
 #import "ConversationEntryPoint.h"
 #import "OBNewConvo.h"
+#import "IBTelex.h"
+#import "OfferedPrivateMessage.h"
 
 @interface ConvoWS () {
     NSInteger _instanceNumber;
@@ -147,6 +149,12 @@ TRACE_OFF
     return [EHRCall callWithRequest:request onSuccess:successBlock onError:errorBlock];
 }
 
+- (EHRCall *)__unused  getSharedPMCall:(SenderBlock)successBlock onError:(SenderBlock)errorBlock withParameters:(NSMutableDictionary *)parameters {
+
+    EHRServerRequest *request = [EHRRequests requestWithRoute:@"/app/privateMessage" command:@"getShared" parameters:parameters];
+    return [EHRCall callWithRequest:request onSuccess:successBlock onError:errorBlock];
+}
+
 - (void)__unused listMyConvoDispensaries:(SenderBlock)successBlock
                                  onError:(SenderBlock)errorBlock {
     SenderBlock goodCall = ^(EHRCall *theCall) {
@@ -197,6 +205,45 @@ TRACE_OFF
 
 }
 
+//region business methods
+
+- (void)getSharedPrivateMessageWithConsent:(NSString *)consentGuid
+                                       for:(NSString *)participantGuid
+                                   inConvo:(NSString *)conversationGuid
+                                 onSuccess:(SenderBlock)successBlock
+                                   onError:(SenderBlock)errorBlock __attribute__((unused)) {
+    EHRCall             *sharedPMcall;
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    parameters[@"consentGuid"]      = consentGuid;
+    parameters[@"participantGuid"]  = participantGuid;
+    parameters[@"conversationGuid"] = conversationGuid;
+
+    SenderBlock callSuccess = ^(id someCall) {
+        EHRCall *theCall        = someCall;
+        OfferedPrivateMessage *opm = [OfferedPrivateMessage objectWithContentsOfDictionary:theCall.serverResponse.responseContent];
+        successBlock(opm);
+    };
+
+    sharedPMcall = [self getSharedPMCall:callSuccess onError:errorBlock withParameters:parameters];
+    sharedPMcall.timeOut = 30;
+    [sharedPMcall start];
+}
+
+- (void)getAccessOffer:(NSString *)offerGuid
+             onSuccess:(SenderBlock)successBlock
+               onErrof:(SenderBlock)errorBlock __attribute__((unused)) {
+
+}
+
+- (void)setOfferStatus:(NSString *)offerGuid
+                status:(NSString *)newStatus
+             onSuccess:(SenderBlock)successBlock
+               onError:(SenderBlock)errorBlock  __attribute__((unused)) {
+
+}
+
+
+//endregion
 
 //endregion
 

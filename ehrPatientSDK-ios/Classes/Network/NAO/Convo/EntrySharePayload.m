@@ -11,7 +11,7 @@
 
 @implementation EntrySharePayload
 
-    @dynamic isPrivateMessage;
+@dynamic isPrivateMessage;
 
 TRACE_OFF
 
@@ -45,9 +45,9 @@ TRACE_OFF
 
 + (id)objectWithContentsOfDictionary:(NSDictionary *)dic {
     EntrySharePayload *esp = [[EntrySharePayload alloc] init];
-    esp.id      = WantStringFromDic(dic, @"id");
+    esp.id   = WantStringFromDic(dic, @"id");
     esp.text = WantStringFromDic(dic, @"text");
-    esp.type    = WantStringFromDic(dic, @"type");
+    esp.type = WantStringFromDic(dic, @"type");
     return esp;
 }
 
@@ -69,8 +69,8 @@ TRACE_OFF
 }
 
 //region properties
--(BOOL)isPrivateMessage {
-    return [_type isEqualToString:@"private_message"];
+- (BOOL)isPrivateMessage {
+    return [_type isEqualToString:@"private-message"];
 }
 //endregion
 

@@ -25,12 +25,11 @@
 
 - (EHRCall *)__unused  createConvoCall:(SenderBlock)successBlock
                                onError:(SenderBlock)errorBlock
-                                  spec:(OBNewConvo*) spec;
+                                  spec:(OBNewConvo *)spec;
 
-- (void)__unused createConvo:(OBNewConvo*) spec
+- (void)__unused createConvo:(OBNewConvo *)spec
                    onSuccess:(SenderBlock)successBlock
-                     onError:(SenderBlock)errorBlock
-              ;
+                     onError:(SenderBlock)errorBlock;
 - (EHRCall *)__unused  getConvoDetailCall:(SenderBlock)successBlock
                                   onError:(SenderBlock)errorBlock
                                  forConvo:(NSString *)guid
@@ -67,5 +66,18 @@
                               forConversation:(Conversation *)conversation
                                         entry:(ConversationEntry *)entry
                                    attachment:(NSString *)guid;
+
+//region business methods
+
+- (void)getSharedPrivateMessageWithConsent:(NSString *)consentGuid
+                                       for:(NSString *)participantGuid
+                                   inConvo:(NSString *)conversationGuid
+                                 onSuccess:(SenderBlock)successBlock
+                                   onError:(SenderBlock)errorBlock __attribute__((unused));
+
+- (void)getAccessOffer:(NSString *)offerGuid onSuccess:(SenderBlock)successBlock onErrof:(SenderBlock)errorBlock;
+- (void)setOfferStatus:(NSString *)offerGuid status:(NSString *)newStatus onSuccess:(SenderBlock)successBlock onErrof:(SenderBlock)errorBlock;
+
+//endregion
 
 @end
