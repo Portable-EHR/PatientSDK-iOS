@@ -5,9 +5,8 @@
 #import <Foundation/Foundation.h>
 #import "GERuntimeConstants.h"
 #import "EHRInstanceCounterP.h"
-
-@class EHRCall;
-@class IBConsent;
+#import "EHRCall.h"
+#import "IBConsent.h"
 
 @interface ConsentWS : NSObject <EHRInstanceCounterP>
 

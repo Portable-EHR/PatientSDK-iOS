@@ -3,9 +3,7 @@
 //
 
 #import "ConsentWS.h"
-#import "EHRCall.h"
 #import "EHRRequests.h"
-#import "IBConsent.h"
 
 @interface ConsentWS () {
     NSInteger _instanceNumber;

@@ -6,6 +6,7 @@
 #import <Foundation/Foundation.h>
 #import "EHRPersistableP.h"
 #import "GERuntimeConstants.h"
+#import "EHRLibStateDelegate.h"
 #import "IBConsent.h"
 
 @class IBUser;
@@ -22,7 +23,7 @@
 @class IBUserEula;
 @class IBConsent;
 
-@interface AppState : NSObject <EHRPersistableP> {
+@interface AppState : NSObject <EHRPersistableP, EHRLibStateDelegate> {
 
     NSInteger            _instanceNumber;
     NSInteger            _appBadgeNumber;
