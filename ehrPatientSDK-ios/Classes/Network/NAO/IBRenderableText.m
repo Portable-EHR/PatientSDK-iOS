@@ -1,21 +1,18 @@
 //
-//  IBConsentInfo.m
+//  IBRenderableText.m
 //  ehrPatientSDK-ios
 //
 //
 
-#import <Foundation/Foundation.h>
-#import "GEDeviceHardware.h"
-#import "EHRPersistableP.h"
-#import "IBAppSummary.h"
-#import "IBConsentInfo.h"
+#import "IBRenderableText.h"
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
-@implementation IBConsentInfo
+@implementation IBRenderableText
 
 @synthesize renderer = _renderer;
 @synthesize text = _text;
+
 TRACE_OFF
 
 - (instancetype)init {
@@ -38,7 +35,7 @@ TRACE_OFF
 
 + (instancetype)objectWithContentsOfDictionary:(NSDictionary *)dic {
 
-    IBConsentInfo *pa = [[self alloc] init];
+    IBRenderableText *pa = [[self alloc] init];
     pa->_renderer                                        = WantStringFromDic(dic, @"renderer");
     pa->_text                                            = WantStringFromDic(dic, @"text");
     return pa;
@@ -70,6 +67,21 @@ TRACE_OFF
     NSDictionary *dic = [NSDictionary dictionaryWithJSON:jsonString];
     return [self objectWithContentsOfDictionary:dic];
 }
+
+//region fake backend enum
+-(BOOL) isPlainText __attribute__((unused))  __attribute__((unused)) {
+    return [_renderer isEqualToString:@"text"];
+}
+
+-(BOOL) isMarkdown __attribute__((unused))  __attribute__((unused)) {
+    return [_renderer isEqualToString:@"markdown"];
+}
+
+-(BOOL) isHtml __attribute__((unused))  __attribute__((unused)) {
+    return [_renderer isEqualToString:@"html"];
+}
+
+//endregion
 
 @end
 #pragma clang diagnostic pop

@@ -53,8 +53,8 @@ TRACE_OFF
     pa->_consentableElementType = WantStringFromDic(dic, @"consentableElementType");
     pa->_activeFrom             = WantStringFromDic(dic, @"activeFrom");
 
-    pa->_title           = [IBConsentInfo objectWithContentsOfDictionary:dic[@"title"]];
-    pa->_descriptionText = [IBConsentInfo objectWithContentsOfDictionary:dic[@"description"]];
+    pa->_title           = [IBRenderableText objectWithContentsOfDictionary:dic[@"title"]];
+    pa->_descriptionText = [IBRenderableText objectWithContentsOfDictionary:dic[@"description"]];
     pa->_consent         = [IBConsentGranted objectWithContentsOfDictionary:dic[@"consent"]];
 
     pa->_active = WantBoolFromDic(dic, @"active");

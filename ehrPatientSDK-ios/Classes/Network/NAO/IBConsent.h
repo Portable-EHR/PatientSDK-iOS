@@ -12,7 +12,7 @@
 #import "EHRNetworkableP.h"
 #import "GEMacros.h"
 #import "NSDictionary+JSON.h"
-#import "IBConsentInfo.h"
+#import "IBRenderableText.h"
 #import "IBConsentGranted.h"
 
 @interface IBConsent : NSObject <EHRInstanceCounterP, EHRNetworkableP, EHRPersistableP> {
@@ -22,8 +22,8 @@
     NSString         *_consentableElementType;
     BOOL             _active;
     NSString         *_activeFrom;
-    IBConsentInfo    *_title;
-    IBConsentInfo    *_descriptionText;
+    IBRenderableText *_title;
+    IBRenderableText *_descriptionText;
     IBConsentGranted *_consent;
 }
 
@@ -31,8 +31,8 @@
 @property(nonatomic) NSString         *alias;
 @property(nonatomic) NSString         *consentableElementType;
 @property(nonatomic) NSString         *activeFrom;
-@property(nonatomic) IBConsentInfo    *title;
-@property(nonatomic) IBConsentInfo    *descriptionText;
+@property(nonatomic) IBRenderableText *title;
+@property(nonatomic) IBRenderableText *descriptionText;
 @property(nonatomic) IBConsentGranted *consent;
 @property(nonatomic) BOOL             active;
 

@@ -42,7 +42,7 @@
 #import "IBCapability.h"
 #import "IBConsent.h"
 #import "IBConsentGranted.h"
-#import "IBConsentInfo.h"
+#import IBRenderableText.h
 #import "IBContact.h"
 #import "IBDeviceInfo.h"
 #import "IBDispensaryInfo.h"

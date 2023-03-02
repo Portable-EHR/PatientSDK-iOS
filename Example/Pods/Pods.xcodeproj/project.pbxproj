@@ -61,7 +61,7 @@
 		2E410FF59D09617C9423D01C350258C1 /* trie_node.h in Headers */ = {isa = PBXBuildFile; fileRef = ADD1BE08CBDC18301D7DBB60BE6C770A /* trie_node.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		2F24B589773F0E48ABBD7055052C8C6D /* IBLab.h in Headers */ = {isa = PBXBuildFile; fileRef = 41035BCA1FC9F339A7FD35C69DF00053 /* IBLab.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2F2EDCFF5233BA2D13226C2E5CA00873 /* OfferedPrivateMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = BF9D980CEAE3DBF3C73CFEFDB1E14728 /* OfferedPrivateMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		308C79E5A01D2FE3CE9F5C59CB2089B5 /* IBConsentInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 115B2F531ACE686EC72228F19F888F9C /* IBConsentInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		308C79E5A01D2FE3CE9F5C59CB2089B5 /* IBRenderableText.h in Headers */ = {isa = PBXBuildFile; fileRef = 115B2F531ACE686EC72228F19F888F9C /* IBRenderableText.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		31998C0C8F6DEBF869E7680BC4B94D55 /* IBDispensaryInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 74DDCB696B8F7C402BFCC4C1DCB99BED /* IBDispensaryInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		320575B0EC1CB9C8DCE197775D0832F9 /* IBUserCapability.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D3B34E67AFC42D6BFBB113E195E0BB7 /* IBUserCapability.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3261FC3E3E1EA57DE9D54AD00AEA26DF /* IBUserCapability.m in Sources */ = {isa = PBXBuildFile; fileRef = B430A52B78475422C2CD9DBA00DA6160 /* IBUserCapability.m */; };
@@ -77,7 +77,7 @@
 		3C8E8BB50C0743EEBD7FC2D6911AF56F /* AppSignature.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9787E064271D14317E935340396C8A /* AppSignature.m */; };
 		3D6BD07FC23171525EA10FA81408718A /* IBLabResultPDFDocument.h in Headers */ = {isa = PBXBuildFile; fileRef = 5158321717E0C62DE48A70B6E98DEB46 /* IBLabResultPDFDocument.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3DCA4BDB452E7A005F122AEC15EAB003 /* OfferedPrivateMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = E69D529F276913312E7854019F4BC022 /* OfferedPrivateMessage.m */; };
-		3ED89C8421502754F65FF04389A7C315 /* IBConsentInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBB56DB416ABBDF8865CA08855BB29A /* IBConsentInfo.m */; };
+		3ED89C8421502754F65FF04389A7C315 /* IBRenderableText.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBB56DB416ABBDF8865CA08855BB29A /* IBRenderableText.m */; };
 		3F47DA177DA18560DA390EAA94ABB987 /* Version.m in Sources */ = {isa = PBXBuildFile; fileRef = 385C07CEB81A51A729F59A8DE5C36329 /* Version.m */; };
 		3F773679A258910D37100C1869E8B976 /* IBMediaInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C143FD32C7967DD9F2A736FCD75386A9 /* IBMediaInfo.m */; };
 		415D7CDF7C89BE6F3703EE42E0E4DCB7 /* IBAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EB5A19FCE3BAFD5A5BD86C0A340CFD /* IBAnnotation.m */; };
@@ -421,7 +421,7 @@
 		0EE25E54BD86FE5AAC2E72AA8A95EE4D /* configuration_utils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = configuration_utils.m; path = TrustKit/configuration_utils.m; sourceTree = "<group>"; };
 		107865F1DD3C6747DB33EE9CB8EC475B /* IBEula.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = IBEula.h; sourceTree = "<group>"; };
 		10B15F1C3485941393E6917B2AB9329B /* GEDeviceHardware.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = GEDeviceHardware.m; sourceTree = "<group>"; };
-		115B2F531ACE686EC72228F19F888F9C /* IBConsentInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = IBConsentInfo.h; sourceTree = "<group>"; };
+		115B2F531ACE686EC72228F19F888F9C /* IBRenderableText.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = IBRenderableText.h; sourceTree = "<group>"; };
 		1260DFE96EC4ECC75CF2F3B8F6432FC4 /* init_registry_tables.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = init_registry_tables.c; path = TrustKit/Dependencies/domain_registry/private/init_registry_tables.c; sourceTree = "<group>"; };
 		1296E8B4003771A8F3065A0B49005A1D /* IBContact.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = IBContact.m; sourceTree = "<group>"; };
 		1517737CE52E666CC7A61793DB3A5F49 /* NotificationCellListenerP.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = NotificationCellListenerP.h; sourceTree = "<group>"; };
@@ -504,7 +504,7 @@
 		4B8DDF66687CC3C61C63DA36 /* OBNewConvo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OBNewConvo.h; sourceTree = "<group>"; };
 		4B8DDF8223DB5D046F48DBB0 /* OBMessageEntryAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OBMessageEntryAttachment.m; sourceTree = "<group>"; };
 		4C6E074B3A81D05C3EB67A1DADCBB9A3 /* IBCapability.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = IBCapability.h; sourceTree = "<group>"; };
-		4CBB56DB416ABBDF8865CA08855BB29A /* IBConsentInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = IBConsentInfo.m; sourceTree = "<group>"; };
+		4CBB56DB416ABBDF8865CA08855BB29A /* IBRenderableText.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = IBRenderableText.m; sourceTree = "<group>"; };
 		4D3B34E67AFC42D6BFBB113E195E0BB7 /* IBUserCapability.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = IBUserCapability.h; sourceTree = "<group>"; };
 		4D9942DE94EB5AADBA18610704E2E14C /* IBAppSummary.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = IBAppSummary.m; sourceTree = "<group>"; };
 		50A7CAF519FD4DC9DD05EC6E358D0446 /* EHRPatientSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EHRPatientSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1261,8 +1261,8 @@
 				164013C6244AA70D61B80F04EBC0E9DD /* IBConsent.m */,
 				43080AA944D22E98AA0D58C07A96428E /* IBConsentGranted.h */,
 				6DFE8DAF9A42F06E70E4951B28B5DAED /* IBConsentGranted.m */,
-				115B2F531ACE686EC72228F19F888F9C /* IBConsentInfo.h */,
-				4CBB56DB416ABBDF8865CA08855BB29A /* IBConsentInfo.m */,
+				115B2F531ACE686EC72228F19F888F9C /* IBRenderableText.h */,
+				4CBB56DB416ABBDF8865CA08855BB29A /* IBRenderableText.m */,
 				E6A4B94ECD5D5AF0FA6063F4A78DF4C9 /* IBContact.h */,
 				1296E8B4003771A8F3065A0B49005A1D /* IBContact.m */,
 				D0F773B64F03C500C82C55AE98D1500F /* IBDeviceInfo.h */,
@@ -1432,7 +1432,7 @@
 				FAD79AFA29845F580011388E /* EntryMovePayload.h in Headers */,
 				7A92084FAEA57A550D15C22E8A56B482 /* IBConsent.h in Headers */,
 				42C88738D9D92F1F00B4C46F550506FE /* IBConsentGranted.h in Headers */,
-				308C79E5A01D2FE3CE9F5C59CB2089B5 /* IBConsentInfo.h in Headers */,
+				308C79E5A01D2FE3CE9F5C59CB2089B5 /* IBRenderableText.h in Headers */,
 				FAD79B212984623E0011388E /* WebServices.h in Headers */,
 				FAD79AD629845F580011388E /* ConversationEntry.h in Headers */,
 				8A6C58002513B4C2F90B33520FAE5675 /* IBContact.h in Headers */,
@@ -1718,7 +1718,7 @@
 				47F4B38ADC34A3A83537BCE1C46E955D /* IBConsent.m in Sources */,
 				FAD79AE229845F580011388E /* EntryMessagePayload.m in Sources */,
 				59B81EAE6AC0F43214A9080ABEAD4677 /* IBConsentGranted.m in Sources */,
-				3ED89C8421502754F65FF04389A7C315 /* IBConsentInfo.m in Sources */,
+				3ED89C8421502754F65FF04389A7C315 /* IBRenderableText.m in Sources */,
 				9EBF6BD855A0F3E16E25333CBF13D3BD /* IBContact.m in Sources */,
 				A62156340D48D941C56BFBB29C71FD18 /* IBDeviceInfo.m in Sources */,
 				A4E68ED15D32347305637B796F886761 /* IBDispensaryInfo.m in Sources */,
