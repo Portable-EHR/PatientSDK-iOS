@@ -42,7 +42,7 @@
 #import "IBCapability.h"
 #import "IBConsent.h"
 #import "IBConsentGranted.h"
-#import IBRenderableText.h
+#import "IBRenderableText.h"
 #import "IBContact.h"
 #import "IBDeviceInfo.h"
 #import "IBDispensaryInfo.h"
@@ -111,7 +111,7 @@
 
 //EHRLib gadgets
 
-
+#import "EHRLibStateDelegate.h"
 #import "EHRApiServer.h"
 #import "EHRCall.h"
 #import "EHRLibRuntime.h"

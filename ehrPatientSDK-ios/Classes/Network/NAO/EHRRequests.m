@@ -93,6 +93,10 @@ static UserCredentials *userCredentials;
     return [self requestWithRoute:@"/app/consent" command:@"get" parameters:parameters];
 }
 
++ (EHRServerRequest *)putConsentsRequestWith:(NSMutableDictionary *)parameters {
+    return [self requestWithRoute:@"/app/consent" command:@"consent" parameters:parameters];
+}
+
 + (EHRServerRequest *)getConsentConsentRequestForPatient:(NSString *)patientGuid forConsent:(IBConsent *)consent  __attribute__((unused)) {
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"guid"]    = patientGuid;

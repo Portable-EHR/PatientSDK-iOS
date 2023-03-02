@@ -27,8 +27,8 @@
 
 + (EHRServerRequest *)getConsentsRequest __attribute__((unused));
 + (EHRServerRequest *)getConsentsRequestWith:(NSMutableDictionary *)parameters;
-+ (EHRServerRequest *)getConsentConsentRequestForPatient:(NSString*)patientGuid forConsent:(IBConsent*) consent  __attribute__((unused));
-+ (EHRServerRequest *)getRevokeConsentRequestForConsent:(IBConsent*) consent __attribute__((unused));
-
++ (EHRServerRequest *)getConsentConsentRequestForPatient:(NSString *)patientGuid forConsent:(IBConsent *)consent  __attribute__((unused));
++ (EHRServerRequest *)getRevokeConsentRequestForConsent:(IBConsent *)consent __attribute__((unused));
++ (EHRServerRequest *)putConsentsRequestWith:(NSMutableDictionary *)parameter;
 //endregion
 @end

@@ -66,6 +66,35 @@ TRACE_OFF
     return call;
 }
 
+//region workflows
+
+-(void) sharePrivateMessage:(NSString*) privateMessageGuid
+                  ofPatient:(NSString*) patientGuid
+             inConversation:(NSString*) conversationGuid
+                   withText:(NSString*) shareMessage
+                  onSuccess:(SenderBlock) successBlock
+                    onError:(SenderBlock) errorBlock{
+
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"guid"]=patientGuid;
+    params[@"type"]=@"share_private_message";
+    params[@"element"]=@"share_pm_on_conversation";
+    params[@"privateMessage"]=privateMessageGuid;
+    params[@"conversation"]=conversationGuid;
+    params[@"text"]=shareMessage;
+    EHRServerRequest *request = [EHRRequests putConsentsRequestWith:params];
+    EHRCall *call = [EHRCall callWithRequest:request onSuccess:successBlock onError:errorBlock];
+    call.maximumAttempts=1;
+    call.timeOut=15.0;
+    [call start];
+
+}
+
+
+
+//endregion
+
+
 - (void)dealloc {
     GE_DEALLOC();
     GE_DEALLOC_ECHO();

@@ -30,5 +30,13 @@
                    patientGuid:(NSString *)guid
                      onSuccess:(SenderBlock)successBlock
                        onError:(SenderBlock)errorBlock;
+//region workflows
+-(void)__unused sharePrivateMessage:(NSString*) privateMessageGuid
+                  ofPatient:(NSString*) patientGuid
+             inConversation:(NSString*) conversationGuid
+                   withText:(NSString*) shareMessage
+                  onSuccess:(SenderBlock) successBlock
+                    onError:(SenderBlock) errorBlock;
+//endregion
 
 @end
