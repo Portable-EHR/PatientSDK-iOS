@@ -49,6 +49,7 @@ TRACE_OFF
     ce.lastUpdated    = WantDateFromDic(dic, @"lastUpdated");
     ce.dispensaryName = WantStringFromDic(dic, @"dispensaryName");
     ce.createdOn      = WantDateFromDic(dic, @"createdOn");
+    ce.unread         = WantIntegerFromDic(dic, @"unread");
     return ce;
 }
 
@@ -63,19 +64,20 @@ TRACE_OFF
     PutStringInDic(self.dispensaryName, dic, @"dispensaryName");
     PutDateInDic(self.lastUpdated, dic, @"lastUpdated");
     PutDateInDic(self.createdOn, dic, @"createdOn");
+    PutIntegerInDic(self.unread, dic, @"unread");
     return dic;
 }
 
 - (void)dealloc {
-    _guid             = nil;
-    _status           = nil;
-    _location         = nil;
-    _staffTitle       = nil;
-    _clientTitle      = nil;
-    _teaser           = nil;
-    _lastUpdated      = nil;
-    _createdOn        = nil;
-    _dispensaryName   = nil;
+    _guid           = nil;
+    _status         = nil;
+    _location       = nil;
+    _staffTitle     = nil;
+    _clientTitle    = nil;
+    _teaser         = nil;
+    _lastUpdated    = nil;
+    _createdOn      = nil;
+    _dispensaryName = nil;
     GE_DEALLOC();
     GE_DEALLOC_ECHO();
 }
