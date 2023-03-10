@@ -272,9 +272,8 @@ static AppState   *_sharedInstance;
     VoidBlock fetchNotificationsSuccess = ^{
 
         if ([self saveOnDevice]) {
-
+            SecureCredentials *creds = [SecureCredentials sharedCredentials];
             if (self->_appInfo.eula && ![self->_appInfo.eula.version.description isEqualToString:[SecureCredentials sharedCredentials].current.appEula.eulaVersion.description]) {
-                SecureCredentials *creds = [SecureCredentials sharedCredentials];
                 // eula update from server !
                 creds.current.appEula.eulaVersion   = self->_appInfo.eula.version;
                 creds.current.appEula.eulaGuid      = self->_appInfo.eula.guid;

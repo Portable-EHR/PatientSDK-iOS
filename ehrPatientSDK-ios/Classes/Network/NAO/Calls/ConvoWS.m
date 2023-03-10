@@ -12,6 +12,7 @@
 #import "OBNewConvo.h"
 #import "IBTelex.h"
 #import "OfferedPrivateMessage.h"
+#import "ConversationParticipant.h"
 
 @interface ConvoWS () {
     NSInteger _instanceNumber;
@@ -205,7 +206,15 @@ TRACE_OFF
 
 }
 
-//region business methods
+-(void)createEntry:(OBNewEntry *)entry onSuccess:(SenderBlock)successBlock onError:(SenderBlock)errorBlock {
+
+    EHRCall *theCall = [self addConvoEntryCall:successBlock onError:errorBlock withSpec:entry];
+    theCall.timeOut=15;
+    theCall.maximumAttempts=1;
+    [theCall start];;
+
+}
+
 
 - (void)getSharedPrivateMessageWithConsent:(NSString *)consentGuid
                                        for:(NSString *)participantGuid
@@ -245,7 +254,6 @@ TRACE_OFF
 
 //endregion
 
-//endregion
 
 
 

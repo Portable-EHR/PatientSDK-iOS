@@ -29,13 +29,35 @@
                    patientGuid:(NSString *)guid
                      onSuccess:(SenderBlock)successBlock
                        onError:(SenderBlock)errorBlock;
+
 //region workflows
--(void)__unused sharePrivateMessage:(NSString*) privateMessageGuid
-                  ofPatient:(NSString*) patientGuid
-             inConversation:(NSString*) conversationGuid
-                   withText:(NSString*) shareMessage
-                  onSuccess:(SenderBlock) successBlock
-                    onError:(SenderBlock) errorBlock;
+
+- (void)__unused sharePrivateMessage:(NSString *)privateMessageGuid
+                           ofPatient:(NSString *)patientGuid
+                      inConversation:(NSString *)conversationGuid
+                            withText:(NSString *)shareMessage
+                           onSuccess:(SenderBlock)successBlock
+                             onError:(SenderBlock)errorBlock;
+
+/**
+ *
+ * @param guid the guid of the consent being pulled. Cant be nil
+ * @param successBlock  will return a single IBConsent object
+ * @param errorBlock  will return the failed EHRCall
+ */
+
+- (void)__unused getConsentWithGuid:(NSString *)guid
+                          onSuccess:(SenderBlock)successBlock
+                            onError:(SenderBlock)errorBlock;
+
+/**
+ *
+ * @param successBlock will return an array of IBConstnt object !
+ * @param errorBlock will return the failed EHRCall
+ */
+- (void)__unused getConsents:(SenderBlock)successBlock
+                     onError:(SenderBlock)errorBlock;
+
 //endregion
 
 @end

@@ -66,24 +66,75 @@ TRACE_OFF
 
 //region workflows
 
--(void) sharePrivateMessage:(NSString*) privateMessageGuid
-                  ofPatient:(NSString*) patientGuid
-             inConversation:(NSString*) conversationGuid
-                   withText:(NSString*) shareMessage
-                  onSuccess:(SenderBlock) successBlock
-                    onError:(SenderBlock) errorBlock{
+/**
+ *
+ * @param guid the guid of the consent being pulled. Cant be nil
+ * @param successBlock  will return a single IBConsent object
+ * @param errorBlock  will return the failed EHRCall
+ */
+
+- (void)__unused getConsentWithGuid:(NSString *)guid
+                          onSuccess:(SenderBlock)successBlock
+                            onError:(SenderBlock)errorBlock {
 
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"guid"]=patientGuid;
-    params[@"type"]=@"share_private_message";
-    params[@"element"]=@"share_pm_on_conversation";
-    params[@"privateMessage"]=privateMessageGuid;
-    params[@"conversation"]=conversationGuid;
-    params[@"text"]=shareMessage;
+    params[@"guid"] = guid;
+    SenderBlock deserializeBlock = ^(EHRCall *theCall) {
+        NSDictionary   *theDic   = theCall.serverResponse.responseContent;
+        IBConsent      *consent  = [IBConsent objectWithContentsOfDictionary:theDic];
+        successBlock(consent);
+    };
+    EHRCall     *consentCall     = [self getAllConsentsWith:params onSuccess:deserializeBlock onError:errorBlock];
+    [consentCall start];
+}
+
+/**
+ *
+ * @param successBlock will return an array of IBConstnt object !
+ * @param errorBlock will return the failed EHRCall
+ */
+- (void)__unused getConsents:(SenderBlock)successBlock
+                     onError:(SenderBlock)errorBlock {
+    NSMutableDictionary *params          = [NSMutableDictionary dictionary];
+    SenderBlock         deserializeBlock = ^(EHRCall *theCall) {
+        NSMutableArray *consents = [NSMutableArray array];
+        NSDictionary   *results  = theCall.serverResponse.responseContent;
+
+        for (NSDictionary *result in results) {
+            IBConsent *cep  = [IBConsent objectWithContentsOfDictionary:result];
+            NSString  *idee = cep.guid;
+            if (!idee) {
+                errorBlock(theCall);
+                return;
+            }
+            [consents addObject:cep];
+        }
+
+        successBlock(consents);
+
+    };
+    EHRCall             *consentCall     = [self getAllConsentsWith:params onSuccess:deserializeBlock onError:errorBlock];
+    [consentCall start];
+}
+
+- (void)sharePrivateMessage:(NSString *)privateMessageGuid
+                  ofPatient:(NSString *)patientGuid
+             inConversation:(NSString *)conversationGuid
+                   withText:(NSString *)shareMessage
+                  onSuccess:(SenderBlock)successBlock
+                    onError:(SenderBlock)errorBlock {
+
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"guid"]           = patientGuid;
+    params[@"type"]           = @"share_private_message";
+    params[@"element"]        = @"share_pm_on_conversation";
+    params[@"privateMessage"] = privateMessageGuid;
+    params[@"conversation"]   = conversationGuid;
+    params[@"text"]           = shareMessage;
     EHRServerRequest *request = [EHRRequests putConsentsRequestWith:params];
-    EHRCall *call = [EHRCall callWithRequest:request onSuccess:successBlock onError:errorBlock];
-    call.maximumAttempts=1;
-    call.timeOut=15.0;
+    EHRCall          *call    = [EHRCall callWithRequest:request onSuccess:successBlock onError:errorBlock];
+    call.maximumAttempts = 1;
+    call.timeOut         = 15.0;
     [call start];
 
 }

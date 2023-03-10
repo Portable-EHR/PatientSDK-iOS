@@ -16,6 +16,7 @@
 @class Conversation;
 @class ConversationEntry;
 @class OBNewConvo;
+@class ConversationParticipant;
 
 @interface ConvoWS : NSObject <EHRInstanceCounterP>
 
@@ -27,9 +28,7 @@
                                onError:(SenderBlock)errorBlock
                                   spec:(OBNewConvo *)spec;
 
-- (void)__unused createConvo:(OBNewConvo *)spec
-                   onSuccess:(SenderBlock)successBlock
-                     onError:(SenderBlock)errorBlock;
+
 - (EHRCall *)__unused  getConvoDetailCall:(SenderBlock)successBlock
                                   onError:(SenderBlock)errorBlock
                                  forConvo:(NSString *)guid
@@ -69,11 +68,24 @@
 
 //region business methods
 
+- (void)__unused createConvo:(OBNewConvo *)spec
+                   onSuccess:(SenderBlock)successBlock
+                     onError:(SenderBlock)errorBlock;
+
+-(void) createEntry:(OBNewEntry*) entry
+          onSuccess:(SenderBlock)successBlock
+            onError:(SenderBlock)errorBlock __attribute__((unused));
+
 - (void)getSharedPrivateMessageWithConsent:(NSString *)consentGuid
                                        for:(NSString *)participantGuid
                                    inConvo:(NSString *)conversationGuid
                                  onSuccess:(SenderBlock)successBlock
                                    onError:(SenderBlock)errorBlock __attribute__((unused));
+
+- (void)__unused leaveConversation:(Conversation *)conversation
+          participantGuid:(NSString *)participantGuid
+                onSuccess:(SenderBlock)successBlock
+                  onError:(SenderBlock)errorBlock;
 
 - (void)getAccessOffer:(NSString *)offerGuid onSuccess:(SenderBlock)successBlock onErrof:(SenderBlock)errorBlock;
 - (void)setOfferStatus:(NSString *)offerGuid status:(NSString *)newStatus onSuccess:(SenderBlock)successBlock onErrof:(SenderBlock)errorBlock;
