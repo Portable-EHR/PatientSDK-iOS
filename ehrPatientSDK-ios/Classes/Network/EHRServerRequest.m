@@ -69,7 +69,9 @@ TRACE_OFF
 
 - (NSString *)asJSON {
     NSError *writeError = nil;
-    NSData  *jsonData   = [NSJSONSerialization dataWithJSONObject:[self asDictionary] options:NSJSONWritingPrettyPrinted error:&writeError];
+    NSData  *jsonData   = [NSJSONSerialization dataWithJSONObject:[self asDictionary]
+                                                          options:NSJSONWritingPrettyPrinted + NSJSONWritingWithoutEscapingSlashes
+                                                            error:&writeError];
     if (writeError) {
         TRACE(@"Write error : %@", [writeError description]);
     }
