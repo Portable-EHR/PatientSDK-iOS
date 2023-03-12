@@ -6,6 +6,7 @@
 #import "OfferedPrivateMessage.h"
 #import "IBTelexInfo.h"
 #import "IBTelex.h"
+#import "IBConsent.h"
 
 @implementation OfferedPrivateMessage
 TRACE_OFF

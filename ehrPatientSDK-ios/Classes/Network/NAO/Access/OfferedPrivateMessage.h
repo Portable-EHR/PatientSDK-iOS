@@ -6,13 +6,16 @@
 #import <Foundation/Foundation.h>
 #import "EHRNetworkableP.h"
 #import "EHRInstanceCounterP.h"
+#import "IBConsent.h"
 
 @class IBTelexInfo;
 @class IBTelex;
+@class IBConsent;
 
 @interface OfferedPrivateMessage : NSObject <EHRInstanceCounterP, EHRNetworkableP> {
     NSInteger _instanceNumber;
 }
 @property (nonatomic) IBTelexInfo *privateMessageInfo;
 @property (nonatomic) IBTelex *privateMessage;
+    @property (nonatomic) IBConsent *consent;
 @end
