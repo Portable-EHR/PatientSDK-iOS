@@ -11,6 +11,14 @@
 @property(nonatomic) NSString *id;
 @property(nonatomic) NSString *text;
 @property(nonatomic) NSString *type;
+@property(nonatomic) NSString *status;
+
+-(BOOL) isConsentActive;
+-(BOOL) isConsentInvalid;
+-(BOOL) isConsentRevoked;
+-(BOOL) isConsentExpired;
+-(BOOL) isConsentNotFound;
+
 
 @property(nonatomic) BOOL isPrivateMessage;
 

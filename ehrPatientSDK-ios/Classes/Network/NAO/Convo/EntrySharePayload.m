@@ -45,9 +45,10 @@ TRACE_OFF
 
 + (id)objectWithContentsOfDictionary:(NSDictionary *)dic {
     EntrySharePayload *esp = [[EntrySharePayload alloc] init];
-    esp.id   = WantStringFromDic(dic, @"id");
-    esp.text = WantStringFromDic(dic, @"text");
-    esp.type = WantStringFromDic(dic, @"type");
+    esp.id     = WantStringFromDic(dic, @"id");
+    esp.text   = WantStringFromDic(dic, @"text");
+    esp.type   = WantStringFromDic(dic, @"type");
+    esp.status = WantStringFromDic(dic, @"status");
     return esp;
 }
 
@@ -56,20 +57,42 @@ TRACE_OFF
     PutStringInDic(self.id, dic, @"id");
     PutStringInDic(self.text, dic, @"text");
     PutStringInDic(self.type, dic, @"type");
+    PutStringInDic(self.status, dic, @"status");
     return dic;
 }
 
 - (void)dealloc {
-    _id   = nil;
-    _text = nil;
-    _type = nil;
-
+    _id     = nil;
+    _text   = nil;
+    _type   = nil;
+    _status = nil;
     GE_DEALLOC();
     GE_DEALLOC_ECHO();
 }
 
 //region properties
-- (BOOL)isPrivateMessage {
+
+- (BOOL)isConsentActive __unused {
+    return [_status isEqualToString:@"active"];
+}
+
+- (BOOL)isConsentInvalid __unused {
+    return [_status isEqualToString:@"invalid"];
+}
+
+- (BOOL)isConsentRevoked __unused {
+    return [_status isEqualToString:@"revoked"];
+}
+
+- (BOOL)isConsentExpired __unused {
+    return [_status isEqualToString:@"expired"];
+}
+
+- (BOOL)isConsentNotFound __unused {
+    return [_status isEqualToString:@"not_found"];
+}
+
+- (BOOL)isPrivateMessage __unused {
     return [_type isEqualToString:@"private-message"];
 }
 //endregion
