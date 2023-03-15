@@ -61,8 +61,8 @@ static NSString   *_appStateFile;
 static GEFileUtil *_fileUtils;
 static NSInteger  _activitiIndicatorVisibleCount;
 static float      _foregroundUpdateIntervalInSeconds __unused;
-static float      _backgroundUpdateIntervalInSeconds __unused;
-static AppState   *_sharedInstance;
+static float    _backgroundUpdateIntervalInSeconds __unused;
+static AppState *_sharedInstance;
 
 + (void)initialize {
 

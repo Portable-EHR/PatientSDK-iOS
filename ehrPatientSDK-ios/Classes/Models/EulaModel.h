@@ -20,10 +20,10 @@
     NSMutableDictionary *_allUserEulas;
     EulaModelFilter     *_allEulasFilter;
     EulaModelFilter     *_consentedEulasFilter;
-    EulaModelFilter     *_pendingEulasFilter;
-    AppState            *_appState;
-    VoidBlock           _refreshSuccessBlock,
-                        _refreshFailedBlock;
+    EulaModelFilter *_pendingEulasFilter;
+    AppState        *_appState;
+    VoidBlock       _refreshSuccessBlock,
+                    _refreshFailedBlock;
     BOOL                _isRefreshing;
 
 }

@@ -46,10 +46,10 @@ typedef NS_ENUM(NSInteger, NotificationFilterType) {
     NSInteger              _notificationsPerPage;
     NotificationFilterType _filterType;
     NSMutableArray         *_sortedKeys;
-    NSMutableArray         *_patientSelector;
+    NSMutableArray *_patientSelector;
 //    UserModel              *_userModel;
 //    IBUser                   *_user;
-    AppState               *_appState;
+    AppState       *_appState;
 
 }
 

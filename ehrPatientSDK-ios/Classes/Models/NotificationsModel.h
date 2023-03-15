@@ -17,9 +17,9 @@
 
 @interface NotificationsModel : NSObject <EHRNetworkableP, EHRInstanceCounterP> {
 
-    NSInteger                _instanceNumber;
-    AppState                 *_appState;
-    NSMutableDictionary      *_allNotifications;
+    NSInteger           _instanceNumber;
+    AppState            *_appState;
+    NSMutableDictionary *_allNotifications;
     NSDate                   *_lastRefreshed,
                              *_lastPurgedExpired;
     VoidBlock                _refreshSuccessBlock,

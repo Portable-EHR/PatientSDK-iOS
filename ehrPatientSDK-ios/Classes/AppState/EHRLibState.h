@@ -19,4 +19,5 @@
 @property(nonatomic) IBUser            *user;
 @property(nonatomic) SecureCredentials *secureCredentials;
 
+-(void) resumeWithCurrentUser;
 @end

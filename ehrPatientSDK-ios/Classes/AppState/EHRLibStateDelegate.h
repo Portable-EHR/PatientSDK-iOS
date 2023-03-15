@@ -4,8 +4,11 @@
 
 #import <Foundation/Foundation.h>
 
+@class UserModel;
+
 @protocol EHRLibStateDelegate <NSObject>
 
 -(void) setNetworkActivityIndicatorVisible:(BOOL) isIt;
+-(void) setUserModel:(UserModel*) userModel;
 
 @end
