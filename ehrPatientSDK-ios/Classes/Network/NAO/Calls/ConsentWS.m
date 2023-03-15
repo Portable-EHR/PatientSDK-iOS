@@ -55,14 +55,6 @@ TRACE_OFF
     return call;
 }
 
-- (EHRCall *)__unused  consent:(IBConsent *)consent
-                   patientGuid:(NSString *)patientGuid
-                     onSuccess:(SenderBlock)successBlock
-                       onError:(SenderBlock)errorBlock {
-    EHRServerRequest *request = [EHRRequests getConsentConsentRequestForPatient:patientGuid forConsent:consent];
-    EHRCall          *call    = [EHRCall callWithRequest:request onSuccess:successBlock onError:errorBlock];
-    return call;
-}
 
 //region workflows
 
@@ -139,6 +131,22 @@ TRACE_OFF
 
 }
 
+/**
+ *
+ * @param consent  an IBConsent being granted by luser
+ * @param patientGuid the specific patient this grant is for
+ * @param successBlock sender block with  EHRCall
+ * @param errorBlock  sender block with EHRCall
+ */
+- (void )__unused  consent:(IBConsent *)consent
+                   patientGuid:(NSString *)patientGuid
+                     onSuccess:(SenderBlock)successBlock
+                       onError:(SenderBlock)errorBlock {
+    EHRServerRequest *request = [EHRRequests getConsentConsentRequestForPatient:patientGuid forConsent:consent];
+    EHRCall          *call    = [EHRCall callWithRequest:request onSuccess:successBlock onError:errorBlock];
+    [call start];
+
+}
 
 
 //endregion

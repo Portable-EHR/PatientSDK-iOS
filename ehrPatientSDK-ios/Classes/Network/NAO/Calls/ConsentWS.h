@@ -25,10 +25,7 @@
                     onSuccess:(SenderBlock)successBlock
                       onError:(SenderBlock)errorBlock;
 
-- (EHRCall *)__unused  consent:(IBConsent *)consent
-                   patientGuid:(NSString *)guid
-                     onSuccess:(SenderBlock)successBlock
-                       onError:(SenderBlock)errorBlock;
+
 
 //region workflows
 
@@ -57,6 +54,17 @@
  */
 - (void)__unused getConsents:(SenderBlock)successBlock
                      onError:(SenderBlock)errorBlock;
+/**
+ *
+ * @param consent  an IBConsent being granted by luser
+ * @param patientGuid the specific patient this grant is for
+ * @param successBlock sender block with  EHRCall
+ * @param errorBlock  sender block with EHRCall
+ */
+- (void)__unused  consent:(IBConsent *)consent
+                   patientGuid:(NSString *)patientGuid
+                     onSuccess:(SenderBlock)successBlock
+                       onError:(SenderBlock)errorBlock;
 
 //endregion
 
