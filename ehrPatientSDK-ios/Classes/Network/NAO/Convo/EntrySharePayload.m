@@ -92,9 +92,16 @@ TRACE_OFF
     return [_status isEqualToString:@"not_found"];
 }
 
+-(BOOL)isNoAccess {
+    return [_status isEqualToString:@"no_access"];
+}
+
+
 - (BOOL)isPrivateMessage __unused {
     return [_type isEqualToString:@"private-message"];
 }
+
+
 //endregion
 
 

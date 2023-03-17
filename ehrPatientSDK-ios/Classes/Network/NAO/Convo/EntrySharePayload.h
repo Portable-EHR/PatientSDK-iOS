@@ -18,7 +18,7 @@
 -(BOOL) isConsentRevoked;
 -(BOOL) isConsentExpired;
 -(BOOL) isConsentNotFound;
-
+-(BOOL) isNoAccess;
 
 @property(nonatomic) BOOL isPrivateMessage;
 

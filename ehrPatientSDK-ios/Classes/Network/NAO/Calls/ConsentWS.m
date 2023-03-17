@@ -126,7 +126,7 @@ TRACE_OFF
     EHRServerRequest *request = [EHRRequests putConsentsRequestWith:params];
     EHRCall          *call    = [EHRCall callWithRequest:request onSuccess:successBlock onError:errorBlock];
     call.maximumAttempts = 1;
-    call.timeOut         = 15.0;
+    call.timeOut         = 30.0;
     [call start];
 
 }
