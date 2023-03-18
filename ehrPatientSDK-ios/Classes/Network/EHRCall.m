@@ -160,7 +160,7 @@ static CFArrayRef certs;
     MPLOGERROR(@"*** Cleaning up , api key  [%@]", self.serverRequest.apiKey);
     MPLOGERROR(@"*** Cleaning up , dev guid [%@]", self.serverRequest.deviceGuid);
     if (self.serverRequest.parameters) {
-        MPLOGERROR(@"*** Cleaning up , parameters\n[%@]", [self.serverRequest.parameters asJSON]);
+        MPLOGERROR(@"*** Cleaning up , parameters\n%@", [self.serverRequest.parameters asJSON]);
     }
     if (_onEnd) _onEnd();
     if (!_wasResponseReceived) {
