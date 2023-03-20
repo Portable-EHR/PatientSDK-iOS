@@ -4,11 +4,10 @@
 
 #import <Foundation/Foundation.h>
 #import "EHRInstanceCounterP.h"
-
-@class IBAppInfo;
-@class IBDeviceInfo;
-@class IBUser;
-@class SecureCredentials;
+#import "IBDeviceInfo.h"
+#import "IBAppInfo.h"
+#import "IBUser.h"
+#import "SecureCredentials.h"
 
 @interface EHRLibState : NSObject <EHRInstanceCounterP> {
 

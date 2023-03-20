@@ -3,11 +3,6 @@
 //
 
 #import "EHRLibState.h"
-#import "EHRPersistableP.h"
-#import "IBAppInfo.h"
-#import "IBDeviceInfo.h"
-#import "IBUser.h"
-#import "SecureCredentials.h"
 
 @interface EHRLibState () {
     NSInteger         _instanceNumber;

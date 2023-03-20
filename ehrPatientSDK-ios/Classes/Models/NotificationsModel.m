@@ -142,13 +142,19 @@ TRACE_OFF
 
 - (NSInteger)numberOfUnseen {
     NSInteger num = 0;
-    num += _patientNotificationFilter.numberOfUnseen;
-    num += _infoNotificationFilter.numberOfUnseen;
-    num += _alertNotificationFilter.numberOfUnseen;
-    num += _privateMessageNotificationFilter.numberOfUnseen;
-    num += _practitionerNotificationFilter.numberOfUnseen;
-    num += _appointmentNotificationFilter.numberOfUnseen;
-    num += _conversationNotificationFilter.numberOfUnseen;
+    NSInteger patient, info, alert, pm, prac, appnt, convo;
+
+    patient = _patientNotificationFilter.numberOfUnseen;
+    info    = _infoNotificationFilter.numberOfUnseen;
+    alert   = _alertNotificationFilter.numberOfUnseen;
+    pm      = _privateMessageNotificationFilter.numberOfUnseen;
+    prac    = _practitionerNotificationFilter.numberOfUnseen;
+    appnt   = _appointmentNotificationFilter.numberOfUnseen;
+    convo   = _conversationNotificationFilter.numberOfUnseen;
+    num     = patient + info + alert + pm + prac + appnt + convo;
+
+    MPLOG(@"patient : %d , info : %d , alert : %d ,pm : %d , prac : %d , appnt : %d, convo : %d ", (int) patient, (int) info, (int) alert, (int) pm, (int) prac, (int) appnt, (int) convo);
+
     return num;
 }
 
@@ -379,8 +385,7 @@ TRACE_OFF
     [self tellListenersAboutAnUpdate:pn];
 }
 
-
--(void) tellListenersAboutAnewNotification:(PatientNotification*) notification{
+- (void)tellListenersAboutAnewNotification:(PatientNotification *)notification {
     if (![AppState sharedAppState].isInBackground) {
         dispatch_async(dispatch_get_main_queue(), ^{
             TRACE(@"Posting a single notification refresh event.");
@@ -394,7 +399,7 @@ TRACE_OFF
     }
 }
 
--(void) tellListenersAboutAnUpdate:(PatientNotification*) notification{
+- (void)tellListenersAboutAnUpdate:(PatientNotification *)notification {
     if (![AppState sharedAppState].isInBackground) {
         dispatch_async(dispatch_get_main_queue(), ^{
             TRACE(@"Posting a single notification refresh event.");
