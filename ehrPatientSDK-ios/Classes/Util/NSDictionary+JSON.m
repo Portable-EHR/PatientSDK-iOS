@@ -25,7 +25,7 @@
 - (NSData *)asJSONdata {
     NSError *error;
     NSData  *jsonData = [NSJSONSerialization dataWithJSONObject:self
-                                                        options:NSJSONWritingPrettyPrinted+NSJSONWritingWithoutEscapingSlashes
+                                                        options:NSJSONWritingPrettyPrinted+ NSJSONWritingWithoutEscapingSlashes
                                                           error:&error];
 
     if (error) {

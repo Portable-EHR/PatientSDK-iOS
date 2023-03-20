@@ -6,12 +6,14 @@
 #import "GERuntimeConstants.h"
 #import "EHRNetworkableP.h"
 #import "EHRInstanceCounterP.h"
+#import "EntryPartipantPayload.h"
 
 @interface OBEntry : NSObject <EHRNetworkableP, EHRInstanceCounterP> {
 
 }
 
 + (instancetype)default;
++ (instancetype)withParticipantPayload:(EntryPartipantPayload *)payload;
 
 @property(nonatomic) NSString             *type;
 @property(nonatomic) NSString             *audience;

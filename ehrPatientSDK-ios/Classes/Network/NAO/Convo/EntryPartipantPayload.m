@@ -14,8 +14,7 @@
 TRACE_OFF
 
 @synthesize role, targetParticipantGuid, action;
-@synthesize isPartipantRole, isAdminPartipantRole;
-@synthesize isAddAction, isRemoveAction, isAssignAction;
+
 
 - (instancetype)init {
     if ((self = [super init])) {
@@ -67,28 +66,28 @@ TRACE_OFF
 }
 
 
--(BOOL) isAddAction {
+-(BOOL) __unused isAddAction {
     if (!self.action) return false;
     return [self.action isEqualToString:@"add"];
 }
 
--(BOOL) isRemoveAction {
+-(BOOL) __unused isRemoveAction {
     if (!self.action) return false;
     return [self.action isEqualToString:@"remove"];
 }
 
 
--(BOOL)isAssignAction{
+-(BOOL) __unused isAssignAction{
     if (!self.action) return false;
     return [self.action isEqualToString:@"assign"];
 }
 
--(BOOL)isPartipantRole {
+-(BOOL) __unused isPartipantRole {
     if (!self.role) return false;
     return [self.action isEqualToString:@"partipant"];
 }
 
--(BOOL)isAdminPartipantRole{
+-(BOOL) __unused isAdminPartipantRole{
     if (!self.role) return false;
     return [self.action isEqualToString:@"admin"];
 }

@@ -27,6 +27,7 @@ TRACE_OFF
 @synthesize firstName = _firstName;
 @synthesize middleName = _middleName;
 @synthesize mySelf = _mySelf;
+@synthesize isActive = _isActive;
 
 + (instancetype)objectWithJSON:(NSString *)jsonString {
     NSDictionary *dic = [NSDictionary dictionaryWithJSON:jsonString];
@@ -57,6 +58,7 @@ TRACE_OFF
     cp.firstName     = WantStringFromDic(dic, @"firstName");
     cp.middleName    = WantStringFromDic(dic, @"middleName");
     cp.mySelf        = WantBoolFromDic(dic, @"mySelf");
+    cp.isActive      = WantBoolFromDic(dic, @"active");
     return cp;
 }
 
@@ -71,6 +73,7 @@ TRACE_OFF
     PutStringInDic(self.firstName, dic, @"firstName");
     PutStringInDic(self.middleName, dic, @"middleName");
     PutBoolInDic(self.mySelf, dic, @"myself");
+    PutBoolInDic(self.isActive, dic, @"active");
     return dic;
 }
 
@@ -83,7 +86,7 @@ TRACE_OFF
     _name          = nil;
     _firstName     = nil;
     _middleName    = nil;
-
+    _isActive      = nil;
     GE_DEALLOC();
     GE_DEALLOC_ECHO();
 }
@@ -101,9 +104,40 @@ TRACE_OFF
     }
     return [NSString stringWithFormat:@"%@ %@", _firstName, _name];
 }
+ //region API
 
-- (NSString *)shortName {
+- (NSString *) __unused shortName {
     if (_firstName) return _firstName;
     return self.fullName;
 }
+
+- (BOOL)isAdmin __unused {
+    return [_role isEqualToString:@"admin"];
+}
+
+- (BOOL)isParticipant __unused {
+    return [_role isEqualToString:@"participant"];
+}
+
+- (BOOL)isStaff __unused {
+    return [_type isEqualToString:@"staff"];
+}
+
+- (BOOL)isPrivilegedStaff __unused {
+    return [_type isEqualToString:@"privileged_staff"];
+}
+
+- (BOOL)isStaffGuest __unused {
+    return [_type isEqualToString:@"staff_guess"]; // dafuk !
+}
+
+- (BOOL)isClient __unused {
+    return [_type isEqualToString:@"client"];
+}
+
+- (BOOL)isClientGuest __unused {
+    return [_type isEqualToString:@"client_guess"]; // re-dafuk !
+}
+
+//endregion
 @end

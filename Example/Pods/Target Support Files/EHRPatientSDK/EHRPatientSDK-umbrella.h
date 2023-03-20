@@ -133,7 +133,7 @@
 #import "Conversation.h"
 #import "ConversationEntry.h"
 #import "ConversationEntryPoint.h"
-#import "ConversationEntryStatus.h"
+#import "EntryParticipantStatus.h"
 #import "ConversationEnvelope.h"
 #import "ConversationParticipant.h"
 #import "ConvoDispensary.h"

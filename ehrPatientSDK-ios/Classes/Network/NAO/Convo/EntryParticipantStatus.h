@@ -9,7 +9,7 @@
 #import "GEMacros.h"
 #import "NSDictionary+JSON.h"
 
-@interface ConversationEntryStatus : NSObject <EHRInstanceCounterP, EHRNetworkableP> {
+@interface EntryParticipantStatus : NSObject <EHRInstanceCounterP, EHRNetworkableP> {
     NSInteger _instanceNumber;
     NSString  *_participantId;
     NSString  *_entryId;
@@ -22,5 +22,10 @@
 @property(nonatomic) NSString *entryId;
 @property(nonatomic) NSString *status;
 @property(nonatomic) NSDate   *date;
+
+- (BOOL)isSent __unused;
+- (BOOL)isReceived __unused;
+- (BOOL)isRead __unused;
+- (BOOL)isAcknowledged __unused;
 
 @end

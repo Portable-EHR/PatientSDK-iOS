@@ -24,6 +24,13 @@ TRACE_ON
     return ces;
 }
 
++ (instancetype)withParticipantPayload:(EntryPartipantPayload *)payload {
+    OBEntry *ces = [[self alloc] init];
+    ces.type    = @"participant";
+    ces.payload = payload;
+    return ces;
+}
+
 - (instancetype)init {
     if ((self = [super init])) {
         GE_ALLOC();
@@ -44,15 +51,15 @@ TRACE_ON
 
 + (instancetype)objectWithContentsOfDictionary:(NSDictionary *)dic {
     OBEntry *oe = [[self alloc] init];
-    oe.type= WantStringFromDic(dic, @"tyep");
-    oe.audience= WantStringFromDic(dic, @"audience");
+    oe.type     = WantStringFromDic(dic, @"tyep");
+    oe.audience = WantStringFromDic(dic, @"audience");
 
     NSDictionary *payloadDic = WantDicFromDic(dic, @"payload");
     if (payloadDic) {
         if ([oe.type isEqualToString:@"message"]) {
-            oe.payload=[OBMessageEntry objectWithContentsOfDictionary:payloadDic];
+            oe.payload = [OBMessageEntry objectWithContentsOfDictionary:payloadDic];
         } else {
-            MPLOGERROR(@"OBEntry : dont know how to deserialize entry type [%@]",oe.type);
+            MPLOGERROR(@"OBEntry : dont know how to deserialize entry type [%@]", oe.type);
         }
     }
     return oe;

@@ -2,9 +2,9 @@
 // Created by Yves Le Borgne on 2022-12-27.
 //
 
-#import "ConversationEntryStatus.h"
+#import "EntryParticipantStatus.h"
 
-@implementation ConversationEntryStatus
+@implementation EntryParticipantStatus
 
 TRACE_OFF
 
@@ -42,7 +42,7 @@ TRACE_OFF
 }
 
 + (id)objectWithContentsOfDictionary:(NSDictionary *)dic {
-    ConversationEntryStatus *ces = [[ConversationEntryStatus alloc] init];
+    EntryParticipantStatus *ces = [[EntryParticipantStatus alloc] init];
     ces.participantId = WantStringFromDic(dic, @"participantId");
     ces.entryId       = WantStringFromDic(dic, @"entryId");
     ces.status        = WantStringFromDic(dic, @"status");
@@ -67,5 +67,22 @@ TRACE_OFF
     GE_DEALLOC();
     GE_DEALLOC_ECHO();
 }
+
+//region API
+-(BOOL)isSent {
+    return [_status isEqualToString:@"sent"];
+}
+-(BOOL)isReceived {
+    return [_status isEqualToString:@"received"];
+}
+-(BOOL)isRead {
+    return [_status isEqualToString:@"read"];
+}
+-(BOOL)isAcknowledged{
+    return [_status isEqualToString:@"ack"];
+}
+
+
+//endregion
 
 @end

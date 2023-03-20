@@ -75,7 +75,7 @@ TRACE_OFF
     NSMutableArray *statii        = [NSMutableArray array];
     if (nil != statusAsArray) {
         for (id element in statusAsArray) {
-            [statii addObject:[ConversationEntryStatus objectWithContentsOfDictionary:element]];
+            [statii addObject:[EntryParticipantStatus objectWithContentsOfDictionary:element]];
         }
     }
     ce->_status = [NSArray arrayWithArray:statii];

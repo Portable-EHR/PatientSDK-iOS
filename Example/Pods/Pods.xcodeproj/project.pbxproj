@@ -306,8 +306,8 @@
 		FAD79AD129845F580011388E /* ConversationParticipant.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79AAC29845F570011388E /* ConversationParticipant.h */; };
 		FAD79AD229845F580011388E /* Conversation.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79AAD29845F570011388E /* Conversation.m */; };
 		FAD79AD329845F580011388E /* Conversation.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79AAD29845F570011388E /* Conversation.m */; };
-		FAD79AD429845F580011388E /* ConversationEntryStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79AAE29845F570011388E /* ConversationEntryStatus.m */; };
-		FAD79AD529845F580011388E /* ConversationEntryStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79AAE29845F570011388E /* ConversationEntryStatus.m */; };
+		FAD79AD429845F580011388E /* EntryParticipantStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79AAE29845F570011388E /* EntryParticipantStatus.m */; };
+		FAD79AD529845F580011388E /* EntryParticipantStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79AAE29845F570011388E /* EntryParticipantStatus.m */; };
 		FAD79AD629845F580011388E /* ConversationEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79AAF29845F570011388E /* ConversationEntry.h */; };
 		FAD79AD729845F580011388E /* ConversationEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79AAF29845F570011388E /* ConversationEntry.h */; };
 		FAD79AD829845F580011388E /* ConversationEnvelope.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79AB029845F570011388E /* ConversationEnvelope.m */; };
@@ -336,8 +336,8 @@
 		FAD79AF129845F580011388E /* OBEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79ABD29845F580011388E /* OBEntry.h */; };
 		FAD79AF229845F580011388E /* OBNewEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79ABE29845F580011388E /* OBNewEntry.h */; };
 		FAD79AF329845F580011388E /* OBNewEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79ABE29845F580011388E /* OBNewEntry.h */; };
-		FAD79AF629845F580011388E /* ConversationEntryStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79AC029845F580011388E /* ConversationEntryStatus.h */; };
-		FAD79AF729845F580011388E /* ConversationEntryStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79AC029845F580011388E /* ConversationEntryStatus.h */; };
+		FAD79AF629845F580011388E /* EntryParticipantStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79AC029845F580011388E /* EntryParticipantStatus.h */; };
+		FAD79AF729845F580011388E /* EntryParticipantStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79AC029845F580011388E /* EntryParticipantStatus.h */; };
 		FAD79AF829845F580011388E /* Conversation.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79AC129845F580011388E /* Conversation.h */; };
 		FAD79AF929845F580011388E /* Conversation.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79AC129845F580011388E /* Conversation.h */; };
 		FAD79AFA29845F580011388E /* EntryMovePayload.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79AC229845F580011388E /* EntryMovePayload.h */; };
@@ -707,7 +707,7 @@
 		FAD79AAB29845F570011388E /* ConversationEntryPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationEntryPoint.m; sourceTree = "<group>"; };
 		FAD79AAC29845F570011388E /* ConversationParticipant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversationParticipant.h; sourceTree = "<group>"; };
 		FAD79AAD29845F570011388E /* Conversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Conversation.m; sourceTree = "<group>"; };
-		FAD79AAE29845F570011388E /* ConversationEntryStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationEntryStatus.m; sourceTree = "<group>"; };
+		FAD79AAE29845F570011388E /* EntryParticipantStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryParticipantStatus.m; sourceTree = "<group>"; };
 		FAD79AAF29845F570011388E /* ConversationEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversationEntry.h; sourceTree = "<group>"; };
 		FAD79AB029845F570011388E /* ConversationEnvelope.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationEnvelope.m; sourceTree = "<group>"; };
 		FAD79AB129845F570011388E /* EntryAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryAttachment.m; sourceTree = "<group>"; };
@@ -722,7 +722,7 @@
 		FAD79ABB29845F580011388E /* OBNewEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OBNewEntry.m; sourceTree = "<group>"; };
 		FAD79ABD29845F580011388E /* OBEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OBEntry.h; sourceTree = "<group>"; };
 		FAD79ABE29845F580011388E /* OBNewEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OBNewEntry.h; sourceTree = "<group>"; };
-		FAD79AC029845F580011388E /* ConversationEntryStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversationEntryStatus.h; sourceTree = "<group>"; };
+		FAD79AC029845F580011388E /* EntryParticipantStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryParticipantStatus.h; sourceTree = "<group>"; };
 		FAD79AC129845F580011388E /* Conversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Conversation.h; sourceTree = "<group>"; };
 		FAD79AC229845F580011388E /* EntryMovePayload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryMovePayload.h; sourceTree = "<group>"; };
 		FAD79AC329845F580011388E /* EntryAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryAttachment.h; sourceTree = "<group>"; };
@@ -1179,7 +1179,7 @@
 				FAD79AAC29845F570011388E /* ConversationParticipant.h */,
 				FAD79AC129845F580011388E /* Conversation.h */,
 				FAD79AAD29845F570011388E /* Conversation.m */,
-				FAD79AAE29845F570011388E /* ConversationEntryStatus.m */,
+				FAD79AAE29845F570011388E /* EntryParticipantStatus.m */,
 				FAD79AAF29845F570011388E /* ConversationEntry.h */,
 				FAD79AB029845F570011388E /* ConversationEnvelope.m */,
 				FAD79AB129845F570011388E /* EntryAttachment.m */,
@@ -1191,7 +1191,7 @@
 				FAD79AB729845F580011388E /* ConversationEntryPoint.h */,
 				FAD79AB829845F580011388E /* EntryPartipantPayload.m */,
 				FAD79AB929845F580011388E /* Outbound */,
-				FAD79AC029845F580011388E /* ConversationEntryStatus.h */,
+				FAD79AC029845F580011388E /* EntryParticipantStatus.h */,
 				FAD79AC229845F580011388E /* EntryMovePayload.h */,
 				FAD79AC329845F580011388E /* EntryAttachment.h */,
 				FAD79AC429845F580011388E /* ConversationEntry.m */,
@@ -1395,7 +1395,7 @@
 				CD34F5F96720342898E0253A69E265A2 /* AccessState.h in Headers */,
 				09C12646EA60E35C149C3391C15AED81 /* AppSignature.h in Headers */,
 				1CBD19B1EA5179BBD610E2CB4F701138 /* AppState.h in Headers */,
-				FAD79AF629845F580011388E /* ConversationEntryStatus.h in Headers */,
+				FAD79AF629845F580011388E /* EntryParticipantStatus.h in Headers */,
 				D7D3C745BE2D474F9202A767C1EE96AD /* AuthSequencer.h in Headers */,
 				9B547DB4823FEA13E5BD1546300D8946 /* ContactsModel.h in Headers */,
 				1649E9A7F289061E2CE7ED536203CF53 /* DateUtil.h in Headers */,
@@ -1527,7 +1527,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAD79AF729845F580011388E /* ConversationEntryStatus.h in Headers */,
+				FAD79AF729845F580011388E /* EntryParticipantStatus.h in Headers */,
 				FAD79B2C298462920011388E /* EHRRequests.h in Headers */,
 				FAD79B222984623E0011388E /* WebServices.h in Headers */,
 				FAD79AFB29845F580011388E /* EntryMovePayload.h in Headers */,
@@ -1753,7 +1753,7 @@
 				FC1078C0018662F81AFB1A79B8C7A81D /* IBPractitionerJurisdiction.m in Sources */,
 				19C2699CE174A31304235E603568AAE8 /* IBPractitionerPractice.m in Sources */,
 				FAD79AE429845F580011388E /* ConversationParticipant.m in Sources */,
-				FAD79AD429845F580011388E /* ConversationEntryStatus.m in Sources */,
+				FAD79AD429845F580011388E /* EntryParticipantStatus.m in Sources */,
 				FAD79B062984616F0011388E /* NSDate+Compare.m in Sources */,
 				86B943942E9307AB4A8EBB6758DF7A6E /* IBService.m in Sources */,
 				68B1C6A50A02E37156B5B6E3205294D1 /* IBTelex.m in Sources */,
@@ -1842,7 +1842,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAD79ADD29845F580011388E /* EntryMovePayload.m in Sources */,
-				FAD79AD529845F580011388E /* ConversationEntryStatus.m in Sources */,
+				FAD79AD529845F580011388E /* EntryParticipantStatus.m in Sources */,
 				FAD79AD329845F580011388E /* Conversation.m in Sources */,
 				FAD79B2A298462920011388E /* EHRRequests.m in Sources */,
 				FAD79AED29845F580011388E /* OBNewEntry.m in Sources */,

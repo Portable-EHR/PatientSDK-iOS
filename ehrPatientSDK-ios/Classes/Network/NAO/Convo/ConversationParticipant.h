@@ -20,6 +20,7 @@
     NSString  *_firstName;
     NSString  *_middleName;
     BOOL      _mySelf;
+    BOOL      _isActive;
 }
 
 @property(nonatomic) NSString           *guid;
@@ -30,7 +31,17 @@
 @property(nonatomic) NSString           *name;
 @property(nonatomic) NSString           *middleName;
 @property(nonatomic) NSString           *firstName;
+@property(nonatomic) BOOL               isActive;
 @property(nonatomic) BOOL               mySelf;
 @property(nonatomic, readonly) NSString *fullName;
 @property(nonatomic, readonly) NSString *shortName;
+
+-(BOOL) isAdmin;
+-(BOOL) isParticipant;
+-(BOOL) isStaff;
+-(BOOL) isPrivilegedStaff;
+-(BOOL) isStaffGuest;
+-(BOOL) isClient;
+-(BOOL) isClientGuest;
+
 @end
