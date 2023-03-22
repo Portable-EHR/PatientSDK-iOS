@@ -3,10 +3,7 @@
 // Copyright (c) 2015-2019 Portable EHR inc. All rights reserved.
 //
 
-#import "EHRPersistableP.h"
 #import "SecureCredentials.h"
-#import "UserCredentials.h"
-#import "UICKeyChainStore.h"
 #import "IBUser.h"
 #import "IBUserEula.h"
 

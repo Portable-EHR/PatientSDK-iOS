@@ -117,7 +117,9 @@
 #import "EHRLibRuntime.h"
 #import "EHRReachability.h"
 #import "EHRRequestStatus.h"
-#import "EHRServerRequest.h"
+#import "EHRServerRequest.h"#import <Foundation/Foundation.h>
+#import "GERuntimeConstants.h"
+#import "PehrSDKConfig.h"
 #import "EHRServerResponse.h"
 
 #import "WebServices.h"

@@ -8,7 +8,7 @@
 
 typedef void(^VoidBlock)(void);
 typedef void(^SenderBlock)(id call);
-typedef void(^NSErrorBlock)(NSError *);
+__unused typedef void(^NSErrorBlock)(NSError *);
 
 
 @class PehrSDKConfig;
@@ -17,4 +17,5 @@ extern PehrSDKConfig *EHRLib;
 @interface EHRLibRuntime : NSObject {
 
 }
+
 @end

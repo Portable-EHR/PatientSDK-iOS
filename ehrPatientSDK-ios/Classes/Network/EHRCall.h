@@ -4,7 +4,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "GERuntimeConstants.h"
 #import "EHRInstanceCounterP.h"
 #import "EHRServerRequest.h"
 #import "EHRServerResponse.h"

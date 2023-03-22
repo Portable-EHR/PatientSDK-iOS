@@ -6,9 +6,9 @@
 #import <Foundation/Foundation.h>
 #import "EHRInstanceCounterP.h"
 #import "EHRPersistableP.h"
+#import "UserCredentials.h"
+#import "UICKeyChainStore.h"
 
-@class UserCredentials;
-@class UICKeyChainStore;
 
 @interface SecureCredentials : NSObject <EHRInstanceCounterP, EHRPersistableP> {
     NSInteger        _instanceNumber;

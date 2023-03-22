@@ -55,10 +55,7 @@ MPLOG(@"dealloc [%ld]/[%lX], [%ld] left.",(long)_instanceNumber,(long)self,(long
 
 ;
 
-#define GEOMETRY() \
-__unused     CGRect windowBoundsFrame = [UIScreen mainScreen].bounds; \
-__unused     CGRect statusBarFrame = [UIApplication sharedApplication].statusBarFrame; \
-__unused CGRect navigationControllerFrame = self.navigationController.navigationBar.frame; \
+
 
 #define __MPLOGWITHFUNCTION(s, ...) \
 QuietLog(@"%s : %@",__FUNCTION__,[NSString stringWithFormat:(s), ##__VA_ARGS__])

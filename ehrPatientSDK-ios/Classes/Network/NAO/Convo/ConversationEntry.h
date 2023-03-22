@@ -6,7 +6,6 @@
 #import "EHRInstanceCounterP.h"
 #import "EHRPersistableP.h"
 #import "EHRNetworkableP.h"
-#import "GEMacros.h"
 #import "NSDictionary+JSON.h"
 #import "EntryMessagePayload.h"
 #import "EntryParticipantStatus.h"

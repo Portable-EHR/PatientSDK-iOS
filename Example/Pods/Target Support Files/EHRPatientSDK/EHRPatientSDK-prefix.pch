@@ -21,11 +21,10 @@
 #import "PehrSDKConfig.h"
 #import "EHRLibRuntime.h"
 #import "Version.h"
-#import "GERuntimeConstants.h"
-#import "GEMacros.h"
+//#import "GERuntimeConstants.h"
+//#import "GEMacros.h"
 #import "NSDictionary+JSON.h"
 #import <SystemConfiguration/SystemConfiguration.h>
 #import "LocalAuthentication/LocalAuthentication.h"
-#import "PehrSDKConfig.h"
 
 #endif /* PrefixHeader_pch */
