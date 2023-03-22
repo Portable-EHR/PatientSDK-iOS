@@ -4,6 +4,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EHRInstanceCounterP.h"
+#import "Conversation.h"
 
 @class ConvoPlacesModel;
 @class EulaModel;
@@ -14,9 +15,10 @@
 
 }
 
-- (ConvoPlacesModel *)conversationPlaces;
-- (EulaModel *)eula;
-- (NotificationsModel *)notifications;
-- (UserModel *)userModel;
+
+- (ConvoPlacesModel *_Nullable)conversationPlaces;
+- (EulaModel *_Nonnull)eula;
+- (NotificationsModel *_Nonnull)notifications;
+- (UserModel *_Nonnull)userModel;
 
 @end

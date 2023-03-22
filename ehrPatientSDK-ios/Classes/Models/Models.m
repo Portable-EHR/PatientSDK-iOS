@@ -4,7 +4,6 @@
 
 #import "Models.h"
 #import "ConvoPlacesModel.h"
-#import "EHRPersistableP.h"
 #import "EulaModel.h"
 #import "NotificationsModel.h"
 #import "UserModel.h"
@@ -19,6 +18,7 @@
 @end
 
 @implementation Models
+
 
 - (ConvoPlacesModel *)conversationPlaces {
     return _convoPlaces;
