@@ -7,11 +7,10 @@
 #import "EHRInstanceCounterP.h"
 #import "EHRPersistableP.h"
 #import "EHRModelSequencerP.h"
-
-@class IBUser;
-@class NotificationsModel;
-@class UserDeviceSettings;
-@class ServicesModel;
+#import "IBUser.h"
+#import "NotificationsModel.h"
+#import "ServicesModel.h"
+#import "UserDeviceSettings.h"
 
 @interface UserModel : NSObject <EHRInstanceCounterP, EHRPersistableP, EHRModelSequencerP> {
     NSInteger           _instanceNumber;
