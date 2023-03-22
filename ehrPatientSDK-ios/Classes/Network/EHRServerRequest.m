@@ -69,13 +69,28 @@ TRACE_OFF
 
 - (NSString *)asJSON {
     NSError *writeError = nil;
-    NSData  *jsonData   = [NSJSONSerialization dataWithJSONObject:[self asDictionary]
-                                                          options:NSJSONWritingPrettyPrinted + NSJSONWritingWithoutEscapingSlashes
-                                                            error:&writeError];
+    NSData *jsonData;
+    NSString *jsonString;
+    if (@available(iOS 13.0, *)) {
+        jsonData   = [NSJSONSerialization dataWithJSONObject:[self asDictionary]
+                                                              options:NSJSONWritingPrettyPrinted + NSJSONWritingWithoutEscapingSlashes
+                                                                error:&writeError];
+        if (writeError) {
+            TRACE(@"Write error : %@", [writeError description]);
+        }
+        jsonString = [[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding] stringByRemovingPercentEncoding];
+    } else {
+        // Fallback on earlier versions
+        jsonData   = [NSJSONSerialization dataWithJSONObject:[self asDictionary]
+                                                              options:NSJSONWritingPrettyPrinted
+                                                           error:&writeError];
+        jsonString = [[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding] stringByRemovingPercentEncoding];
+    }
     if (writeError) {
         TRACE(@"Write error : %@", [writeError description]);
     }
-    NSString *jsonString = [[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding] stringByRemovingPercentEncoding];
+    
+    
     return jsonString;
 }
 

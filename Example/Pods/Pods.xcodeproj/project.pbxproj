@@ -377,13 +377,39 @@
 		FAD79B2B298462920011388E /* EHRRequests.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79B28298462920011388E /* EHRRequests.h */; };
 		FAD79B2C298462920011388E /* EHRRequests.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79B28298462920011388E /* EHRRequests.h */; };
 		FAD79B3829867EF50011388E /* sdk.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79B3729867EF50011388E /* sdk.h */; };
-		FAD79B3B2989B1BA0011388E /* UICKeyChainStore.LICENSE.readme in Resources */ = {isa = PBXBuildFile; fileRef = B23001E03561B321FFBE8EEBD2EA5448 /* UICKeyChainStore.LICENSE.readme */; };
 		FC01A1151EF80DA9CEFDBA19847A87A0 /* IBMediaInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 941917E7C50B4DF2ACEE0E328FB4DC7E /* IBMediaInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FC1078C0018662F81AFB1A79B8C7A81D /* IBPractitionerJurisdiction.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA23E880DF3BD1CFC5B5E944905526B /* IBPractitionerJurisdiction.m */; };
 		FC57817200F7714C5B828D9D1F6364AB /* EHRRequestStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = 260DEC11B7626B2EDC78112661BB890A /* EHRRequestStatus.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FD5CAA2C9A294ACEE172199E347D3364 /* EHRApiServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D8B424A6BDF4825157CDB6151C5B233 /* EHRApiServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FEF98DB4F500317DAA6C187860731628 /* Patient.m in Sources */ = {isa = PBXBuildFile; fileRef = ED61D646C826352DDAA85285B2285AD9 /* Patient.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXBuildRule section */
+		FA935FF029CB3DD100078A93 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			filePatterns = "*.md";
+			fileType = pattern.proxy;
+			inputFiles = (
+			);
+			isEditable = 1;
+			outputFiles = (
+			);
+			script = "# Type a script or drag a script file from your workspace to insert its path.\n";
+		};
+		FA935FF129CB3E1E00078A93 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			filePatterns = "*.LICENSE";
+			fileType = pattern.proxy;
+			inputFiles = (
+			);
+			isEditable = 1;
+			outputFiles = (
+			);
+			script = "# Type a script or drag a script file from your workspace to insert its path.\n";
+		};
+/* End PBXBuildRule section */
 
 /* Begin PBXContainerItemProxy section */
 		2F629053DA8825C51426D51CE0A34B89 /* PBXContainerItemProxy */ = {
@@ -618,7 +644,7 @@
 		AFF453D21E597E0C02844A3C2E6C7AB7 /* PersistenceManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PersistenceManager.h; sourceTree = "<group>"; };
 		B09960855CC4B1E92D32F0784AA8F21A /* IBTelexInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = IBTelexInfo.m; sourceTree = "<group>"; };
 		B0B4680702960A67A1128A44953F0CE0 /* TSKTrustKitConfig.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TSKTrustKitConfig.m; path = TrustKit/TSKTrustKitConfig.m; sourceTree = "<group>"; };
-		B23001E03561B321FFBE8EEBD2EA5448 /* UICKeyChainStore.LICENSE.readme */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = UICKeyChainStore.LICENSE.readme; sourceTree = "<group>"; };
+		B23001E03561B321FFBE8EEBD2EA5448 /* UICKeyChainStore.LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.LICENSE; path = UICKeyChainStore.LICENSE; sourceTree = "<group>"; };
 		B29A6D14F953D27E9C58C9DA8C2D09BA /* TrustKit */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = TrustKit; path = TrustKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B32EE88A22D2ED5B11383B0500E400A4 /* IBUser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = IBUser.m; sourceTree = "<group>"; };
 		B3340778932A7287561AAEC5762A0B09 /* SIN.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SIN.h; sourceTree = "<group>"; };
@@ -907,7 +933,7 @@
 				7827D8AEDB6348EB867EC7AEBED540B3 /* SecureCredentials.m */,
 				2DF7ACB5F848366FA8F80223A2881CD3 /* UICKeyChainStore.h */,
 				6D05048D126792836891D5FE662D20BD /* UICKeyChainStore.m */,
-				B23001E03561B321FFBE8EEBD2EA5448 /* UICKeyChainStore.LICENSE.readme */,
+				B23001E03561B321FFBE8EEBD2EA5448 /* UICKeyChainStore.LICENSE */,
 				FCC11CCB6A0CC3AC51B0C199404ADD69 /* UserCredentials.h */,
 				CC5965086B1D9195B95402C9C7ECAF70 /* UserCredentials.m */,
 				4B8DD529D64AD379FDF4B297 /* EHRLibState.m */,
@@ -1595,6 +1621,7 @@
 				679D48EAE2BFD09DCC84B097DDE2344A /* Resources */,
 			);
 			buildRules = (
+				FA935FF129CB3E1E00078A93 /* PBXBuildRule */,
 			);
 			dependencies = (
 				BB67D68D8A90BA4049A15092462A950C /* PBXTargetDependency */,
@@ -1615,6 +1642,7 @@
 				B00F328F0A31B59BA364DD301D430D14 /* Resources */,
 			);
 			buildRules = (
+				FA935FF029CB3DD100078A93 /* PBXBuildRule */,
 			);
 			dependencies = (
 				3CD85492069607AB949E0FA3B785D5DE /* PBXTargetDependency */,
@@ -1658,7 +1686,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAD79B3B2989B1BA0011388E /* UICKeyChainStore.LICENSE.readme in Resources */,
 				4B8DD58D7CE87F69DA056788 /* EHRPatientSDK.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -86,7 +86,6 @@ TRACE_OFF
     _name          = nil;
     _firstName     = nil;
     _middleName    = nil;
-    _isActive      = nil;
     GE_DEALLOC();
     GE_DEALLOC_ECHO();
 }
