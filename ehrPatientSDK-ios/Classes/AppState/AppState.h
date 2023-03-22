@@ -8,10 +8,11 @@
 #import "GERuntimeConstants.h"
 #import "EHRLibStateDelegate.h"
 #import "IBConsent.h"
+#import "UserModel.h"
+#import "IBUser.h"
+#import "Patient.h"
 
-@class IBUser;
-@class Patient;
-@class UserModel;
+
 @class EHRApiServer;
 @class IBDeviceInfo;
 @class UserDeviceSettings;
