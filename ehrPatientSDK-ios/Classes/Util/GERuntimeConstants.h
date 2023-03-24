@@ -11,6 +11,7 @@
 #include <mach/mach.h>
 #import <sys/proc.h>
 #import "EHRInstanceCounterP.h"
+#import "EHRPersistableP.h"
 #import "Version.h"
 #pragma clang diagnostic push
 #pragma ide diagnostic ignored "OCUnusedMacroInspection"
@@ -45,33 +46,6 @@ extern NSMutableDictionary *kHostNames;
 extern NSString            *kStackKey;
 extern NSString            *kHostName;
 extern NSString            *kLocalIPaddress;
-
-extern UIColor *kColorDarkening10;
-extern UIColor *kColorDarkening20;
-extern UIColor *kColorDarkening30;
-extern UIColor *kColorDarkening40;
-extern UIColor *kColorDarkening60;
-extern UIColor *kColorBackgroundHighlight;
-extern UIColor *kColorBackground;
-extern UIColor *kColorSelectable;
-extern UIColor *kColorSelected;
-extern UIColor *kColorText;
-extern UIColor *kColorErrorText;
-extern UIColor *kColorCyan;
-extern UIColor *kColorTransparent;
-extern UIColor *kColorHide;
-extern UIColor *kColorArchive;
-extern UIColor *kColorAppleBlue;
-extern UIColor *kColorAppleImessageBlue;
-
-extern UIFont *kBandTitleFont;
-extern UIFont *kBandContentFont;
-extern UIFont *kMenuButtonFont;
-extern UIFont *kEulaContentFont;
-extern UIFont *kWarningFont;
-
-extern CGFloat kToolbarHeight;
-extern CGFloat kToolbarItemSize;
 
 // notifications
 
@@ -174,11 +148,6 @@ extern unsigned long get_memory_bytes(void);
 extern float get_memory_kb(void);
 extern float get_memory_mb(void);
 
-extern BOOL systemVersionEqualTo(NSString *dotVersionAsString);
-extern BOOL systemVersionGreaterThan(NSString *dotVersionAsString);
-extern BOOL systemVersionGreaterThanOrEqualTo(NSString *dotVersionAsString);
-extern BOOL systemVersionLessThan(NSString *dotVersionAsString);
-extern BOOL systemVersionLessThanOrEqualTo(NSString *dotVersionAsString);
 
 @end
 

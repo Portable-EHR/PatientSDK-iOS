@@ -6,10 +6,7 @@
 //  // Copyright (c) 2015-2019 Portable EHR inc. All rights reserved.
 //
 
-
-#import "EHRInstanceCounterP.h"
 #import "GEDeviceHardware.h"
-#import "EHRPersistableP.h"
 
 #pragma clang diagnostic push
 #pragma ide diagnostic ignored "OCUnusedMethodInspection"
@@ -37,31 +34,6 @@ NSString            *kStackKey                              = @"CA.dev";
 NSString            *kLocalIPAddress                        = @"127.0.0.1";
 NSInteger           kBuildNumber                            = 10;
 
-UIColor *kColorBackgroundHighlight;
-UIColor *kColorDarkening10;
-UIColor *kColorDarkening20;
-UIColor *kColorDarkening30;
-UIColor *kColorDarkening40;
-UIColor *kColorDarkening60;
-UIColor *kColorBackground;
-UIColor *kColorSelectable;
-UIColor *kColorSelected;
-UIColor *kColorText;
-UIColor *kColorErrorText;
-UIColor *kColorCyan;
-UIColor *kColorTransparent;
-UIColor *kColorArchive;
-UIColor *kColorAppleBlue;
-UIColor *kColorAppleImessageBlue;
-UIColor *kColorHide;
-UIFont  *kBandTitleFont;
-UIFont  *kWarningFont;
-UIFont  *kBandContentFont;
-UIFont  *kMenuButtonFont;
-UIFont  *kEulaContentFont;
-
-CGFloat kToolbarHeight   = 40.0;
-CGFloat kToolbarItemSize = 24.0;
 
 // network stuff
 #ifndef MP_DEBUG
@@ -122,30 +94,6 @@ static __strong NSMutableArray *allocatedClasses;
     MPLOG(@"App build number    : %lu", (long) kBuildNumber);
     allocatedClasses = [NSMutableArray array];
     _isDeviceTypeSet = NO;
-
-    kColorDarkening10         = [UIColor colorWithRed:0.f / 255.f green:0.f / 255.f blue:0.f / 255.f alpha:0.1f]; // 33586B
-    kColorDarkening20         = [UIColor colorWithRed:0.f / 255.f green:0.f / 255.f blue:0.f / 255.f alpha:0.2f]; // 33586B
-    kColorDarkening30         = [UIColor colorWithRed:0.f / 255.f green:0.f / 255.f blue:0.f / 255.f alpha:0.3f]; // 33586B
-    kColorDarkening40         = [UIColor colorWithRed:0.f / 255.f green:0.f / 255.f blue:0.f / 255.f alpha:0.4f]; // 33586B
-    kColorDarkening60         = [UIColor colorWithRed:0.f / 255.f green:0.f / 255.f blue:0.f / 255.f alpha:0.6f]; // 33586B
-    kColorBackgroundHighlight = [UIColor colorWithRed:51.f / 255.f green:88.f / 255.f blue:107.f / 255.f alpha:1.f]; // 33586B
-    kColorBackground          = [UIColor colorWithRed:34.f / 255.f green:91.f / 255.f blue:120.f / 255.f alpha:1.f]; // 225B78
-    kColorText                = [UIColor whiteColor];
-    kColorErrorText           = [UIColor colorWithRed:254.f / 255.f green:176.f / 255.f blue:26.f / 255.f alpha:1.f];
-    kColorSelectable          = [UIColor colorWithRed:177.f / 255.f green:240.f / 255.f blue:230.f / 255.f alpha:1.f];
-    kColorSelected            = [UIColor colorWithRed:177.f / 255.f green:240.f / 255.f blue:230.f / 255.f alpha:.41];
-    kColorArchive             = [UIColor colorWithRed:171.0f / 255.0f green:31.0f / 255.0f blue:32.0f / 255.0f alpha:1.0f];
-    kColorAppleBlue           = [[UIColor colorWithRed:0. green:136. / 255. blue:204. / 255. alpha:1.] colorWithAlphaComponent:1.0f];
-    kColorAppleImessageBlue   = [[UIColor colorWithRed:25. / 255. green:130. / 255. blue:252. / 255. alpha:1.] colorWithAlphaComponent:1.0f];
-    kColorHide                = [UIColor colorWithRed:50.0f / 255.0f green:153.0f / 255.0f blue:187.0f / 255.0f alpha:1.0f];
-    kColorTransparent         = [UIColor colorWithRed:0 green:0 blue:0 alpha:0];
-    kColorCyan                = [UIColor cyanColor];
-
-    kBandTitleFont   = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16];
-    kBandContentFont = [UIFont fontWithName:@"CourierNewPS-BoldMT" size:16];
-    kMenuButtonFont  = [UIFont fontWithName:@"HelveticaNeue-Bold" size:14];
-    kEulaContentFont = [UIFont fontWithName:@"HelveticaNeue" size:14];
-    kWarningFont     = [UIFont fontWithName:@"HelveticaNeue-Bold" size:18];
 
     NSMutableDictionary *kvps = [NSMutableDictionary dictionary];
     kvps[@"CA.prod"]    = @"portableehr.ca";
@@ -380,35 +328,6 @@ NSString *NormalizedVersionString(NSString *versionString) {
 
 }
 
-BOOL systemVersionEqualTo(NSString *dotVersionAsString) {
-
-    NSString *normalizedVersion = NormalizedVersionString(dotVersionAsString);
-    return ([kSystemVersion compare:normalizedVersion options:NSNumericSearch] == NSOrderedSame);
-}
-
-BOOL systemVersionGreaterThan(NSString *dotVersionAsString) {
-
-    NSString *normalizedVersion = NormalizedVersionString(dotVersionAsString);
-    return ([kSystemVersion compare:normalizedVersion options:NSNumericSearch] == NSOrderedDescending);
-}
-
-BOOL systemVersionGreaterThanOrEqualTo(NSString *dotVersionAsString) {
-
-    NSString *normalizedVersion = NormalizedVersionString(dotVersionAsString);
-    return ([kSystemVersion compare:normalizedVersion options:NSNumericSearch] == NSOrderedAscending);
-}
-
-BOOL systemVersionLessThan(NSString *dotVersionAsString) {
-
-    NSString *normalizedVersion = NormalizedVersionString(dotVersionAsString);
-    return ([kSystemVersion compare:normalizedVersion options:NSNumericSearch] == NSOrderedAscending);
-}
-
-BOOL systemVersionLessThanOrEqualTo(NSString *dotVersionAsString) {
-
-    NSString *normalizedVersion = NormalizedVersionString(dotVersionAsString);
-    return ([kSystemVersion compare:normalizedVersion options:NSNumericSearch] == NSOrderedDescending);
-}
 
 #pragma clang diagnostic push
 #pragma ide diagnostic ignored "UnavailableInDeploymentTarget"
@@ -433,7 +352,7 @@ void openScheme(NSString *scheme) {
 
 //region Persistence helpers
 
-NSDate *WantDateFromDic(NSDictionary *dic, NSString *key) {
+NSDate *WantDateFromDic(NSDictionary *dic, NSString *key)  {
     if (!key) return nil;
     id     val;
     NSDate *date = nil;
