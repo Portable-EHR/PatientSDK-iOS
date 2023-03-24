@@ -6,14 +6,11 @@
 #import "GERuntimeConstants.h"
 #import "EHRInstanceCounterP.h"
 #import "ConvoWS.h"
+#import "ConsentWS.h"
 #import "CommandsWS.h"
 #import "ActivationWS.h"
+#import "NotificationWS.h"
 
-@class CommandsWS;
-@class ConvoWS;
-@class ConsentWS;
-@class NotificationWS;
-@class ActivationWS;
 
 @interface WebServices : NSObject <EHRInstanceCounterP>
 
