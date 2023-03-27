@@ -39,9 +39,9 @@ TRACE_ON
 
 //region WF
 
-//- (void)pullSinceDate:(NSDate *)date onSuccess:(VoidBlock)successBlock onError:(VoidBlock)errorBlock {
-//    [[AppState sharedAppState].userModel.notificationsModel readFromServerWithSuccess:<#(VoidBlock)successBlock#> andError:<#(VoidBlock)errorBlock#>];
-//}
+- (void)pullSinceDate:(NSDate *)date onSuccess:(VoidBlock)successBlock onError:(VoidBlock)errorBlock {
+    [[AppState sharedAppState].userModel.notificationsModel readFromServerWithSuccess:successBlock andError:errorBlock];
+}
 
 - (void)pullForever:(VoidBlock)successBlock onError:(VoidBlock)errorBlock {
     VoidBlock datePullSuccess = ^{
