@@ -9,13 +9,13 @@
 #import "ConsentWS.h"
 #import "CommandsWS.h"
 #import "ActivationWS.h"
-#import "NotificationWS.h"
+#import "NotificationsWS.h"
 
 
 @interface WebServices : NSObject <EHRInstanceCounterP>
 
-@property(nonatomic) NotificationWS *notification;
-@property(nonatomic) CommandsWS     *commands;
+@property(nonatomic) NotificationsWS *notifications;
+@property(nonatomic) CommandsWS      *commands;
 @property(nonatomic) ConsentWS      *consent;
 @property(nonatomic) ConvoWS        *convo;
 @property(nonatomic) ActivationWS   *activation;

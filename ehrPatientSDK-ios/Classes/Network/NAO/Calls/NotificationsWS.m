@@ -2,17 +2,17 @@
 // Created by Yves Le Borgne on 2023-01-02.
 //
 
-#import "NotificationWS.h"
+#import "NotificationsWS.h"
 #import "EHRCall.h"
 #import "PatientNotification.h"
 #import "EHRRequests.h"
 
-@interface NotificationWS () {
+@interface NotificationsWS () {
     NSInteger _instanceNumber;
 }
 @end
 
-@implementation NotificationWS
+@implementation NotificationsWS
 
 TRACE_ON
 

@@ -8,7 +8,7 @@
 @class EHRCall;
 @class PatientNotification;
 
-@interface NotificationWS : NSObject <EHRInstanceCounterP> {
+@interface NotificationsWS : NSObject <EHRInstanceCounterP> {
 
 }
 

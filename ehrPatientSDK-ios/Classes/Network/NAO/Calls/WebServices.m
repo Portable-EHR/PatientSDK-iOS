@@ -3,16 +3,14 @@
 //
 
 #import "WebServices.h"
-#import "ConsentWS.h"
-#import "NotificationWS.h"
-#import "ActivationWS.h"
+
 
 @interface WebServices () {
     NSInteger      _instanceNumber;
     CommandsWS     *_commands;
-    ConvoWS        *_convo;
-    NotificationWS *_notification;
-    ActivationWS   *_activation;
+    ConvoWS         *_convo;
+    NotificationsWS *_notifications;
+    ActivationWS    *_activation;
 }
 @end
 
@@ -24,11 +22,11 @@ TRACE_OFF
     if ((self = [super init])) {
         GE_ALLOC();
         GE_ALLOC_ECHO();
-        _commands     = [[CommandsWS alloc] init];
-        _convo        = [[ConvoWS alloc] init];
-        _consent      = [[ConsentWS alloc] init];
-        _notification = [[NotificationWS alloc] init];
-        _activation   = [[ActivationWS alloc] init];
+        _commands      = [[CommandsWS alloc] init];
+        _convo         = [[ConvoWS alloc] init];
+        _consent       = [[ConsentWS alloc] init];
+        _notifications = [[NotificationsWS alloc] init];
+        _activation    = [[ActivationWS alloc] init];
     } else {
         MPLOG(@"*** super returns nil!");
     }
@@ -52,11 +50,11 @@ TRACE_OFF
 }
 
 - (void)dealloc {
-    _commands     = nil;
-    _convo        = nil;
-    _consent      = nil;
-    _notification = nil;
-    _activation   = nil;
+    _commands      = nil;
+    _convo         = nil;
+    _consent       = nil;
+    _notifications = nil;
+    _activation    = nil;
     GE_DEALLOC();
     GE_DEALLOC_ECHO();
 }
