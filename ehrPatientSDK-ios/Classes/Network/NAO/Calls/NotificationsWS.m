@@ -16,6 +16,8 @@
 
 TRACE_ON
 
+//region calls
+
 - (EHRCall *)setSeen:(PatientNotification *)notification
            onSuccess:(SenderBlock)successBlock
              onError:(SenderBlock)errorBlock {
@@ -24,6 +26,34 @@ TRACE_ON
                                                          command:@"seen" parameters:params];
     return [EHRCall callWithRequest:request onSuccess:successBlock onError:errorBlock];
 }
+
+-(EHRCall*) getListCall:(NSDate*) since onSuccess:(SenderBlock) successBlock onError:(SenderBlock) errorBlock{
+    NSString *sinceAsString = NetworkDateFromDate(since);
+    NSMutableDictionary *parameters = [@{@"status": @"all", @"since": sinceAsString, @"type": @"all"} mutableCopy];
+    EHRServerRequest    *request = [EHRRequests requestWithRoute:@"/app/notification"
+                                                         command:@"list" parameters:parameters];
+    return [EHRCall callWithRequest:request onSuccess:successBlock onError:errorBlock];
+}
+
+//endregion
+
+//region WF
+
+//- (void)pullSinceDate:(NSDate *)date onSuccess:(VoidBlock)successBlock onError:(VoidBlock)errorBlock {
+//    [[AppState sharedAppState].userModel.notificationsModel readFromServerWithSuccess:<#(VoidBlock)successBlock#> andError:<#(VoidBlock)errorBlock#>];
+//}
+
+- (void)pullForever:(VoidBlock)successBlock onError:(VoidBlock)errorBlock {
+    VoidBlock datePullSuccess = ^{
+        successBlock();
+    };
+    VoidBlock datePullError = ^{
+        errorBlock();
+    };
+    [self pullSinceDate:forever() onSuccess:datePullSuccess onError:datePullError];
+}
+
+//endregion
 
 - (instancetype)init {
     if ((self = [super init])) {

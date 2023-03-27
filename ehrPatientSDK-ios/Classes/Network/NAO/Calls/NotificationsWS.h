@@ -12,8 +12,22 @@
 
 }
 
+//region calls
+
+-(EHRCall*) getListCall:(NSDate*) since onSuccess:(SenderBlock) successBlock onError:(SenderBlock) errorBlock;
+
 - (EHRCall *)__unused  setSeen:(PatientNotification *)
         notification onSuccess:(SenderBlock)successBlock
                        onError:(SenderBlock)errorBlock;
+
+//endregion
+
+//region WF
+
+-(void) pullSinceDate:(NSDate*) date onSuccess:(VoidBlock) successBlock onError:(VoidBlock) errorBlock ;
+
+-(void) pullForever:(VoidBlock) successBlock onError:(VoidBlock) errorBlock;
+
+//endregion
 
 @end

@@ -12,7 +12,7 @@ __unused typedef void(^NSErrorBlock)(NSError *);
 
 
 @class PehrSDKConfig;
-extern PehrSDKConfig *EHRLib;
+extern PehrSDKConfig* EHRLib;
 
 @interface EHRLibRuntime : NSObject {
 

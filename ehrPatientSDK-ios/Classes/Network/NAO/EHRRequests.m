@@ -35,7 +35,7 @@ static UserCredentials *userCredentials;
 
 + (EHRServerRequest *)requestWithRoute:(NSString *)route command:(NSString *)command parameters:(NSMutableDictionary *)parameters {
     EHRServerRequest *request = [[EHRServerRequest alloc] init];
-    request.language   = [[PehrSDKConfig shared] getDeviceLanguage];
+    request.language   =[AppState sharedAppState].deviceLanguage; // todo , remove this from AppState ... should be EHRLib
     request.trackingId = [EHRGuid guid];
     request.server     = self.getServer;
     request.appAlias   = PehrSDKConfig.shared.getAppAlias;

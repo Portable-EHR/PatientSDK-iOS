@@ -4,7 +4,6 @@
 
 #import "EHRLibRuntime.h"
 #import "PehrSDKConfig.h"
-
 PehrSDKConfig *EHRLib;
 
 @implementation EHRLibRuntime

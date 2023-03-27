@@ -32,6 +32,7 @@ static PehrSDKConfig *_Instance = nil;
 
 }
 
+@synthesize deviceLanguage = _deviceLanguage;
 
 
 //region SDK life cycle
@@ -130,10 +131,6 @@ TRACE_OFF
 
 - (NSString *)getLocalIPaddress {
     return _localIPaddress;
-}
-
-- (NSString *)getDeviceLanguage {
-    return _deviceLanguage;
 }
 
 - setup:(NSString *)appGuid appAlias:(NSString *)appAlias appVersion:(NSString *)appVersion stackKey:(NSString *)stackKey onSuccess:(SenderBlock)successBlock onError:(SenderBlock)errorBlock __unused {

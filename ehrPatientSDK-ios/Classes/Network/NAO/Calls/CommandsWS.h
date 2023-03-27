@@ -23,4 +23,9 @@ __attribute__((unused));
 __attribute__((unused));
 
 
+//region WF notation
+
+-(void) getUserInfo:(VoidBlock) successBlock onError:(VoidBlock) errorBlock;
+
+
 @end

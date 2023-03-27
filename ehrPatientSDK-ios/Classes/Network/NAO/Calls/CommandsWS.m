@@ -19,31 +19,57 @@ TRACE_OFF
     return self;
 }
 
-- (EHRCall *)getAppInfoCallWithSuccessBlock:(SenderBlock) success onError:(SenderBlock) error __attribute__((unused)) {
+- (EHRCall *)getAppInfoCallWithSuccessBlock:(SenderBlock)success onError:(SenderBlock)error __attribute__((unused)) {
 
     EHRServerRequest *request = [EHRRequests appInfoRequest];
-    EHRCall *call = [EHRCall callWithRequest:request onSuccess:success onError:error];
+    EHRCall          *call    = [EHRCall callWithRequest:request onSuccess:success onError:error];
 
     return call;
 }
 
-- (EHRCall *)getPingServerCallWithSuccessBlock:(SenderBlock) success onError:(SenderBlock) error __attribute__((unused)) {
+- (EHRCall *)getPingServerCallWithSuccessBlock:(SenderBlock)success onError:(SenderBlock)error __attribute__((unused)) {
 
     EHRServerRequest *request = [EHRRequests pingRequest];
-    EHRCall *call = [EHRCall callWithRequest:request onSuccess:success onError:error];
+    EHRCall          *call    = [EHRCall callWithRequest:request onSuccess:success onError:error];
 
     return call;
 }
 
 - (EHRCall *)getGetUserInfoCall:(SenderBlock)success
-                     onError:(SenderBlock)error
-__attribute__((unused)){
+                        onError:(SenderBlock)error
+__attribute__((unused)) {
 
     EHRServerRequest *request = [EHRRequests userInfoRequestWith:[@{@"action": @"get"} mutableCopy]];
-    EHRCall *call = [EHRCall callWithRequest:request onSuccess:success onError:error];
+    EHRCall          *call    = [EHRCall callWithRequest:request onSuccess:success onError:error];
 
     return call;
 
+}
+
+//region WF notation
+
+- (void)getUserInfo:(VoidBlock)successBlock onError:(VoidBlock)errorBlock {
+    SenderBlock callSuccess = ^(EHRCall *theCall) {
+        id val = theCall.serverResponse.responseContent[@"services"];
+        if (val) {
+            [[AppState sharedAppState].servicesModel populateWithServices:[val allValues]];
+        }
+
+        val = theCall.serverResponse.responseContent[@"user"];
+        if (val) {
+            IBUser *new = [IBUser objectWithContentsOfDictionary:val];
+            [[AppState sharedAppState].userModel updateUserInfo:new];
+        }
+
+        successBlock();
+    };
+    SenderBlock callError   = ^(EHRCall *theCall) {
+        MPLOGERROR(@"getUserInfo failed.");
+        errorBlock();
+    };
+
+    EHRCall *theCall = [self getGetUserInfoCall:callSuccess onError:callError];
+    [theCall start];
 }
 
 - (void)dealloc {

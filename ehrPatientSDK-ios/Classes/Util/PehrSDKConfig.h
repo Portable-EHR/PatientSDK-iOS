@@ -27,12 +27,12 @@
 @interface PehrSDKConfig : NSObject {
     @private
     __strong NSString
-            *_deviceLanguage,
             *_appGuid,
             *_appAlias,
             *_appVersion,
             *_stackKey,
-            *_localIPaddress;
+            *_localIPaddress,
+            *_deviceLanguage;
 
     @private
     __strong  Models *_models;
@@ -48,12 +48,13 @@
 
 + (PehrSDKConfig *)shared;
 
+@property(nonatomic, readonly) NSString* deviceLanguage;
+
 - (NSString *)getAppGuid;
 - (NSString *)getAppAlias;
 - (Version *)getAppVersion;
 - (NSString *)getAppStackKey;
 - (NSString *)getLocalIPaddress;
-- (NSString *)getDeviceLanguage;
 
 - (WebServices *)ws __attribute__((unused));
 - (Models *)models  __attribute__((unused));

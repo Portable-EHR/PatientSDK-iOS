@@ -360,16 +360,16 @@
 		FAD79B182984623E0011388E /* WebServices.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79B0B2984623E0011388E /* WebServices.m */; };
 		FAD79B192984623E0011388E /* ConvoWS.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79B0C2984623E0011388E /* ConvoWS.h */; };
 		FAD79B1A2984623E0011388E /* ConvoWS.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79B0C2984623E0011388E /* ConvoWS.h */; };
-		FAD79B1B2984623E0011388E /* NotificationWS.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79B0D2984623E0011388E /* NotificationWS.m */; };
-		FAD79B1C2984623E0011388E /* NotificationWS.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79B0D2984623E0011388E /* NotificationWS.m */; };
+		FAD79B1B2984623E0011388E /* NotificationsWS.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79B0D2984623E0011388E /* NotificationsWS.m */; };
+		FAD79B1C2984623E0011388E /* NotificationsWS.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79B0D2984623E0011388E /* NotificationsWS.m */; };
 		FAD79B1D2984623E0011388E /* CommandsWS.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79B0E2984623E0011388E /* CommandsWS.h */; };
 		FAD79B1E2984623E0011388E /* CommandsWS.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79B0E2984623E0011388E /* CommandsWS.h */; };
 		FAD79B1F2984623E0011388E /* ConsentWS.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79B0F2984623E0011388E /* ConsentWS.h */; };
 		FAD79B202984623E0011388E /* ConsentWS.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79B0F2984623E0011388E /* ConsentWS.h */; };
 		FAD79B212984623E0011388E /* WebServices.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79B102984623E0011388E /* WebServices.h */; };
 		FAD79B222984623E0011388E /* WebServices.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79B102984623E0011388E /* WebServices.h */; };
-		FAD79B232984623E0011388E /* NotificationWS.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79B112984623E0011388E /* NotificationWS.h */; };
-		FAD79B242984623E0011388E /* NotificationWS.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79B112984623E0011388E /* NotificationWS.h */; };
+		FAD79B232984623E0011388E /* NotificationsWS.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79B112984623E0011388E /* NotificationsWS.h */; };
+		FAD79B242984623E0011388E /* NotificationsWS.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79B112984623E0011388E /* NotificationsWS.h */; };
 		FAD79B252984623E0011388E /* ConvoWS.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79B122984623E0011388E /* ConvoWS.m */; };
 		FAD79B262984623E0011388E /* ConvoWS.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79B122984623E0011388E /* ConvoWS.m */; };
 		FAD79B29298462920011388E /* EHRRequests.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79B27298462920011388E /* EHRRequests.m */; };
@@ -760,11 +760,11 @@
 		FAD79B0A2984623E0011388E /* ConsentWS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConsentWS.m; sourceTree = "<group>"; };
 		FAD79B0B2984623E0011388E /* WebServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebServices.m; sourceTree = "<group>"; };
 		FAD79B0C2984623E0011388E /* ConvoWS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConvoWS.h; sourceTree = "<group>"; };
-		FAD79B0D2984623E0011388E /* NotificationWS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationWS.m; sourceTree = "<group>"; };
+		FAD79B0D2984623E0011388E /* NotificationsWS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationsWS.m; sourceTree = "<group>"; };
 		FAD79B0E2984623E0011388E /* CommandsWS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommandsWS.h; sourceTree = "<group>"; };
 		FAD79B0F2984623E0011388E /* ConsentWS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsentWS.h; sourceTree = "<group>"; };
 		FAD79B102984623E0011388E /* WebServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebServices.h; sourceTree = "<group>"; };
-		FAD79B112984623E0011388E /* NotificationWS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationWS.h; sourceTree = "<group>"; };
+		FAD79B112984623E0011388E /* NotificationsWS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationsWS.h; sourceTree = "<group>"; };
 		FAD79B122984623E0011388E /* ConvoWS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConvoWS.m; sourceTree = "<group>"; };
 		FAD79B27298462920011388E /* EHRRequests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EHRRequests.m; sourceTree = "<group>"; };
 		FAD79B28298462920011388E /* EHRRequests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EHRRequests.h; sourceTree = "<group>"; };
@@ -1254,11 +1254,11 @@
 				FAD79B0A2984623E0011388E /* ConsentWS.m */,
 				FAD79B0B2984623E0011388E /* WebServices.m */,
 				FAD79B0C2984623E0011388E /* ConvoWS.h */,
-				FAD79B0D2984623E0011388E /* NotificationWS.m */,
+				FAD79B0D2984623E0011388E /* NotificationsWS.m */,
 				FAD79B0E2984623E0011388E /* CommandsWS.h */,
 				FAD79B0F2984623E0011388E /* ConsentWS.h */,
 				FAD79B102984623E0011388E /* WebServices.h */,
-				FAD79B112984623E0011388E /* NotificationWS.h */,
+				FAD79B112984623E0011388E /* NotificationsWS.h */,
 				FAD79B122984623E0011388E /* ConvoWS.m */,
 				4B8DD66D868E423399FA8D16 /* ActivationWS.m */,
 				4B8DD2B6F79ABC1D312620D8 /* ActivationWS.h */,
@@ -1454,7 +1454,7 @@
 				50EE8A02BDBD59803C56BDC02F946869 /* IBAgentInfo.h in Headers */,
 				227D91346A8CAB58DE34E14BC63EA369 /* IBAnnotation.h in Headers */,
 				BAFFFF228517C59DF24E3D822EAF37AE /* IBAppInfo.h in Headers */,
-				FAD79B232984623E0011388E /* NotificationWS.h in Headers */,
+				FAD79B232984623E0011388E /* NotificationsWS.h in Headers */,
 				0B31DE35D043AAA321728DBB1B90A3D4 /* IBAppointment.h in Headers */,
 				C8985BF4993CBE89EFC0BE73A484B741 /* IBAppSummary.h in Headers */,
 				FAD79AC629845F580011388E /* EntryMessagePayload.h in Headers */,
@@ -1559,7 +1559,7 @@
 				FAD79AFB29845F580011388E /* EntryMovePayload.h in Headers */,
 				FAD79B1E2984623E0011388E /* CommandsWS.h in Headers */,
 				FAD79AE129845F580011388E /* ConvoInfo.h in Headers */,
-				FAD79B242984623E0011388E /* NotificationWS.h in Headers */,
+				FAD79B242984623E0011388E /* NotificationsWS.h in Headers */,
 				FAD79AD729845F580011388E /* ConversationEntry.h in Headers */,
 				FAD79ACD29845F580011388E /* EntryPartipantPayload.h in Headers */,
 				FAD79B0129845F580011388E /* ConversationEnvelope.h in Headers */,
@@ -1811,7 +1811,7 @@
 				06C43F962385FEB10AB500A5B5E33271 /* PehrSDKConfig.m in Sources */,
 				6009718B779F7D8DF475CC8944364326 /* PersistenceManager.m in Sources */,
 				6179A42BABBD3C6399F392CFCEC8CF0A /* PIN.m in Sources */,
-				FAD79B1B2984623E0011388E /* NotificationWS.m in Sources */,
+				FAD79B1B2984623E0011388E /* NotificationsWS.m in Sources */,
 				CB8B7E8E50DFF3138057215D215CA223 /* Record.m in Sources */,
 				FAD79AD829845F580011388E /* ConversationEnvelope.m in Sources */,
 				FAD79B252984623E0011388E /* ConvoWS.m in Sources */,
@@ -1873,7 +1873,7 @@
 				FAD79AD329845F580011388E /* Conversation.m in Sources */,
 				FAD79B2A298462920011388E /* EHRRequests.m in Sources */,
 				FAD79AED29845F580011388E /* OBNewEntry.m in Sources */,
-				FAD79B1C2984623E0011388E /* NotificationWS.m in Sources */,
+				FAD79B1C2984623E0011388E /* NotificationsWS.m in Sources */,
 				834406E44F04ACD64F9A2F80256B7DE6 /* Pods-ehrPatientSDK-ios_Tests-dummy.m in Sources */,
 				FAD79B162984623E0011388E /* ConsentWS.m in Sources */,
 				FAD79B182984623E0011388E /* WebServices.m in Sources */,
