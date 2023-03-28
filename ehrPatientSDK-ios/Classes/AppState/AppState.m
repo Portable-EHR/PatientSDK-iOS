@@ -940,9 +940,6 @@ static AppState   *_sharedInstance;
 
 //region EHRLibStateDelegate
 
-- (void)networkActivityInProgress:(BOOL)isIt {
-    [self setNetworkActivityIndicatorVisible:isIt];
-}
 
 - (void)onDeviceInitialized {
     self.deviceInfo     = PehrSDKConfig.shared.state.device;
