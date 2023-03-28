@@ -11,6 +11,7 @@
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
+
 @implementation IBDeviceInfo
 
 @synthesize deviceGuid = _deviceGuid;
@@ -54,9 +55,13 @@ TRACE_OFF
 
 }
 
+static IBDeviceInfo *_fromDevice;
 #pragma mark - init from device, sniff device properties !
 
 + (instancetype)initFromDevice {
+    if (_fromDevice)
+        return _fromDevice;
+
     IBDeviceInfo *di = [[IBDeviceInfo alloc] init];
     di.createdOn    = [NSDate date];
     di.manufacturer = @"Apple";
@@ -66,8 +71,9 @@ TRACE_OFF
     di.createdOn    = [NSDate date];
     di.isPhone      = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"tel://"]];
     di.appSummary   = nil;
-    [di testLocalAuthentication];
-    return di;
+    _fromDevice = di;
+    [_fromDevice testLocalAuthentication];
+    return _fromDevice;
 }
 
 #pragma mark - business
@@ -84,17 +90,17 @@ TRACE_OFF
 + (instancetype)objectWithContentsOfDictionary:(NSDictionary *)dic {
 
     IBDeviceInfo *pa = [[self alloc] init];
-    pa->_deviceGuid                                       = WantStringFromDic(dic, @"deviceGuid");
-    pa->_manufacturer                                     = WantStringFromDic(dic, @"manufacturer");
-    pa->_modelCode                                        = WantStringFromDic(dic, @"modelCode");
-    pa->_osType                                           = WantStringFromDic(dic, @"osType");
-    pa->_osVersion                                        = WantStringFromDic(dic, @"osVersion");
-    pa->_createdOn                                        = WantDateFromDic(dic, @"createdOn");
-    pa->_lastSeen                                         = WantDateFromDic(dic, @"lastSeen");
-    pa->_isPhone                                          = WantBoolFromDic(dic, @"isPhone");
-    pa->_localAuthenticationTested                        = WantBoolFromDic(dic, @"localAuthenticationTested");
-    pa->_hasBiometricDevice                               = WantBoolFromDic(dic, @"hasBiometricDevice");
-    pa->_hasEnrolledFingerprints                          = WantBoolFromDic(dic, @"hasEnrolledFingerprints");
+    pa->_deviceGuid                         = WantStringFromDic(dic, @"deviceGuid");
+    pa->_manufacturer                       = WantStringFromDic(dic, @"manufacturer");
+    pa->_modelCode                          = WantStringFromDic(dic, @"modelCode");
+    pa->_osType                             = WantStringFromDic(dic, @"osType");
+    pa->_osVersion                          = WantStringFromDic(dic, @"osVersion");
+    pa->_createdOn                          = WantDateFromDic(dic, @"createdOn");
+    pa->_lastSeen                           = WantDateFromDic(dic, @"lastSeen");
+    pa->_isPhone                            = WantBoolFromDic(dic, @"isPhone");
+    pa->_localAuthenticationTested          = WantBoolFromDic(dic, @"localAuthenticationTested");
+    pa->_hasBiometricDevice                 = WantBoolFromDic(dic, @"hasBiometricDevice");
+    pa->_hasEnrolledFingerprints            = WantBoolFromDic(dic, @"hasEnrolledFingerprints");
     if (dic[@"appSummary"]) pa->_appSummary = [IBAppSummary objectWithContentsOfDictionary:dic[@"appSummary"]];
     [pa testLocalAuthentication];
 
@@ -114,7 +120,7 @@ TRACE_OFF
     PutBoolInDic(self.hasBiometricDevice, dic, @"hasBiometricDevice");
     PutBoolInDic(self.hasEnrolledFingerprints, dic, @"hasEnrolledFingerprints");
     PutBoolInDic(self.localAuthenticationTested, dic, @"localAuthenticationTested");
-    if (self.appSummary) [dic setObject:[self.appSummary asDictionary] forKey:@"appSummary"];
+    if (self.appSummary) dic[@"appSummary"] = [self.appSummary asDictionary];
     return dic;
 
 }
@@ -233,4 +239,5 @@ TRACE_OFF
 }
 
 @end
+
 #pragma clang diagnostic pop
