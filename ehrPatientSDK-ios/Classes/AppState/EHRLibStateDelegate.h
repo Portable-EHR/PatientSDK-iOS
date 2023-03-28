@@ -8,7 +8,11 @@
 
 @protocol EHRLibStateDelegate <NSObject>
 
--(void) setNetworkActivityIndicatorVisible:(BOOL) isIt;
--(void) setUserModel:(UserModel*) userModel;
+-(void) onDeviceInitialized;
+-(void) onAppInfoUpdate;
+-(void) onUserInfoUpdate;
+-(void) onNotificationsModelUpdate;
+-(void) onConsentsUpdate;
+
 
 @end
