@@ -99,7 +99,6 @@ static CFArrayRef certs;
 
     _isCallingServer     = YES;
     _wasResponseReceived = NO;
-    [[AppState sharedAppState] setNetworkActivityIndicatorVisible:YES];
 }
 
 - (BOOL)isCallInProgress {
@@ -157,7 +156,6 @@ static CFArrayRef certs;
         _onError(self);
     }
     [self cleanupForNextCall];
-    [[AppState sharedAppState] setNetworkActivityIndicatorVisible:NO];
 
 }
 
@@ -170,7 +168,6 @@ static CFArrayRef certs;
     }
 
     [self cleanupForNextCall];
-    [[AppState sharedAppState] setNetworkActivityIndicatorVisible:NO];
 
 }
 
