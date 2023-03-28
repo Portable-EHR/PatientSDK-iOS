@@ -112,7 +112,6 @@
 
 // some dohickies we will need everywhere in the app
 
-- (void)setNetworkActivityIndicatorVisible:(BOOL)setVisible;
 - (void)setApplicationIconBadgeNumber:(NSInteger)number;
 - (void)resetApplicationBadgeNumber;
 
