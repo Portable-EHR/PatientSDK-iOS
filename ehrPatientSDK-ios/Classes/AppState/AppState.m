@@ -28,6 +28,8 @@
 #import "EHRRequestStatus.h"
 #import "Version.h"
 #import "AppSignature.h"
+#import "EHRLibState.h"
+#include "Models.h"
 
 @implementation AppState
 
@@ -59,16 +61,14 @@ TRACE_OFF
 
 static NSString   *_appStateFile;
 static GEFileUtil *_fileUtils;
-static NSInteger  _activitiIndicatorVisibleCount;
 static float      _foregroundUpdateIntervalInSeconds __unused;
-static float    _backgroundUpdateIntervalInSeconds __unused;
-static AppState *_sharedInstance;
+static float      _backgroundUpdateIntervalInSeconds __unused;
+static AppState   *_sharedInstance;
 
 + (void)initialize {
 
     _fileUtils                         = [GEFileUtil sharedFileUtil];
     _appStateFile                      = [_fileUtils getAppStateFQN];
-    _activitiIndicatorVisibleCount     = 0;
     _foregroundUpdateIntervalInSeconds = kNetworkForegroundRefreshInSecs;
     _backgroundUpdateIntervalInSeconds = kNetworkBackgroundRefreshInSecs;
 
@@ -392,30 +392,6 @@ static AppState *_sharedInstance;
     _deviceLanguage = deviceLanguage;
 }
 
-- (void)setNetworkActivityIndicatorVisible:(BOOL)setVisible {
-
-    if (setVisible)
-        _activitiIndicatorVisibleCount++;
-    else
-        _activitiIndicatorVisibleCount--;
-
-    // The assertion helps to find programmer errors in activity indicator management.
-    // Since a negative NumberOfCallsToSetVisible is not a fatal error,
-    // it should probably be removed from production code.
-
-    if (_activitiIndicatorVisibleCount < 0) {
-        TRACE(@"*** more turn-offs than turn ons ... resetting the thingie.");
-        _activitiIndicatorVisibleCount = 0;
-    }
-
-    // Display the indicator as long as our static counter is > 0.
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:(_activitiIndicatorVisibleCount > 0)];
-}
-
-- (BOOL)isActivityIndicatorVisible {
-    return (_activitiIndicatorVisibleCount > 0);
-}
-
 //region NSPreferences
 
 - (void)signPreferences {
@@ -655,10 +631,10 @@ static AppState *_sharedInstance;
                     TRACE(@"Synchronized notifications model.");
                     _after();
                 }
-                                                           andError:^() {
-                                                               MPLOGERROR(@"*** Failed to synchronize notifications model.");
-                                                               _after();
-                                                           }
+                                                                 andError:^() {
+                                                                     MPLOGERROR(@"*** Failed to synchronize notifications model.");
+                                                                     _after();
+                                                                 }
         ];
     };
 
@@ -674,10 +650,10 @@ static AppState *_sharedInstance;
                     TRACE(@"Synchronized serviceModel.");
                     _afterServices();
                 }
-                                            andError:^() {
-                                                MPLOGERROR(@"*** Failed to synchronize serviceModel.");
-                                                _afterServices();
-                                            }
+                                                  andError:^() {
+                                                      MPLOGERROR(@"*** Failed to synchronize serviceModel.");
+                                                      _afterServices();
+                                                  }
         ];
     };
 
@@ -690,7 +666,7 @@ static AppState *_sharedInstance;
             [self->_userModel.notificationsModel sendStackedMessageChangesOnSuccess:^() {
                 TRACE(@"Sent stacked message changes, with success.");
                 _afterSendingQueuedMessages();
-            }                                                         onError:^() {
+            }                                                               onError:^() {
                 MPLOGERROR(@"*** Failed to send stacked messages changes, reloading");
                 _afterSendingQueuedMessages();
             }];
@@ -960,5 +936,38 @@ static AppState *_sharedInstance;
     _patient       = nil;
     _authSequencer = nil;
 }
+
+
+//region EHRLibStateDelegate
+
+- (void)networkActivityInProgress:(BOOL)isIt {
+    [self setNetworkActivityIndicatorVisible:isIt];
+}
+
+- (void)onDeviceInitialized {
+    self.deviceInfo     = PehrSDKConfig.shared.state.device;
+    self.deviceLanguage = PehrSDKConfig.shared.deviceLanguage;
+}
+
+- (void)onAppInfoUpdate {
+    self.appInfo = PehrSDKConfig.shared.state.app;
+}
+
+- (void)onUserInfoUpdate {
+    self.userModel=PehrSDKConfig .shared.models.userModel;
+}
+
+- (void)onNotificationsModelUpdate {
+    MPLOG(@"onNotificationsModelUpdate");
+}
+
+- (void)onConsentsUpdate {
+    MPLOG(@"onConsentsUpdate");
+
+    // todo : should check if EULA is still signed if not, terminate
+
+}
+
+//endregion
 
 @end
