@@ -14,7 +14,6 @@
 #import "EHRPersistableP.h"
 
 #import "AppState.h"
-#import "PersistenceManager.h"
 #import "SecureCredentials.h"
 #import "UICKeyChainStore.h"
 #import "UserCredentials.h"
@@ -104,7 +103,7 @@
 #import "MathUtil.h"
 #import "NSDictionary+JSON.h"
 #import "EHRLibRuntime.h"
-#import "EHRLibState.h"
+#import "EHRState.h"
 #import "PehrSDKConfig.h"
 #import "UIView+EHR.h"
 #import "Version.h"
@@ -117,7 +116,8 @@
 #import "EHRLibRuntime.h"
 #import "EHRReachability.h"
 #import "EHRRequestStatus.h"
-#import "EHRServerRequest.h"#import <Foundation/Foundation.h>
+#import "EHRServerRequest.h"
+#import <Foundation/Foundation.h>
 #import "GERuntimeConstants.h"
 #import "PehrSDKConfig.h"
 #import "EHRServerResponse.h"
