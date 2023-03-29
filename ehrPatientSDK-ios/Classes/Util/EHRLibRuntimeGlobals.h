@@ -11,10 +11,7 @@ typedef void(^SenderBlock)(id call);
 __unused typedef void(^NSErrorBlock)(NSError *);
 
 
-@class PehrSDKConfig;
-extern PehrSDKConfig* EHRLib;
-
-@interface EHRLibRuntime : NSObject {
+@interface EHRLibRuntimeGlobals : NSObject {
 
 }
 
