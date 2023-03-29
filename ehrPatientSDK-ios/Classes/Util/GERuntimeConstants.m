@@ -7,6 +7,7 @@
 //
 
 #import "GEDeviceHardware.h"
+#import "PehrSDKConfig.h"
 
 #pragma clang diagnostic push
 #pragma ide diagnostic ignored "OCUnusedMethodInspection"
@@ -53,13 +54,6 @@ float     kNetworkForegroundRefreshInSecs = 15;     // 15 seconds
 float     kNetworkBackgroundRefreshInSecs = 15 * 60;  // 15 minutes
 #endif
 
-int const K_LAST_SCENE         = 40;
-BOOL      kIsIpad              = NO;
-BOOL      kIsIphoneIpod        = YES;
-BOOL      kIsIphoneIpodTall    = NO;
-BOOL      kIsRetina            = NO;
-int       kMapRightMenuWidth   = 0;
-int       kMapBottomMenuHeight = 0;
 
 // confidential statics
 
@@ -77,11 +71,6 @@ NSString *remainingClassInstances(NSString *theClass);
 static __strong NSMutableArray *allocatedClasses;
 
 + (void)initialize {
-
-    kAppVersion  = [[PehrSDKConfig shared] getAppVersion];
-    kBuildNumber = 10;
-    kAppAlias    = [[PehrSDKConfig shared] getAppAlias];
-    kAppGuid     = [[PehrSDKConfig shared] getAppGuid];
 
     MPLOG(@"Initializing Run time constants %@", NSStringFromBool(YES));
     kSystemVersion = NormalizedVersionString([[UIDevice currentDevice] systemVersion]);
@@ -104,7 +93,6 @@ static __strong NSMutableArray *allocatedClasses;
     kHostNames = kvps;
     kStackKey  = [[PehrSDKConfig shared] getAppStackKey];
     kHostName  = kHostNames[kStackKey];
-    kIsIpad    = [GEDeviceHardware isTablet];
 
     if (@available(iOS 12.0, *)) {
 
@@ -123,42 +111,8 @@ static __strong NSMutableArray *allocatedClasses;
 
 }
 
-const CGBounds CGBoundsZero;
+//endregion
 
-CGBounds getWindowCrop() {
-    CGBounds crop = [GEDeviceHardware windowCrop];
-    return crop;
-}
-
-BOOL isDarkMode() {
-    BOOL result = NO;
-    if (@available(iOS 12.0, *)) {
-        switch (UIScreen.mainScreen.traitCollection.userInterfaceStyle) {
-            case UIUserInterfaceStyleDark:
-                // https://stackoverflow.com/a/19128558/915467
-                result = YES;
-                break;
-            case UIUserInterfaceStyleLight:
-            case UIUserInterfaceStyleUnspecified:break;
-            default:break;
-        }
-    }
-    return result;
-}
-
-CGBounds CGBoundsMake(CGFloat start, CGFloat top, CGFloat end, CGFloat bottom) {
-    CGBounds bounds;
-    bounds.start  = start;
-    bounds.top    = top;
-    bounds.end    = end;
-    bounds.bottom = bottom;
-    return bounds;
-}
-
-NSString *NSStringFromCGBounds(CGBounds a) {
-    NSString *ret = @"(s: %f, t: %f, e: %f, b: %f)";
-    return [NSString stringWithFormat:ret, a.start, a.top, a.end, a.bottom];
-}
 
 + (void)setStackKey:(NSString *)serverKey {
     MPLOG(@"Setting server key to [%@]", serverKey);
@@ -292,23 +246,6 @@ NSString *remainingClassInstances(NSString *theClass) {
 
 }
 
-+ (void)setMenuWidth:(int)inMenuWidth {
-
-    kMapRightMenuWidth = inMenuWidth;
-}
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-
-CGRect currentWindowSize() {
-    UIView *rootView     = [[[UIApplication sharedApplication] keyWindow]
-            rootViewController].view;
-    CGRect originalFrame = [[UIScreen mainScreen] bounds];
-    CGRect adjustedFrame = [rootView convertRect:originalFrame fromView:nil];
-    return adjustedFrame;
-}
-
-#pragma clang diagnostic pop
 
 NSString *NormalizedVersionString(NSString *versionString) {
 

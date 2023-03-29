@@ -7,12 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
 #include <mach/mach.h>
 #import <sys/proc.h>
 #import "EHRInstanceCounterP.h"
 #import "EHRPersistableP.h"
 #import "Version.h"
+#import "NSDictionary+JSON.h"
+
 #pragma clang diagnostic push
 #pragma ide diagnostic ignored "OCUnusedMacroInspection"
 #pragma ide diagnostic ignored "OCUnusedMethodInspection"
@@ -73,26 +74,6 @@ extern float     kNetworkTimeOut;
 extern float     kNetworkForegroundRefreshInSecs;
 extern float     kNetworkBackgroundRefreshInSecs;
 
-typedef struct CGBounds {
-    CGFloat start;
-    CGFloat top;
-    CGFloat end;
-    CGFloat bottom;
-}                CGBounds;
-
-extern const CGBounds CGBoundsZero;
-
-extern CGBounds getWindowCrop(void);
-extern BOOL isDarkMode(void);
-
-extern NSString *NSStringFromCGBounds(CGBounds b);
-
-//typedef void(^VoidBlock)(void);
-//typedef void(^SenderBlock)(id call);
-//typedef void(^NSErrorBlock)(NSError *);
-
-extern CGBounds CGBoundsMake(CGFloat start, CGFloat top, CGFloat end, CGFloat bottom);
-
 @interface GERuntimeConstants : NSObject {
 }
 
@@ -139,7 +120,6 @@ extern BOOL BoolFromString(NSString *theBool);
 
 extern float deviceFontSize(float normalizedFont);
 extern float deviceOffset(float normalizedOffset);
-extern CGRect currentWindowSize(void);
 
 extern void QuietLog(NSString *format, ...);
 extern void Carp(NSException *e, NSString *message);
