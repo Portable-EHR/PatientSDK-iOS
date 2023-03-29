@@ -4,7 +4,11 @@
 
 #import <Foundation/Foundation.h>
 #import "EHRInstanceCounterP.h"
+#import "IBDeviceInfo.h"
+#import "IBAppInfo.h"
+#import "AppState.h"
 #import "EHRCall.h"
+
 
 @interface CommandsWS : NSObject <EHRInstanceCounterP> {
     NSInteger _instanceNumber;
@@ -25,7 +29,9 @@ __attribute__((unused));
 
 //region WF notation
 
+-(void) getAppInfo:(VoidBlock)successBlock onError:(VoidBlock) errorBlock;
 -(void) getUserInfo:(VoidBlock) successBlock onError:(VoidBlock) errorBlock;
+-(void) pullUserData:(VoidBlock) successBlock onError:(VoidBlock) errorBlock;
 
 
 @end

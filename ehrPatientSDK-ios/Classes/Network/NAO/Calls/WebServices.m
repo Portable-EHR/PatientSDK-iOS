@@ -4,7 +4,6 @@
 
 #import "WebServices.h"
 
-
 @interface WebServices () {
     NSInteger      _instanceNumber;
     CommandsWS     *_commands;

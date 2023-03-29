@@ -4,6 +4,8 @@
 
 #import <Foundation/Foundation.h>
 #import "EHRInstanceCounterP.h"
+#import "GERuntimeConstants.h"
+#import "EHRLibRuntimeGlobals.h"
 
 @interface ConvoPlacesModel : NSObject <EHRInstanceCounterP> {
 

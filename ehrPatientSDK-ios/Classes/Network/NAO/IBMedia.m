@@ -4,6 +4,7 @@
 //
 
 #import "IBMedia.h"
+#import "GERuntimeConstants.h"
 
 @implementation IBMedia
 TRACE_OFF

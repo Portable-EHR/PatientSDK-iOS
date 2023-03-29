@@ -34,7 +34,6 @@ typedef NS_ENUM(NSInteger, ServicesFilterType) {
     NSMutableArray *_patientSelector;
 //    UserModel              *_userModel;
 //    IBUser                   *_user;
-    AppState       *_appState;
 
 }
 

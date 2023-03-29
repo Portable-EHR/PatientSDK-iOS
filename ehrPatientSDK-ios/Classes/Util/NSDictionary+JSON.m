@@ -4,6 +4,7 @@
 //
 
 #import "GEMacros.h"
+#import "GERuntimeConstants.h"
 
 @implementation NSDictionary (JSON)
 + (id)dictionaryWithJSONdata:(NSData *)jsonData {

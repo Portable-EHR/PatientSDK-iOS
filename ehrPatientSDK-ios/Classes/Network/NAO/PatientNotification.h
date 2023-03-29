@@ -4,6 +4,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "EHRLibRuntimeGlobals.h"
+#import "GERuntimeConstants.h"
+#import "EHRLibRuntimeGlobals.h"
+#import "GERuntimeConstants.h"
 #import "EHRNetworkableP.h"
 #import "EHRInstanceCounterP.h"
 

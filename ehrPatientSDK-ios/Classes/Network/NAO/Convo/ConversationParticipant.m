@@ -3,6 +3,7 @@
 //
 
 #import "ConversationParticipant.h"
+#import "GERuntimeConstants.h"
 
 @implementation ConversationParticipant
 

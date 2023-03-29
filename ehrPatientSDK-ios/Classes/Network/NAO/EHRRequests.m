@@ -11,6 +11,7 @@
 #import "EHRCall.h"
 #import "EHRGuid.h"
 #import "IBConsent.h"
+#import "PehrSDKConfig.h"
 
 @implementation EHRRequests
 
@@ -21,7 +22,7 @@ static UserCredentials *userCredentials;
 
 + (EHRApiServer *)getServer {
     if (nil == server) {
-        server = [EHRApiServer serverForStackKey:[PehrSDKConfig shared].getAppStackKey];
+        server = [EHRApiServer serverForStackKey:[PehrSDKConfig  shared].getAppStackKey];
     }
     return server;
 }

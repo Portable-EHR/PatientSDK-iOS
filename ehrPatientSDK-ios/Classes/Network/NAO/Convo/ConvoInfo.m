@@ -3,6 +3,7 @@
 //
 
 #import "ConvoInfo.h"
+#import "GERuntimeConstants.h"
 
 @implementation ConvoInfo
 

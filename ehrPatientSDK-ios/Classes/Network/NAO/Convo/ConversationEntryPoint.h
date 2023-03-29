@@ -6,8 +6,6 @@
 #import "EHRInstanceCounterP.h"
 #import "EHRPersistableP.h"
 #import "EHRNetworkableP.h"
-#import "GEMacros.h"
-#import "NSDictionary+JSON.h"
 
 @interface ConversationEntryPoint : NSObject <EHRInstanceCounterP, EHRNetworkableP> {
     NSInteger _instanceNumber;

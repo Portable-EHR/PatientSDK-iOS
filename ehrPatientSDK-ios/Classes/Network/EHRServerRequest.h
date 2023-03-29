@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Version.h"
 #import "GEMacros.h"
 #import "NSDictionary+JSON.h"
 

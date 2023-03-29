@@ -5,6 +5,7 @@
 //
 
 #import "IBRenderableText.h"
+#import "GERuntimeConstants.h"
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"

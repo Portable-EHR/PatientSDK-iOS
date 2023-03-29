@@ -4,6 +4,7 @@
 //
 
 #import "IBVersion.h"
+#import "GERuntimeConstants.h"
 
 @implementation IBVersion
 

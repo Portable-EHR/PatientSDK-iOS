@@ -5,6 +5,7 @@
 
 #import "IBUserEula.h"
 #import "Version.h"
+#import "GERuntimeConstants.h"
 
 @implementation IBUserEula
 

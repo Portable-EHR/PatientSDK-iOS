@@ -5,6 +5,7 @@
 #import "Conversation.h"
 #import "ConversationParticipant.h"
 #import "ConversationEntry.h"
+#import "GERuntimeConstants.h"
 
 @implementation Conversation
 

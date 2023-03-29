@@ -4,6 +4,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "EHRLibRuntimeGlobals.h"
 #import "EHRInstanceCounterP.h"
 #import "GEMacros.h"
 #import "NSDictionary+JSON.h"

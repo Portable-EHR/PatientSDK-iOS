@@ -4,6 +4,7 @@
 //
 
 #import "IBUserCapability.h"
+#import "GERuntimeConstants.h"
 
 @implementation IBUserCapability
 

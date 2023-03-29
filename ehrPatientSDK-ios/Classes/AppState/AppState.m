@@ -28,8 +28,9 @@
 #import "EHRRequestStatus.h"
 #import "Version.h"
 #import "AppSignature.h"
-#import "EHRLibState.h"
+#import "EHRState.h"
 #include "Models.h"
+#import "PehrSDKConfig.h"
 
 @implementation AppState
 
@@ -942,16 +943,19 @@ static AppState   *_sharedInstance;
 
 
 - (void)onDeviceInitialized {
+    MPLOG(@"onDeviceInitialized");
     self.deviceInfo     = PehrSDKConfig.shared.state.device;
     self.deviceLanguage = PehrSDKConfig.shared.deviceLanguage;
 }
 
 - (void)onAppInfoUpdate {
+    MPLOG(@"onAppInfoUpdate");
     self.appInfo = PehrSDKConfig.shared.state.app;
 }
 
 - (void)onUserInfoUpdate {
-    self.userModel=PehrSDKConfig .shared.models.userModel;
+    MPLOG(@"onUserInfoUpdate");
+    self.userModel = PehrSDKConfig.shared.models.userModel;
 }
 
 - (void)onNotificationsModelUpdate {

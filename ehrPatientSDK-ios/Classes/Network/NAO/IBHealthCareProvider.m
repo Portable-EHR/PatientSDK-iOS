@@ -7,6 +7,7 @@
 #import "IBContact.h"
 #import "IBService.h"
 #import "GEMacros.h"
+#import "GERuntimeConstants.h"
 
 @implementation IBHealthCareProvider
 

@@ -7,6 +7,7 @@
 #import "EHRPersistableP.h"
 #import "IBMessageDistribution.h"
 #import "IBUserInfo.h"
+#import "GERuntimeConstants.h"
 
 @implementation IBMessageDistribution
 

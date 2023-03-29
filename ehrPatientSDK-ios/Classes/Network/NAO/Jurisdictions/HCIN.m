@@ -6,6 +6,7 @@
 #import "HCIN.h"
 #import "GEMacros.h"
 #import "NSDictionary+JSON.h"
+#import "GERuntimeConstants.h"
 
 @implementation HCIN
 

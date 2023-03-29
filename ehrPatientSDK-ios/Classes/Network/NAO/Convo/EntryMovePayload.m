@@ -3,6 +3,7 @@
 //
 
 #import "EntryMovePayload.h"
+#import "GERuntimeConstants.h"
 
 @interface EntryMovePayload () {
     NSInteger _instanceNumber;

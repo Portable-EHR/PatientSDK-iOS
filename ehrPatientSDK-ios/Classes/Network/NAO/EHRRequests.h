@@ -5,7 +5,7 @@
 #import <Foundation/Foundation.h>
 #import "EHRServerRequest.h"
 #import "AppState.h"
-#import "EHRLibRuntime.h"
+#import "EHRLibRuntimeGlobals.h"
 
 @class IBConsent;
 

@@ -11,9 +11,10 @@
 #ifndef EHRLib_sdk_h
 #define EHRLib_sdk_h
 
-#import "PehrSDKConfig.h"
+#import "EHRLibRuntimeGlobals.h"
 #import "GERuntimeConstants.h"
-#import "EHRLibRuntime.h"
+#import "EHRState.h"
+#import "PehrSDKConfig.h"
 #import "WebServices.h"
 #import "ConvoWS.h"
 #import "CommandsWS.h"
@@ -23,7 +24,7 @@
 #import "EHRApiServer.h"
 #import "EHRServerRequest.h"
 #import "EHRServerResponse.h"
-#import "EHRLibState.h"
+#import "EHRState.h"
 #import "OBEntry.h"
 #import "OBMessageEntry.h"
 #import "OBMessageEntryAttachment.h"

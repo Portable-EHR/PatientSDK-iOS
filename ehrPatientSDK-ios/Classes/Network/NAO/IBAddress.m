@@ -6,6 +6,7 @@
 #import "EHRPersistableP.h"
 #import "IBAddress.h"
 #import "GEMacros.h"
+#import "GERuntimeConstants.h"
 
 @implementation IBAddress
 

@@ -3,12 +3,13 @@
 //
 
 #import "ActivationWS.h"
-#import "EHRLibState.h"
+#import "EHRState.h"
 #import "IBUser.h"
 #import "SecureCredentials.h"
 #import "UserCredentials.h"
 #import "EHRRequests.h"
 #import "EHRCall.h"
+#import "PehrSDKConfig.h"
 
 @interface ActivationWS () {
     NSInteger _instanceNumber;

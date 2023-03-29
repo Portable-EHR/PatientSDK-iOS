@@ -6,6 +6,7 @@
 #import "UserCredentials.h"
 #import "IBUserEula.h"
 #import "IBUser.h"
+#import "GERuntimeConstants.h"
 
 @implementation UserCredentials
 

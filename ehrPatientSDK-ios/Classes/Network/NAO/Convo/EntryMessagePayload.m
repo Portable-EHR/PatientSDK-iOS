@@ -4,6 +4,7 @@
 
 #import "EntryMessagePayload.h"
 #import "EntryAttachment.h"
+#import "GERuntimeConstants.h"
 
 @implementation EntryMessagePayload
 

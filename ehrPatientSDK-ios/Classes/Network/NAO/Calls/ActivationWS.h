@@ -4,6 +4,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EHRInstanceCounterP.h"
+#import "EHRLibRuntimeGlobals.h"
 
 @interface ActivationWS : NSObject <EHRInstanceCounterP> {
 }

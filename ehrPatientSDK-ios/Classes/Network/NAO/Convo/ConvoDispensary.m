@@ -3,6 +3,7 @@
 //
 
 #import "ConvoDispensary.h"
+#import "GERuntimeConstants.h"
 
 @interface ConvoDispensary () {
     NSInteger    _instanceNumber;

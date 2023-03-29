@@ -7,6 +7,7 @@
 #import "IBDispensaryInfo.h"
 #import "IBContact.h"
 #import "IBAddress.h"
+#import "GERuntimeConstants.h"
 
 @implementation IBDispensaryInfo
 

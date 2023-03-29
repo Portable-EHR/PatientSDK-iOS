@@ -9,6 +9,7 @@
 #import "IBMediaInfo.h"
 #import "GEMacros.h"
 #import "NSDictionary+JSON.h"
+#import "GERuntimeConstants.h"
 
 @implementation IBAgentInfo
 

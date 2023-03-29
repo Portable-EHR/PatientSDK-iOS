@@ -3,6 +3,7 @@
 //
 
 #import "ConversationEnvelope.h"
+#import "GERuntimeConstants.h"
 
 @implementation ConversationEnvelope
 

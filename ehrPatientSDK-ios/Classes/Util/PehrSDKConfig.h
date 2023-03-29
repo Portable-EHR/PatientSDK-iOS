@@ -13,15 +13,16 @@
 //typedef void(^VoidBlock)(void);
 //typedef void(^SenderBlock)(id call);
 //typedef void(^NSErrorBlock)(NSError *);
-#import "EHRLibRuntime.h"
-#import "GERuntimeConstants.h"
+#import "EHRState.h"
+#import "EHRLibRuntimeGlobals.h"
+
 //#import "EHRUserRegistrationManifest.h"
+
 
 @class WebServices;
 @class Models;
 @class Version;
 @class IBAppInfo;
-@class EHRLibState;
 @class EHRUserRegistrationManifest;
 
 @interface PehrSDKConfig : NSObject {
@@ -43,12 +44,13 @@
     IBAppInfo *_appInfo;
 
     @private
-    EHRLibState *_state;
+    EHRState *_state;
 }
+
 
 + (PehrSDKConfig *)shared;
 
-@property(nonatomic, readonly) NSString* deviceLanguage;
+@property(nonatomic, readonly) NSString *deviceLanguage;
 
 - (NSString *)getAppGuid;
 - (NSString *)getAppAlias;
@@ -58,7 +60,7 @@
 
 - (WebServices *)ws __attribute__((unused));
 - (Models *)models  __attribute__((unused));
-- (EHRLibState *)state  __attribute__((unused));
+- (EHRState *)state  __attribute__((unused));
 
 - (void)startWithCompletion:(VoidBlock)successBlock
                     onError:(VoidBlock)errorBlock;
@@ -70,14 +72,17 @@
 - (void)deregisterUserWithCompletion:(VoidBlock)successBlock
                              onError:(VoidBlock)errorBlock;
 
--    setup:(NSString *)appGuid
+-
+delegate:(id <EHRLibStateDelegate>)delegate
+   appGuid:(NSString *)appGuid
   appAlias:(NSString *)appAlias
 appVersion:(NSString *)appVersion
   stackKey:(NSString *)stackKey
  onSuccess:(SenderBlock)successBlock
    onError:(SenderBlock)errorBlock;
 
--        setup:(NSString *)appGuid
+-
+delegate:(id <EHRLibStateDelegate>)delegate appGuid:(NSString *)appGuid
       appAlias:(NSString *)appAlias
     appVersion:(NSString *)appVersion
 localIPaddress:(NSString *)address
@@ -85,5 +90,6 @@ localIPaddress:(NSString *)address
        onError:(SenderBlock)errorBlock;
 
 @end
+
 
 #endif /* EHRLib_PehrSDKConfig_h */

@@ -3,6 +3,7 @@
 //
 
 #import "EntryAttachment.h"
+#import "GERuntimeConstants.h"
 
 @implementation EntryAttachment
 

@@ -5,6 +5,8 @@
 
 #import <Foundation/Foundation.h>
 #import "EHRInstanceCounterP.h"
+#import "EHRPersistableP.h"
+#import "Version.h"
 
 @class IBEula;
 @class FactorsRequired;

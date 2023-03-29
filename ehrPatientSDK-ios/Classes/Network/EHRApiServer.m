@@ -4,6 +4,7 @@
 //
 
 #import "EHRApiServer.h"
+#import "PehrSDKConfig.h"
 #import "SecureCredentials.h"
 #import "UserCredentials.h"
 

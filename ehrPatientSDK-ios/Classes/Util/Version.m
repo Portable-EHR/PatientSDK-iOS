@@ -4,6 +4,7 @@
 //
 
 #include "Version.h"
+#include "GERuntimeConstants.h"
 
 @interface Version() {
     NSInteger _instanceNumber;

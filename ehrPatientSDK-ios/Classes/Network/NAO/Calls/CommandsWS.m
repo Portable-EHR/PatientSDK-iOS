@@ -4,6 +4,10 @@
 
 #import "CommandsWS.h"
 #import "EHRRequests.h"
+#import "SecureCredentials.h"
+#import "WebServices.h"
+#import "EHRState.h"
+#import "PehrSDKConfig.h"
 
 @implementation CommandsWS
 
@@ -48,6 +52,24 @@ __attribute__((unused)) {
 
 //region WF notation
 
+-(void)getAppInfo:(VoidBlock)successBlock onError:(VoidBlock)errorBlock {
+
+    SenderBlock callSuccess = ^(EHRCall *theCall) {
+        // todo : replace this with a SDKDelegate call
+        IBAppInfo *appInfo = [IBAppInfo objectWithContentsOfDictionary:theCall.serverResponse.responseContent[@"appInfo"]];
+        PehrSDKConfig.shared.state.app=appInfo;
+        successBlock();
+    };
+    SenderBlock callError   = ^(EHRCall *theCall) {
+        MPLOGERROR(@"getAppInfo : FAILED.");
+        errorBlock();
+    };
+
+    EHRCall *appInfo = [self getAppInfoCallWithSuccessBlock:callSuccess onError:callError];
+    [appInfo start];
+
+}
+
 - (void)getUserInfo:(VoidBlock)successBlock onError:(VoidBlock)errorBlock {
     SenderBlock callSuccess = ^(EHRCall *theCall) {
         id val = theCall.serverResponse.responseContent[@"services"];
@@ -71,6 +93,45 @@ __attribute__((unused)) {
     EHRCall *theCall = [self getGetUserInfoCall:callSuccess onError:callError];
     [theCall start];
 }
+
+- (void)pullUserData:(VoidBlock)successBlock onError:(VoidBlock)errorBlock {
+
+    VoidBlock after = ^() {
+
+    };
+
+    VoidBlock notificationsSuccessBlock = ^() {
+        MPLOG(@"Notifications pulled from forever : SUCCESS");
+        after();
+    };
+    VoidBlock notificationsErrorBlock   = ^() {
+        MPLOGERROR(@"Notifications pulled from forever : FAILED");
+        after();
+    };
+
+    VoidBlock userInfoSuccess = ^() {
+        // todo : is this really needed ?
+        MPLOG(@"UserInfo pulled from forever : SUCCESS");
+        [AppState sharedAppState].deviceInfo            = [IBDeviceInfo initFromDevice];
+        [AppState sharedAppState].deviceInfo.deviceGuid = [SecureCredentials sharedCredentials].current.deviceGuid;
+
+        after();
+        [PehrSDKConfig.shared.ws.notifications pullForever:notificationsSuccessBlock onError:notificationsErrorBlock];
+    };
+
+    VoidBlock userInfoError = ^() {
+        MPLOGERROR(@"UserInfo pulled from forever : SUCCESS");
+        after();
+    };
+    [PehrSDKConfig.shared.ws.commands getUserInfo:userInfoSuccess onError:userInfoError];
+
+    VoidBlock appInfoSuccess = ^(){
+        [PehrSDKConfig.shared.state.delegate onAppInfoUpdate];
+    };
+    VoidBlock appInfoError = ^(){};
+    [self getAppInfo:appInfoSuccess onError:appInfoError];
+}
+
 
 - (void)dealloc {
     GE_DEALLOC();

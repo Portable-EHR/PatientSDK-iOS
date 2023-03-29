@@ -7,6 +7,7 @@
 #import "EntryMovePayload.h"
 #import "EntryStatusChangePayload.h"
 #import "EntrySharePayload.h"
+#import "GERuntimeConstants.h"
 
 @implementation ConversationEntry
 

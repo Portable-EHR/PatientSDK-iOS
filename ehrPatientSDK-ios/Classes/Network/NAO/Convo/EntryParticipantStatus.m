@@ -3,6 +3,7 @@
 //
 
 #import "EntryParticipantStatus.h"
+#import "GERuntimeConstants.h"
 
 @implementation EntryParticipantStatus
 

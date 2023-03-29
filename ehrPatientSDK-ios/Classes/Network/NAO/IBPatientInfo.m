@@ -6,6 +6,7 @@
 #import "IBPatientInfo.h"
 #import "IBContact.h"
 #import "IBAddress.h"
+#import "GERuntimeConstants.h"
 
 @implementation IBPatientInfo
 

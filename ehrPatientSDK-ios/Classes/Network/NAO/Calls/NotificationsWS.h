@@ -4,8 +4,11 @@
 
 #import <Foundation/Foundation.h>
 #import "GERuntimeConstants.h"
+#import "IBDeviceInfo.h"
+#import "SecureCredentials.h"
+#import "EHRCall.h"
+#import "EHRServerResponse.h"
 
-@class EHRCall;
 @class PatientNotification;
 
 @interface NotificationsWS : NSObject <EHRInstanceCounterP> {
@@ -24,9 +27,11 @@
 
 //region WF
 
+
 -(void) pullSinceDate:(NSDate*) date onSuccess:(VoidBlock) successBlock onError:(VoidBlock) errorBlock ;
 
 -(void) pullForever:(VoidBlock) successBlock onError:(VoidBlock) errorBlock;
+
 
 //endregion
 

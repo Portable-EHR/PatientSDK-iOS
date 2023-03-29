@@ -6,6 +6,7 @@
 #import <Foundation/Foundation.h>
 #import "EHRPersistableP.h"
 #import "EHRInstanceCounterP.h"
+#import "GERuntimeConstants.h"
 
 @class IBAddress;
 

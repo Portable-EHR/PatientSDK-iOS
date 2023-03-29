@@ -5,6 +5,7 @@
 
 #import "IBUserInfo.h"
 #import "IBContact.h"
+#import "GERuntimeConstants.h"
 
 @implementation IBUserInfo
 

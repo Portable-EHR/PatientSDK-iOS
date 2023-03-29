@@ -3,6 +3,8 @@
 //
 
 #import "EntryPartipantPayload.h"
+#import "EHRLibRuntimeGlobals.h"
+#import "GERuntimeConstants.h"
 
 @interface EntryPartipantPayload () {
     NSInteger _instanceNumber;

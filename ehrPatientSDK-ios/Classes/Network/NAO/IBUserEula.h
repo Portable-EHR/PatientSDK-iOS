@@ -6,6 +6,7 @@
 #import <Foundation/Foundation.h>
 #import "EHRNetworkableP.h"
 #import "EHRInstanceCounterP.h"
+#import "Version.h"
 
 @class IBEula;
 

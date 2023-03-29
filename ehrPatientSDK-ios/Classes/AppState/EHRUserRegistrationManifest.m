@@ -2,6 +2,7 @@
 // Created by Yves Le Borgne on 2023-01-31.
 //
 
+#import "GERuntimeConstants.h"
 #import "EHRPersistableP.h"
 #import "EHRUserRegistrationManifest.h"
 

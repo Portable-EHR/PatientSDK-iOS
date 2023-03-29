@@ -4,7 +4,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EHRNetworkableP.h"
-
+#import "EHRInstanceCounterP.h"
 @interface EntrySharePayload : NSObject <EHRInstanceCounterP, EHRNetworkableP> {
 }
 

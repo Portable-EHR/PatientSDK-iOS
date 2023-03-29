@@ -3,6 +3,7 @@
 //
 
 #import "EntrySharePayload.h"
+#import "GERuntimeConstants.h"
 
 @interface EntrySharePayload () {
     NSInteger _instanceNumber;

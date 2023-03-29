@@ -3,6 +3,7 @@
 // Copyright (c) 2015-2019 Portable EHR inc. All rights reserved.
 //
 
+#import "GERuntimeConstants.h"
 #import "IBUser.h"
 #import "IBContact.h"
 #import "Patient.h"
@@ -11,6 +12,7 @@
 #import "IBUserService.h"
 #import "IBService.h"
 #import "IBUserCapability.h"
+
 
 @implementation IBUser
 

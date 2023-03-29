@@ -24,6 +24,7 @@
 #import "UserCredentials.h"
 #import "WebServices.h"
 #import "NotificationsWS.h"
+#import "PehrSDKConfig.h"
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
@@ -213,7 +214,6 @@ TRACE_ON
     if (_isRefreshing) {
         MPLOGERROR(@"App is in already refreshing, will bail out.");
         MPLOG(@"App is in already refreshing, will bail out.");
-        TRACE(@"App is in already refreshing, will bail out.");
         onFailure();
         return;
     };
@@ -246,63 +246,6 @@ TRACE_ON
     }
 
     // now go talk to mama
-
-//    EHRApiServer     *server = [SecureCredentials sharedCredentials].current.server;
-//    EHRServerRequest *req    = [EHRServerRequest serverRequestWithApiKey:[SecureCredentials sharedCredentials].current.userApiKey];
-//    req.server   = server;
-//    req.route    = @"/app/notification";
-//    req.command  = @"list";
-//    req.language = [AppState sharedAppState].deviceLanguage;
-//
-//    NSString *sinceAsString = NetworkDateFromDate(since);
-//    req.parameters = [@{@"status": @"all", @"since": sinceAsString, @"type": @"all"} mutableCopy];
-//    EHRCall *call        = [EHRCall
-//            callWithRequest:req
-//                  onSuccess:^(EHRCall *theCall) {
-//                      EHRServerResponse *resp = theCall.serverResponse;
-//                      TRACE(@"Got response with requestStatus %@", [resp.requestStatus asDictionary]);
-//                      NSString  *apiStatus = resp.requestStatus.status;
-//                      VoidBlock _after     = ^{
-//                          if (self->_refreshSuccessBlock) {
-//                              self->_refreshSuccessBlock();
-//                              self->_refreshSuccessBlock = nil;
-//                              self->_refreshFailedBlock  = nil;
-//                          }
-//                          self->_isRefreshing = NO;
-//                      };
-//
-//                      if ([apiStatus isEqualToString:@"OK"]) {
-//
-//                          id dic = theCall.serverResponse.responseContent;
-//
-//                          NSDictionary *notifications = [dic objectForKey:@"notifications"];
-//                          if (notifications) {
-//                              TRACE(@"Received [%ld] notifications", (unsigned long) [notifications count]);
-//                              [self populateFilterFromDictionary:notifications];
-//                              _after();
-//                          } else {
-//                              TRACE(@"Received [0] notifications");
-//                              _after();
-//                          }
-//                      } else {
-//                          // status was not OK !
-//                          MPLOGERROR(@"Got status [%@], message [%@]", apiStatus, resp.requestStatus.message);
-//                          _after();
-//                      }
-//                  }
-//                    onError:^(EHRCall *theCall) {
-//                        self->_isRefreshing = NO;
-//                        TRACE(@"Error when listing notifications from Mr Server");
-//                        if (self->_refreshFailedBlock) {
-//                            self->_refreshFailedBlock();
-//                            self->_refreshSuccessBlock = nil;
-//                            self->_refreshFailedBlock  = nil;
-//                        }
-//                    }
-//    ];
-//    call.maximumAttempts = 3;
-//    call.timeOut         = 15;
-//    [call start];
 
     SenderBlock listSuccessBlock = ^(EHRCall *theCall) {
         EHRServerResponse *resp = theCall.serverResponse;
