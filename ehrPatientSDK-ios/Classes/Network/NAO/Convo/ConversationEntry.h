@@ -14,6 +14,15 @@
 #pragma clang diagnostic ignored "-Wignored-attributes"
 @class EntryMessagePayload;
 
+typedef enum : NSInteger {
+    EntryTypeMessage,
+    EntryTypeShare,
+    EntryTypeParticipant,
+    EntryTypeMove,
+    EntryTypeStatusChange,
+    EntryTypeUnknown
+} EntryType;
+
 @interface ConversationEntry : NSObject <EHRInstanceCounterP, EHRNetworkableP> {
     NSInteger                         _instanceNumber;
     NSString                          *_id;
@@ -34,6 +43,7 @@
 @property(nonatomic) NSInteger                         attachmentCount __unused;
 @property(nonatomic) id                                payload __unused;
 @property(nonatomic) NSDate                            *createdOn;
+@property(nonatomic) EntryType                         entryType __unused;
 @property(nonatomic, readonly) BOOL                    isMessageType;
 @property(nonatomic, readonly) BOOL                    isParticipantType;
 @property(nonatomic, readonly) BOOL                    isMoveType;

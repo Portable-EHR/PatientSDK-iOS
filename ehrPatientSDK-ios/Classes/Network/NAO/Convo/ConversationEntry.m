@@ -26,6 +26,7 @@ TRACE_OFF
     if ((self = [super init])) {
         GE_ALLOC();
         GE_ALLOC_ECHO();
+        self.entryType = EntryTypeUnknown;
     } else {
         MPLOG(@"*** super returns nil!");
     }
@@ -61,15 +62,20 @@ TRACE_OFF
     NSDictionary *payloadAsDic = WantDicFromDic(dic, @"payload");
     if (nil != payloadAsDic) {
         if (ce.isMessageType) {
-            ce.payload = [EntryMessagePayload objectWithContentsOfDictionary:payloadAsDic];
+            ce.entryType = EntryTypeMessage;
+            ce.payload   = [EntryMessagePayload objectWithContentsOfDictionary:payloadAsDic];
         } else if (ce.isParticipantType) {
-            ce.payload = [EntryPartipantPayload objectWithContentsOfDictionary:payloadAsDic];
+            ce.entryType = EntryTypeParticipant;
+            ce.payload   = [EntryPartipantPayload objectWithContentsOfDictionary:payloadAsDic];
         } else if (ce.isMoveType) {
-            ce.payload = [EntryMovePayload objectWithContentsOfDictionary:payloadAsDic];
+            ce.entryType = EntryTypeMove;
+            ce.payload   = [EntryMovePayload objectWithContentsOfDictionary:payloadAsDic];
         } else if (ce.isStatusChangeType) {
-            ce.payload = [EntryStatusChangePayload objectWithContentsOfDictionary:payloadAsDic];
+            ce.entryType = EntryTypeStatusChange;
+            ce.payload   = [EntryStatusChangePayload objectWithContentsOfDictionary:payloadAsDic];
         } else if (ce.isShareType) {
-            ce.payload = [EntrySharePayload objectWithContentsOfDictionary:payloadAsDic];
+            ce.entryType = EntryTypeShare;
+            ce.payload   = [EntrySharePayload objectWithContentsOfDictionary:payloadAsDic];
         }
     }
     NSArray        *statusAsArray = WantArrayFromDic(dic, @"status");
