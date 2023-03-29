@@ -4,7 +4,7 @@
 //
 
 #import "AppSignature.h"
-#import "GEMacros.h"
+#import "GERuntimeConstants.h"
 
 @implementation AppSignature
 
