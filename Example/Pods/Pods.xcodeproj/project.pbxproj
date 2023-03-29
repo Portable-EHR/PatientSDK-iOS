@@ -33,7 +33,6 @@
 		191D570AA4735B83EBEB389BB326BBCF /* GERuntimeConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 4289D47FB432EDD20B8A8F509E075E2A /* GERuntimeConstants.m */; };
 		196BD7954F55DC42202C8CA4BF2A3FD1 /* IBTelexInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B09960855CC4B1E92D32F0784AA8F21A /* IBTelexInfo.m */; };
 		19C2699CE174A31304235E603568AAE8 /* IBPractitionerPractice.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FDE789F57927482A36EADD0E80FBBAE /* IBPractitionerPractice.m */; };
-		1A1338DE57DE1897D443EB19AF649DE2 /* UIView+EHR.m in Sources */ = {isa = PBXBuildFile; fileRef = A022A98F0F0B7203FBAE40B786872785 /* UIView+EHR.m */; };
 		1B4391EF3770481D3A6B85027202165D /* TSKPinningValidator_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD3D29FD5B87BD09A4C211F5AE96D5 /* TSKPinningValidator_Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		1C17E8BA31B735A5333E1290C8FB2AD5 /* ssl_pin_verifier.m in Sources */ = {isa = PBXBuildFile; fileRef = E053161309E514B8F13D2AB614B63A2D /* ssl_pin_verifier.m */; };
 		1C284A24BCFA1CAEEB7F26070CE702DA /* TSKSPKIHashCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 5639CB7109A98AF511BE2749F33FF1BE /* TSKSPKIHashCache.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -250,7 +249,6 @@
 		CD34F5F96720342898E0253A69E265A2 /* AccessState.h in Headers */ = {isa = PBXBuildFile; fileRef = 6261B99E8C44FC887F5068AD598AB1DA /* AccessState.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CEE6F4ED52358FB16AEE828A29270BD9 /* EulaModelFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = D85064AF28351D71A9C36F778EEFF798 /* EulaModelFilter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CEEF447A9019A7AC377DDEC512FDF638 /* EHRCall.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3EAD094936ADD795075AAA034A19A0 /* EHRCall.m */; };
-		CF6D649C10A81DFD7246A6C59FE85793 /* UIView+EHR.h in Headers */ = {isa = PBXBuildFile; fileRef = 72383098338782321821E34DCC518BA0 /* UIView+EHR.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D017B825C066D4A44E524D18AE3B119B /* tsk_assert.h in Headers */ = {isa = PBXBuildFile; fileRef = CC4AE9D5439E0425DEC9CEDD9407D939 /* tsk_assert.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		D0B2DC03CD51729812EC4D886B6578BB /* FactorsRequired.h in Headers */ = {isa = PBXBuildFile; fileRef = D6EA73F9C7CC9DD3E2E58EC231B0EB41 /* FactorsRequired.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D2910C2FE9C8801318F8459BCEFBF779 /* TrustKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6B037E256697CE07D3FBF0076D014C49 /* TrustKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -566,7 +564,6 @@
 		6F2F2C01BD486730FC7A62B359B54BC4 /* NotificationProgressChange.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = NotificationProgressChange.m; sourceTree = "<group>"; };
 		706D7330A8600203C0826107628794C6 /* IBMedia.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = IBMedia.m; sourceTree = "<group>"; };
 		70BF57C250F4959226D81C11FD65E054 /* MathUtil.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MathUtil.h; sourceTree = "<group>"; };
-		72383098338782321821E34DCC518BA0 /* UIView+EHR.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIView+EHR.h"; sourceTree = "<group>"; };
 		724E05943DA4EE5227E1712E8BFB8E9E /* IBTelexInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = IBTelexInfo.h; sourceTree = "<group>"; };
 		74C634FEEE025145BACA0FBC1F5B7E72 /* UserDeviceSettings.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = UserDeviceSettings.m; sourceTree = "<group>"; };
 		74DDCB696B8F7C402BFCC4C1DCB99BED /* IBDispensaryInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = IBDispensaryInfo.h; sourceTree = "<group>"; };
@@ -608,7 +605,6 @@
 		9DEC28495A98FA696C9837048D1F37E8 /* UserModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
 		9F3CB7378F5778680A794B575A2472D4 /* Version.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = Version.h; sourceTree = "<group>"; };
 		9F530F46DD39FF219639CB1A5029B20E /* IBDeviceInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = IBDeviceInfo.m; sourceTree = "<group>"; };
-		A022A98F0F0B7203FBAE40B786872785 /* UIView+EHR.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIView+EHR.m"; sourceTree = "<group>"; };
 		A057FCA68A606BF099E820822BC39F5B /* EHRNetworkableP.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = EHRNetworkableP.h; sourceTree = "<group>"; };
 		A2256B59CD007787D496C69010F53707 /* IBPatientContact.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = IBPatientContact.h; sourceTree = "<group>"; };
 		A2EC9DE4C9D0C7C48BC79F41FBCB2110 /* IBAppointment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = IBAppointment.h; sourceTree = "<group>"; };
@@ -1073,8 +1069,6 @@
 				8C7E29626DE4841E7F88D63528DCF896 /* NSDictionary+JSON.m */,
 				5F15982C9D0592AF9A546E2B2C757281 /* PehrSDKConfig.h */,
 				AEEE82A68AD7B20344FD9A8C85D18118 /* PehrSDKConfig.m */,
-				72383098338782321821E34DCC518BA0 /* UIView+EHR.h */,
-				A022A98F0F0B7203FBAE40B786872785 /* UIView+EHR.m */,
 				9F3CB7378F5778680A794B575A2472D4 /* Version.h */,
 				385C07CEB81A51A729F59A8DE5C36329 /* Version.m */,
 				4B8DDE28109D1D2CB68E4449 /* EHRLibRuntimeGlobals.m */,
@@ -1521,7 +1515,6 @@
 				439E1BF4DC9E9FBDCDBCCBC7F5E2F66F /* SIN.h in Headers */,
 				022C513B255B6FDFDA2FB8917A87D9BD /* UICKeyChainStore.h in Headers */,
 				FAD79B0029845F580011388E /* ConversationEnvelope.h in Headers */,
-				CF6D649C10A81DFD7246A6C59FE85793 /* UIView+EHR.h in Headers */,
 				2C5BCD915FB906AE027FAAA322CB8EA9 /* UserCredentials.h in Headers */,
 				94AE9D6B713A53008C2F2458957E0223 /* UserDeviceSettings.h in Headers */,
 				6D2020ADBDDCB206B23CA9C9E899D001 /* UserModel.h in Headers */,
@@ -1810,7 +1803,6 @@
 				27083D2197053AC7799AE4F4948C8AF6 /* ServicesModelFilter.m in Sources */,
 				B89C0EE96AF1D3D89D1B578633DFC289 /* SIN.m in Sources */,
 				BD25A0D7B92D5F0DBF5BB303EEFC21D8 /* UICKeyChainStore.m in Sources */,
-				1A1338DE57DE1897D443EB19AF649DE2 /* UIView+EHR.m in Sources */,
 				432CFAC222E9CAA971A5C72B55EB2D95 /* UserCredentials.m in Sources */,
 				9B2ADFC7ABA8CA153E9D4D16998E68F4 /* UserDeviceSettings.m in Sources */,
 				9FEB28E3085EC562F0043E47602928D9 /* UserModel.m in Sources */,

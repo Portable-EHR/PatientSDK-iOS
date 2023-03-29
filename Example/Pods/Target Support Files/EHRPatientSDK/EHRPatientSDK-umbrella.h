@@ -102,7 +102,6 @@
 #import "NSDictionary+JSON.h"
 #import "EHRState.h"
 #import "PehrSDKConfig.h"
-#import "UIView+EHR.h"
 #import "Version.h"
 
 //EHRLib gadgets
