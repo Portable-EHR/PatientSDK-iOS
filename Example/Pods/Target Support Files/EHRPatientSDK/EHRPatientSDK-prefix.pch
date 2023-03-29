@@ -16,9 +16,9 @@
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
-//#import "EHRPatientSDK/EHRPersistableP.h"
-//#import "EHRPatientSDK/EHRNetworkableP.h"
-//#import "EHRPatientSDK/EHRInstanceCounterP.h"
+//#import "EHRPersistableP.h"
+//#import "EHRNetworkableP.h"
+//#import "EHRInstanceCounterP.h"
 
 #import <SystemConfiguration/SystemConfiguration.h>
 #import "LocalAuthentication/LocalAuthentication.h"
