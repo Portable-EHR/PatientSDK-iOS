@@ -9,8 +9,7 @@
 //#define MP_DEBUG 1
 
 #import <Foundation/Foundation.h>
-#import "GERuntimeConstants.h"
-#import "PehrSDKConfig.h"
+//#import "GERuntimeConstants.h"
 
 
 //@class SKPaymentTransaction;
