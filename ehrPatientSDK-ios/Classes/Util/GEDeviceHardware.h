@@ -20,5 +20,4 @@
 + (BOOL)isIpod;
 + (BOOL)isCroppingPhone;
 + (BOOL)isCroppingIpad;
-+(CGBounds) windowCrop;
 @end

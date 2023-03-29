@@ -262,46 +262,6 @@
     // todo : this may not be true with latest wave of apple mad devices, true for iphone X
 }
 
-+ (CGBounds)windowCrop {
-    CGBounds crop = CGBoundsZero;
-    if ([self isTablet]) {
-        if ([self isCroppingIpad]) {
-            CGFloat                bottomMargin = 16.0f;
-            CGFloat                leftMargin   = 16.0f;
-            UIInterfaceOrientation orientation  = [[UIApplication sharedApplication] statusBarOrientation];
-            if (orientation == UIInterfaceOrientationPortrait) {
-                crop = CGBoundsMake(0, 0, 0, bottomMargin);
-            } else if (orientation == UIInterfaceOrientationPortraitUpsideDown) {
-                // device does not honor the orientation and presents view with top to the right
-                // need to offset from left !
-                crop = CGBoundsMake(0, 0, 0, bottomMargin);
-            } else if (orientation == UIInterfaceOrientationLandscapeRight) {
-                crop = CGBoundsMake(leftMargin, 0, 0, bottomMargin);
-            } else if (orientation == UIInterfaceOrientationLandscapeLeft) {
-                crop = CGBoundsMake(0, 0, leftMargin, bottomMargin);
-            }
-        }
-    } else if ([self isPhone]) {
-        if ([self isCroppingPhone]) {
-            CGFloat                bottomMargin = 16.0f;
-            CGFloat                leftMargin   = 32.0f;
-            UIInterfaceOrientation orientation  = [[UIApplication sharedApplication] statusBarOrientation];
-            if (orientation == UIInterfaceOrientationPortrait) {
-                crop = CGBoundsMake(0, 0, 0, bottomMargin);
-            } else if (orientation == UIInterfaceOrientationPortraitUpsideDown) {
-                // device does not honor the orientation and presents view with top to the right
-                // need to offset from left !
-                crop = CGBoundsMake(bottomMargin, 0, 0, 0);
-            } else if (orientation == UIInterfaceOrientationLandscapeRight) {
-                crop = CGBoundsMake(leftMargin, 0, 0, bottomMargin);
-            } else if (orientation == UIInterfaceOrientationLandscapeLeft) {
-                crop = CGBoundsMake(0, 0, leftMargin, bottomMargin);
-            }
-        }
-    }
-    return crop;
-}
-
 + (BOOL)isIpad {
     return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad);
 
