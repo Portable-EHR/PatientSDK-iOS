@@ -33,6 +33,10 @@ TRACE_OFF
 }
 
 - (NSDictionary *)asDictionary {
+    return [self asMutableDictionary];
+}
+
+-(NSMutableDictionary*) asMutableDictionary {
     NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
     PutStringInDic(self.HCIN, dictionary, @"HCIN");
     PutStringInDic(self.HCINjurisdiction, dictionary, @"HCINjurisdiction");
@@ -40,7 +44,6 @@ TRACE_OFF
     PutStringInDic(self.email, dictionary, @"email");
     return dictionary;
 }
-
 
 - (NSString *)asJSON {
     return [[self asDictionary] asJSON];

@@ -8,6 +8,9 @@
 #import "UserModel.h"
 #import "Models.h"
 #import "PehrSDKConfig.h"
+#import "OBManualActivationSpec.h"
+#import "IBScannedOffer.h"
+#import "IBUserEula.h"
 
 typedef enum : NSInteger {
     IdentificationFactorUnknown,
@@ -23,5 +26,17 @@ typedef enum : NSInteger {
                                      withPIN:(NSString *)pin
                                    onSuccess:(SenderBlock)successBlock
                                      onError:(SenderBlock)errorBlock;
+
+-(void) getOfferFor:(OBManualActivationSpec*) spec
+                                onSuccess:(SenderBlock) successBlock
+                                  onError:(SenderBlock) errorBlock;
+
+-(void) claimOffer: (IBScannedOffer*) offer
+                     onSuccess:(SenderBlock) successBlock
+                       onError:(SenderBlock) errorBlock;
+
+-(void) registerUserWithSpec:(OBManualActivationSpec*) spec
+                                onSuccess:(SenderBlock) successBlock
+                                  onError:(SenderBlock) errorBlock;
 
 @end

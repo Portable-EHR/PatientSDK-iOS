@@ -119,6 +119,7 @@ __attribute__((unused)) {
         // here we gat an NSArray of consents
         PehrSDKConfig.shared.models.consents = [NSArray arrayWithArray:sender];
         [PehrSDKConfig.shared.state.delegate onConsentsUpdate];
+        successBlock();
     };
     SenderBlock consentsError   = ^(id sender) {
         MPLOGERROR(@"Consents pulled from forever : FAILED");

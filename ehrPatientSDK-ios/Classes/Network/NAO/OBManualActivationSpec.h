@@ -7,11 +7,11 @@
 #import "EHRNetworkableP.h"
 #import "GERuntimeConstants.h"
 
-@interface OBManualActivationSpec :  NSObject <EHRNetworkableP, EHRInstanceCounterP> {
+@interface OBManualActivationSpec : NSObject <EHRNetworkableP, EHRInstanceCounterP> {
     NSInteger _instanceNumber;
 }
-@property (nonatomic) NSString *email;
-@property (nonatomic) NSString *HCIN;
-@property (nonatomic) NSString *HCINjurisdiction;
-@property (nonatomic) NSString *mobilePhone;
+@property(nonatomic) NSString *email;
+@property(nonatomic) NSString *HCIN;
+@property(nonatomic) NSString *HCINjurisdiction;
+@property(nonatomic) NSString *mobilePhone;
 @end
