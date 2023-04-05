@@ -22,8 +22,9 @@ TRACE_OFF
 - (void)dealloc {
     GE_DEALLOC();
     GE_DEALLOC_ECHO();
-    _renderer = nil;
-    _text     = nil;
+    _scanReasonCode = nil;
+    _scannedHost    = nil;
+    _scanReasonCode = nil;
 }
 
 + (instancetype)objectWithContentsOfDictionary:(NSDictionary *)dic {
