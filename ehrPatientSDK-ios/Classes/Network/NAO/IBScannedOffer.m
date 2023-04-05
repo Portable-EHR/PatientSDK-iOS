@@ -32,7 +32,7 @@ TRACE_OFF
     IBScannedOffer *pa = [[self alloc] init];
     pa.scannedCode    = WantStringFromDic(dic, @"scannedCode");
     pa.scannedHost    = WantStringFromDic(dic, @"scannedHost");
-    pa.scanReasonCode = WantStringFromDic(dic, @"scanReason");
+    pa.scanReasonCode = WantStringFromDic(dic, @"scanReasonCode");
     return pa;
 }
 
@@ -41,7 +41,7 @@ TRACE_OFF
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     PutStringInDic(self.scannedHost, dic, @"scannedHost");
     PutStringInDic(self.scannedCode, dic, @"scannedCode");
-    PutStringInDic(self.scanReasonCode, dic, @"scanReason");
+    PutStringInDic(self.scanReasonCode, dic, @"scanReasonCode");
     return dic;
 
 }
