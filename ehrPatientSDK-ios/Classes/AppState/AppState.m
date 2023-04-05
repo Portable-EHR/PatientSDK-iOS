@@ -52,7 +52,6 @@ TRACE_OFF
 @dynamic rootViewController;
 @dynamic isAppUsable;
 @dynamic isServerReachable;
-@dynamic isActivityIndicatorVisible;
 @dynamic user;
 @dynamic userModel;
 @dynamic maximumNumberOfDevices;
@@ -950,12 +949,16 @@ static AppState   *_sharedInstance;
 
 - (void)onAppInfoUpdate {
     MPLOG(@"onAppInfoUpdate");
-    self.appInfo = PehrSDKConfig.shared.state.app;
+    self.appInfo     = PehrSDKConfig.shared.state.app;
+    self->_eulaModel = [[EulaModel alloc] init];
 }
 
 - (void)onUserInfoUpdate {
     MPLOG(@"onUserInfoUpdate");
-    self.userModel = PehrSDKConfig.shared.models.userModel;
+
+    [AppState sharedAppState].deviceInfo            = [IBDeviceInfo initFromDevice];
+    [AppState sharedAppState].deviceInfo.deviceGuid = [SecureCredentials sharedCredentials].current.deviceGuid;
+    self.userModel                                  = PehrSDKConfig.shared.models.userModel;
 }
 
 - (void)onNotificationsModelUpdate {
@@ -964,9 +967,7 @@ static AppState   *_sharedInstance;
 
 - (void)onConsentsUpdate {
     MPLOG(@"onConsentsUpdate");
-
-    // todo : should check if EULA is still signed if not, terminate
-
+    [self setConsents:PehrSDKConfig.shared.models.consents];
 }
 
 //endregion

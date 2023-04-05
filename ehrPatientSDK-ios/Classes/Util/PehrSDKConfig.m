@@ -15,14 +15,12 @@
 
 @end
 
-
 @implementation PehrSDKConfig
 
 static PehrSDKConfig *_Instance = nil;
 
 + (void)initialize {
 }
-
 
 @synthesize deviceLanguage = _deviceLanguage;
 
@@ -79,6 +77,7 @@ TRACE_OFF
 //        _models         = [[Models alloc] init];
         _deviceLanguage = [[NSLocale preferredLanguages][0] componentsSeparatedByString:@"-"][0];
         _state          = [[EHRState alloc] init];
+        _models         = [[Models alloc] init];
 
     } else {
         TRACE(@"*** super returned nil !");
@@ -135,9 +134,13 @@ TRACE_OFF
     return _localIPaddress;
 }
 
--
-delegate:(id <EHRLibStateDelegate>)delegate
-appGuid:(NSString *)appGuid appAlias:(NSString *)appAlias appVersion:(NSString *)appVersion stackKey:(NSString *)stackKey onSuccess:(SenderBlock)successBlock onError:(SenderBlock)errorBlock __unused {
+- delegate:(id <EHRLibStateDelegate>)delegate
+   appGuid:(NSString *)appGuid
+  appAlias:(NSString *)appAlias
+appVersion:(NSString *)appVersion
+  stackKey:(NSString *)stackKey
+ onSuccess:(SenderBlock)successBlock
+   onError:(SenderBlock)errorBlock __unused {
     self->_appGuid        = appGuid;
     self->_appAlias       = appAlias;
     self->_appVersion     = appVersion;
@@ -157,9 +160,13 @@ appGuid:(NSString *)appGuid appAlias:(NSString *)appAlias appVersion:(NSString *
     return self;
 }
 
--
-delegate:(id <EHRLibStateDelegate>)delegate
-appGuid:(NSString *)appGuid appAlias:(NSString *)appAlias appVersion:(NSString *)appVersion localIPaddress:(NSString *)address onSuccess:(SenderBlock)successBlock onError:(SenderBlock)errorBlock  __unused {
+-     delegate:(id <EHRLibStateDelegate>)delegate
+       appGuid:(NSString *)appGuid
+      appAlias:(NSString *)appAlias
+    appVersion:(NSString *)appVersion
+localIPaddress:(NSString *)address
+     onSuccess:(SenderBlock)successBlock
+       onError:(SenderBlock)errorBlock  __unused {
     self->_appGuid        = appGuid;
     self->_appAlias       = appAlias;
     self->_appVersion     = appVersion;
@@ -190,7 +197,7 @@ appGuid:(NSString *)appGuid appAlias:(NSString *)appAlias appVersion:(NSString *
         EHRCall   *call    = theCall;
         IBAppInfo *appInfo = [IBAppInfo objectWithContentsOfDictionary:call.serverResponse.responseContent[@"appInfo"]];
         [self->_state setApp:appInfo];
-
+        [self->_state.delegate onAppInfoUpdate];
         successBlock(theCall);
     };
 

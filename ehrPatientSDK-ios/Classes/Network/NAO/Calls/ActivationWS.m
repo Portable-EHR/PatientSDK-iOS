@@ -54,6 +54,66 @@
     }
 }
 
+- (void)confirmPINforIdentificationFactorpin:(IdentificationFactor)factor
+                                     withPIN:(NSString *)pin
+                                   onSuccess:(SenderBlock)successBlock
+                                     onError:(SenderBlock)errorBlock {
+    NSString *route;
+    NSString *command = @"sendPIN";
+
+    if (factor == IdentificationFactorEmail) {
+        route = @"/app/patient/user/email";
+    } else if (factor == IdentificationFactorMobile) {
+        route = @"/app/patient/user/mobile";
+    } else {
+        MPLOGERROR(@"confirmPINforIdentificationFactorpin : invoked with invalid identification factor");
+        errorBlock(nil);
+    }
+
+    EHRServerRequest *confirmationRequest = [[EHRServerRequest alloc] init];
+    confirmationRequest.server  = [SecureCredentials sharedCredentials].current.server;
+    confirmationRequest.route   = route;
+    confirmationRequest.command = command;
+
+    // caveat : our user is still not active, so we must call as guest again
+
+    confirmationRequest.apiKey = [SecureCredentials sharedCredentials].current.userApiKey;
+    PutStringInDic(pin, confirmationRequest.parameters, @"PIN");
+
+    EHRCall *confirmationCall =
+                    [EHRCall callWithRequest:confirmationRequest
+                                   onSuccess:^(EHRCall *call) {
+                                       EHRServerResponse *resp = call.serverResponse;
+                                       MPLOG(@"response is \n%@", [call.serverResponse asDictionary]);
+                                       if ([[resp requestStatus].status isEqualToString:@"OK"]) {
+                                           if (factor == IdentificationFactorMobile) {
+                                               [PehrSDKConfig.shared.models.userModel setDeviceMobileVerified:YES];
+                                               successBlock(call);
+                                           } else if (factor == IdentificationFactorEmail) {
+                                               [PehrSDKConfig.shared.models.userModel setDeviceEmailVerified:YES];
+                                               successBlock(call);
+                                           } else {
+                                               // this would be a bad state !!! what else could be a valid PIN ?
+                                               MPLOGERROR(@"Got a positive PIN validation for an unknown identification factor ! bailing out.");
+                                               errorBlock(call);
+                                           }
+
+                                       } else {
+                                           errorBlock(call);
+                                       }
+                                   } onError:^(EHRCall *call) {
+                                EHRServerResponse *resp = call.serverResponse;
+                                MPLOG(@"*** Error : got response with requestStatus %@", [resp.requestStatus asDictionary]);
+                                errorBlock(call);
+
+                            }
+                    ];
+
+    confirmationCall.timeOut = 15.0f;
+    [confirmationCall start];
+
+}
+
 TRACE_ON
 
 - (instancetype)init {

@@ -4,6 +4,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "EHRPersistableP.h"
 #import "GERuntimeConstants.h"
 #import "EHRLibStateDelegate.h"
@@ -68,7 +69,6 @@
 @property NSDate                                *timeOfLastSync;
 @property(nonatomic, readonly) BOOL             isAppUsable;
 @property(nonatomic, readonly) BOOL             isServerReachable;
-@property(nonatomic, readonly) BOOL             isActivityIndicatorVisible;
 @property(nonatomic, readonly) BOOL             isForegroundRefreshActivated;
 @property(nonatomic, readonly) BOOL             isInBackground;
 @property(nonatomic) NSString                   *deviceLanguage;

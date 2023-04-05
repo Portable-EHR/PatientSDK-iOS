@@ -17,7 +17,7 @@
 @interface UserModel : NSObject <EHRInstanceCounterP, EHRPersistableP, EHRModelSequencerP> {
     NSInteger           _instanceNumber;
     NSDate              *_lastRefreshed;
-    IBUser                *_user;
+    IBUser              *_user;
     NotificationsModel  *_notificationsModel;
     ServicesModel       *_servicesModel;
     NSMutableDictionary *_patientModels;
@@ -36,7 +36,7 @@
 @property(nonatomic) UserDeviceSettings           *deviceSettings;
 
 - (void)updateUserInfo:(IBUser *)newInfo;
--(void) updateUserInfo:(IBUser *) newInfo save:(BOOL) saveIt;
+- (void)updateUserInfo:(IBUser *)newInfo save:(BOOL)saveIt;
 
 - (BOOL)isResponderForPatientWithGuid:(NSString *)guid;
 - (BOOL)hasPatientWithGuid:(NSString *)guid;
@@ -47,6 +47,8 @@
 - (BOOL)saveOnDevice;
 - (BOOL)saveOnDevice:(BOOL)cascade;
 - (BOOL)eraseFromDevice:(BOOL)cascade;
+- (void)setDeviceMobileVerified:(BOOL)isIt;
+- (void)setDeviceEmailVerified:(BOOL)isIt;
 + (UserModel *)readFromDevice:(NSString *)guid cascade:(BOOL)doCascade;
 
 - (void)readNotificationsModelFromDevice;

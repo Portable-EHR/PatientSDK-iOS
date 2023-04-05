@@ -47,7 +47,6 @@
     EHRState *_state;
 }
 
-
 + (PehrSDKConfig *)shared;
 
 @property(nonatomic, readonly) NSString *deviceLanguage;
@@ -72,8 +71,7 @@
 - (void)deregisterUserWithCompletion:(VoidBlock)successBlock
                              onError:(VoidBlock)errorBlock;
 
--
-delegate:(id <EHRLibStateDelegate>)delegate
+- delegate:(id <EHRLibStateDelegate>)delegate
    appGuid:(NSString *)appGuid
   appAlias:(NSString *)appAlias
 appVersion:(NSString *)appVersion
@@ -81,8 +79,8 @@ appVersion:(NSString *)appVersion
  onSuccess:(SenderBlock)successBlock
    onError:(SenderBlock)errorBlock;
 
--
-delegate:(id <EHRLibStateDelegate>)delegate appGuid:(NSString *)appGuid
+-     delegate:(id <EHRLibStateDelegate>)delegate
+       appGuid:(NSString *)appGuid
       appAlias:(NSString *)appAlias
     appVersion:(NSString *)appVersion
 localIPaddress:(NSString *)address
@@ -90,6 +88,5 @@ localIPaddress:(NSString *)address
        onError:(SenderBlock)errorBlock;
 
 @end
-
 
 #endif /* EHRLib_PehrSDKConfig_h */

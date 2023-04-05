@@ -11,6 +11,7 @@
 #import "PatientModel.h"
 #import "UserDeviceSettings.h"
 #import "ServicesModel.h"
+#import "PehrSDKConfig.h"
 
 @implementation UserModel
 
@@ -123,6 +124,16 @@ TRACE_ON
         if ([p.guid isEqualToString:guid]) return YES;
     }
     return NO;
+}
+
+- (void)setDeviceMobileVerified:(BOOL)isIt {
+    self.user.deviceMobileVerified = isIt;
+    [PehrSDKConfig .shared.state.delegate onUserInfoUpdate];
+}
+
+- (void)setDeviceEmailVerified:(BOOL)isIt {
+    self.user.deviceEmailVerified = isIt;
+    [PehrSDKConfig .shared.state.delegate onUserInfoUpdate];
 }
 
 #pragma mark - EHRPersistableP
@@ -305,17 +316,18 @@ TRACE_ON
     if (newInfo.proxies) old.proxies                        = newInfo.proxies;
     if (newInfo.userServiceModel) old.userServiceModel      = newInfo.userServiceModel;
     if (newInfo.visits) old.visits                          = newInfo.visits;
-    old.emailVerified  = newInfo.emailVerified;
-    old.mobileVerified = newInfo.mobileVerified;
-    old.deviceEmailVerified = newInfo.deviceEmailVerified;
+    old.emailVerified        = newInfo.emailVerified;
+    old.mobileVerified       = newInfo.mobileVerified;
+    old.deviceEmailVerified  = newInfo.deviceEmailVerified;
     old.deviceMobileVerified = newInfo.deviceMobileVerified;
-    old.forcePasswordChange = newInfo.forcePasswordChange;
-    old.identityVerified = newInfo.identityVerified;
+    old.forcePasswordChange  = newInfo.forcePasswordChange;
+    old.identityVerified     = newInfo.identityVerified;
 
     if (saveIt) {
         BOOL result = self.saveOnDevice;
         MPLOG(@"Saved user model with result %@", NSStringFromBool(result));
     }
+
 }
 
 /**

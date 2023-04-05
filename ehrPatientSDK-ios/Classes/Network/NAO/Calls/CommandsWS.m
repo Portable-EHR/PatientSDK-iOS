@@ -8,6 +8,7 @@
 #import "WebServices.h"
 #import "EHRState.h"
 #import "PehrSDKConfig.h"
+#import "Models.h"
 
 @implementation CommandsWS
 
@@ -52,12 +53,13 @@ __attribute__((unused)) {
 
 //region WF notation
 
--(void)getAppInfo:(VoidBlock)successBlock onError:(VoidBlock)errorBlock {
+- (void)getAppInfo:(VoidBlock)successBlock onError:(VoidBlock)errorBlock {
 
     SenderBlock callSuccess = ^(EHRCall *theCall) {
         // todo : replace this with a SDKDelegate call
         IBAppInfo *appInfo = [IBAppInfo objectWithContentsOfDictionary:theCall.serverResponse.responseContent[@"appInfo"]];
-        PehrSDKConfig.shared.state.app=appInfo;
+        PehrSDKConfig.shared.state.app = appInfo;
+        [PehrSDKConfig.shared.state.delegate onAppInfoUpdate];
         successBlock();
     };
     SenderBlock callError   = ^(EHRCall *theCall) {
@@ -70,17 +72,28 @@ __attribute__((unused)) {
 
 }
 
+-(void) refreshNotifications:(VoidBlock) successBlock onError:(VoidBlock) errorBlock{
+    VoidBlock sdkSuccess = ^(){
+        [PehrSDKConfig.shared.state.delegate onNotificationsModelUpdate];
+        successBlock();
+    };
+    [PehrSDKConfig.shared.models.notifications refreshFromServerWithSuccess:sdkSuccess andError:errorBlock];
+}
+
+
 - (void)getUserInfo:(VoidBlock)successBlock onError:(VoidBlock)errorBlock {
     SenderBlock callSuccess = ^(EHRCall *theCall) {
         id val = theCall.serverResponse.responseContent[@"services"];
         if (val) {
             [[AppState sharedAppState].servicesModel populateWithServices:[val allValues]];
+            // todo :: this is obsolete (?)
         }
 
         val = theCall.serverResponse.responseContent[@"user"];
         if (val) {
             IBUser *new = [IBUser objectWithContentsOfDictionary:val];
-            [[AppState sharedAppState].userModel updateUserInfo:new];
+            [PehrSDKConfig.shared.models.userModel updateUserInfo:new];
+            [PehrSDKConfig.shared.state.delegate onUserInfoUpdate];
         }
 
         successBlock();
@@ -96,42 +109,54 @@ __attribute__((unused)) {
 
 - (void)pullUserData:(VoidBlock)successBlock onError:(VoidBlock)errorBlock {
 
-    VoidBlock after = ^() {
-
+    VoidBlock prematureEnd = ^() {
+        MPLOGERROR(@"Terminating pullUserDate : INCOMPLETE");
+        errorBlock();
     };
+
+    SenderBlock consentsSuccess = ^(id sender) {
+        MPLOG(@"Consents pulled from forever : SUCCESS");
+        // here we gat an NSArray of consents
+        PehrSDKConfig.shared.models.consents = [NSArray arrayWithArray:sender];
+        [PehrSDKConfig.shared.state.delegate onConsentsUpdate];
+    };
+    SenderBlock consentsError   = ^(id sender) {
+        MPLOGERROR(@"Consents pulled from forever : FAILED");
+        prematureEnd();
+    };
+
 
     VoidBlock notificationsSuccessBlock = ^() {
         MPLOG(@"Notifications pulled from forever : SUCCESS");
-        after();
+        [PehrSDKConfig.shared.state.delegate onNotificationsModelUpdate];
+        [PehrSDKConfig.shared.ws.consent getConsents:consentsSuccess onError:consentsError];
     };
     VoidBlock notificationsErrorBlock   = ^() {
         MPLOGERROR(@"Notifications pulled from forever : FAILED");
-        after();
+        prematureEnd();
     };
 
     VoidBlock userInfoSuccess = ^() {
-        // todo : is this really needed ?
         MPLOG(@"UserInfo pulled from forever : SUCCESS");
-        [AppState sharedAppState].deviceInfo            = [IBDeviceInfo initFromDevice];
-        [AppState sharedAppState].deviceInfo.deviceGuid = [SecureCredentials sharedCredentials].current.deviceGuid;
-
-        after();
+        [PehrSDKConfig.shared.state.delegate onUserInfoUpdate];
         [PehrSDKConfig.shared.ws.notifications pullForever:notificationsSuccessBlock onError:notificationsErrorBlock];
     };
 
     VoidBlock userInfoError = ^() {
         MPLOGERROR(@"UserInfo pulled from forever : SUCCESS");
-        after();
+        prematureEnd();
     };
-    [PehrSDKConfig.shared.ws.commands getUserInfo:userInfoSuccess onError:userInfoError];
 
-    VoidBlock appInfoSuccess = ^(){
-        [PehrSDKConfig.shared.state.delegate onAppInfoUpdate];
+    VoidBlock appInfoSuccess = ^() {
+        MPLOG(@"AppInfo pulled from forever : SUCCESS");
+        [self getUserInfo:userInfoSuccess onError:userInfoError];
     };
-    VoidBlock appInfoError = ^(){};
+    VoidBlock appInfoError   = ^() {
+        MPLOG(@"AppInfo pulled from forever : FAILED");
+        prematureEnd();
+    };
     [self getAppInfo:appInfoSuccess onError:appInfoError];
 }
-
 
 - (void)dealloc {
     GE_DEALLOC();

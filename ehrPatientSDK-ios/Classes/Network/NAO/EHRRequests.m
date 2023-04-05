@@ -17,26 +17,17 @@
 
 //region app calls
 
-static EHRApiServer    *server;
-static UserCredentials *userCredentials;
-
 + (EHRApiServer *)getServer {
-    if (nil == server) {
-        server = [EHRApiServer serverForStackKey:[PehrSDKConfig  shared].getAppStackKey];
-    }
-    return server;
+   return [EHRApiServer serverForStackKey:[PehrSDKConfig  shared].getAppStackKey];
 }
 
 + (UserCredentials *)getCurrentUserCredentials {
-    if (nil == userCredentials) {
-        userCredentials = [SecureCredentials sharedCredentials].current;
-    }
-    return userCredentials;
+    return [SecureCredentials sharedCredentials].current;
 }
 
 + (EHRServerRequest *)requestWithRoute:(NSString *)route command:(NSString *)command parameters:(NSMutableDictionary *)parameters {
     EHRServerRequest *request = [[EHRServerRequest alloc] init];
-    request.language   =[AppState sharedAppState].deviceLanguage; // todo , remove this from AppState ... should be EHRLib
+    request.language   = PehrSDKConfig .shared.deviceLanguage;
     request.trackingId = [EHRGuid guid];
     request.server     = self.getServer;
     request.appAlias   = PehrSDKConfig.shared.getAppAlias;

@@ -5,7 +5,7 @@
 #import <Foundation/Foundation.h>
 #import "EHRInstanceCounterP.h"
 #import "Conversation.h"
-
+#import "IBConsent.h"
 @class ConvoPlacesModel;
 @class EulaModel;
 @class NotificationsModel;
@@ -15,10 +15,12 @@
 
 }
 
+@property(nonatomic) NSArray <IBConsent *> *_Nonnull consents;
 
 - (ConvoPlacesModel *_Nullable)conversationPlaces;
 - (EulaModel *_Nonnull)eula;
 - (NotificationsModel *_Nonnull)notifications;
 - (UserModel *_Nonnull)userModel;
+- (NSArray <IBConsent *> *_Nonnull)consents;
 
 @end

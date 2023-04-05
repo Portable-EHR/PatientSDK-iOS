@@ -2,23 +2,25 @@
 // Created by Yves Le Borgne on 2023-01-28.
 //
 
+#import <IBConsent.h>
 #import "Models.h"
 #import "ConvoPlacesModel.h"
 #import "EulaModel.h"
 #import "NotificationsModel.h"
 #import "UserModel.h"
+#import "IBConsent.h"
 
 @interface Models () {
-    NSInteger          _instanceNumber;
-    ConvoPlacesModel   *_convoPlaces;
-    EulaModel          *_eula;
-    NotificationsModel *_notifications;
-    UserModel          *_userModel;
+    NSInteger             _instanceNumber;
+    ConvoPlacesModel      *_convoPlaces;
+    EulaModel             *_eula;
+    NotificationsModel    *_notifications;
+    UserModel             *_userModel;
+    NSArray <IBConsent *> *_consents;
 }
 @end
 
 @implementation Models
-
 
 - (ConvoPlacesModel *)conversationPlaces {
     return _convoPlaces;
@@ -36,6 +38,10 @@
     return _userModel;
 }
 
+- (NSArray <IBConsent *> *)consents {
+    return _consents;
+}
+
 TRACE_OFF
 
 - (instancetype)init {
@@ -46,6 +52,7 @@ TRACE_OFF
         _eula          = [[EulaModel alloc] init];
         _notifications = [[NotificationsModel alloc] init];
         _userModel     = [UserModel guest];
+        _consents      = [NSMutableArray array];
 
     } else {
         TRACE(@"*** super returned nil!");

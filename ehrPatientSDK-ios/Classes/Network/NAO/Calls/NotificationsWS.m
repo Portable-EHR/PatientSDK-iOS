@@ -5,6 +5,8 @@
 #import "NotificationsWS.h"
 #import "PatientNotification.h"
 #import "EHRRequests.h"
+#import "PehrSDKConfig.h"
+#import "Models.h"
 
 @interface NotificationsWS () {
     NSInteger _instanceNumber;
@@ -39,7 +41,8 @@ TRACE_ON
 //region WF
 
 - (void)pullSinceDate:(NSDate *)date onSuccess:(VoidBlock)successBlock onError:(VoidBlock)errorBlock {
-    [[AppState sharedAppState].userModel.notificationsModel readFromServerWithSuccess:successBlock andError:errorBlock];
+    PehrSDKConfig *shared = [PehrSDKConfig shared];
+    [PehrSDKConfig.shared.models.notifications  readFromServerWithSuccess:successBlock andError:errorBlock];
 }
 
 - (void)pullForever:(VoidBlock)successBlock onError:(VoidBlock)errorBlock {
