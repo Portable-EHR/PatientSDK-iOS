@@ -42,6 +42,20 @@
     return _consents;
 }
 
+-(IBConsent *)getEulaConsent {
+    for (IBConsent *consent in _consents){
+        if (consent.isEula) return consent;
+    }
+    return nil;
+}
+
+-(IBConsent*) getCCRP {
+    for (IBConsent *consent in _consents){
+        if (consent.isCCRP) return consent;
+    }
+    return nil;
+}
+
 TRACE_OFF
 
 - (instancetype)init {

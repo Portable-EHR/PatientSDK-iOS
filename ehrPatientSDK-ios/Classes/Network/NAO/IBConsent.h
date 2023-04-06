@@ -35,8 +35,10 @@
 @property(nonatomic) IBRenderableText *descriptionText;
 @property(nonatomic) IBConsentGranted *consent;
 @property(nonatomic) BOOL             active;
+@property(nonatomic) BOOL             isEula;
+@property(nonatomic) BOOL             isCCRP;
 
-- (IBConsentGranted *) __unused getGrantedConsent;
+- (IBConsentGranted *)__unused getGrantedConsent;
 
 @end
 

@@ -127,11 +127,13 @@ TRACE_ON
 }
 
 - (void)setDeviceMobileVerified:(BOOL)isIt {
+    self.user.mobileVerified=isIt;
     self.user.deviceMobileVerified = isIt;
     [PehrSDKConfig .shared.state.delegate onUserInfoUpdate];
 }
 
 - (void)setDeviceEmailVerified:(BOOL)isIt {
+    self.user.emailVerified=isIt;
     self.user.deviceEmailVerified = isIt;
     [PehrSDKConfig .shared.state.delegate onUserInfoUpdate];
 }

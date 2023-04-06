@@ -61,7 +61,7 @@
                                    onSuccess:(SenderBlock)successBlock
                                      onError:(SenderBlock)errorBlock {
     NSString *route;
-    NSString *command = @"sendPIN";
+    NSString *command = @"validatePIN";
 
     if (factor == IdentificationFactorEmail) {
         route = @"/app/patient/user/email";
@@ -72,15 +72,12 @@
         errorBlock(nil);
     }
 
-    EHRServerRequest *confirmationRequest = [[EHRServerRequest alloc] init];
-    confirmationRequest.server  = [SecureCredentials sharedCredentials].current.server;
-    confirmationRequest.route   = route;
-    confirmationRequest.command = command;
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"PIN"] = pin;
 
-    // caveat : our user is still not active, so we must call as guest again
-
-    confirmationRequest.apiKey = [SecureCredentials sharedCredentials].current.userApiKey;
-    PutStringInDic(pin, confirmationRequest.parameters, @"PIN");
+    EHRServerRequest *confirmationRequest = [EHRRequests requestWithRoute:route
+                                                                  command:command
+                                                               parameters:params];
 
     EHRCall *confirmationCall =
                     [EHRCall callWithRequest:confirmationRequest
@@ -119,24 +116,24 @@
 - (void)getOfferFor:(OBManualActivationSpec *)spec
           onSuccess:(SenderBlock)successBlock
             onError:(SenderBlock)errorBlock {
-    NSMutableDictionary *params = (NSMutableDictionary *) [spec asDictionary];
-    EHRServerRequest *request = [EHRRequests requestWithRoute:@"/app/user/account"
-                                                      command:@"manual"
-                                                   parameters:params];
+    NSMutableDictionary *params  = (NSMutableDictionary *) [spec asDictionary];
+    EHRServerRequest    *request = [EHRRequests requestWithRoute:@"/app/user/account"
+                                                         command:@"manual"
+                                                      parameters:params];
 
-    SenderBlock offerSuccess = ^(EHRCall *call){
+    SenderBlock offerSuccess = ^(EHRCall *call) {
         MPLOG(@"Get offer : SUCCESS");
         IBScannedOffer *offer = [IBScannedOffer objectWithContentsOfDictionary:call.serverResponse.responseContent];
         successBlock(offer);
     };
 
-    SenderBlock offerFail =     ^(EHRCall *call){
+    SenderBlock offerFail = ^(EHRCall *call) {
         MPLOGERROR(@"Get offer : FAILED");
         errorBlock(call);
     };
-    EHRCall *call = [EHRCall callWithRequest:request
-                                   onSuccess:offerSuccess
-                                     onError:offerFail];
+    EHRCall     *call     = [EHRCall callWithRequest:request
+                                           onSuccess:offerSuccess
+                                             onError:offerFail];
     [call startAsGuest];
 }
 
@@ -189,15 +186,15 @@
     };
 
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"guid"]=offer.scannedCode;
-    params[@"deviceInfo"]= [PehrSDKConfig .shared.state.device asDictionary];
+    params[@"guid"]       = offer.scannedCode;
+    params[@"deviceInfo"] = [PehrSDKConfig.shared.state.device asDictionary];
 
-    EHRServerRequest    *request   = [EHRRequests requestWithRoute:@"/app/user/account"
-                                                           command:@"scan"
-                                                        parameters:params];
-    EHRCall             *claimCall = [EHRCall callWithRequest:request
-                                                    onSuccess:claimSuccess
-                                                      onError:claimError];
+    EHRServerRequest *request   = [EHRRequests requestWithRoute:@"/app/user/account"
+                                                        command:@"scan"
+                                                     parameters:params];
+    EHRCall          *claimCall = [EHRCall callWithRequest:request
+                                                 onSuccess:claimSuccess
+                                                   onError:claimError];
 
     [claimCall startAsGuest];
 
@@ -208,7 +205,6 @@
                            (SenderBlock)successBlock
                      onError:
                              (SenderBlock)errorBlock {
-
 
     VoidBlock pullSuccess = ^() {
         MPLOG(@"Pull user data : SUCCESS");

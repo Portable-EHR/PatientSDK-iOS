@@ -19,6 +19,8 @@
 @synthesize descriptionText = _descriptionText;
 @synthesize consent = _consent;
 @synthesize active = _active;
+@dynamic isEula;
+@dynamic isCCRP;
 TRACE_OFF
 
 - (instancetype)init {
@@ -100,6 +102,16 @@ TRACE_OFF
 - (IBConsentGranted *)getGrantedConsent {
     return _consent;
 }
+
+//region API
+-(BOOL)isEula {
+    return [_consentableElementType isEqualToString:@"eula"];
+}
+
+-(BOOL) isCCRP {
+    return [_consentableElementType isEqualToString:@"research_notifications"];
+}
+//endregion
 
 @end
 

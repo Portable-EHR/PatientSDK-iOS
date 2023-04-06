@@ -23,4 +23,7 @@
 - (UserModel *_Nonnull)userModel;
 - (NSArray <IBConsent *> *_Nonnull)consents;
 
+-(IBConsent* _Nullable) getEulaConsent __unused;
+-(IBConsent* _Nullable) getCCRP __unused;
+
 @end
