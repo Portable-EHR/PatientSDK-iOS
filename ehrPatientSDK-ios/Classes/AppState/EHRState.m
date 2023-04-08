@@ -10,8 +10,6 @@
     IBDeviceInfo                    *_device;
     IBUser                          *_user;
     SecureCredentials               *_secureCredentials;
-    NotificationsModel              *_notifications;
-    NSMutableArray <IBConsent *>    *_consents;
     id <EHRLibStateDelegate> __weak _delegate;
 }
 @end
@@ -28,7 +26,6 @@ TRACE_OFF
         _device            = [IBDeviceInfo initFromDevice];
         _user              = [IBUser guest];
         _secureCredentials = [SecureCredentials sharedCredentials];
-        _notifications     = [[NotificationsModel alloc] init];
     } else {
         TRACE(@"*** super returned nil!");
     }
@@ -40,7 +37,6 @@ TRACE_OFF
     _device            = nil;
     _user              = nil;
     _secureCredentials = nil;
-    _consents          = nil;
     _delegate          = nil;
     GE_DEALLOC();
     GE_DEALLOC_ECHO();

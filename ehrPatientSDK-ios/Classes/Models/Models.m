@@ -9,18 +9,22 @@
 #import "NotificationsModel.h"
 #import "UserModel.h"
 #import "IBConsent.h"
+#import "PehrSDKConfig.h"
+#import "ConsentsModel.h"
 
 @interface Models () {
-    NSInteger             _instanceNumber;
-    ConvoPlacesModel      *_convoPlaces;
-    EulaModel             *_eula;
-    NotificationsModel    *_notifications;
-    UserModel             *_userModel;
-    NSArray <IBConsent *> *_consents;
+    NSInteger          _instanceNumber;
+    ConvoPlacesModel   *_convoPlaces;
+    EulaModel          *_eula;
+    NotificationsModel *_notifications;
+    UserModel          *_userModel;
+    ConsentsModel      *_consentsModel;
 }
 @end
 
 @implementation Models
+
+@synthesize consentsModel = _consentsModel;
 
 - (ConvoPlacesModel *)conversationPlaces {
     return _convoPlaces;
@@ -38,24 +42,6 @@
     return _userModel;
 }
 
-- (NSArray <IBConsent *> *)consents {
-    return _consents;
-}
-
--(IBConsent *)getEulaConsent {
-    for (IBConsent *consent in _consents){
-        if (consent.isEula) return consent;
-    }
-    return nil;
-}
-
--(IBConsent*) getCCRP {
-    for (IBConsent *consent in _consents){
-        if (consent.isCCRP) return consent;
-    }
-    return nil;
-}
-
 TRACE_OFF
 
 - (instancetype)init {
@@ -64,9 +50,9 @@ TRACE_OFF
         GE_ALLOC_ECHO();
         _convoPlaces   = [[ConvoPlacesModel alloc] init];
         _eula          = [[EulaModel alloc] init];
-        _notifications = [[NotificationsModel alloc] init];
+        _notifications = [NotificationsModel instance];
         _userModel     = [UserModel guest];
-        _consents      = [NSMutableArray array];
+        _consentsModel = [ConsentsModel instance];
 
     } else {
         TRACE(@"*** super returned nil!");
@@ -81,6 +67,7 @@ TRACE_OFF
     _eula          = nil;
     _notifications = nil;
     _userModel     = nil;
+    _consentsModel = nil;
 }
 
 @end

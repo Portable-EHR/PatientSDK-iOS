@@ -73,12 +73,7 @@ TRACE_OFF
     if (self) {
 
         GE_ALLOC();
-        _ws             = [[WebServices alloc] init];
-//        _models         = [[Models alloc] init];
-        _deviceLanguage = [[NSLocale preferredLanguages][0] componentsSeparatedByString:@"-"][0];
-        _state          = [[EHRState alloc] init];
-        _models         = [[Models alloc] init];
-
+        GE_ALLOC_ECHO();
     } else {
         TRACE(@"*** super returned nil !");
     }
@@ -89,12 +84,16 @@ TRACE_OFF
 + (PehrSDKConfig *)shared {
 
     static dispatch_once_t once;
-    static PehrSDKConfig   *_Instance;
+    static PehrSDKConfig   *_instance;
     dispatch_once(&once, ^{
-        _Instance = [[PehrSDKConfig alloc] init];
+        _instance = [[PehrSDKConfig alloc] init];
+        _instance-> _ws             = [[WebServices alloc] init];
+        _instance->_deviceLanguage = [[NSLocale preferredLanguages][0] componentsSeparatedByString:@"-"][0];
+        _instance->_state          = [[EHRState alloc] init];
+        _instance->_models         = [[Models alloc] init];
 
     });
-    return _Instance;
+    return _instance;
 
 }
 
@@ -157,6 +156,8 @@ appVersion:(NSString *)appVersion
 
     [self getAppInfo:successBlock onError:errorBlock];
 
+    [delegate onSDKinitialized];
+
     return self;
 }
 
@@ -187,6 +188,8 @@ localIPaddress:(NSString *)address
 
     [GERuntimeConstants setBuildNumber:10]; // todo : figure out this old dependency (from MaxPower Game Engine)
     [self getAppInfo:successBlock onError:errorBlock];
+
+    [delegate onSDKinitialized];
 
     return self;
 }

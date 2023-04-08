@@ -117,8 +117,7 @@ __attribute__((unused)) {
     SenderBlock consentsSuccess = ^(id sender) {
         MPLOG(@"Consents pulled from forever : SUCCESS");
         // here we gat an NSArray of consents
-        PehrSDKConfig.shared.models.consents = [NSArray arrayWithArray:sender];
-        [PehrSDKConfig.shared.state.delegate onConsentsUpdate];
+        [PehrSDKConfig.shared.models.consentsModel populateWithConsents:[NSArray arrayWithArray:sender]];
         successBlock();
     };
     SenderBlock consentsError   = ^(id sender) {
@@ -157,6 +156,21 @@ __attribute__((unused)) {
         prematureEnd();
     };
     [self getAppInfo:appInfoSuccess onError:appInfoError];
+}
+
+-(void)pullConsents:(VoidBlock)successBlock onError:(VoidBlock)errorBlock {
+    SenderBlock consentsSuccess = ^(id sender) {
+        MPLOG(@"Consents pulled from forever : SUCCESS");
+        // here we gat an NSArray of consents
+        [PehrSDKConfig.shared.models.consentsModel populateWithConsents:sender];
+        successBlock();
+    };
+    SenderBlock consentsError   = ^(id sender) {
+        MPLOGERROR(@"Consents pulled from forever : FAILED");
+        errorBlock();
+    };
+
+    [PehrSDKConfig .shared.ws.consent getAllConsents:consentsSuccess onError:consentsError];
 }
 
 - (void)dealloc {

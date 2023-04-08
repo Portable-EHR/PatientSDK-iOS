@@ -124,17 +124,21 @@
 		4B8DD85BDF80C8BE9304609A /* Models.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD8565B9DD59E6A046372 /* Models.m */; };
 		4B8DD870671DA6AED75AAA36 /* EHRLibStateDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD7CAE4B9947169E40D38 /* EHRLibStateDelegate.h */; };
 		4B8DD87E2862EEFFA83F761E /* ConvoPlacesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD1B743CDC34BF24A76AD /* ConvoPlacesModel.m */; };
+		4B8DD937041633B1321F2EF8 /* ConsentsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD1CD14F09F619B7551B5 /* ConsentsModel.m */; };
 		4B8DD9D8F8E9ABD49B794C19 /* OBManualActivationSpec.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD944963C6EF1315BECEC /* OBManualActivationSpec.h */; };
+		4B8DDA82119CB555E4B4EC03 /* ConsentsModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD9DE45CA5CBF3B2A4411 /* ConsentsModel.h */; };
 		4B8DDA988EC52F50D3B7E7A4 /* EntrySharePayload.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DDB6A829A63247F0C64F1 /* EntrySharePayload.h */; };
 		4B8DDAB3DDB21C71DDEF55D9 /* IBScannedOffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DDBE688F0AE80619AEBD3 /* IBScannedOffer.h */; };
 		4B8DDACD1C47A5A4EB97A9D4 /* OBManualActivationSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD4A35B1A595389B8822C /* OBManualActivationSpec.m */; };
 		4B8DDB69844092206DD4B003 /* EntrySharePayload.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DDB6A829A63247F0C64F1 /* EntrySharePayload.h */; };
+		4B8DDBAF4C7F0044483A24BE /* ConsentsModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD9DE45CA5CBF3B2A4411 /* ConsentsModel.h */; };
 		4B8DDBBE8E3DEFB45E4F4DCD /* EHRState.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD85FBFB1A8B3AF738825 /* EHRState.h */; };
 		4B8DDBDBBF74686F7AB711D9 /* EntrySharePayload.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DDF24F5135F5820CAD605 /* EntrySharePayload.m */; };
 		4B8DDC288B2C8B69B4310128 /* ActivationWS.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD2B6F79ABC1D312620D8 /* ActivationWS.h */; };
 		4B8DDC83CB179E0745A2367D /* OBMessageEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD27CD49855FBE152250A /* OBMessageEntry.m */; };
 		4B8DDC8F94C2BBC8B04D29E7 /* IBScannedOffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD56795004DDD6C7A44EA /* IBScannedOffer.m */; };
 		4B8DDCD026E93E34B80B783E /* EHRPatientSDK.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 5E0F52B7ACC867B4A93D9525CD48A60C /* EHRPatientSDK.podspec */; };
+		4B8DDCD26A4B6C449ABF7652 /* ConsentsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD1CD14F09F619B7551B5 /* ConsentsModel.m */; };
 		4B8DDCE9690DC9506E7B7026 /* OBMessageEntryAttachment.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD93E65FA4D5586F055BF /* OBMessageEntryAttachment.h */; };
 		4B8DDD3075D90A4A36840ED9 /* IBScannedOffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DDBE688F0AE80619AEBD3 /* IBScannedOffer.h */; };
 		4B8DDE215F9B0FF42EBFFAD5 /* OBMessageEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD155889060D44914751E /* OBMessageEntry.h */; };
@@ -522,6 +526,7 @@
 		4B8DD101C8B9AB071B08060C /* EHRLibRuntimeGlobals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EHRLibRuntimeGlobals.h; sourceTree = "<group>"; };
 		4B8DD155889060D44914751E /* OBMessageEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OBMessageEntry.h; sourceTree = "<group>"; };
 		4B8DD1B743CDC34BF24A76AD /* ConvoPlacesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConvoPlacesModel.m; sourceTree = "<group>"; };
+		4B8DD1CD14F09F619B7551B5 /* ConsentsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConsentsModel.m; sourceTree = "<group>"; };
 		4B8DD216B4B6997B980EF05D /* ConvoDispensary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConvoDispensary.h; sourceTree = "<group>"; };
 		4B8DD27CD49855FBE152250A /* OBMessageEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OBMessageEntry.m; sourceTree = "<group>"; };
 		4B8DD2B6F79ABC1D312620D8 /* ActivationWS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivationWS.h; sourceTree = "<group>"; };
@@ -535,6 +540,7 @@
 		4B8DD85FBFB1A8B3AF738825 /* EHRState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EHRState.h; sourceTree = "<group>"; };
 		4B8DD93E65FA4D5586F055BF /* OBMessageEntryAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OBMessageEntryAttachment.h; sourceTree = "<group>"; };
 		4B8DD944963C6EF1315BECEC /* OBManualActivationSpec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OBManualActivationSpec.h; sourceTree = "<group>"; };
+		4B8DD9DE45CA5CBF3B2A4411 /* ConsentsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsentsModel.h; sourceTree = "<group>"; };
 		4B8DDB6A829A63247F0C64F1 /* EntrySharePayload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntrySharePayload.h; sourceTree = "<group>"; };
 		4B8DDBE688F0AE80619AEBD3 /* IBScannedOffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBScannedOffer.h; sourceTree = "<group>"; };
 		4B8DDC717C524E4D8EDD97F8 /* EHRUserRegistrationManifest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EHRUserRegistrationManifest.m; sourceTree = "<group>"; };
@@ -1000,6 +1006,8 @@
 				4B8DDF21E10D7DF2E76E2080 /* ConvoPlacesModel.h */,
 				4B8DD8565B9DD59E6A046372 /* Models.m */,
 				4B8DDCE320CA9CAF1A32D947 /* Models.h */,
+				4B8DD1CD14F09F619B7551B5 /* ConsentsModel.m */,
+				4B8DD9DE45CA5CBF3B2A4411 /* ConsentsModel.h */,
 			);
 			name = Models;
 			path = "ehrPatientSDK-ios/Classes/Models";
@@ -1553,6 +1561,7 @@
 				4B8DD7A38AD55B8A7A74B6F3 /* EHRState.h in Headers */,
 				4B8DD9D8F8E9ABD49B794C19 /* OBManualActivationSpec.h in Headers */,
 				4B8DDD3075D90A4A36840ED9 /* IBScannedOffer.h in Headers */,
+				4B8DDA82119CB555E4B4EC03 /* ConsentsModel.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1595,6 +1604,7 @@
 				4B8DDBBE8E3DEFB45E4F4DCD /* EHRState.h in Headers */,
 				4B8DD3576CA35028C54EE955 /* OBManualActivationSpec.h in Headers */,
 				4B8DDAB3DDB21C71DDEF55D9 /* IBScannedOffer.h in Headers */,
+				4B8DDBAF4C7F0044483A24BE /* ConsentsModel.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1845,6 +1855,7 @@
 				4B8DD2C542D7AC3CCCDBAAE0 /* EHRState.m in Sources */,
 				4B8DD27B0D4363BAD67ED7FD /* OBManualActivationSpec.m in Sources */,
 				4B8DD6F964077E313D2B7A70 /* IBScannedOffer.m in Sources */,
+				4B8DD937041633B1321F2EF8 /* ConsentsModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1915,6 +1926,7 @@
 				4B8DD2907EE863C674026265 /* EHRState.m in Sources */,
 				4B8DDACD1C47A5A4EB97A9D4 /* OBManualActivationSpec.m in Sources */,
 				4B8DDC8F94C2BBC8B04D29E7 /* IBScannedOffer.m in Sources */,
+				4B8DDCD26A4B6C449ABF7652 /* ConsentsModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

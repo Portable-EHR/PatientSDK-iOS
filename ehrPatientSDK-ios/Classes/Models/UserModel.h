@@ -18,7 +18,6 @@
     NSInteger           _instanceNumber;
     NSDate              *_lastRefreshed;
     IBUser              *_user;
-    NotificationsModel  *_notificationsModel;
     ServicesModel       *_servicesModel;
     NSMutableDictionary *_patientModels;
     UserDeviceSettings  *_deviceSettings;
@@ -29,7 +28,6 @@
 + (UserModel *)guest;
 + (UserModel *)userModelFor:(IBUser *)user;
 
-@property(nonatomic, readonly) NotificationsModel *notificationsModel;
 @property(nonatomic, readonly) ServicesModel      *servicesModel;
 @property(nonatomic, readonly) NSDictionary       *patientModels;
 @property(nonatomic, readonly) BOOL               isGuest;
@@ -44,13 +42,7 @@
 - (BOOL)hasVisitWithGuid:(NSString *)guid;
 - (BOOL)isUserForPatientWithGuid:(NSString *)guid;
 
-- (BOOL)saveOnDevice;
-- (BOOL)saveOnDevice:(BOOL)cascade;
-- (BOOL)eraseFromDevice:(BOOL)cascade;
 - (void)setDeviceMobileVerified:(BOOL)isIt;
 - (void)setDeviceEmailVerified:(BOOL)isIt;
-+ (UserModel *)readFromDevice:(NSString *)guid cascade:(BOOL)doCascade;
-
-- (void)readNotificationsModelFromDevice;
 
 @end

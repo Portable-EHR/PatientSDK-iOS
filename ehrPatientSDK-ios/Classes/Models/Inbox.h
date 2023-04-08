@@ -4,6 +4,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Models.h"
+#import "PehrSDKConfig.h"
 
 @interface Inbox : NSObject {
 

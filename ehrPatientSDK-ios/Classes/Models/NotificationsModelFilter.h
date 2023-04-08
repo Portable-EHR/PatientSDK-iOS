@@ -6,10 +6,10 @@
 #import <Foundation/Foundation.h>
 #import "EHRPersistableP.h"
 #import "EHRInstanceCounterP.h"
+#import "UserModel.h"
+#import "PatientNotification.h"
+#import "IBUser.h"
 
-@class PatientNotification;
-@class UserModel;
-@class AppState;
 @class IBUser;
 @class IBMessageContent;
 @class IBMessageDistribution;
@@ -47,9 +47,6 @@ typedef NS_ENUM(NSInteger, NotificationFilterType) {
     NotificationFilterType _filterType;
     NSMutableArray         *_sortedKeys;
     NSMutableArray *_patientSelector;
-//    UserModel              *_userModel;
-//    IBUser                   *_user;
-    AppState       *_appState;
 
 }
 

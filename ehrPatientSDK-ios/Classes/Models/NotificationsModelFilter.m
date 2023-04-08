@@ -15,6 +15,8 @@
 #import "IBMessageDistribution.h"
 #import "IBAppointment.h"
 #import "NSDate+Compare.h"
+#import "PehrSDKConfig.h"
+#import "Models.h"
 
 @implementation NotificationsModelFilter
 
@@ -61,7 +63,6 @@ TRACE_OFF
         _sortedKeys                      = [NSMutableArray array];
         _patientSelector                 = [NSMutableArray array];
         _cursorIndex                     = 0;
-        _appState                        = [AppState sharedAppState];
 
         [[NSNotificationCenter defaultCenter]
                 addObserver:self selector:@selector(refreshFilter)
@@ -166,7 +167,7 @@ TRACE_OFF
 - (NSInteger)numberOfUnseen __unused {
     NSInteger     _number = 0;
     for (NSString *key in _sortedKeys) {
-        PatientNotification *not = [AppState sharedAppState].userModel.notificationsModel.allNotifications[key];
+        PatientNotification *not = PehrSDKConfig.shared.models.notifications.allNotifications[key];
         if (not && not.hasUnseenContent) {
             _number++;
             TRACE(@"Notification has unseen content : %@ ", not.seq);
@@ -178,7 +179,7 @@ TRACE_OFF
 - (NSInteger)numberOfActionRequired {
     NSInteger     _number = 0;
     for (NSString *key in _sortedKeys) {
-        PatientNotification *not = [AppState sharedAppState].userModel.notificationsModel.allNotifications[key];
+        PatientNotification *not = PehrSDKConfig.shared.models.notifications.allNotifications[key];
         if (!not) continue;
         if (not.isDeleted) continue;
         if (not.isArchived) continue;
@@ -197,7 +198,7 @@ TRACE_OFF
     NSInteger     _number = 0;
     for (NSString *key in _sortedKeys) {
 
-        PatientNotification *not = [AppState sharedAppState].userModel.notificationsModel.allNotifications[key];
+        PatientNotification *not = PehrSDKConfig.shared.models.notifications.allNotifications[key];
         if (not && !not.isArchived) _number++;
     }
     return _number;
@@ -207,9 +208,9 @@ TRACE_OFF
 
 - (NSInteger)numberOfPrivateMessages {
     NSInteger     _number    = 0;
-    NSDictionary  *allOfThem = [AppState sharedAppState].userModel.notificationsModel.allNotifications;
+    NSDictionary  *allOfThem = PehrSDKConfig.shared.models.notifications.allNotifications;
     for (NSString *key in allOfThem.allKeys) {
-        PatientNotification *not = [AppState sharedAppState].userModel.notificationsModel.allNotifications[key];
+        PatientNotification *not = PehrSDKConfig.shared.models.notifications.allNotifications[key];
         if (not && not.isDeleted) continue;
         if (not && not.isPrivateMessage) _number++;
     }
@@ -223,7 +224,7 @@ TRACE_OFF
 #pragma mark - setters
 
 - (void)setFilterType:(NotificationFilterType)filterType __unused {
-    BOOL change = (filterType != _filterType);
+//    BOOL change = (filterType != _filterType); // todo : evaluate impact
     _filterType = filterType;
     switch (filterType) {
         case NotificationFilterTypeConvoList:
@@ -356,9 +357,9 @@ TRACE_OFF
             _showConvoListNotifications      = NO;
             break;
     }
-    if (change) {
-        [self refreshFilter];
-    }
+//    if (change) {
+//        [self refreshFilter];
+//    }
 }
 
 - (void)setShowInfoNotifications:(BOOL)showInfoNotifications __unused {
@@ -377,14 +378,14 @@ TRACE_OFF
 
 - (void)refreshFilter {
 
-    NSArray *allNotifications = [AppState sharedAppState].userModel.notificationsModel.allNotifications.allValues;
+    NSArray *allNotifications = PehrSDKConfig.shared.models.notifications.allNotifications.allValues;
 
     PatientNotification *oldCursor = [self notificationAtIndex:_cursorIndex];
 
     _cursorIndex = 0;
     [_sortedKeys removeAllObjects];
 
-    if ([AppState sharedAppState].userModel.notificationsModel.allNotifications.count == 0) {
+    if (PehrSDKConfig.shared.models.notifications.allNotifications.count == 0) {
         return;
     }
 
@@ -588,7 +589,7 @@ TRACE_OFF
 }
 
 - (PatientNotification *)notificationAtIndex:(NSUInteger)index {
-    NSDictionary *allNotifications = [AppState sharedAppState].userModel.notificationsModel.allNotifications;
+    NSDictionary *allNotifications = PehrSDKConfig.shared.models.notifications.allNotifications;
 
     if ([allNotifications count] == 0) {
         TRACE(@"*** notification at index [%lu] invoked whene there are NO patientNotification !", (unsigned long) index);
@@ -650,7 +651,7 @@ TRACE_OFF
 - (IBMessageContent *)messageAtCursor:(PatientNotification *)cursor {
     if (!cursor) return nil;
     if (!self->_showMessageNotifications) return nil;
-    PatientNotification *strawman = [_appState.userModel.notificationsModel allNotifications][cursor.seq];
+    PatientNotification *strawman = PehrSDKConfig.shared.models.notifications.allNotifications[cursor.seq];
     if (!strawman) {
         MPLOGERROR(@"*** cursor is not in allNotifications");
     }

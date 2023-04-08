@@ -44,6 +44,18 @@ TRACE_ON
     _notificationsFileFQN = [[GEFileUtil sharedFileUtil] getNotificationsFQN];
 }
 
++ (NotificationsModel * )instance {
+
+    static dispatch_once_t once;
+    static NotificationsModel   *_instance;
+    dispatch_once(&once, ^{
+        _instance = [[NotificationsModel alloc] init];
+
+    });
+    return _instance;
+
+}
+
 - (instancetype)init {
     if ((self = [super init])) {
         GE_ALLOC();

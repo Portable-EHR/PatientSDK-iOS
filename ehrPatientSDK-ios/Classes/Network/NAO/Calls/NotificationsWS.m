@@ -42,7 +42,7 @@ TRACE_ON
 
 - (void)pullSinceDate:(NSDate *)date onSuccess:(VoidBlock)successBlock onError:(VoidBlock)errorBlock {
     PehrSDKConfig *shared = [PehrSDKConfig shared];
-    [PehrSDKConfig.shared.models.notifications  readFromServerWithSuccess:successBlock andError:errorBlock];
+    [shared.models.notifications  readFromServerWithSuccess:successBlock andError:errorBlock];
 }
 
 - (void)pullForever:(VoidBlock)successBlock onError:(VoidBlock)errorBlock {

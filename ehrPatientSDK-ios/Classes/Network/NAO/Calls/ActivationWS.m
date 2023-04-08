@@ -21,10 +21,11 @@
 @implementation ActivationWS
 
 - (void)setFirebaseDeviceToken:(NSString *)token onSuccess:(VoidBlock)successBlock onError:(VoidBlock)errorBlock {
-    if (PehrSDKConfig.shared.state.user.isGuest) {
-        TRACE(@"Cant send a device token for user [guest]");
-        errorBlock();
-    } else if (PehrSDKConfig.shared.state.secureCredentials.current.isGuest) {
+//    if (PehrSDKConfig.shared.state.user.isGuest) {
+//        TRACE(@"Cant send a device token for user [guest]");
+//        errorBlock();
+//    } else
+        if (PehrSDKConfig.shared.state.secureCredentials.current.isGuest) {
         NSLog(@"Cant send a device token for guest secure credentials");
         errorBlock();
     } else {

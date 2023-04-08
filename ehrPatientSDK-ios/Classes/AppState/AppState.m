@@ -158,7 +158,7 @@ static AppState   *_sharedInstance;
 
     TRACE_KILLROY
 
-    NotificationsModel *nm = self.userModel.notificationsModel;
+    NotificationsModel *nm = PehrSDKConfig.shared.models.notifications;
 
     [nm readFromServerWithSuccess:^() {
                 onSuccess();
@@ -271,16 +271,14 @@ static AppState   *_sharedInstance;
 
     VoidBlock fetchNotificationsSuccess = ^{
 
-        if ([self saveOnDevice]) {
-            SecureCredentials *creds = [SecureCredentials sharedCredentials];
-            if (self->_appInfo.eula && ![self->_appInfo.eula.version.description isEqualToString:[SecureCredentials sharedCredentials].current.appEula.eulaVersion.description]) {
-                // eula update from server !
-                creds.current.appEula.eulaVersion   = self->_appInfo.eula.version;
-                creds.current.appEula.eulaGuid      = self->_appInfo.eula.guid;
-                creds.current.appEula.dateSeen      = nil;
-                creds.current.appEula.dateConsented = nil;
-                [creds persist];
-            }
+        SecureCredentials *creds = [SecureCredentials sharedCredentials];
+        if (self->_appInfo.eula && ![self->_appInfo.eula.version.description isEqualToString:[SecureCredentials sharedCredentials].current.appEula.eulaVersion.description]) {
+            // eula update from server !
+            creds.current.appEula.eulaVersion   = self->_appInfo.eula.version;
+            creds.current.appEula.eulaGuid      = self->_appInfo.eula.guid;
+            creds.current.appEula.dateSeen      = nil;
+            creds.current.appEula.dateConsented = nil;
+            [creds persist];
             [self signPreferences];
             onSuccess();
         } else {
@@ -375,7 +373,7 @@ static AppState   *_sharedInstance;
     _userModel = nil;
     _userModel = userModel;
 
-    [_userModel.notificationsModel refreshFilters];
+    [PehrSDKConfig.shared.models.notifications refreshFilters];
 
 }
 
@@ -627,14 +625,14 @@ static AppState   *_sharedInstance;
 
         }
 
-        [self->_userModel.notificationsModel refreshFromServerWithSuccess:^() {
+        [self->_notificationsModel refreshFromServerWithSuccess:^() {
                     TRACE(@"Synchronized notifications model.");
                     _after();
                 }
-                                                                 andError:^() {
-                                                                     MPLOGERROR(@"*** Failed to synchronize notifications model.");
-                                                                     _after();
-                                                                 }
+                                                       andError:^() {
+                                                           MPLOGERROR(@"*** Failed to synchronize notifications model.");
+                                                           _after();
+                                                       }
         ];
     };
 
@@ -662,11 +660,11 @@ static AppState   *_sharedInstance;
         // that is all ok, even when in background (id the app was backgrounded
         // during this method !
 
-        if ([self->_userModel.notificationsModel hasQueuedMessageChanges]) {
-            [self->_userModel.notificationsModel sendStackedMessageChangesOnSuccess:^() {
+        if ([self->_notificationsModel hasQueuedMessageChanges]) {
+            [self->_notificationsModel sendStackedMessageChangesOnSuccess:^() {
                 TRACE(@"Sent stacked message changes, with success.");
                 _afterSendingQueuedMessages();
-            }                                                               onError:^() {
+            }                                                     onError:^() {
                 MPLOGERROR(@"*** Failed to send stacked messages changes, reloading");
                 _afterSendingQueuedMessages();
             }];
@@ -675,13 +673,13 @@ static AppState   *_sharedInstance;
         }
     };
 
-    if ([_userModel.notificationsModel hasQueuedNotificationChanges]) {
-        [_userModel.notificationsModel sendStackedNotificationChangesOnSuccess:^() {
+    if ([_notificationsModel hasQueuedNotificationChanges]) {
+        [_notificationsModel sendStackedNotificationChangesOnSuccess:^() {
             TRACE(@"Sent stacked patientNotification changes, with success.");
             _afterSendingQueuedNotifications();
-        }                                                              onError:^() {
+        }                                                    onError:^() {
             MPLOGERROR(@"*** Failed to send stacked patientNotification changes, reloading");
-            [self->_userModel.notificationsModel reloadFromDevice];
+            [self->_notificationsModel reloadFromDevice];
             _afterSendingQueuedNotifications();
         }];
     } else {
@@ -709,7 +707,7 @@ static AppState   *_sharedInstance;
 
 #pragma mark - initialization stuff
 
-- (void)setNewUser:(IBUser *)newUser onSuccess:(VoidBlock)successBlock onError:(VoidBlock)errorBlock {
+- (void)setNewUser:(IBUser *)newUser onSuccess:(VoidBlock)successBlock onError:(VoidBlock)errorBlock { // todo : this is a job for SDK, not AppState
     TRACE_KILLROY
     MPLOG(@"Invoked with user %@", newUser.guid);
     if (!successBlock || !errorBlock) {
@@ -739,11 +737,10 @@ static AppState   *_sharedInstance;
 
         UserModel *model = [UserModel userModelFor:newUser];
         [_sharedInstance setUserModel:model];
-        [_sharedInstance.userModel.notificationsModel setPatientNotificationsFilter:_sharedInstance.userModel.deviceSettings.patientNotificationsFilter];
-        [_sharedInstance.userModel.notificationsModel setAlertNotificationsFilter:_sharedInstance.userModel.deviceSettings.alertNotificationsFilter];
-        [_sharedInstance.userModel.notificationsModel setInfoNotificationsFilter:_sharedInstance.userModel.deviceSettings.infoNotificationsFilter];
-        [_sharedInstance.userModel.notificationsModel setPrivateMessageNotificationsFilter:_sharedInstance.userModel.deviceSettings.telexNotificationsFilter];
-        [_sharedInstance saveOnDevice];
+        [_sharedInstance.notificationsModel setPatientNotificationsFilter:_sharedInstance.userModel.deviceSettings.patientNotificationsFilter];
+        [_sharedInstance.notificationsModel setAlertNotificationsFilter:_sharedInstance.userModel.deviceSettings.alertNotificationsFilter];
+        [_sharedInstance.notificationsModel setInfoNotificationsFilter:_sharedInstance.userModel.deviceSettings.infoNotificationsFilter];
+        [_sharedInstance.notificationsModel setPrivateMessageNotificationsFilter:_sharedInstance.userModel.deviceSettings.telexNotificationsFilter];
 
         // invoke succes block
 
@@ -753,6 +750,7 @@ static AppState   *_sharedInstance;
 
     }
 }
+
 
 - (void)resetDeviceWithSuccess:(SenderBlock)onSuccess
                       andError:
@@ -790,92 +788,9 @@ static AppState   *_sharedInstance;
 
 #pragma mark - Persistence stuff
 
-+ (BOOL)existsOnDevice {
-    return [[GEFileUtil sharedFileUtil] fileExists:_appStateFile];
-}
-
-- (BOOL)existsOnDevice {
-    return [AppState existsOnDevice];
-}
-
-- (void)readModelsFromDevice {
-
-    @try {
-
-        TRACE(@"Reading user model ...");
-        UserModel *um = [UserModel readFromDevice:[SecureCredentials sharedCredentials].current.userGuid cascade:NO];
-
-        if (!um) {
-            // todo : major device cleanup required here .... yuck
-            MPLOGERROR(@"*** Corrupt user model found on device !");
-        } else {
-            [self setUserModel:um];
-            [um readNotificationsModelFromDevice];
-
-            _servicesModel = [ServicesModel readFromDevice];
-            if (!_servicesModel) {
-                MPLOGERROR(@"Empty/inexistant service model when starting, initializing now");
-                _servicesModel = [[ServicesModel alloc] init];
-                [_servicesModel saveOnDevice];
-            }
-
-            _eulaModel = [EulaModel readFromDevice];
-            if (!_eulaModel) {
-                MPLOGERROR(@"Empty/inexistant eula model when starting, initializing now");
-                _eulaModel = [[EulaModel alloc] init];
-                [_eulaModel saveOnDevice];
-            }
-
-        }
-    } @catch (NSException *e) {
-        MPLOGERROR(@"*** an exception [%@] occured while reading from device.\n%@\n\n%@",
-                e.debugDescription,
-                e.callStackSymbols,
-                e.callStackReturnAddresses);
-    }
-}
-
-- (BOOL)saveOnDevice {
-
-    return YES;
-
-//    TRACE(@"Writing app state ...");
-//
-//    NSDictionary *asAsDic = [_sharedInstance asDictionary];
-//    BOOL         success  = [asAsDic writeToFile:_appStateFile atomically:YES];
-//
-//    if (success) {
-//        TRACE(@"Writing user model");
-//        success = [_userModel saveOnDevice:YES];
-//        if (success) {
-//            TRACE(@"Writing serviceGuids model");
-//            success = [_servicesModel saveOnDevice];
-//            if (success) {
-//                TRACE(@"Writing eulaModel");
-//                success = [_eulaModel saveOnDevice];
-//                if (!success) {
-//                    MPLOGERROR(@"*** Unknown error while witing eula model.");
-//                }
-//            } else {
-//                MPLOGERROR(@"*** Unknown error while witing serviceGuids model.");
-//            }
-//        } else {
-//            MPLOGERROR(@"*** Unknown error while witing user model.");
-//        }
-//
-//    } else {
-//        MPLOGERROR(@"*** Unknown error while writing appState file [%@]", _appStateFile);
-//    }
-//    return success;
-}
-
 - (BOOL)doReset {
 
     // cleanup entirely the device
-
-    if (![self eraseFromDevice]) {
-        return NO;
-    }
 
     _deviceInfo = nil;
     [self setUserModel:[UserModel userModelFor:[IBUser guest]]];
@@ -890,11 +805,6 @@ static AppState   *_sharedInstance;
     self.appInfo         = [[IBAppInfo alloc] init];
     self->_servicesModel = [[ServicesModel alloc] init];
     self->_eulaModel     = [[EulaModel alloc] init];
-    return [self saveOnDevice];
-}
-
-- (BOOL)eraseFromDevice {
-
     return YES;
 }
 
@@ -931,15 +841,22 @@ static AppState   *_sharedInstance;
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kNotificationsModelRefreshNotification object:nil];
     _server = nil;
     [_userModel pause];
-    _userModel     = nil;
-    _patientModel  = nil;
-    _patient       = nil;
-    _authSequencer = nil;
+    _userModel          = nil;
+    _patientModel       = nil;
+    _patient            = nil;
+    _authSequencer      = nil;
+    _notificationsModel = nil;
 }
 
 
 //region EHRLibStateDelegate
 
+- (void)onSDKinitialized {
+    MPLOG(@"Will initialize self references to SDK entities");
+    self.userModel          = PehrSDKConfig.shared.models.userModel;
+    self.notificationsModel = PehrSDKConfig.shared.models.notifications;
+
+}
 
 - (void)onDeviceInitialized {
     MPLOG(@"onDeviceInitialized");
@@ -967,7 +884,7 @@ static AppState   *_sharedInstance;
 
 - (void)onConsentsUpdate {
     MPLOG(@"onConsentsUpdate");
-    [self setConsents:PehrSDKConfig.shared.models.consents];
+    [self setConsents:PehrSDKConfig.shared.models.consentsModel.allConsents];
 }
 
 //endregion

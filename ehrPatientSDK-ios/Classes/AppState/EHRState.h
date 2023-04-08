@@ -19,8 +19,6 @@
 @property(nonatomic) IBDeviceInfo                   *device;
 @property(nonatomic) IBUser                         *user;
 @property(nonatomic) SecureCredentials              *secureCredentials;
-@property(nonatomic) NSMutableArray <IBConsent *>   *consents;
-@property(nonatomic) NotificationsModel             *notificationsModel;
 @property(nonatomic, weak) id <EHRLibStateDelegate> delegate;
 - (void)setDelegate:(id <EHRLibStateDelegate>)delegate;
 

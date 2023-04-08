@@ -47,6 +47,8 @@
     EHRState *_state;
 }
 
+- (id)init ; //  NS_UNAVAILABLE  __attribute__((unavailable("init not available")));
+
 + (PehrSDKConfig *)shared;
 
 @property(nonatomic, readonly) NSString *deviceLanguage;
@@ -65,9 +67,7 @@
                     onError:(VoidBlock)errorBlock;
 - (void)stopWithCompletion:(VoidBlock)successBlock
                    onError:(VoidBlock)errorBlock;
-- (void)registerUser:(EHRUserRegistrationManifest *)manifest
-           onSuccess:(VoidBlock)successBlock
-             onError:(VoidBlock)errorBlock;
+
 - (void)deregisterUserWithCompletion:(VoidBlock)successBlock
                              onError:(VoidBlock)errorBlock;
 

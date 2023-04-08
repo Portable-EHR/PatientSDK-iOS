@@ -20,7 +20,6 @@ static NSString   *_usersDirectory;
 static GEFileUtil *_fileUtils;
 
 @synthesize user = _user;
-@synthesize notificationsModel = _notificationsModel;
 @synthesize servicesModel = _servicesModel;
 @synthesize patientModels = _patientModels;
 @synthesize deviceSettings = _deviceSettings;
@@ -39,7 +38,6 @@ TRACE_ON
         GE_ALLOC();
         GE_ALLOC_ECHO();
         _lastRefreshed      = [NSDate dateWithTimeIntervalSince1970:0];
-        _notificationsModel = [[NotificationsModel alloc] init];
         _servicesModel      = [[ServicesModel alloc] init];
         _patientModels      = [NSMutableDictionary dictionary];
         _deviceSettings     = [[UserDeviceSettings alloc] init];
@@ -243,51 +241,9 @@ TRACE_ON
     NSDictionary *dic      = [NSDictionary dictionaryWithContentsOfFile:fileName];
     UserModel    *um       = [self objectWithContentsOfDictionary:dic];
 
-    if (doCascade) {
-        um->_notificationsModel = [NotificationsModel readFromDevice];
-        if (um.user.patient) {
-            PatientModel *pm = [PatientModel patientModelFor:um.user.patient];
-            [pm readFromDevice:doCascade];
-            [um->_patientModels setObject:pm forKey:um.user.patient.guid];
-        }
 
-        if (um.user.proxies.count > 0) {
-            for (Patient *pa in [um.user.proxies allValues]) {
-                PatientModel *pm = [PatientModel patientModelFor:pa];
-                [pm readFromDevice:doCascade];
-                [um->_patientModels setObject:pm forKey:pa.guid];
-            }
-        }
-
-        if (um.user.visits.count > 0) {
-            for (Patient *pa in [um.user.proxies allValues]) {
-                PatientModel *pm = [PatientModel patientModelFor:pa];
-                [pm readFromDevice:doCascade];
-                [um->_patientModels setObject:pm forKey:pa.guid];
-            }
-        }
-
-    }
 
     return um;
-}
-
-- (void)readNotificationsModelFromDevice {
-    self->_notificationsModel = [NotificationsModel readFromDevice];
-    [_notificationsModel refreshFilters];
-}
-
-- (BOOL)eraseFromDevice:(BOOL)cascade {
-    if (cascade) {
-        [self.notificationsModel eraseFromDevice:NO]; // dont propagate, we will do brutal delete below
-        self->_notificationsModel = [[NotificationsModel alloc] init];
-        [self->_patientModels removeAllObjects];
-        [[GEFileUtil sharedFileUtil] eraseItemWithFQN:[[GEFileUtil sharedFileUtil] getUserResourcesPath]];
-        [[GEFileUtil sharedFileUtil] eraseItemWithFQN:[[GEFileUtil sharedFileUtil] getUserPatientsPath]];
-    }
-    // clanout patients
-
-    return [[GEFileUtil sharedFileUtil] eraseItemWithFQN:_usersDirectory];
 }
 
 - (void)updateUserInfo:(IBUser *)newInfo {
@@ -359,7 +315,6 @@ TRACE_ON
 
     _deviceSettings     = nil;
     _user               = nil;
-    _notificationsModel = nil;
     _lastRefreshed      = nil;
     [_patientModels removeAllObjects];
     _patientModels = nil;

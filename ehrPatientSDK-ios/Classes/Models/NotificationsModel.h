@@ -69,6 +69,9 @@
 @property(nonatomic, readonly) NotificationsModelFilter *alertNotificationFilter;
 @property(nonatomic, getter=isRefreshEnabled) BOOL      refreshEnabled;
 
+- (id)init  NS_UNAVAILABLE  __attribute__((unavailable("init not available")));
++(NotificationsModel *) instance;
+
 - (void)setRefreshEnabled:(BOOL)isit;
 
 - (BOOL)saveOnDevice;

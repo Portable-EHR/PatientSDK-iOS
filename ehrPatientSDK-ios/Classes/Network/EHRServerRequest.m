@@ -8,12 +8,12 @@
 
 #import "EHRServerRequest.h"
 #import "EHRApiServer.h"
-#import "AppState.h"
 #import "EHRGuid.h"
 #import "IBDeviceInfo.h"
 #import "SecureCredentials.h"
 #import "UserCredentials.h"
 #import "Version.h"
+#import "PehrSDKConfig.h"
 
 @implementation EHRServerRequest
 
@@ -26,14 +26,14 @@ TRACE_OFF
         self.server     = [SecureCredentials sharedCredentials].current.server;
         self.command    = @"pingManualCall";
         self.apiKey     = @"patient01ApiKey";
-        self.language   = [AppState sharedAppState].deviceLanguage;
+        self.language   = PehrSDKConfig.shared.deviceLanguage;
         self.route      = @"/app/commands";
         self.trackingId = [EHRGuid guid];
         self.parameters = [NSMutableDictionary dictionary];
         self.deviceGuid = [SecureCredentials sharedCredentials].current.deviceGuid;
-        self.appAlias   = kAppAlias;
-        self.appVersion = kAppVersion;
-        self.appGuid    = kAppGuid;
+        self.appAlias   = [PehrSDKConfig.shared getAppAlias];
+        self.appVersion = [PehrSDKConfig.shared getAppVersion];
+        self.appGuid    = [PehrSDKConfig.shared getAppGuid];
     } else {
         MPLOG(@"*** Yelp ! super returned nil");
     }
@@ -48,12 +48,12 @@ TRACE_OFF
 
 - (NSDictionary *)asDictionary {
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-    [dic setObject:self.language forKey:@"language"];
-    [dic setObject:self.apiKey forKey:@"apiKey"];
-    [dic setObject:self.command forKey:@"command"];
-    [dic setObject:self.route forKey:@"route"];
-    [dic setObject:self.parameters forKey:@"parameters"];
-    [dic setObject:self.trackingId forKey:@"trackingId"];
+    dic[@"language"]   = self.language;
+    dic[@"apiKey"]     = self.apiKey;
+    dic[@"command"]    = self.command;
+    dic[@"route"]      = self.route;
+    dic[@"parameters"] = self.parameters;
+    dic[@"trackingId"] = self.trackingId;
     PutStringInDic(self.deviceGuid, dic, @"deviceGuid");
     PutStringInDic(self.appAlias, dic, @"appAlias");
     PutStringInDic(self.appGuid, dic, @"appGuid");
@@ -61,20 +61,20 @@ TRACE_OFF
     return dic;
 }
 
-- (void)setParametersWithJSONstring:(NSString *)json {
+- (void)setParametersWithJSONstring:(NSString *)json __unused {
     NSDictionary *dic = [NSDictionary dictionaryWithJSON:json];
     self.parameters = [NSMutableDictionary dictionaryWithDictionary:dic];
 
 }
 
 - (NSString *)asJSON {
-    NSError *writeError = nil;
-    NSData *jsonData;
+    NSError  *writeError = nil;
+    NSData   *jsonData;
     NSString *jsonString;
     if (@available(iOS 13.0, *)) {
-        jsonData   = [NSJSONSerialization dataWithJSONObject:[self asDictionary]
-                                                              options:NSJSONWritingPrettyPrinted + NSJSONWritingWithoutEscapingSlashes
-                                                                error:&writeError];
+        jsonData = [NSJSONSerialization dataWithJSONObject:[self asDictionary]
+                                                   options:NSJSONWritingPrettyPrinted + NSJSONWritingWithoutEscapingSlashes
+                                                     error:&writeError];
         if (writeError) {
             TRACE(@"Write error : %@", [writeError description]);
         }
@@ -82,15 +82,14 @@ TRACE_OFF
     } else {
         // Fallback on earlier versions
         jsonData   = [NSJSONSerialization dataWithJSONObject:[self asDictionary]
-                                                              options:NSJSONWritingPrettyPrinted
-                                                           error:&writeError];
+                                                     options:NSJSONWritingPrettyPrinted
+                                                       error:&writeError];
         jsonString = [[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding] stringByRemovingPercentEncoding];
     }
     if (writeError) {
         TRACE(@"Write error : %@", [writeError description]);
     }
-    
-    
+
     return jsonString;
 }
 

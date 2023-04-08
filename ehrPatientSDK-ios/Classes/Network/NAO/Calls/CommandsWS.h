@@ -32,6 +32,7 @@ __attribute__((unused));
 -(void) getAppInfo:(VoidBlock)successBlock onError:(VoidBlock) errorBlock;
 -(void) getUserInfo:(VoidBlock) successBlock onError:(VoidBlock) errorBlock;
 -(void) pullUserData:(VoidBlock) successBlock onError:(VoidBlock) errorBlock;
+-(void) pullConsents:(VoidBlock) successBlock onError:(VoidBlock) errorBlock;
 -(void) refreshNotifications:(VoidBlock) successBlock onError:(VoidBlock) errorBlock;
 
 @end

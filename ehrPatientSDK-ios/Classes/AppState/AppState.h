@@ -12,7 +12,7 @@
 #import "UserModel.h"
 #import "IBUser.h"
 #import "Patient.h"
-
+#import "Models.h"
 
 @class EHRApiServer;
 @class IBDeviceInfo;
@@ -27,28 +27,29 @@
 
 @interface AppState : NSObject <EHRPersistableP, EHRLibStateDelegate> {
 
-    NSInteger            _instanceNumber;
-    NSInteger            _appBadgeNumber;
-    NSInteger            _appBadgeNumberAtStart;
-    UserModel            *_userModel;
-    ServicesModel        *_servicesModel;
-    PatientModel         *_patientModel;
-    EulaModel            *_eulaModel;
-    Patient              *_patient;
-    NSString             *_deviceLanguage;
-    SenderBlock          _resetDeviceSuccess,
-                         _resetDeviceError,
-                         _initializeUserSuccessBlock,
-                         _initializeUserErrorBlock;
-    VoidBlock            _setUserSuccess,
-                         _setUserError;
-    EHRApiServer         *_server;
-    BOOL                 _isForegroundRefreshActivated, _isBackgroundRefreshActivated, _isInBackground, _isDoingOneRefresh;
-    NSTimer              *_autoRefreshTimer;
-    VoidBlock            _refreshCompletionBlock;
-    BOOL                 _isServerReachable;
-    BOOL                 _isPrivacyCompromised;
-    AuthSequencer        *_authSequencer;
+    NSInteger          _instanceNumber;
+    NSInteger          _appBadgeNumber;
+    NSInteger          _appBadgeNumberAtStart;
+    UserModel          *_userModel;
+    NotificationsModel *_notificationsModel;
+    ServicesModel      *_servicesModel;
+    PatientModel       *_patientModel;
+    EulaModel          *_eulaModel;
+    Patient            *_patient;
+    NSString           *_deviceLanguage;
+    SenderBlock        _resetDeviceSuccess,
+                       _resetDeviceError,
+                       _initializeUserSuccessBlock,
+                       _initializeUserErrorBlock;
+    VoidBlock          _setUserSuccess,
+                       _setUserError;
+    EHRApiServer       *_server;
+    BOOL               _isForegroundRefreshActivated, _isBackgroundRefreshActivated, _isInBackground, _isDoingOneRefresh;
+    NSTimer            *_autoRefreshTimer;
+    VoidBlock          _refreshCompletionBlock;
+    BOOL               _isServerReachable;
+    BOOL               _isPrivacyCompromised;
+    AuthSequencer      *_authSequencer;
 
 }
 
@@ -57,6 +58,7 @@
 @property(nonatomic) NSInteger                  appBadgeNumber;
 @property(nonatomic) NSInteger                  appBadgeNumberAtStart;
 @property(nonatomic, readonly) UserModel        *userModel;
+@property(nonatomic) NotificationsModel         *notificationsModel;
 @property(nonatomic, readonly) ServicesModel    *servicesModel;
 @property(nonatomic, readonly) EulaModel        *eulaModel;
 @property(nonatomic, readonly) IBUser           *user;
@@ -114,7 +116,5 @@
 
 - (void)setApplicationIconBadgeNumber:(NSInteger)number;
 - (void)resetApplicationBadgeNumber;
-
-- (BOOL)saveOnDevice;
 
 @end
