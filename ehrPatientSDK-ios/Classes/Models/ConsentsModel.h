@@ -21,6 +21,6 @@
 - (IBConsent *_Nullable)getEula;
 - (IBConsent *_Nullable)getCCRP;
 
-- (void)populateWithConsents:(NSArray<IBConsent *> *)pulledConsents;
+- (void)populateWithConsents:(NSArray<IBConsent *> * _Nonnull)pulledConsents;
 
 @end

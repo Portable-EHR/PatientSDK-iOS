@@ -72,14 +72,13 @@ __attribute__((unused)) {
 
 }
 
--(void) refreshNotifications:(VoidBlock) successBlock onError:(VoidBlock) errorBlock{
-    VoidBlock sdkSuccess = ^(){
+- (void)refreshNotifications:(VoidBlock)successBlock onError:(VoidBlock)errorBlock {
+    VoidBlock sdkSuccess = ^() {
         [PehrSDKConfig.shared.state.delegate onNotificationsModelUpdate];
         successBlock();
     };
     [PehrSDKConfig.shared.models.notifications refreshFromServerWithSuccess:sdkSuccess andError:errorBlock];
 }
-
 
 - (void)getUserInfo:(VoidBlock)successBlock onError:(VoidBlock)errorBlock {
     SenderBlock callSuccess = ^(EHRCall *theCall) {
@@ -125,7 +124,6 @@ __attribute__((unused)) {
         prematureEnd();
     };
 
-
     VoidBlock notificationsSuccessBlock = ^() {
         MPLOG(@"Notifications pulled from forever : SUCCESS");
         [PehrSDKConfig.shared.state.delegate onNotificationsModelUpdate];
@@ -158,7 +156,8 @@ __attribute__((unused)) {
     [self getAppInfo:appInfoSuccess onError:appInfoError];
 }
 
--(void)pullConsents:(VoidBlock)successBlock onError:(VoidBlock)errorBlock {
+- (void)pullConsents:(VoidBlock)successBlock onError:(VoidBlock)errorBlock {
+
     SenderBlock consentsSuccess = ^(id sender) {
         MPLOG(@"Consents pulled from forever : SUCCESS");
         // here we gat an NSArray of consents
@@ -169,8 +168,9 @@ __attribute__((unused)) {
         MPLOGERROR(@"Consents pulled from forever : FAILED");
         errorBlock();
     };
+    [PehrSDKConfig.shared.ws.consent getConsents:consentsSuccess onError:consentsError];
 
-    [PehrSDKConfig .shared.ws.consent getAllConsents:consentsSuccess onError:consentsError];
+
 }
 
 - (void)dealloc {
