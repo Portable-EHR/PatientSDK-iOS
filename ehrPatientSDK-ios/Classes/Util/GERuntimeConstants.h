@@ -41,8 +41,7 @@ typedef enum CCScreenMode : NSUInteger {
 //		  the same look.
 
 
-extern NSString *kSystemVersion;
-
+extern NSString            *kSystemVersion;
 extern NSMutableDictionary *kHostNames;
 extern NSString            *kStackKey;
 extern NSString            *kHostName;
@@ -62,10 +61,9 @@ extern NSString *kServerMaintenance;                // for StartViewController, 
 extern NSString *kAppMustUpdate;                    // for StartViewController, posted by EHRCall
 extern NSString *kAppWillResumeForeground;
 
-extern NSString  *kAppAlias;
-extern NSString  *kAppGuid;
-extern Version   *kAppVersion;
-extern NSInteger kBuildNumber;
+extern NSString *kAppAlias;
+extern NSString *kAppGuid;
+extern Version  *kAppVersion;
 
 // network parameters
 
@@ -85,7 +83,6 @@ extern float     kNetworkBackgroundRefreshInSecs;
 + (void)setLocalIPaddress:(NSString *)address;
 + (void)setAppGuid:(NSString *)appGuid;
 + (void)setAppVersion:(NSString *)appVersionAsString;
-+ (void)setBuildNumber:(NSInteger)buildNumber;
 + (void)setStackKey:(NSString *)key;
 + (NSString *)getHostNameForStackKey:(NSString *)key;
 + (NSString *)getStackKeyForHostName:(NSString *)hostName;
@@ -127,7 +124,6 @@ extern void Carp(NSException *e, NSString *message);
 extern unsigned long get_memory_bytes(void);
 extern float get_memory_kb(void);
 extern float get_memory_mb(void);
-
 
 @end
 

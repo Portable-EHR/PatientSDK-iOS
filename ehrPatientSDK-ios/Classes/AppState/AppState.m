@@ -396,7 +396,7 @@ static AppState   *_sharedInstance;
 
     AppSignature *as = [[AppSignature alloc] init];
     as.installedOn = [NSDate date];
-    as.buildNumber = kBuildNumber;
+    as.buildNumber = (NSInteger)  [[NSBundle mainBundle] infoDictionary][(NSString *) kCFBundleVersionKey]; // todo : evaluate impace of switching to string (on running patient apps)
     NSDictionary *asAsDic = [as asDictionary];
     [[NSUserDefaults standardUserDefaults] setObject:asAsDic forKey:@"signature"];
     [[NSUserDefaults standardUserDefaults] synchronize];

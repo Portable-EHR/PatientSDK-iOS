@@ -33,7 +33,6 @@ NSMutableDictionary *kHostNames;
 NSString            *kHostName                              = @"portableehr.dev";
 NSString            *kStackKey                              = @"CA.dev";
 NSString            *kLocalIPAddress                        = @"127.0.0.1";
-NSInteger           kBuildNumber                            = 10;
 
 
 // network stuff
@@ -71,16 +70,8 @@ NSString *remainingClassInstances(NSString *theClass);
 static __strong NSMutableArray *allocatedClasses;
 
 + (void)initialize {
-
-    MPLOG(@"Initializing Run time constants %@", NSStringFromBool(YES));
     kSystemVersion = NormalizedVersionString([[UIDevice currentDevice] systemVersion]);
-    MPLOG(@"Running iOS version : %@", kSystemVersion);
-    MPLOG(@"Running on          : %@", [GEDeviceHardware platformString]);
-    CGSize sz = [UIScreen mainScreen].bounds.size;
-    MPLOG(@"Screen dimensions   : %@", NSStringFromCGSize(sz));
-    MPLOG(@"App alias           : %@", kAppAlias);
-    MPLOG(@"App version         : %@", [kAppVersion toString]);
-    MPLOG(@"App build number    : %lu", (long) kBuildNumber);
+
     allocatedClasses = [NSMutableArray array];
     _isDeviceTypeSet = NO;
 
@@ -168,10 +159,6 @@ static __strong NSMutableArray *allocatedClasses;
     kAppVersion = [Version versionWithString:appVersionAsString];
 }
 
-+ (void)setBuildNumber:(NSInteger)buildNumber {
-    kBuildNumber = buildNumber;
-}
-
 + (NSArray *)allocatedClasses __unused {
 
     return allocatedClasses;
@@ -246,7 +233,6 @@ NSString *remainingClassInstances(NSString *theClass) {
 
 }
 
-
 NSString *NormalizedVersionString(NSString *versionString) {
 
     int
@@ -264,7 +250,6 @@ NSString *NormalizedVersionString(NSString *versionString) {
     return [NSString stringWithFormat:@"%02i%02i%02i", maj, min, subMin];
 
 }
-
 
 #pragma clang diagnostic push
 #pragma ide diagnostic ignored "UnavailableInDeploymentTarget"
@@ -289,7 +274,7 @@ void openScheme(NSString *scheme) {
 
 //region Persistence helpers
 
-NSDate *WantDateFromDic(NSDictionary *dic, NSString *key)  {
+NSDate *WantDateFromDic(NSDictionary *dic, NSString *key) {
     if (!key) return nil;
     id     val;
     NSDate *date = nil;

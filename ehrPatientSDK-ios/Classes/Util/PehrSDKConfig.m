@@ -152,11 +152,11 @@ appVersion:(NSString *)appVersion
     [GERuntimeConstants setAppAlias:appAlias];
     [GERuntimeConstants setAppVersion:appVersion];
     [GERuntimeConstants setStackKey:stackKey];
-    [GERuntimeConstants setBuildNumber:10]; // todo : figure out this old dependency (from MaxPower Game Engine)
 
     [self getAppInfo:successBlock onError:errorBlock];
 
     [delegate onSDKinitialized];
+    [self echoOnInitialize];
 
     return self;
 }
@@ -186,10 +186,11 @@ localIPaddress:(NSString *)address
     [[SecureCredentials sharedCredentials] setupServer];
     [[SecureCredentials sharedCredentials] persist];
 
-    [GERuntimeConstants setBuildNumber:10]; // todo : figure out this old dependency (from MaxPower Game Engine)
     [self getAppInfo:successBlock onError:errorBlock];
 
     [delegate onSDKinitialized];
+
+    [self echoOnInitialize];
 
     return self;
 }
@@ -211,6 +212,17 @@ localIPaddress:(NSString *)address
     EHRCall *aic = [self.ws.commands getAppInfoCallWithSuccessBlock:aisb onError:aieb];
     [aic startAsGuest];
 
+}
+-(void) echoOnInitialize {
+    CGSize sz = [UIScreen mainScreen].bounds.size;
+
+    MPLOG(@"Initializing Run time constants %@", NSStringFromBool(YES));
+    MPLOG(@"Running iOS version : %@", kSystemVersion);
+    MPLOG(@"Running on          : %@", [GEDeviceHardware platformString]);
+    MPLOG(@"Screen dimensions   : %@", NSStringFromCGSize(sz));
+    MPLOG(@"App alias           : %@", kAppAlias);
+    MPLOG(@"App version         : %@", [kAppVersion toString]);
+    MPLOG(@"App build number    : %@", [[NSBundle mainBundle] infoDictionary][(NSString *) kCFBundleVersionKey]);
 }
 
 @end

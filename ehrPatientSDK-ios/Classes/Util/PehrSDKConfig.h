@@ -9,6 +9,7 @@
 #define EHRLib_PehrSDKConfig_h
 
 #import <Foundation/Foundation.h>
+#import "GEDeviceHardware.h"
 
 //typedef void(^VoidBlock)(void);
 //typedef void(^SenderBlock)(id call);
