@@ -145,6 +145,7 @@
 #import "EntrySharePayload.h"
 #import "EntryStatusChangePayload.h"
 #import "EHRUserRegistrationManifest.h"
+#import ConvoEntryBundle.h
 
 
 

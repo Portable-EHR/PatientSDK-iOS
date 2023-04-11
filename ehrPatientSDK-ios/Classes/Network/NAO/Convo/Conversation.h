@@ -35,6 +35,9 @@
 - (ConversationParticipant *)partipantForEntry:(ConversationEntry *)entry __attribute__((unused));
 - (ConversationParticipant *)myself __attribute__((unused));
 - (void)addEntry:(ConversationEntry *)entry;
+- (BOOL)updateWithConversation:(Conversation *)newConversation;
+
+
 @property(nonatomic, readonly) NSMutableDictionary *indexedParticipants;
 @property(nonatomic, readonly) NSMutableDictionary *indexedEntries;
 @property(nonatomic) NSString                      *staffTitle;

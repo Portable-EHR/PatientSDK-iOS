@@ -95,7 +95,7 @@ TRACE_OFF
     [self sortAndIndexEntries];
 }
 
--(void) sortAndIndexEntries {
+- (void)sortAndIndexEntries {
     NSMutableArray *entryesyes = [NSMutableArray arrayWithArray:_entries];
 
     NSSortDescriptor *sortDescriptor;
@@ -109,6 +109,7 @@ TRACE_OFF
         _indexedEntries[entry.id] = entry;
     }
 }
+
 - (NSDictionary *)asDictionary {
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
 
@@ -133,7 +134,6 @@ TRACE_OFF
         }
     }
     dic[@"entries"] = entryes;
-
     return dic;
 }
 
@@ -157,23 +157,83 @@ TRACE_OFF
 
 //endregion
 
--(BOOL)hasMoreEntries {
+- (BOOL)updateWithConversation:(Conversation *)other {
+
+    if (![other.id isEqualToString:self.id]) {
+        MPLOGERROR(@"**************************************************************************");
+        MPLOGERROR(@"***** Attempt to update convo [%@] with other convo data ******", self.id);
+        MPLOGERROR(@"**************************************************************************");
+        return NO;
+    }
+
+
+    // get participants , reindex, and check if mySelf is still sane !
+
+    self.participants          = other.participants;
+    self->_indexedParticipants = [NSMutableDictionary dictionary];
+    for (ConversationParticipant *participant in self->_participants) {
+        self->_indexedParticipants[participant.guid] = participant;
+    }
+
+    if (![other.myself.guid isEqualToString:self.myself.guid]) {
+        MPLOGERROR(@"**************************************************************************");
+        MPLOGERROR(@"***** Attempt to update convo [%@] with different mySelf  ******");
+        MPLOGERROR(@"**************************************************************************");
+        return NO;
+    }
+
+    // update properties with no side effect that could have been updated
+
+    self.location       = other.location;
+    self.hasMoreEntries = other.hasMoreEntries;
+    self.status         = other.status;
+    self.clientTitle    = other.clientTitle;
+    self.staffTitle     = other.staffTitle;
+
+    // obscure, other.entries is pulled from top of stack and the pull
+    // could indicate that there are new entries indeed
+    self.hasMoreEntries = other.hasMoreEntries;
+
+
+    //update entries !
+
+    NSInteger              addedCount = 0;
+    for (ConversationEntry *entry in other.entries) {
+        if (self.indexedEntries[other.id]) {
+            MPLOGERROR(@"********************************************************************************");
+            MPLOGERROR(@"***** Attempt to duplicate entry [%@] , skipped. Fix your goddam bundle ******", entry.id);
+            MPLOGERROR(@"********************************************************************************");
+            continue;
+        }
+        [_entries addObject:entry];
+        addedCount++;
+    }
+
+    MPLOG(@"Added %ld entries from pull !", addedCount);
+    [self sortAndIndexEntries];
+
+
+    return YES;
+
+}
+
+- (BOOL)hasMoreEntries {
     return NO;
 }
 
--(BOOL)isOpen {
+- (BOOL)isOpen {
     return [_status isEqualToString:@"open"];
 }
 
--(BOOL) isClosed {
-    return ! self.isOpen;
+- (BOOL)isClosed {
+    return !self.isOpen;
 }
 
--(NSMutableArray *)entries {
+- (NSMutableArray *)entries {
     return _entries;
 }
 
--(NSMutableArray *)participants {
+- (NSMutableArray *)participants {
     return _participants;
 }
 
