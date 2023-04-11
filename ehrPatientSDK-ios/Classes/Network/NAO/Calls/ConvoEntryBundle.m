@@ -65,6 +65,7 @@
         Conversation      *_convo = [Conversation objectWithContentsOfDictionary:resp.responseContent];
         [conversation updateWithConversation:_convo];
         bundle.hasMore = (bundle.results.count < maxItems) ? NO : YES;
+        _convo.hasMoreEntries=bundle.hasMore;
         successBlock(bundle);
     };
 
