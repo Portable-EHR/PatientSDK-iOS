@@ -177,7 +177,7 @@ TRACE_OFF
 
     if (![other.myself.guid isEqualToString:self.myself.guid]) {
         MPLOGERROR(@"**************************************************************************");
-        MPLOGERROR(@"***** Attempt to update convo [%@] with different mySelf  ******");
+        MPLOGERROR(@"***** Attempt to update convo [%@] with different mySelf  ******",self.id);
         MPLOGERROR(@"**************************************************************************");
         return NO;
     }
@@ -215,10 +215,6 @@ TRACE_OFF
 
     return YES;
 
-}
-
-- (BOOL)hasMoreEntries {
-    return NO;
 }
 
 - (BOOL)isOpen {
