@@ -30,4 +30,10 @@
               onSuccess:(SenderBlock)successBlock
                 onError:(SenderBlock)errorBlock;
 
++ (void)pullFirstEntry:(Conversation *)conversation
+               atOffset:(NSInteger)offset
+               maxItems:(NSInteger)maxItems
+              onSuccess:(SenderBlock)successBlock
+                onError:(SenderBlock)errorBlock;
+
 @end

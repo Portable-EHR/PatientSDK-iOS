@@ -94,6 +94,9 @@ static CFArrayRef certs;
     [self cleanupForNextCall];
 
     [self makeFreshURLconnection];
+    if (self.verbose) {
+        MPLOG(@"Will initiate call with request: \n %@", [_serverRequest asDictionary] );
+    }
     [self performSelector:@selector(fireUrlConnection) withObject:nil afterDelay:.001f];
     TRACE(@"just performed selector fireUrlConnection");
 

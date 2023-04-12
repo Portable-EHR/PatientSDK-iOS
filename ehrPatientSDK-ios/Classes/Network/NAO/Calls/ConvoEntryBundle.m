@@ -63,9 +63,9 @@
     SenderBlock callSuccess = ^(EHRCall *theCall) {
         EHRServerResponse *resp   = theCall.serverResponse;
         Conversation      *_convo = [Conversation objectWithContentsOfDictionary:resp.responseContent];
+        bundle.hasMore        = _convo.entries.count >= maxItems ? YES : NO;
+        _convo.hasMoreEntries = bundle.hasMore;
         [conversation updateWithConversation:_convo];
-        bundle.hasMore = (bundle.results.count < maxItems) ? NO : YES;
-        _convo.hasMoreEntries=bundle.hasMore;
         successBlock(bundle);
     };
 
@@ -79,6 +79,40 @@
                                                                 forConvo:conversation.id
                                                                 atOffset:offset
                                                             withMaxItems:maxItems
+    ];
+    theCall.verbose = YES;
+    [theCall start];
+}
+
++ (void)pullFirstEntry:(Conversation *)conversation
+              atOffset:(NSInteger)offset
+              maxItems:(NSInteger)maxItems
+             onSuccess:(SenderBlock)successBlock
+               onError:(SenderBlock)errorBlock {
+
+    ConvoEntryBundle *bundle = [[self alloc] init];
+    bundle.offset   = offset;
+    bundle.maxItems = maxItems;
+
+    SenderBlock callSuccess = ^(EHRCall *theCall) {
+        EHRServerResponse *resp   = theCall.serverResponse;
+        Conversation      *_convo = [Conversation objectWithContentsOfDictionary:resp.responseContent];
+        [conversation updateWithConversation:_convo];
+        bundle.hasMore        = (bundle.results.count < maxItems) ? NO : YES;
+        _convo.hasMoreEntries = bundle.hasMore;
+        successBlock(bundle);
+    };
+
+    SenderBlock callError = ^(id theCall) {
+        MPLOGERROR(@"pulled convo entries : FAILED");
+        errorBlock(theCall);
+    };
+
+    EHRCall *theCall = [PehrSDKConfig.shared.ws.convo getConvoDetailCall:callSuccess
+                                                                 onError:callError
+                                                                forConvo:conversation.id
+                                                                atOffset:0
+                                                            withMaxItems:1
     ];
     [theCall start];
 }
