@@ -80,7 +80,6 @@
                                                                 atOffset:offset
                                                             withMaxItems:maxItems
     ];
-    theCall.verbose = YES;
     [theCall start];
 }
 
