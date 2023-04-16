@@ -954,7 +954,7 @@ TRACE_ON
         }
         return;
     }
-    if (notification.ackedOn) {
+    if (notification.archivedOn) {
         TRACE(@"Skipping : patientNotification has already been acked.");
         if (_notificationArchivedSuccessBlock) {
             _notificationArchivedSuccessBlock();
