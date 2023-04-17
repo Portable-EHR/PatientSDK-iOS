@@ -42,7 +42,7 @@ TRACE_ON
 
 - (void)pullSinceDate:(NSDate *)date onSuccess:(VoidBlock)successBlock onError:(VoidBlock)errorBlock {
     PehrSDKConfig *shared = [PehrSDKConfig shared];
-    [shared.models.notifications  readFromServerWithSuccess:successBlock andError:errorBlock];
+    [shared.models.notifications readFromServerWithSuccess:successBlock andError:errorBlock];
 }
 
 - (void)pullForever:(VoidBlock)successBlock onError:(VoidBlock)errorBlock {
@@ -54,6 +54,54 @@ TRACE_ON
     };
     [self pullSinceDate:forever() onSuccess:datePullSuccess onError:datePullError];
 }
+
+- (void)archive:(PatientNotification *)notification onSuccess:(VoidBlock)successBlock onError:(SenderBlock)errorBlock {
+
+    SenderBlock archiveSuccess = ^(EHRCall *theCall) {
+        MPLOG(@"Archive notification %@ : SUCCESS", notification.guid);
+        successBlock();
+    };
+
+    SenderBlock archiveError = ^(EHRCall *theCall) {
+        MPLOG(@"Archive notification %@ : FAILED", notification.guid);
+        errorBlock(theCall);
+    };
+
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"guid"] = notification.guid;
+    EHRServerRequest *request = [EHRRequests requestWithRoute:@"/app/notification"
+                                                      command:@"archive"
+                                                   parameters:params
+    ];
+
+    EHRCall *call = [EHRCall callWithRequest:request onSuccess:archiveSuccess onError:archiveError];
+    [call start];
+}
+
+- (void)unarchive:(PatientNotification *)notification onSuccess:(VoidBlock)successBlock onError:(SenderBlock)errorBlock {
+
+    SenderBlock unarchiveSuccess = ^(EHRCall *theCall) {
+        MPLOG(@"Unarchived notification %@ : SUCCESS", notification.guid);
+        successBlock();
+    };
+
+    SenderBlock unarchiveError = ^(EHRCall *theCall) {
+        MPLOG(@"Unrchived notification %@ : FAILED", notification.guid);
+        errorBlock(theCall);
+    };
+
+    NSMutableDictionary *params         = [NSMutableDictionary dictionary];
+    params[@"guid"] = notification.guid;
+    EHRServerRequest *request = [EHRRequests requestWithRoute:@"/app/notification"
+                                                      command:@"unarchive"
+                                                   parameters:params
+    ];
+
+    EHRCall *call = [EHRCall callWithRequest:request onSuccess:unarchiveSuccess onError:unarchiveError];
+    [call start];
+}
+
+
 
 
 //endregion

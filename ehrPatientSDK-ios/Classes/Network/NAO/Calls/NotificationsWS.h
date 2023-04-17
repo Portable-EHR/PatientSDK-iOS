@@ -32,6 +32,10 @@
 
 -(void) pullForever:(VoidBlock) successBlock onError:(VoidBlock) errorBlock;
 
+- (void)archive:(PatientNotification*) notification onSuccess:(VoidBlock)successBlock onError :(SenderBlock)errorBlock __unused ;
+- (void)unarchive:(PatientNotification*) notification onSuccess:(VoidBlock)successBlock onError :(SenderBlock)errorBlock __unused;
+
+
 
 //endregion
 
