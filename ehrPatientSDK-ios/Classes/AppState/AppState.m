@@ -707,7 +707,10 @@ static AppState   *_sharedInstance;
 
 #pragma mark - initialization stuff
 
-- (void)setNewUser:(IBUser *)newUser onSuccess:(VoidBlock)successBlock onError:(VoidBlock)errorBlock { // todo : this is a job for SDK, not AppState
+- (void)setNewUser:(IBUser *)newUser onSuccess:(VoidBlock)successBlock onError:(VoidBlock)errorBlock {
+    // todo : this is a job for SDK, not AppState
+    // todo : used in device activation with QR code (known bug there !)
+
     TRACE_KILLROY
     MPLOG(@"Invoked with user %@", newUser.guid);
     if (!successBlock || !errorBlock) {
@@ -880,6 +883,10 @@ static AppState   *_sharedInstance;
 
 - (void)onNotificationsModelUpdate {
     MPLOG(@"onNotificationsModelUpdate");
+}
+
+- (void)onNotificationUpdate:(PatientNotification *)notification {
+    MPLOG(@"onNotificationUpdate : %@", notification.description);
 }
 
 - (void)onConsentsUpdate {
