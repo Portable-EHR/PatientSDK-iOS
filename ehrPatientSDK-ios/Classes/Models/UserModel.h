@@ -28,10 +28,11 @@
 + (UserModel *)guest;
 + (UserModel *)userModelFor:(IBUser *)user;
 
-@property(nonatomic, readonly) ServicesModel      *servicesModel;
-@property(nonatomic, readonly) NSDictionary       *patientModels;
-@property(nonatomic, readonly) BOOL               isGuest;
-@property(nonatomic) UserDeviceSettings           *deviceSettings;
+@property(nonatomic, readonly) ServicesModel *servicesModel;
+@property(nonatomic, readonly) NSDictionary  *patientModels;
+@property(nonatomic, readonly) BOOL          isGuest;
+@property(nonatomic) UserDeviceSettings      *deviceSettings;
+@property(nonatomic, readonly) BOOL          isSDKuserUsable;
 
 - (void)updateUserInfo:(IBUser *)newInfo;
 - (void)updateUserInfo:(IBUser *)newInfo save:(BOOL)saveIt;

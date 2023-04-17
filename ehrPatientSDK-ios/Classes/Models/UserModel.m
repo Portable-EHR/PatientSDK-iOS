@@ -24,6 +24,8 @@ static GEFileUtil *_fileUtils;
 @synthesize patientModels = _patientModels;
 @synthesize deviceSettings = _deviceSettings;
 @dynamic isGuest;
+@dynamic isSDKuserUsable;
+
 TRACE_ON
 
 + (void)initialize {
@@ -87,6 +89,12 @@ TRACE_ON
 }
 
 #pragma mark - model stuff
+
+-(BOOL)isSDKuserUsable {
+    if (!self.user) return NO;
+    if (self.isGuest) return NO;
+    return [self.user.status isEqualToString:@"active"];
+}
 
 - (BOOL)isGuest {
     return [self.user.role isEqualToString:@"guest"];
