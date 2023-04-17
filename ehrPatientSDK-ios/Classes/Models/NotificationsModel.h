@@ -44,8 +44,6 @@
     BOOL                     _isRefreshEnabled;
     VoidBlock                _notificationSeenSuccessBlock,
                              _notificationSeenErrorBlock;
-    VoidBlock                _notificationArchivedSuccessBlock,
-                             _notificationArchivedErrorBlock;
     VoidBlock                _notificationDeletedSuccessBlock,
                              _notificationDeletedErrorBlock;
     NSMutableArray           *_stackedNotificationStateChanges,             // being sent
@@ -91,6 +89,7 @@
 - (void)notificationWasSeen:(PatientNotification *)notification onSuccess:(VoidBlock)successBlock onError:(VoidBlock)errorBlock;
 - (void)notificationWasDeleted:(PatientNotification *)notification onSuccess:(VoidBlock)successBlock onError:(VoidBlock)errorBlock;
 - (void)notificationWasArchived:(PatientNotification *)notification onSuccess:(VoidBlock)successBlock onError:(VoidBlock)errorBlock;
+- (void)notificationWasUnArchived:(PatientNotification *)notification onSuccess:(VoidBlock)successBlock onError:(VoidBlock)errorBlock;
 - (void)notificationsWereDeleted:(NSArray *)notifications;
 - (void)notificationsWereDeleted:(NSArray *)notifications onSuccess:(VoidBlock)successBlock onError:(VoidBlock)errorBlock;
 

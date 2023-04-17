@@ -44,12 +44,12 @@ TRACE_ON
     _notificationsFileFQN = [[GEFileUtil sharedFileUtil] getNotificationsFQN];
 }
 
-+ (NotificationsModel * )instance {
++ (NotificationsModel *)instance {
 
-    static dispatch_once_t once;
-    static NotificationsModel   *_instance;
+    static dispatch_once_t    once;
+    static NotificationsModel *_instance;
     dispatch_once(&once, ^{
-        _instance = [[NotificationsModel alloc] init];
+        _instance = [[NotificationsModel alloc] init]; // if you see an error, IDE bogus
 
     });
     return _instance;
@@ -119,7 +119,7 @@ TRACE_ON
 }
 
 + (instancetype)objectWithContentsOfDictionary:(NSDictionary *)dic {
-    NotificationsModel *nm = [[self alloc] init];
+    NotificationsModel *nm = [[self alloc] init]; // If you see an error, IDE bogus
     [nm loadFromDic:dic];
     return nm;
 }
@@ -938,82 +938,52 @@ TRACE_ON
 //region Archive notificaitons
 
 - (void)notificationWasArchived:(PatientNotification *)notification onSuccess:(VoidBlock)successBlock onError:(VoidBlock)errorBlock __unused {
-    _notificationArchivedSuccessBlock = [successBlock copy];
-    _notificationArchivedErrorBlock   = [errorBlock copy];
-    [self notificationWasArchived:notification];
+
+    VoidBlock wsSuccess = ^() {
+
+        // todo : compare to unarchive , make work
+
+        if (!notification.seenOn) notification.seenOn = [NSDate date];
+        notification.archivedOn = [NSDate date];
+        notification.progress   = @"archived";
+        [self refreshFilters];
+        [PehrSDKConfig.shared.state.delegate onNotificationsModelUpdate];
+        [PehrSDKConfig.shared.state.delegate onNotificationUpdate:notification];
+        successBlock();
+    };
+
+    SenderBlock wsError = ^(EHRCall *theCall) {
+        errorBlock();
+    };
+
+    [PehrSDKConfig.shared.ws.notifications archive:notification onSuccess:wsSuccess onError:wsError];
+
 }
 
-- (void)notificationWasArchived:(PatientNotification *)notification __unused {
+- (void)notificationWasUnArchived:(PatientNotification *)notification onSuccess:(VoidBlock)successBlock onError:(VoidBlock)errorBlock __unused {
 
-    if (!_appState.isAppUsable) {
-        TRACE(@"Skipping : application not usable on this device.");
-        if (_notificationArchivedErrorBlock) {
-            _notificationArchivedErrorBlock();
-            _notificationArchivedSuccessBlock = nil;
-            _notificationArchivedErrorBlock   = nil;
+    VoidBlock wsSuccess = ^() {
+
+        if (!notification.seenOn) {
+            notification.seenOn   = now();
+            notification.progress = @"seen";
         }
-        return;
-    }
-    if (notification.archivedOn) {
-        TRACE(@"Skipping : patientNotification has already been acked.");
-        if (_notificationArchivedSuccessBlock) {
-            _notificationArchivedSuccessBlock();
-            _notificationArchivedSuccessBlock = nil;
-            _notificationArchivedErrorBlock   = nil;
-        }
-        return;
-    }
+        notification.lastSeen    = now();
+        notification.lastUpdated = now();
+        notification.archivedOn  = nil;
+        notification.progress    = @"seen";
 
-    EHRApiServer     *server = [SecureCredentials sharedCredentials].current.server;
-    EHRServerRequest *req    = [EHRServerRequest serverRequestWithApiKey:[SecureCredentials sharedCredentials].current.userApiKey];
-    req.server   = server;
-    req.route    = @"/app/notification";
-    req.command  = @"archive";
-    req.language = [AppState sharedAppState].deviceLanguage;
+        [self refreshFilters];
+        [PehrSDKConfig.shared.state.delegate onNotificationsModelUpdate];
+        [PehrSDKConfig.shared.state.delegate onNotificationUpdate:notification];
+        successBlock();
+    };
 
-    req.parameters = [@{@"guid": notification.guid} mutableCopy];
-    EHRCall *call        = [EHRCall
-            callWithRequest:req
-                  onSuccess:^(EHRCall *theCall) {
-#if MP_DEBUG == 1
-                      EHRServerResponse *resp = theCall.serverResponse;
-                      TRACE(@"Got response with requestStatus %@", [resp.requestStatus asDictionary]);
-#endif
-                      BOOL updated = [theCall.serverResponse.requestStatus.status isEqualToString:@"OK"];
-                      if (updated) {
-                          if (!notification.seenOn) notification.seenOn = [NSDate date];
-                          notification.archivedOn = [NSDate date];
-                          notification.progress   = @"archived";
-//                                           self.lastRefreshed   = [NSDate date];
-                          [self refreshFilters];
-                          [self saveOnDevice];
-                          if (self->_notificationArchivedSuccessBlock) {
-                              self->_notificationArchivedSuccessBlock();
-                              self->_notificationArchivedSuccessBlock = nil;
-                              self->_notificationArchivedErrorBlock   = nil;
-                          }
-                      } else {
-                          MPLOGERROR(@"Request to set patientNotification as seen failed.");
-                          MPLOGERROR(@"status  : %@", theCall.serverResponse.requestStatus.status);
-                          MPLOGERROR(@"message : %@", theCall.serverResponse.requestStatus.message);
-                          if (self->_notificationArchivedErrorBlock) {
-                              self->_notificationArchivedErrorBlock();
-                              self->_notificationArchivedSuccessBlock = nil;
-                              self->_notificationArchivedErrorBlock   = nil;
-                          }
-                      }
-                      [self refreshFilters];
-                  }
-                    onError:^(EHRCall *theCall) {
-                        if (self->_notificationArchivedErrorBlock) {
-                            self->_notificationArchivedErrorBlock();
-                            self->_notificationArchivedSuccessBlock = nil;
-                            self->_notificationArchivedErrorBlock   = nil;
-                        }
-                    }];
-    call.maximumAttempts = 3;
-    call.timeOut         = 15;
-    [call start];
+    SenderBlock wsError = ^(EHRCall *theCall) {
+        errorBlock();
+    };
+
+    [PehrSDKConfig.shared.ws.notifications unarchive:notification onSuccess:wsSuccess onError:wsError];
 
 }
 
@@ -1210,8 +1180,6 @@ TRACE_ON
     _stackedMessageStateChanges       = nil;
     _notificationDeletedErrorBlock    = nil;
     _notificationDeletedSuccessBlock  = nil;
-    _notificationArchivedErrorBlock   = nil;
-    _notificationArchivedSuccessBlock = nil;
     _notificationSeenErrorBlock       = nil;
     _notificationSeenSuccessBlock     = nil;
     _appointmentNotificationFilter    = nil;
