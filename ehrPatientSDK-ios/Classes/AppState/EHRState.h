@@ -20,6 +20,7 @@
 @property(nonatomic) IBUser                         *user;
 @property(nonatomic) SecureCredentials              *secureCredentials;
 @property(nonatomic, weak) id <EHRLibStateDelegate> delegate;
+@property(nonatomic, readonly) BOOL                 isSDKusable;
 - (void)setDelegate:(id <EHRLibStateDelegate>)delegate;
 
 @end

@@ -3,6 +3,9 @@
 //
 
 #import "EHRState.h"
+#import "PehrSDKConfig.h"
+#import "Models.h"
+#import "UserModel.h"
 
 @interface EHRState () {
     NSInteger                       _instanceNumber;
@@ -15,6 +18,13 @@
 @end
 
 @implementation EHRState
+
+@dynamic isSDKusable;
+
+- (BOOL)isSDKusable {
+    return (_delegate != nil) &&
+            PehrSDKConfig.shared.models.userModel.isSDKuserUsable;
+}
 
 TRACE_OFF
 
