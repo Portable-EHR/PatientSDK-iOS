@@ -3,7 +3,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "PatientNotification.h"
 @class UserModel;
 
 @protocol EHRLibStateDelegate <NSObject>
@@ -13,6 +13,7 @@
 -(void) onAppInfoUpdate;
 -(void) onUserInfoUpdate;
 -(void) onNotificationsModelUpdate;
+-(void) onNotificationUpdate:(PatientNotification *) notification;
 -(void) onConsentsUpdate;
 
 
