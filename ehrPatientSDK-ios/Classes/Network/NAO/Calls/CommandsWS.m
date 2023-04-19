@@ -137,7 +137,12 @@ __attribute__((unused)) {
     VoidBlock userInfoSuccess = ^() {
         MPLOG(@"UserInfo pulled from forever : SUCCESS");
         [PehrSDKConfig.shared.state.delegate onUserInfoUpdate];
-        [PehrSDKConfig.shared.ws.notifications pullForever:notificationsSuccessBlock onError:notificationsErrorBlock];
+        if ([SecureCredentials sharedCredentials].current.isGuest) {
+            MPLOG(@"Pull user data for Guest : SUCCESS");
+            successBlock();
+        } else {
+            [PehrSDKConfig.shared.ws.notifications pullForever:notificationsSuccessBlock onError:notificationsErrorBlock];
+        }
     };
 
     VoidBlock userInfoError = ^() {
