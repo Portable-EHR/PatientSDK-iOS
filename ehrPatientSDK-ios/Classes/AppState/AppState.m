@@ -288,11 +288,16 @@ static AppState   *_sharedInstance;
     };
 
     VoidBlock fetchUserSuccess = ^{
-        [self fetchAllNotifications:fetchNotificationsSuccess
-                           andError:^{
-                               MPLOGERROR(@"*** Notifications fetch failed, passing it on to StartViewController");
-                               onError();
-                           }];
+        if (![SecureCredentials sharedCredentials].current.isGuest) {
+            [self fetchAllNotifications:fetchNotificationsSuccess
+                               andError:^{
+                                   MPLOGERROR(@"*** Notifications fetch failed, passing it on to StartViewController");
+                                   onError();
+                               }];
+        } else {
+            MPLOG(@"Secure credentials user is guest, skipping notifications fetch !");
+            fetchNotificationsSuccess();
+        }
     };
 
     VoidBlock appInfoSuccess = ^{
