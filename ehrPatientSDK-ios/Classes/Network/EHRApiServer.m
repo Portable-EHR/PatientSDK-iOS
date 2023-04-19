@@ -5,8 +5,6 @@
 
 #import "EHRApiServer.h"
 #import "PehrSDKConfig.h"
-#import "SecureCredentials.h"
-#import "UserCredentials.h"
 
 #include <ifaddrs.h>
 #include <arpa/inet.h>
@@ -40,7 +38,6 @@ TRACE_OFF
     EHRApiServer *srv = [self defaultApiServer];
     srv.routePrefix=route;
     return srv;
-
 }
 
 + (EHRApiServer *)serverForHost:(NSString *)host {

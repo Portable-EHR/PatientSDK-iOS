@@ -140,6 +140,7 @@ appVersion:(NSString *)appVersion
   stackKey:(NSString *)stackKey
  onSuccess:(SenderBlock)successBlock
    onError:(SenderBlock)errorBlock __unused {
+
     self->_appGuid        = appGuid;
     self->_appAlias       = appAlias;
     self->_appVersion     = appVersion;
@@ -152,6 +153,8 @@ appVersion:(NSString *)appVersion
     [GERuntimeConstants setAppAlias:appAlias];
     [GERuntimeConstants setAppVersion:appVersion];
     [GERuntimeConstants setStackKey:stackKey];
+
+    [self resetDeviceIfNeeded];
 
     [self getAppInfo:successBlock onError:errorBlock];
 
@@ -168,12 +171,15 @@ appVersion:(NSString *)appVersion
 localIPaddress:(NSString *)address
      onSuccess:(SenderBlock)successBlock
        onError:(SenderBlock)errorBlock  __unused {
+
+
     self->_appGuid        = appGuid;
     self->_appAlias       = appAlias;
     self->_appVersion     = appVersion;
     self->_stackKey       = @"CA.local";
     self->_localIPaddress = address;
     self->_appInfo        = nil;
+
 
     [GERuntimeConstants initialize];
     [GERuntimeConstants setAppGuid:appGuid];
@@ -186,6 +192,8 @@ localIPaddress:(NSString *)address
     [[SecureCredentials sharedCredentials] setupServer];
     [[SecureCredentials sharedCredentials] persist];
 
+    [self resetDeviceIfNeeded];
+
     [self getAppInfo:successBlock onError:errorBlock];
 
     [delegate onSDKinitialized];
@@ -193,6 +201,33 @@ localIPaddress:(NSString *)address
     [self echoOnInitialize];
 
     return self;
+}
+
+/**
+*    first thing, check if stack key is same as the one found in SecureCredentials
+ *
+ *   if different , bring SDK in safe place : guest, no device, desired server stack
+ *
+ */
+
+-(void) resetDeviceIfNeeded {
+
+    NSString *credsHost = [SecureCredentials sharedCredentials].current.server.host;
+    NSString *desiredHost = [EHRApiServer serverForStackKey:_stackKey].host;
+    if (![credsHost isEqualToString:desiredHost]){
+        MPLOGERROR(@"Hack possible : secure creds point to a different statk.  Reseting to [%@]",_stackKey);
+        [self resetToDesirecStackKey];
+    }
+
+}
+
+-(void)  resetToDesirecStackKey {
+    UserCredentials *userCreds = [[UserCredentials alloc] init];
+    userCreds.server     = [EHRApiServer serverForHost:kHostName];
+    userCreds.userGuid   = [IBUser guest].guid;
+    userCreds.userApiKey = [IBUser guest].apiKey;
+    [[SecureCredentials sharedCredentials] setCurrentUserCredentials:userCreds];
+    [[SecureCredentials sharedCredentials] persist];
 }
 
 - (void)getAppInfo:(SenderBlock)successBlock onError:(SenderBlock)errorBlock {
