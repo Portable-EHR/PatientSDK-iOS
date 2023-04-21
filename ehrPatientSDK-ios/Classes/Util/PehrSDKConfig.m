@@ -275,9 +275,11 @@ localIPaddress:(NSString *)address
 -(void) appBecameActive{
 
     // flush past delivered APNS notifications
-
-    [[UNUserNotificationCenter currentNotificationCenter] removeAllDeliveredNotifications]; // removes notifications that were queued while we were gone
-    [_state.delegate onAppBecameActive];
+    [[UNUserNotificationCenter currentNotificationCenter] getDeliveredNotificationsWithCompletionHandler:^(NSArray *nots) {
+        MPLOG(@"appBecameActive : will flush %ld APNS pending notifications",nots.count);
+        [[UNUserNotificationCenter currentNotificationCenter] removeAllDeliveredNotifications]; // removes notifications that were queued while we were gone
+        [_state.delegate onAppBecameActive];
+    }];
 
 }
 
