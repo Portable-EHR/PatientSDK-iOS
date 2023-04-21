@@ -5,6 +5,7 @@
 //  Created by Rahul Asthana on 20/09/21.
 //
 
+#import <UserNotifications/UserNotifications.h>
 #import "PehrSDKConfig.h"
 #import "WebServices.h"
 #import "Models.h"
@@ -74,6 +75,17 @@ TRACE_OFF
 
         GE_ALLOC();
         GE_ALLOC_ECHO();
+
+        // no need to deregister, if this deallocs, the app is dying
+
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(appBecameActive)
+                                                     name:UIApplicationDidBecomeActiveNotification object:nil];
+
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appWillResignActive)
+                                                     name:UIApplicationWillResignActiveNotification
+                                                   object:nil];
+
     } else {
         TRACE(@"*** super returned nil !");
     }
@@ -258,6 +270,23 @@ localIPaddress:(NSString *)address
     MPLOG(@"App alias           : %@", kAppAlias);
     MPLOG(@"App version         : %@", [kAppVersion toString]);
     MPLOG(@"App build number    : %@", [[NSBundle mainBundle] infoDictionary][(NSString *) kCFBundleVersionKey]);
+}
+
+-(void) appBecameActive{
+
+    // flush past delivered APNS notifications
+
+    [[UNUserNotificationCenter currentNotificationCenter] removeAllDeliveredNotifications]; // removes notifications that were queued while we were gone
+    [_state.delegate onAppBecameActive];
+
+}
+
+-(void) appWillResignActive{
+
+    // flush past delivered APNS notifications
+
+    [_state.delegate onAppBecameActive];
+
 }
 
 @end

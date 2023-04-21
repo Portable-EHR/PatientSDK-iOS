@@ -38,7 +38,7 @@ static NSString *_notificationsFileFQN;
 @dynamic allNotificationFilter, numberOfUnseen;
 @dynamic numberOfActionRequired;
 
-TRACE_ON
+TRACE_OFF
 
 + (void)initialize {
     _notificationsFileFQN = [[GEFileUtil sharedFileUtil] getNotificationsFQN];
@@ -166,7 +166,7 @@ TRACE_ON
     convo   = _conversationNotificationFilter.numberOfUnseen;
     num     = patient + info + alert + pm + prac + appnt + convo;
 
-    MPLOG(@"patient : %d , info : %d , alert : %d ,pm : %d , prac : %d , appnt : %d, convo : %d ", (int) patient, (int) info, (int) alert, (int) pm, (int) prac, (int) appnt, (int) convo);
+    TRACE(@"patient : %d , info : %d , alert : %d ,pm : %d , prac : %d , appnt : %d, convo : %d ", (int) patient, (int) info, (int) alert, (int) pm, (int) prac, (int) appnt, (int) convo);
 
     return num;
 }

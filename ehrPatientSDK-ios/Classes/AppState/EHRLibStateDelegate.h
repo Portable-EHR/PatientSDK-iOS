@@ -8,6 +8,8 @@
 
 @protocol EHRLibStateDelegate <NSObject>
 
+-(void) onAppBecameActive;
+-(void) onAppWillResignActive;
 -(void) onSDKinitialized;
 -(void) onDeviceInitialized;
 -(void) onAppInfoUpdate;

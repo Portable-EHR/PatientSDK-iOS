@@ -866,6 +866,18 @@ static AppState   *_sharedInstance;
 
 }
 
+- (void)onAppBecameActive {
+
+    MPLOG(@"onAppBecameActive");
+    [self resumeForeground]; // todo : this should be in SDK, not AppState
+
+}
+
+- (void)onAppWillResignActive {
+    MPLOG(@"onAppWillResignActive");
+    [self enterBackground]; // todo : this should be in SDK, not AppState
+}
+
 - (void)onDeviceInitialized {
     MPLOG(@"onDeviceInitialized");
     self.deviceInfo     = PehrSDKConfig.shared.state.device;
