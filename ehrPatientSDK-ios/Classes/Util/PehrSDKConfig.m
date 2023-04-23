@@ -159,7 +159,7 @@ appVersion:(NSString *)appVersion
     self->_stackKey       = stackKey;
     self->_localIPaddress = nil;
     self->_appInfo        = nil;
-
+    [_state setDelegate:delegate];
     [GERuntimeConstants initialize];
     [GERuntimeConstants setAppGuid:appGuid];
     [GERuntimeConstants setAppAlias:appAlias];
@@ -191,6 +191,7 @@ localIPaddress:(NSString *)address
     self->_stackKey       = @"CA.local";
     self->_localIPaddress = address;
     self->_appInfo        = nil;
+    [_state setDelegate:delegate];
 
 
     [GERuntimeConstants initialize];
