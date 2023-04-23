@@ -270,21 +270,9 @@ static AppState   *_sharedInstance;
     TRACE_KILLROY
 
     VoidBlock fetchNotificationsSuccess = ^{
+        MPLOG(@"FetchNotifications : SUCCESS");
+        onSuccess();
 
-        SecureCredentials *creds = [SecureCredentials sharedCredentials];
-        if (self->_appInfo.eula && ![self->_appInfo.eula.version.description isEqualToString:[SecureCredentials sharedCredentials].current.appEula.eulaVersion.description]) {
-            // eula update from server !
-            creds.current.appEula.eulaVersion   = self->_appInfo.eula.version;
-            creds.current.appEula.eulaGuid      = self->_appInfo.eula.guid;
-            creds.current.appEula.dateSeen      = nil;
-            creds.current.appEula.dateConsented = nil;
-            [creds persist];
-            [self signPreferences];
-            onSuccess();
-        } else {
-            MPLOGERROR(@"Unable to persist AppState on device");
-            onError();
-        }
     };
 
     VoidBlock fetchUserSuccess = ^{
@@ -398,10 +386,10 @@ static AppState   *_sharedInstance;
 //region NSPreferences
 
 - (void)signPreferences {
-
+    // todo : this is never read , why are we signing ???
     AppSignature *as = [[AppSignature alloc] init];
     as.installedOn = [NSDate date];
-    as.buildNumber = (NSInteger)  [[NSBundle mainBundle] infoDictionary][(NSString *) kCFBundleVersionKey]; // todo : evaluate impace of switching to string (on running patient apps)
+    as.buildNumber = (NSInteger) [[NSBundle mainBundle] infoDictionary][(NSString *) kCFBundleVersionKey]; // todo : evaluate impace of switching to string (on running patient apps)
     NSDictionary *asAsDic = [as asDictionary];
     [[NSUserDefaults standardUserDefaults] setObject:asAsDic forKey:@"signature"];
     [[NSUserDefaults standardUserDefaults] synchronize];
@@ -758,7 +746,6 @@ static AppState   *_sharedInstance;
 
     }
 }
-
 
 - (void)resetDeviceWithSuccess:(SenderBlock)onSuccess
                       andError:
