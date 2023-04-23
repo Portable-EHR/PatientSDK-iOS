@@ -886,8 +886,8 @@ TRACE_OFF
             notification.lastSeen    = [NSDate date];
             notification.lastUpdated = notification.lastSeen;
             if (nil == notification.seenOn) notification.seenOn = notification.lastSeen;
+            [PehrSDKConfig .shared.state.delegate onNotificationUpdate:notification];
             //                                           self.lastRefreshed  = [NSDate date];
-            [self saveOnDevice];
             if (self->_notificationSeenSuccessBlock) {
                 self->_notificationSeenSuccessBlock();
                 self->_notificationSeenSuccessBlock = nil;
