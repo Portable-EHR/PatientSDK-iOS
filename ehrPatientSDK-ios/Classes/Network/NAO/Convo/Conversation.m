@@ -91,7 +91,7 @@ TRACE_OFF
 }
 
 - (void)addEntry:(ConversationEntry *)entry {
-    [_entries addObject:entry];
+    [_entries addObject:entry ];
     [self sortAndIndexEntries];
 }
 
