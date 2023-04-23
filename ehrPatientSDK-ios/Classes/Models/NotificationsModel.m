@@ -434,7 +434,6 @@ TRACE_OFF
 - (void)refreshFromServer {
 
     TRACE_KILLROY
-
     [self readFromServerSince:self.lastRefreshed];
 
 }
