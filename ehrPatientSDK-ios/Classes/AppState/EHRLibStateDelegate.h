@@ -12,6 +12,7 @@
 -(void) onAppWillResignActive;
 -(void) onSDKinitialized;
 -(void) onDeviceInitialized;
+-(void) onDeviceDeactivated;
 -(void) onAppInfoUpdate;
 -(void) onUserInfoUpdate;
 -(void) onNotificationsModelUpdate;

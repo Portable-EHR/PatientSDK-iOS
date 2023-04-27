@@ -27,16 +27,18 @@ typedef enum : NSInteger {
                                    onSuccess:(SenderBlock)successBlock
                                      onError:(SenderBlock)errorBlock;
 
--(void) getOfferFor:(OBManualActivationSpec*) spec
-                                onSuccess:(SenderBlock) successBlock
-                                  onError:(SenderBlock) errorBlock;
+- (void)getOfferFor:(OBManualActivationSpec *)spec
+          onSuccess:(SenderBlock)successBlock
+            onError:(SenderBlock)errorBlock;
 
--(void) claimOffer: (IBScannedOffer*) offer
-                     onSuccess:(SenderBlock) successBlock
-                       onError:(SenderBlock) errorBlock;
+- (void)claimOffer:(IBScannedOffer *)offer
+         onSuccess:(SenderBlock)successBlock
+           onError:(SenderBlock)errorBlock;
 
--(void) registerUserWithSpec:(OBManualActivationSpec*) spec
-                                onSuccess:(SenderBlock) successBlock
-                                  onError:(SenderBlock) errorBlock;
+- (void)registerUserWithSpec:(OBManualActivationSpec *)spec
+                   onSuccess:(SenderBlock)successBlock
+                     onError:(SenderBlock)errorBlock;
+
+- (void)deactivateDevice:(NSString *)deviceGuid onSuccess:(VoidBlock)successBlock onError:(SenderBlock)errorBlock;
 
 @end

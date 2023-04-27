@@ -15,18 +15,17 @@
 
 @interface ActivationWS () {
     NSInteger _instanceNumber;
+    NSString  *_savedFirebaseToken;
 }
 @end
 
 @implementation ActivationWS
 
 - (void)setFirebaseDeviceToken:(NSString *)token onSuccess:(VoidBlock)successBlock onError:(VoidBlock)errorBlock {
-//    if (PehrSDKConfig.shared.state.user.isGuest) {
-//        TRACE(@"Cant send a device token for user [guest]");
-//        errorBlock();
-//    } else
-        if (PehrSDKConfig.shared.state.secureCredentials.current.isGuest) {
-        NSLog(@"Cant send a device token for guest secure credentials");
+
+    if (PehrSDKConfig.shared.state.secureCredentials.current.isGuest) {
+        _savedFirebaseToken = token;
+        NSLog(@"Cant send a device token for guest secure credentials : keepin the token for later use, if device is activated !");
         errorBlock();
     } else {
         NSMutableDictionary *params = [NSMutableDictionary dictionary];
@@ -164,6 +163,18 @@
                     PehrSDKConfig.shared.state.secureCredentials.current.appEula          = [[IBUserEula alloc] init];
                     PehrSDKConfig.shared.state.secureCredentials.current.deviceGuid       = device.deviceGuid;
                     [PehrSDKConfig.shared.state.secureCredentials persist];
+
+                    [self setFirebaseDeviceToken:_savedFirebaseToken onSuccess:^(){
+                        MPLOG(@"Associated device to Firebase token : SUCCESS");
+                        successBlock(call);
+                    } onError:^(){
+                        MPLOGERROR(@"Associated device to Firebase token : FAILED, but will carry on");
+                        // THIS IS RIGHT : firebase tokenization will all be redone every time
+                        // luser starts the App.  This is a last ditch attempt as part of the
+                        // device activation process, to enable APNS immediately if possible.
+                        successBlock(call);
+                    }];
+
                     successBlock(call);
                 } else if ([status isEqualToString:@"cancelled"]) {
                     MPLOGERROR(@"Claimed cancelled offer , bailing out.");
@@ -236,12 +247,36 @@
 
 }
 
+- (void)deactivateDevice:(NSString *)deviceGuid onSuccess:(VoidBlock)successBlock onError:(SenderBlock)errorBlock {
+
+    SenderBlock callSuccess = ^(EHRCall *theCall) {
+        MPLOG(@"Device deactivation call [%@] : SUCCESS", deviceGuid);
+        successBlock();
+    };
+    SenderBlock callError   = ^(EHRCall *theCall) {
+        MPLOGERROR(@"Device deactivation call [%@] : FAILED", deviceGuid);
+        errorBlock(theCall);
+    };
+
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"guid"] = deviceGuid;
+    EHRServerRequest *request        = [EHRRequests requestWithRoute:@"/app/user/device"
+                                                             command:@"deactivate"
+                                                          parameters:params];
+    EHRCall          *deactivateCall = [EHRCall callWithRequest:request
+                                                      onSuccess:callSuccess
+                                                        onError:callError];
+
+    [deactivateCall start];
+}
+
 TRACE_ON
 
 - (instancetype)init {
     if ((self = [super init])) {
         GE_ALLOC();
         GE_ALLOC_ECHO();
+        _savedFirebaseToken = nil;
     } else {
         TRACE(@"*** super returned nil!");
     }

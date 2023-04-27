@@ -865,6 +865,11 @@ static AppState   *_sharedInstance;
     [self enterBackground]; // todo : this should be in SDK, not AppState
 }
 
+-(void) onDeviceDeactivated {
+    MPLOG(@"Backend has deactivated this device, will cleanup AppState");
+    [self resetDevice]; //hard, this App cant work without the SDK !
+}
+
 - (void)onDeviceInitialized {
     MPLOG(@"onDeviceInitialized");
     self.deviceInfo     = PehrSDKConfig.shared.state.device;
