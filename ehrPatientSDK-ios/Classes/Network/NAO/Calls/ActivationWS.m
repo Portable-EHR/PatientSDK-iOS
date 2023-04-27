@@ -23,8 +23,9 @@
 
 - (void)setFirebaseDeviceToken:(NSString *)token onSuccess:(VoidBlock)successBlock onError:(VoidBlock)errorBlock {
 
+    _savedFirebaseToken = token;
+
     if (PehrSDKConfig.shared.state.secureCredentials.current.isGuest) {
-        _savedFirebaseToken = token;
         NSLog(@"Cant send a device token for guest secure credentials : keepin the token for later use, if device is activated !");
         errorBlock();
     } else {
@@ -164,10 +165,10 @@
                     PehrSDKConfig.shared.state.secureCredentials.current.deviceGuid       = device.deviceGuid;
                     [PehrSDKConfig.shared.state.secureCredentials persist];
 
-                    [self setFirebaseDeviceToken:_savedFirebaseToken onSuccess:^(){
+                    [self setFirebaseDeviceToken:_savedFirebaseToken onSuccess:^() {
                         MPLOG(@"Associated device to Firebase token : SUCCESS");
                         successBlock(call);
-                    } onError:^(){
+                    }                    onError:^() {
                         MPLOGERROR(@"Associated device to Firebase token : FAILED, but will carry on");
                         // THIS IS RIGHT : firebase tokenization will all be redone every time
                         // luser starts the App.  This is a last ditch attempt as part of the
@@ -175,7 +176,6 @@
                         successBlock(call);
                     }];
 
-                    successBlock(call);
                 } else if ([status isEqualToString:@"cancelled"]) {
                     MPLOGERROR(@"Claimed cancelled offer , bailing out.");
                     errorBlock(call);
