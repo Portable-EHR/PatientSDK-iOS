@@ -16,19 +16,17 @@
 @interface Conversation : NSObject <EHRInstanceCounterP, EHRNetworkableP> {
     NSInteger _instanceNumber;
 
-    NSString *_id;
-    NSString *_status;
-    NSString *_location;
-    NSString *_staffTitle;
-    NSString *_clientTitle;
-
-    NSMutableArray *_participants;
-    NSMutableArray *_entries;
-
+    NSString            *_id;
+    NSString            *_status;
+    NSString            *_location;
+    NSString            *_staffTitle;
+    NSString            *_clientTitle;
+    NSInteger           _unread;
+    NSMutableArray      *_participants;
+    NSMutableArray      *_entries;
     NSMutableDictionary *_indexedParticipants;
     NSMutableDictionary *_indexedEntries;
-
-    BOOL _hasMoreEntries;
+    BOOL                _hasMoreEntries;
 
 }
 
@@ -36,7 +34,6 @@
 - (ConversationParticipant *)myself __attribute__((unused));
 - (void)addEntry:(ConversationEntry *)entry;
 - (BOOL)updateWithConversation:(Conversation *)newConversation;
-
 
 @property(nonatomic, readonly) NSMutableDictionary *indexedParticipants;
 @property(nonatomic, readonly) NSMutableDictionary *indexedEntries;
@@ -48,6 +45,7 @@
 @property(nonatomic) NSMutableArray                *participants;
 @property(nonatomic) NSMutableArray                *entries;
 @property(nonatomic) BOOL                          hasMoreEntries;
+@property(nonatomic) NSInteger                     unread;
 @property(nonatomic, readonly) BOOL                isOpen;
 @property(nonatomic, readonly) BOOL                isClosed;
 

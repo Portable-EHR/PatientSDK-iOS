@@ -19,6 +19,7 @@ TRACE_OFF
 @synthesize indexedParticipants = _indexedParticipants;
 @synthesize indexedEntries = _indexedEntries;
 @synthesize hasMoreEntries = _hasMoreEntries;
+@synthesize unread = _unread;
 
 - (instancetype)init {
     if ((self = [super init])) {
@@ -87,11 +88,13 @@ TRACE_OFF
         convo->_indexedEntries[entry.id] = entry;
     }
 
+    convo->_unread = WantIntegerFromDic(dic, @"unread");
+
     return convo;
 }
 
 - (void)addEntry:(ConversationEntry *)entry {
-    [_entries addObject:entry ];
+    [_entries addObject:entry];
     [self sortAndIndexEntries];
 }
 
@@ -118,7 +121,7 @@ TRACE_OFF
     PutStringInDic(self.clientTitle, dic, @"clientTittle");
     PutStringInDic(self.status, dic, @"status");
     PutStringInDic(self.location, dic, @"location");
-
+    PutIntegerInDic(self.unread, dic, @"unread");
     NSMutableArray *participators = [NSMutableArray array];
     if (self.participants.count > 0) {
         for (id <EHRNetworkableP> participant in self.participants) {
@@ -177,7 +180,7 @@ TRACE_OFF
 
     if (![other.myself.guid isEqualToString:self.myself.guid]) {
         MPLOGERROR(@"**************************************************************************");
-        MPLOGERROR(@"***** Attempt to update convo [%@] with different mySelf  ******",self.id);
+        MPLOGERROR(@"***** Attempt to update convo [%@] with different mySelf  ******", self.id);
         MPLOGERROR(@"**************************************************************************");
         return NO;
     }
@@ -211,7 +214,6 @@ TRACE_OFF
 
     MPLOG(@"Added %ld entries from pull !", addedCount);
     [self sortAndIndexEntries];
-
 
     return YES;
 
