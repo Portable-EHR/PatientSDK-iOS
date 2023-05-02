@@ -225,7 +225,6 @@ TRACE_OFF
 
     if (_isRefreshing) {
         MPLOGERROR(@"App is in already refreshing, will bail out.");
-        MPLOG(@"App is in already refreshing, will bail out.");
         onFailure();
         return;
     };
