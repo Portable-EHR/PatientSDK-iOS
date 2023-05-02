@@ -170,7 +170,7 @@ TRACE_OFF
         PatientNotification *not = PehrSDKConfig.shared.models.notifications.allNotifications[key];
         if (not && not.hasUnseenContent) {
             _number++;
-            MPLOG(@"Notification has unseen content : %@ ", not.seq);
+            TRACE(@"Notification has unseen content : %@ ", not.seq);
         }
     }
     return _number;
