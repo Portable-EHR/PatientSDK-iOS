@@ -10,4 +10,5 @@
 }
 +(NSString*) distanceFromDate:(NSDate *) date language:(NSString *) lang decorate:(BOOL) decorate;
 +(NSString *) displayDate:(NSDate *) date language:(NSString *) lang;
++(NSString *) defaultDeviceFormatMedium:(NSDate*) date;
 @end

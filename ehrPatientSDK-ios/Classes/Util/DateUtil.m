@@ -164,4 +164,16 @@ static NSString* fr_abbrev_year  = @"a";
 }
 
 
++(NSString *) defaultDeviceFormatMedium:(NSDate*) date{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateStyle=NSDateFormatterMediumStyle;
+    formatter.timeStyle=NSDateFormatterShortStyle;
+    formatter.formatterBehavior=NSDateFormatterBehaviorDefault;
+
+
+    return [formatter stringFromDate:date];
+
+}
+
+
 @end
