@@ -94,14 +94,19 @@
 		4961CDC65393BA46B58EBEB0395267FA /* PatientHealthSummary.h in Headers */ = {isa = PBXBuildFile; fileRef = DDD53B8722432DEF8A8E2417BCFACDD5 /* PatientHealthSummary.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		49F54DD346BA48D287BD631EA50EAE44 /* RSSwizzle.h in Headers */ = {isa = PBXBuildFile; fileRef = D0D8B3B459E51F83788F33D555B450A1 /* RSSwizzle.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		4B8DD019EE7ABF881E67C52F /* OBNewConvo.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DDF66687CC3C61C63DA36 /* OBNewConvo.h */; };
+		4B8DD02582D9C7130BCB6E0C /* IBPrivateMessageAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD6117A04C1522A527667 /* IBPrivateMessageAttachment.m */; };
 		4B8DD050AD4A792B548D990D /* ConvoDispensary.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD039A0185F2A538BEBC9 /* ConvoDispensary.m */; };
 		4B8DD09A15F4FD7D20323B61 /* OBMessageEntryAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DDF8223DB5D046F48DBB0 /* OBMessageEntryAttachment.m */; };
 		4B8DD0CBF0553619720A93C9 /* OBNewConvo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD0027530026FEA916241 /* OBNewConvo.m */; };
+		4B8DD0D619AE89729B67FD29 /* IBPrivateMessageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD08EDC28A2241DA82B97 /* IBPrivateMessageInfo.m */; };
+		4B8DD1E8C5C35A92A7BE2A56 /* IBPrivateMessageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD08EDC28A2241DA82B97 /* IBPrivateMessageInfo.m */; };
 		4B8DD1EF835A96E6C1597B4B /* EHRUserRegistrationManifest.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD60EE5A38B85DDD574E2 /* EHRUserRegistrationManifest.h */; };
 		4B8DD214E01CA720ADD6F134 /* OBNewConvo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD0027530026FEA916241 /* OBNewConvo.m */; };
+		4B8DD23FB5617204D55FAA7C /* IBPrivateMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD0785AB5FBE2FAF6E667 /* IBPrivateMessage.h */; };
 		4B8DD25B7303EB84B20A451E /* ConsentsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD050789639CDD654C9BC /* ConsentsModel.m */; };
 		4B8DD26540567C2FD225443D /* ConvoDispensary.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD216B4B6997B980EF05D /* ConvoDispensary.h */; };
 		4B8DD27B0D4363BAD67ED7FD /* OBManualActivationSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD4A35B1A595389B8822C /* OBManualActivationSpec.m */; };
+		4B8DD28D0EBFC72EED953992 /* IBPrivateMessageAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD6117A04C1522A527667 /* IBPrivateMessageAttachment.m */; };
 		4B8DD2907EE863C674026265 /* EHRState.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD6FB3D7E21454820EDE9 /* EHRState.m */; };
 		4B8DD2BB26B0F0E06D332660 /* ConvoEntryBundle.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD1F0B3209B22D49E68B8 /* ConvoEntryBundle.h */; };
 		4B8DD2C542D7AC3CCCDBAAE0 /* EHRState.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD6FB3D7E21454820EDE9 /* EHRState.m */; };
@@ -110,9 +115,12 @@
 		4B8DD3696246F464D1929664 /* ActivationWS.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD2B6F79ABC1D312620D8 /* ActivationWS.h */; };
 		4B8DD38DE3F75EFC3D1FD7C7 /* OBMessageEntryAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DDF8223DB5D046F48DBB0 /* OBMessageEntryAttachment.m */; };
 		4B8DD394D144C9D9CC2E8AFB /* ConsentsModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DDD0FE1F3E38CC0453006 /* ConsentsModel.h */; };
+		4B8DD3C3C76D7236871DFF40 /* IBPrivateMessageAttachment.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DDCE2ACC43C23F5340505 /* IBPrivateMessageAttachment.h */; };
 		4B8DD3E70BEFAEFD0ABD405D /* OBMessageEntryAttachment.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD93E65FA4D5586F055BF /* OBMessageEntryAttachment.h */; };
 		4B8DD40CE1FD0E377DA1DC1F /* EHRUserRegistrationManifest.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD60EE5A38B85DDD574E2 /* EHRUserRegistrationManifest.h */; };
 		4B8DD42C3F14CB8272C3EACE /* EHRLibRuntimeGlobals.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DDE28109D1D2CB68E4449 /* EHRLibRuntimeGlobals.m */; };
+		4B8DD47446FDCC5ADC2887F4 /* IBPrivateMessageAttachment.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DDCE2ACC43C23F5340505 /* IBPrivateMessageAttachment.h */; };
+		4B8DD4B9272E3C3B4B4249C8 /* IBPrivateMessageInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD14D7BB53E360CE757EF /* IBPrivateMessageInfo.h */; };
 		4B8DD51B5A17E4DE9F5911A9 /* ConvoPlacesModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DDF21E10D7DF2E76E2080 /* ConvoPlacesModel.h */; };
 		4B8DD52357A4EC67FA97431B /* EntrySharePayload.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DDF24F5135F5820CAD605 /* EntrySharePayload.m */; };
 		4B8DD58D7CE87F69DA056788 /* EHRPatientSDK.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 5E0F52B7ACC867B4A93D9525CD48A60C /* EHRPatientSDK.podspec */; };
@@ -127,8 +135,11 @@
 		4B8DD85BDF80C8BE9304609A /* Models.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD8565B9DD59E6A046372 /* Models.m */; };
 		4B8DD870671DA6AED75AAA36 /* EHRLibStateDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD7CAE4B9947169E40D38 /* EHRLibStateDelegate.h */; };
 		4B8DD87E2862EEFFA83F761E /* ConvoPlacesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD1B743CDC34BF24A76AD /* ConvoPlacesModel.m */; };
+		4B8DD8C8A815B6D695C37E29 /* IBPrivateMessageInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD14D7BB53E360CE757EF /* IBPrivateMessageInfo.h */; };
 		4B8DD8DF589ED59F4AEB6619 /* ConvoEntryBundle.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD1F0B3209B22D49E68B8 /* ConvoEntryBundle.h */; };
+		4B8DD9A0A886BC0E0C3741CA /* IBPrivateMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD0785AB5FBE2FAF6E667 /* IBPrivateMessage.h */; };
 		4B8DD9D8F8E9ABD49B794C19 /* OBManualActivationSpec.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD944963C6EF1315BECEC /* OBManualActivationSpec.h */; };
+		4B8DDA408801BCAA4A9E8029 /* IBPrivateMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DDCBE16C775686CF5CA7F /* IBPrivateMessage.m */; };
 		4B8DDA59FC5A9A6BF1C67ACA /* ConvoEntryBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DDBB600973D7FCFB0CFE2 /* ConvoEntryBundle.m */; };
 		4B8DDA988EC52F50D3B7E7A4 /* EntrySharePayload.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DDB6A829A63247F0C64F1 /* EntrySharePayload.h */; };
 		4B8DDAB3DDB21C71DDEF55D9 /* IBScannedOffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DDBE688F0AE80619AEBD3 /* IBScannedOffer.h */; };
@@ -143,6 +154,7 @@
 		4B8DDCBE65C230CCBB12577D /* ConvoEntryBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DDBB600973D7FCFB0CFE2 /* ConvoEntryBundle.m */; };
 		4B8DDCD026E93E34B80B783E /* EHRPatientSDK.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 5E0F52B7ACC867B4A93D9525CD48A60C /* EHRPatientSDK.podspec */; };
 		4B8DDCE9690DC9506E7B7026 /* OBMessageEntryAttachment.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD93E65FA4D5586F055BF /* OBMessageEntryAttachment.h */; };
+		4B8DDCED8BDCC7A5BFE4B5B0 /* IBPrivateMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DDCBE16C775686CF5CA7F /* IBPrivateMessage.m */; };
 		4B8DDD3075D90A4A36840ED9 /* IBScannedOffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DDBE688F0AE80619AEBD3 /* IBScannedOffer.h */; };
 		4B8DDE215F9B0FF42EBFFAD5 /* OBMessageEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD155889060D44914751E /* OBMessageEntry.h */; };
 		4B8DDE891CBF75E712B90D1C /* ConsentsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD050789639CDD654C9BC /* ConsentsModel.m */; };
@@ -528,7 +540,10 @@
 		4B8DD0027530026FEA916241 /* OBNewConvo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OBNewConvo.m; sourceTree = "<group>"; };
 		4B8DD039A0185F2A538BEBC9 /* ConvoDispensary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConvoDispensary.m; sourceTree = "<group>"; };
 		4B8DD050789639CDD654C9BC /* ConsentsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConsentsModel.m; path = ../../../Models/ConsentsModel.m; sourceTree = "<group>"; };
+		4B8DD0785AB5FBE2FAF6E667 /* IBPrivateMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBPrivateMessage.h; sourceTree = "<group>"; };
+		4B8DD08EDC28A2241DA82B97 /* IBPrivateMessageInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBPrivateMessageInfo.m; sourceTree = "<group>"; };
 		4B8DD101C8B9AB071B08060C /* EHRLibRuntimeGlobals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EHRLibRuntimeGlobals.h; sourceTree = "<group>"; };
+		4B8DD14D7BB53E360CE757EF /* IBPrivateMessageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBPrivateMessageInfo.h; sourceTree = "<group>"; };
 		4B8DD155889060D44914751E /* OBMessageEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OBMessageEntry.h; sourceTree = "<group>"; };
 		4B8DD1B743CDC34BF24A76AD /* ConvoPlacesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConvoPlacesModel.m; sourceTree = "<group>"; };
 		4B8DD1F0B3209B22D49E68B8 /* ConvoEntryBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConvoEntryBundle.h; sourceTree = "<group>"; };
@@ -538,6 +553,7 @@
 		4B8DD4A35B1A595389B8822C /* OBManualActivationSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OBManualActivationSpec.m; sourceTree = "<group>"; };
 		4B8DD56795004DDD6C7A44EA /* IBScannedOffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBScannedOffer.m; sourceTree = "<group>"; };
 		4B8DD60EE5A38B85DDD574E2 /* EHRUserRegistrationManifest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EHRUserRegistrationManifest.h; sourceTree = "<group>"; };
+		4B8DD6117A04C1522A527667 /* IBPrivateMessageAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBPrivateMessageAttachment.m; sourceTree = "<group>"; };
 		4B8DD66D868E423399FA8D16 /* ActivationWS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivationWS.m; sourceTree = "<group>"; };
 		4B8DD6FB3D7E21454820EDE9 /* EHRState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EHRState.m; sourceTree = "<group>"; };
 		4B8DD7CAE4B9947169E40D38 /* EHRLibStateDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EHRLibStateDelegate.h; sourceTree = "<group>"; };
@@ -549,6 +565,8 @@
 		4B8DDBB600973D7FCFB0CFE2 /* ConvoEntryBundle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConvoEntryBundle.m; sourceTree = "<group>"; };
 		4B8DDBE688F0AE80619AEBD3 /* IBScannedOffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBScannedOffer.h; sourceTree = "<group>"; };
 		4B8DDC717C524E4D8EDD97F8 /* EHRUserRegistrationManifest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EHRUserRegistrationManifest.m; sourceTree = "<group>"; };
+		4B8DDCBE16C775686CF5CA7F /* IBPrivateMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBPrivateMessage.m; sourceTree = "<group>"; };
+		4B8DDCE2ACC43C23F5340505 /* IBPrivateMessageAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBPrivateMessageAttachment.h; sourceTree = "<group>"; };
 		4B8DDCE320CA9CAF1A32D947 /* Models.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Models.h; sourceTree = "<group>"; };
 		4B8DDD0FE1F3E38CC0453006 /* ConsentsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConsentsModel.h; path = ../../../Models/ConsentsModel.h; sourceTree = "<group>"; };
 		4B8DDE28109D1D2CB68E4449 /* EHRLibRuntimeGlobals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EHRLibRuntimeGlobals.m; sourceTree = "<group>"; };
@@ -983,6 +1001,19 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
+		4B8DD1C62C363638C33E5E4C /* PrivateMessage */ = {
+			isa = PBXGroup;
+			children = (
+				4B8DDCBE16C775686CF5CA7F /* IBPrivateMessage.m */,
+				4B8DD0785AB5FBE2FAF6E667 /* IBPrivateMessage.h */,
+				4B8DD6117A04C1522A527667 /* IBPrivateMessageAttachment.m */,
+				4B8DDCE2ACC43C23F5340505 /* IBPrivateMessageAttachment.h */,
+				4B8DD08EDC28A2241DA82B97 /* IBPrivateMessageInfo.m */,
+				4B8DD14D7BB53E360CE757EF /* IBPrivateMessageInfo.h */,
+			);
+			path = PrivateMessage;
+			sourceTree = "<group>";
+		};
 		59464BA458510B737F91D45A9D050D99 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -1389,6 +1420,7 @@
 				4B8DD944963C6EF1315BECEC /* OBManualActivationSpec.h */,
 				4B8DD56795004DDD6C7A44EA /* IBScannedOffer.m */,
 				4B8DDBE688F0AE80619AEBD3 /* IBScannedOffer.h */,
+				4B8DD1C62C363638C33E5E4C /* PrivateMessage */,
 			);
 			path = NAO;
 			sourceTree = "<group>";
@@ -1571,6 +1603,9 @@
 				4B8DDD3075D90A4A36840ED9 /* IBScannedOffer.h in Headers */,
 				4B8DDCB3101A77F851CD165C /* ConsentsModel.h in Headers */,
 				4B8DD2BB26B0F0E06D332660 /* ConvoEntryBundle.h in Headers */,
+				4B8DD23FB5617204D55FAA7C /* IBPrivateMessage.h in Headers */,
+				4B8DD47446FDCC5ADC2887F4 /* IBPrivateMessageAttachment.h in Headers */,
+				4B8DD4B9272E3C3B4B4249C8 /* IBPrivateMessageInfo.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1615,6 +1650,9 @@
 				4B8DDAB3DDB21C71DDEF55D9 /* IBScannedOffer.h in Headers */,
 				4B8DD394D144C9D9CC2E8AFB /* ConsentsModel.h in Headers */,
 				4B8DD8DF589ED59F4AEB6619 /* ConvoEntryBundle.h in Headers */,
+				4B8DD9A0A886BC0E0C3741CA /* IBPrivateMessage.h in Headers */,
+				4B8DD3C3C76D7236871DFF40 /* IBPrivateMessageAttachment.h in Headers */,
+				4B8DD8C8A815B6D695C37E29 /* IBPrivateMessageInfo.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1867,6 +1905,9 @@
 				4B8DD6F964077E313D2B7A70 /* IBScannedOffer.m in Sources */,
 				4B8DD25B7303EB84B20A451E /* ConsentsModel.m in Sources */,
 				4B8DDCBE65C230CCBB12577D /* ConvoEntryBundle.m in Sources */,
+				4B8DDA408801BCAA4A9E8029 /* IBPrivateMessage.m in Sources */,
+				4B8DD28D0EBFC72EED953992 /* IBPrivateMessageAttachment.m in Sources */,
+				4B8DD1E8C5C35A92A7BE2A56 /* IBPrivateMessageInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1939,6 +1980,9 @@
 				4B8DDC8F94C2BBC8B04D29E7 /* IBScannedOffer.m in Sources */,
 				4B8DDE891CBF75E712B90D1C /* ConsentsModel.m in Sources */,
 				4B8DDA59FC5A9A6BF1C67ACA /* ConvoEntryBundle.m in Sources */,
+				4B8DDCED8BDCC7A5BFE4B5B0 /* IBPrivateMessage.m in Sources */,
+				4B8DD02582D9C7130BCB6E0C /* IBPrivateMessageAttachment.m in Sources */,
+				4B8DD0D619AE89729B67FD29 /* IBPrivateMessageInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2039,6 +2083,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_CODE_COVERAGE = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -2048,6 +2093,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_WARN_UNUSED_FUNCTION = NO;
 				INFOPLIST_FILE = "Target Support Files/Pods-ehrPatientSDK-ios_Tests/Pods-ehrPatientSDK-ios_Tests-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
@@ -2137,6 +2183,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_CODE_COVERAGE = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -2146,6 +2193,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_WARN_UNUSED_FUNCTION = NO;
 				INFOPLIST_FILE = "Target Support Files/Pods-ehrPatientSDK-ios_Tests/Pods-ehrPatientSDK-ios_Tests-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
