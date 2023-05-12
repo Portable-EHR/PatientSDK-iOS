@@ -8,6 +8,8 @@
 #import "GERuntimeConstants.h"
 #import "EHRNetworkableP.h"
 #import "EHRInstanceCounterP.h"
+#import "IBPrivateMessageInfo.h"
+#import "IBPrivateMessage.h"
 #import "IBConsent.h"
 
 @class IBTelexInfo;
@@ -17,7 +19,7 @@
 @interface OfferedPrivateMessage : NSObject <EHRInstanceCounterP, EHRNetworkableP> {
     NSInteger _instanceNumber;
 }
-@property (nonatomic) IBTelexInfo *privateMessageInfo;
-@property (nonatomic) IBTelex *privateMessage;
+@property (nonatomic) IBPrivateMessageInfo *privateMessageInfo;
+@property (nonatomic) IBPrivateMessage *privateMessage;
     @property (nonatomic) IBConsent *consent;
 @end

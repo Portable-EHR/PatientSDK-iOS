@@ -17,8 +17,8 @@
 @property (nonatomic) NSString *author;
 @property (nonatomic) NSDate *acknowledgedOn;
 
-@property (readonly) BOOL isAcknowledged __unused;
-@property (readonly) NSString* getAuthor __unused;
+@property (readonly) BOOL  isAcknowledged ;
+@property (readonly) NSString* getAuthor ;
 
 
 @end

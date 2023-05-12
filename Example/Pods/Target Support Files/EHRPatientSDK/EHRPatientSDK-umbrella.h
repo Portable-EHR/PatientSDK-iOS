@@ -68,8 +68,6 @@
 #import "IBPrivateMessageInfo.h"
 #import "IBScannedOffer.h"
 #import "IBService.h"
-#import "IBTelex.h"
-#import "IBTelexInfo.h"
 #import "IBUser.h"
 #import "IBUserCapability.h"
 #import "IBUserEula.h"

@@ -25,6 +25,7 @@ TRACE_OFF
     ad.b64      = WantStringFromDic(theDictionary, @"b64");
     ad.name     = WantStringFromDic(theDictionary, @"name");
     ad.mimeType = WantStringFromDic(theDictionary, @"mimeType");
+    ad.date     = WantDateFromDic(theDictionary, @"date");
     return ad;
 }
 
@@ -65,7 +66,7 @@ TRACE_OFF
     _b64      = nil;
 }
 
-- (NSData *)decodedDocument {
+- (NSData *)decodedDocument __unused {
     NSData *nsdataFromBase64String = [[NSData alloc] initWithBase64EncodedString:_b64 options:NSDataBase64DecodingIgnoreUnknownCharacters];
     return nsdataFromBase64String;
 }

@@ -31,7 +31,6 @@
 		1649E9A7F289061E2CE7ED536203CF53 /* DateUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 1586FE5FB806A8D7C70BFC5A4F4DAAA2 /* DateUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		16E5EAF6DC6C352DA18CF5B0619CB9FD /* IBLabResultPDFDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE6A737E81EFD81A0C55367A72B22AD /* IBLabResultPDFDocument.m */; };
 		191D570AA4735B83EBEB389BB326BBCF /* GERuntimeConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 4289D47FB432EDD20B8A8F509E075E2A /* GERuntimeConstants.m */; };
-		196BD7954F55DC42202C8CA4BF2A3FD1 /* IBTelexInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B09960855CC4B1E92D32F0784AA8F21A /* IBTelexInfo.m */; };
 		19C2699CE174A31304235E603568AAE8 /* IBPractitionerPractice.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FDE789F57927482A36EADD0E80FBBAE /* IBPractitionerPractice.m */; };
 		1B4391EF3770481D3A6B85027202165D /* TSKPinningValidator_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = D9AD3D29FD5B87BD09A4C211F5AE96D5 /* TSKPinningValidator_Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		1C17E8BA31B735A5333E1290C8FB2AD5 /* ssl_pin_verifier.m in Sources */ = {isa = PBXBuildFile; fileRef = E053161309E514B8F13D2AB614B63A2D /* ssl_pin_verifier.m */; };
@@ -39,7 +38,6 @@
 		1C732A91ED4038473F4ED7F99DFD8FD8 /* IBLabResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F9726695B0D8BED75256683AE63EEBA /* IBLabResult.m */; };
 		1C75D74C108A9D85C2A75B9A9B469B22 /* IBMessageDistribution.h in Headers */ = {isa = PBXBuildFile; fileRef = 21E18FA4322E0473F13CD3861350E6E2 /* IBMessageDistribution.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1CBD19B1EA5179BBD610E2CB4F701138 /* AppState.h in Headers */ = {isa = PBXBuildFile; fileRef = 03BDEFCDED1DF0E896DB6DE581DF7654 /* AppState.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1CF101695C78CF3F5446AF19079D3E22 /* IBTelexInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 724E05943DA4EE5227E1712E8BFB8E9E /* IBTelexInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1EC9E4B5DA39F17D8E3ECFA932268BA8 /* IBLabResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 32F10ADA3F82ED521197BE105792E108 /* IBLabResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		211F54E9EF8295F25E98AAF3F8C71D9C /* AccessRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 1712EDD52E86A4FE4671CA1058CC116C /* AccessRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		227D91346A8CAB58DE34E14BC63EA369 /* IBAnnotation.h in Headers */ = {isa = PBXBuildFile; fileRef = 53607158C7FA569546A968FD3AA70A04 /* IBAnnotation.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -610,7 +608,6 @@
 		6F2F2C01BD486730FC7A62B359B54BC4 /* NotificationProgressChange.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = NotificationProgressChange.m; sourceTree = "<group>"; };
 		706D7330A8600203C0826107628794C6 /* IBMedia.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = IBMedia.m; sourceTree = "<group>"; };
 		70BF57C250F4959226D81C11FD65E054 /* MathUtil.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MathUtil.h; sourceTree = "<group>"; };
-		724E05943DA4EE5227E1712E8BFB8E9E /* IBTelexInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = IBTelexInfo.h; sourceTree = "<group>"; };
 		74C634FEEE025145BACA0FBC1F5B7E72 /* UserDeviceSettings.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = UserDeviceSettings.m; sourceTree = "<group>"; };
 		74DDCB696B8F7C402BFCC4C1DCB99BED /* IBDispensaryInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = IBDispensaryInfo.h; sourceTree = "<group>"; };
 		7827D8AEDB6348EB867EC7AEBED540B3 /* SecureCredentials.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SecureCredentials.m; sourceTree = "<group>"; };
@@ -681,7 +678,6 @@
 		AEEE82A68AD7B20344FD9A8C85D18118 /* PehrSDKConfig.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PehrSDKConfig.m; sourceTree = "<group>"; };
 		AF4BA8DDE383393387BA5A0203DE7C03 /* TrustKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = TrustKit.modulemap; sourceTree = "<group>"; };
 		AFBFA4B64A3CB4AC974CC2AC8452341B /* trie_search.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = trie_search.h; path = TrustKit/Dependencies/domain_registry/private/trie_search.h; sourceTree = "<group>"; };
-		B09960855CC4B1E92D32F0784AA8F21A /* IBTelexInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = IBTelexInfo.m; sourceTree = "<group>"; };
 		B0B4680702960A67A1128A44953F0CE0 /* TSKTrustKitConfig.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TSKTrustKitConfig.m; path = TrustKit/TSKTrustKitConfig.m; sourceTree = "<group>"; };
 		B23001E03561B321FFBE8EEBD2EA5448 /* UICKeyChainStore.LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.LICENSE; path = UICKeyChainStore.LICENSE; sourceTree = "<group>"; };
 		B29A6D14F953D27E9C58C9DA8C2D09BA /* TrustKit */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = TrustKit; path = TrustKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1387,8 +1383,6 @@
 				19CBC8048B5A2CF4FCBDF1E3581CE8C1 /* IBService.m */,
 				804270BCEA7293434CD3D5F1ECACE7CB /* IBTelex.h */,
 				A46BE7AC64F4044F5FF4812F72BCC98B /* IBTelex.m */,
-				724E05943DA4EE5227E1712E8BFB8E9E /* IBTelexInfo.h */,
-				B09960855CC4B1E92D32F0784AA8F21A /* IBTelexInfo.m */,
 				5121226C17B823E4D8ABF66D2C4861B3 /* IBUser.h */,
 				B32EE88A22D2ED5B11383B0500E400A4 /* IBUser.m */,
 				4D3B34E67AFC42D6BFBB113E195E0BB7 /* IBUserCapability.h */,
@@ -1548,7 +1542,6 @@
 				FAD79B1D2984623E0011388E /* CommandsWS.h in Headers */,
 				740D17A1660213A2F33A69B68D1E1FCB /* IBTelex.h in Headers */,
 				FAD79AE629845F580011388E /* ConversationEntryPoint.h in Headers */,
-				1CF101695C78CF3F5446AF19079D3E22 /* IBTelexInfo.h in Headers */,
 				FAD79AF029845F580011388E /* OBEntry.h in Headers */,
 				FA2ADA1E29DC992E00FAA627 /* Models.h in Headers */,
 				EFDA77BE8FF452560F3BFD8D8B345F41 /* IBUser.h in Headers */,
@@ -1852,7 +1845,6 @@
 				FAD79B062984616F0011388E /* NSDate+Compare.m in Sources */,
 				86B943942E9307AB4A8EBB6758DF7A6E /* IBService.m in Sources */,
 				68B1C6A50A02E37156B5B6E3205294D1 /* IBTelex.m in Sources */,
-				196BD7954F55DC42202C8CA4BF2A3FD1 /* IBTelexInfo.m in Sources */,
 				C3B68E2D5B2729716FEB51B92BCB4126 /* IBUser.m in Sources */,
 				FAD79ADA29845F580011388E /* EntryAttachment.m in Sources */,
 				3261FC3E3E1EA57DE9D54AD00AEA26DF /* IBUserCapability.m in Sources */,

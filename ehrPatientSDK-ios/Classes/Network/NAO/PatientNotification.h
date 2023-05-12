@@ -10,6 +10,7 @@
 #import "GERuntimeConstants.h"
 #import "EHRNetworkableP.h"
 #import "EHRInstanceCounterP.h"
+#import "IBPrivateMessageInfo.h"
 
 @class EHRCall;
 @class EHRServerRequest;
@@ -18,7 +19,6 @@
 @class IBLabRequest;
 @class IBLabResult;
 @class IBMessageContent;
-@class IBTelexInfo;
 @class IBDeviceInfo;
 @class IBAppointment;
 @class ConversationEnvelope;
@@ -60,7 +60,7 @@
 @property IBAnnotation         *annotation;
 @property IBLabRequest         *labRequest;
 @property IBLabResult          *labResult;
-@property IBTelexInfo          *telexInfo;
+@property IBPrivateMessageInfo *privateMessageInfo;
 @property IBDeviceInfo         *deviceInfo;
 @property IBMessageContent     *message;
 @property NSString             *seq;
