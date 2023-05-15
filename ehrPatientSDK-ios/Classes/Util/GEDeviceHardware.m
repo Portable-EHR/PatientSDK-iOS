@@ -215,7 +215,7 @@
         return [platform hasPrefix:@"iPhone"];
     } else {
         // simulator here ... revert to intervace idiom
-        return UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone;
+        return [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone;
     }
 
 }
@@ -225,7 +225,7 @@
         NSString *platform = [self platform];
         return [platform hasPrefix:@"iPad"];
     } else {
-        return UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad;
+        return [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad;
     }
 }
 
@@ -254,16 +254,11 @@
 }
 
 + (BOOL)isCroppingIpad __unused {
-
-    CGSize sz = [UIScreen mainScreen].bounds.size;
-    if (sz.height == 1366 || sz.width == 1366) return YES;
-    if (sz.height == 1194 || sz.width == 1194) return YES;
-    return NO;
-    // todo : this may not be true with latest wave of apple mad devices, true for iphone X
+    return YES ; // since iPadOS 13
 }
 
 + (BOOL)isIpad {
-    return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad);
+    return [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad;
 
 }
 
