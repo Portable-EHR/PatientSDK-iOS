@@ -105,6 +105,12 @@
     return request;
 }
 
++ (EHRServerRequest *)getRevokeConsentRequestForConsentWithGuid:(NSString *)consentGuid __attribute__((unused)){
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+       params[@"guid"] =consentGuid;
+       EHRServerRequest *request = [EHRRequests requestWithRoute:@"/app/consent" command:@"revoke" parameters:params];
+       return request;
+}
 
 
 //endregion

@@ -66,6 +66,16 @@
                      onSuccess:(SenderBlock)successBlock
                        onError:(SenderBlock)errorBlock;
 
+/**
+ *
+ * @param guid  the id of the consent to be revoked
+ * @param successBlock the caller's block that will be invoked on success
+ * @param errorBlock  sender block with EHRCall
+ */
+- (void)__unused  revokeConsentWithGuid:(NSString *)guid
+                     onSuccess:(VoidBlock)successBlock
+                       onError:(SenderBlock)errorBlock;
+
 //endregion
 
 @end

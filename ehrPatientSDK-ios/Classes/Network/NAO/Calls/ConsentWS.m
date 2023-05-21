@@ -148,6 +148,31 @@ TRACE_OFF
 
 }
 
+/**
+ *
+ * @param guid  the id of the consent to be revoked
+ * @param successBlock the caller's block that will be invoked on success
+ * @param errorBlock  sender block with EHRCall
+ */
+- (void)__unused  revokeConsentWithGuid:(NSString *)guid
+                     onSuccess:(VoidBlock)successBlock
+                       onError:(SenderBlock)errorBlock{
+
+    SenderBlock callSuccess= ^(EHRCall * theCall){
+        MPLOG(@"Revoke consent [%@] : SUCCESS",guid);
+        successBlock();
+    };
+
+    SenderBlock callError= ^(EHRCall * theCall){
+        MPLOGERROR(@"Revoke consent [%@] : FAILED",guid);
+        errorBlock(theCall);
+    };
+
+    EHRServerRequest *request = [EHRRequests getRevokeConsentRequestForConsentWithGuid:guid];
+    EHRCall          *call    = [EHRCall callWithRequest:request onSuccess:callSuccess onError:callError];
+    [call start];
+}
+
 
 //endregion
 
