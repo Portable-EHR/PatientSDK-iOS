@@ -7,6 +7,8 @@
 #import "EHRInstanceCounterP.h"
 #import "EHRCall.h"
 #import "IBConsent.h"
+#import "Conversation.h"
+
 
 @interface ConsentWS : NSObject <EHRInstanceCounterP>
 
@@ -73,6 +75,7 @@
  * @param errorBlock  sender block with EHRCall
  */
 - (void)__unused  revokeConsentWithGuid:(NSString *)guid
+                         inConversation:(Conversation *)convo
                      onSuccess:(VoidBlock)successBlock
                        onError:(SenderBlock)errorBlock;
 

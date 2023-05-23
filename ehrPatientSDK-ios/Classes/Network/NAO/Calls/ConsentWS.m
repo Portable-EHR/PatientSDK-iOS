@@ -4,6 +4,8 @@
 
 #import "ConsentWS.h"
 #import "EHRRequests.h"
+#import "PehrSDKConfig.h"
+#import "Conversation.h"
 
 @interface ConsentWS () {
     NSInteger _instanceNumber;
@@ -72,8 +74,8 @@ TRACE_OFF
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"guid"] = guid;
     SenderBlock deserializeBlock = ^(EHRCall *theCall) {
-        NSDictionary   *theDic   = theCall.serverResponse.responseContent;
-        IBConsent      *consent  = [IBConsent objectWithContentsOfDictionary:theDic];
+        NSDictionary *theDic  = theCall.serverResponse.responseContent;
+        IBConsent    *consent = [IBConsent objectWithContentsOfDictionary:theDic];
         successBlock(consent);
     };
     EHRCall     *consentCall     = [self getAllConsentsWith:params onSuccess:deserializeBlock onError:errorBlock];
@@ -138,10 +140,10 @@ TRACE_OFF
  * @param successBlock sender block with  EHRCall
  * @param errorBlock  sender block with EHRCall
  */
-- (void )__unused  consent:(IBConsent *)consent
-                   patientGuid:(NSString *)patientGuid
-                     onSuccess:(SenderBlock)successBlock
-                       onError:(SenderBlock)errorBlock {
+- (void)__unused  consent:(IBConsent *)consent
+              patientGuid:(NSString *)patientGuid
+                onSuccess:(SenderBlock)successBlock
+                  onError:(SenderBlock)errorBlock {
     EHRServerRequest *request = [EHRRequests getConsentConsentRequestForPatient:patientGuid forConsent:consent];
     EHRCall          *call    = [EHRCall callWithRequest:request onSuccess:successBlock onError:errorBlock];
     [call start];
@@ -155,21 +157,23 @@ TRACE_OFF
  * @param errorBlock  sender block with EHRCall
  */
 - (void)__unused  revokeConsentWithGuid:(NSString *)guid
-                     onSuccess:(VoidBlock)successBlock
-                       onError:(SenderBlock)errorBlock{
+                         inConversation:(Conversation *)convo
+                              onSuccess:(VoidBlock)successBlock
+                                onError:(SenderBlock)errorBlock {
 
-    SenderBlock callSuccess= ^(EHRCall * theCall){
-        MPLOG(@"Revoke consent [%@] : SUCCESS",guid);
+    SenderBlock consentCallSuccess = ^(EHRCall *theCall) {
+        MPLOG(@"Revoke consent [%@] : SUCCESS", guid);
         successBlock();
     };
 
-    SenderBlock callError= ^(EHRCall * theCall){
-        MPLOGERROR(@"Revoke consent [%@] : FAILED",guid);
+    SenderBlock consentCallError = ^(EHRCall *theCall) {
+        MPLOGERROR(@"Revoke consent [%@] : FAILED", guid);
         errorBlock(theCall);
     };
 
     EHRServerRequest *request = [EHRRequests getRevokeConsentRequestForConsentWithGuid:guid];
-    EHRCall          *call    = [EHRCall callWithRequest:request onSuccess:callSuccess onError:callError];
+    request.parameters[@"consentedItemId"] = convo.id;
+    EHRCall *call = [EHRCall callWithRequest:request onSuccess:consentCallSuccess onError:consentCallError];
     [call start];
 }
 
