@@ -4,8 +4,7 @@
 
 #import "ConsentWS.h"
 #import "EHRRequests.h"
-#import "PehrSDKConfig.h"
-#import "Conversation.h"
+
 
 @interface ConsentWS () {
     NSInteger _instanceNumber;

@@ -9,7 +9,6 @@
 #import "IBConsent.h"
 #import "Conversation.h"
 
-
 @interface ConsentWS : NSObject <EHRInstanceCounterP>
 
 - (EHRCall *)__unused  getAllConsents:(SenderBlock)successBlock
