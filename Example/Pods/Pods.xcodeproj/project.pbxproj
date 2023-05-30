@@ -113,7 +113,6 @@
 		4B8DD3E70BEFAEFD0ABD405D /* OBMessageEntryAttachment.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD93E65FA4D5586F055BF /* OBMessageEntryAttachment.h */; };
 		4B8DD40CE1FD0E377DA1DC1F /* EHRUserRegistrationManifest.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD60EE5A38B85DDD574E2 /* EHRUserRegistrationManifest.h */; };
 		4B8DD42C3F14CB8272C3EACE /* EHRLibRuntimeGlobals.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DDE28109D1D2CB68E4449 /* EHRLibRuntimeGlobals.m */; };
-		4B8DD51B5A17E4DE9F5911A9 /* ConvoPlacesModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DDF21E10D7DF2E76E2080 /* ConvoPlacesModel.h */; };
 		4B8DD52357A4EC67FA97431B /* EntrySharePayload.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DDF24F5135F5820CAD605 /* EntrySharePayload.m */; };
 		4B8DD58D7CE87F69DA056788 /* EHRPatientSDK.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 5E0F52B7ACC867B4A93D9525CD48A60C /* EHRPatientSDK.podspec */; };
 		4B8DD6AE03845D4212CBD114 /* Models.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DDCE320CA9CAF1A32D947 /* Models.h */; };
@@ -126,7 +125,6 @@
 		4B8DD7AC28153315C8C4DD8F /* ConvoDispensary.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD216B4B6997B980EF05D /* ConvoDispensary.h */; };
 		4B8DD85BDF80C8BE9304609A /* Models.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD8565B9DD59E6A046372 /* Models.m */; };
 		4B8DD870671DA6AED75AAA36 /* EHRLibStateDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD7CAE4B9947169E40D38 /* EHRLibStateDelegate.h */; };
-		4B8DD87E2862EEFFA83F761E /* ConvoPlacesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD1B743CDC34BF24A76AD /* ConvoPlacesModel.m */; };
 		4B8DD8DF589ED59F4AEB6619 /* ConvoEntryBundle.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD1F0B3209B22D49E68B8 /* ConvoEntryBundle.h */; };
 		4B8DD9D8F8E9ABD49B794C19 /* OBManualActivationSpec.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD944963C6EF1315BECEC /* OBManualActivationSpec.h */; };
 		4B8DDA59FC5A9A6BF1C67ACA /* ConvoEntryBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DDBB600973D7FCFB0CFE2 /* ConvoEntryBundle.m */; };
@@ -307,8 +305,6 @@
 		FA17E24F29D33D5A007D3900 /* EHRLibRuntimeGlobals.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD101C8B9AB071B08060C /* EHRLibRuntimeGlobals.h */; };
 		FA2ADA1E29DC992E00FAA627 /* Models.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DDCE320CA9CAF1A32D947 /* Models.h */; };
 		FA2ADA1F29DC993300FAA627 /* Models.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD8565B9DD59E6A046372 /* Models.m */; };
-		FA2ADA2029DC997500FAA627 /* ConvoPlacesModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DDF21E10D7DF2E76E2080 /* ConvoPlacesModel.h */; };
-		FA2ADA2129DC997500FAA627 /* ConvoPlacesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD1B743CDC34BF24A76AD /* ConvoPlacesModel.m */; };
 		FAD79AC629845F580011388E /* EntryMessagePayload.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79AA729845F570011388E /* EntryMessagePayload.h */; };
 		FAD79AC729845F580011388E /* EntryMessagePayload.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79AA729845F570011388E /* EntryMessagePayload.h */; };
 		FAD79AC829845F580011388E /* ConvoInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79AA829845F570011388E /* ConvoInfo.m */; };
@@ -530,7 +526,6 @@
 		4B8DD050789639CDD654C9BC /* ConsentsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConsentsModel.m; path = ../../../Models/ConsentsModel.m; sourceTree = "<group>"; };
 		4B8DD101C8B9AB071B08060C /* EHRLibRuntimeGlobals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EHRLibRuntimeGlobals.h; sourceTree = "<group>"; };
 		4B8DD155889060D44914751E /* OBMessageEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OBMessageEntry.h; sourceTree = "<group>"; };
-		4B8DD1B743CDC34BF24A76AD /* ConvoPlacesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConvoPlacesModel.m; sourceTree = "<group>"; };
 		4B8DD1F0B3209B22D49E68B8 /* ConvoEntryBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConvoEntryBundle.h; sourceTree = "<group>"; };
 		4B8DD216B4B6997B980EF05D /* ConvoDispensary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConvoDispensary.h; sourceTree = "<group>"; };
 		4B8DD27CD49855FBE152250A /* OBMessageEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OBMessageEntry.m; sourceTree = "<group>"; };
@@ -552,7 +547,6 @@
 		4B8DDCE320CA9CAF1A32D947 /* Models.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Models.h; sourceTree = "<group>"; };
 		4B8DDD0FE1F3E38CC0453006 /* ConsentsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConsentsModel.h; path = ../../../Models/ConsentsModel.h; sourceTree = "<group>"; };
 		4B8DDE28109D1D2CB68E4449 /* EHRLibRuntimeGlobals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EHRLibRuntimeGlobals.m; sourceTree = "<group>"; };
-		4B8DDF21E10D7DF2E76E2080 /* ConvoPlacesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConvoPlacesModel.h; sourceTree = "<group>"; };
 		4B8DDF24F5135F5820CAD605 /* EntrySharePayload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntrySharePayload.m; sourceTree = "<group>"; };
 		4B8DDF66687CC3C61C63DA36 /* OBNewConvo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OBNewConvo.h; sourceTree = "<group>"; };
 		4B8DDF8223DB5D046F48DBB0 /* OBMessageEntryAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OBMessageEntryAttachment.m; sourceTree = "<group>"; };
@@ -1008,8 +1002,6 @@
 				2A990CF1C540E363D58A570B32B4319A /* ServicesModelFilter.m */,
 				41252A391D4B12F73BFEC217B7D0C004 /* UserModel.h */,
 				9DEC28495A98FA696C9837048D1F37E8 /* UserModel.m */,
-				4B8DD1B743CDC34BF24A76AD /* ConvoPlacesModel.m */,
-				4B8DDF21E10D7DF2E76E2080 /* ConvoPlacesModel.h */,
 				4B8DD8565B9DD59E6A046372 /* Models.m */,
 				4B8DDCE320CA9CAF1A32D947 /* Models.h */,
 			);
@@ -1523,7 +1515,6 @@
 				320575B0EC1CB9C8DCE197775D0832F9 /* IBUserCapability.h in Headers */,
 				A920B67D33AA3265508128BEC5F6C631 /* IBUserEula.h in Headers */,
 				2A1C2A06D7F8D813BEB2E581D1E449F9 /* IBUserInfo.h in Headers */,
-				FA2ADA2029DC997500FAA627 /* ConvoPlacesModel.h in Headers */,
 				5FE7123C745DC65A0E998C234F32B0B8 /* IBUserService.h in Headers */,
 				8EF65B6A7F67089AF4A8D02EB7C9A686 /* IBVersion.h in Headers */,
 				E784E9271207E67ED0D00F8E7C0E26B9 /* Inbox.h in Headers */,
@@ -1600,7 +1591,6 @@
 				FAD79AF129845F580011388E /* OBEntry.h in Headers */,
 				FAD79B1A2984623E0011388E /* ConvoWS.h in Headers */,
 				DD2E77FC40217B4F9FFDD2730686B97C /* Pods-ehrPatientSDK-ios_Tests-umbrella.h in Headers */,
-				4B8DD51B5A17E4DE9F5911A9 /* ConvoPlacesModel.h in Headers */,
 				4B8DD6AE03845D4212CBD114 /* Models.h in Headers */,
 				4B8DD1EF835A96E6C1597B4B /* EHRUserRegistrationManifest.h in Headers */,
 				4B8DDC288B2C8B69B4310128 /* ActivationWS.h in Headers */,
@@ -1787,7 +1777,6 @@
 				C223112E5F2060C9AB7B99B939375C14 /* IBEula.m in Sources */,
 				FAD79AFE29845F580011388E /* ConversationEntry.m in Sources */,
 				FAD79AC829845F580011388E /* ConvoInfo.m in Sources */,
-				FA2ADA2129DC997500FAA627 /* ConvoPlacesModel.m in Sources */,
 				F88832A68BE80AD7D8D1112DAE8C880E /* IBHealthCareProvider.m in Sources */,
 				376CC7209CB54E51C93E65ABFCD14C6D /* IBLab.m in Sources */,
 				237D3E6E6C43BAC432423D14553953B6 /* IBLabRequest.m in Sources */,
@@ -1925,7 +1914,6 @@
 				FAD79AE529845F580011388E /* ConversationParticipant.m in Sources */,
 				FAD79B072984616F0011388E /* NSDate+Compare.m in Sources */,
 				4B8DD42C3F14CB8272C3EACE /* EHRLibRuntimeGlobals.m in Sources */,
-				4B8DD87E2862EEFFA83F761E /* ConvoPlacesModel.m in Sources */,
 				4B8DD85BDF80C8BE9304609A /* Models.m in Sources */,
 				4B8DD70AF53B4395894C4B45 /* EHRUserRegistrationManifest.m in Sources */,
 				4B8DDF52A338CC4C13949A2B /* ActivationWS.m in Sources */,

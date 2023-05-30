@@ -587,6 +587,8 @@ static AppState   *_sharedInstance;
 
 - (void)doOneRefresh {
 
+    MPLOG(@"%@",__FUNCTION__);
+
     VoidBlock _after = ^{
         if (self->_refreshCompletionBlock) {
             self->_refreshCompletionBlock();
