@@ -555,11 +555,10 @@ static AppState   *_sharedInstance;
         // after a long background stint
         [[SecureCredentials sharedCredentials] reload];
     }
-    if (!self.isAppUsable) {
-        [self nukeAutoRefreshTimer];
-        return;
+    [self nukeAutoRefreshTimer];
+    if (self.isAppUsable) {
+        [self activateForegroundRefresh];
     }
-    [self activateForegroundRefresh];
 
 }
 
@@ -586,9 +585,7 @@ static AppState   *_sharedInstance;
 }
 
 - (void)doOneRefresh {
-
-    MPLOG(@"%@",__FUNCTION__);
-
+    MPLOG(@"...invoked");
     VoidBlock _after = ^{
         if (self->_refreshCompletionBlock) {
             self->_refreshCompletionBlock();
@@ -691,13 +688,17 @@ static AppState   *_sharedInstance;
 }
 
 - (void)createAutoRefreshTimer:(float)intervalInSeconds {
+    MPLOG(@"Creating refresh timer with %f seconds interval", intervalInSeconds);
     [self nukeAutoRefreshTimer];
-    _autoRefreshTimer = [NSTimer scheduledTimerWithTimeInterval:intervalInSeconds // _foregroundUpdateIntervalInSeconds
-                                                         target:self
-                                                       selector:@selector(doOneRefresh)
-                                                       userInfo:nil
-                                                        repeats:YES
-    ];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self->_autoRefreshTimer = [NSTimer scheduledTimerWithTimeInterval:intervalInSeconds // _foregroundUpdateIntervalInSeconds
+                                                             target:self
+                                                           selector:@selector(doOneRefresh)
+                                                           userInfo:nil
+                                                            repeats:YES
+        ];
+    });
+
 }
 
 #pragma mark - initialization stuff
@@ -867,7 +868,7 @@ static AppState   *_sharedInstance;
     [self enterBackground]; // todo : this should be in SDK, not AppState
 }
 
--(void) onDeviceDeactivated {
+- (void)onDeviceDeactivated {
     MPLOG(@"Backend has deactivated this device, will cleanup AppState");
     [self resetDevice]; //hard, this App cant work without the SDK !
 }
