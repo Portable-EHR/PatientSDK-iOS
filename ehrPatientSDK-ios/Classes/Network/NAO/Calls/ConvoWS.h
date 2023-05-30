@@ -82,13 +82,8 @@
                                  onSuccess:(SenderBlock)successBlock
                                    onError:(SenderBlock)errorBlock __attribute__((unused));
 
-- (void)__unused leaveConversation:(Conversation *)conversation
-          participantGuid:(NSString *)participantGuid
-                onSuccess:(SenderBlock)successBlock
-                  onError:(SenderBlock)errorBlock;
-
 - (void)getAccessOffer:(NSString *)offerGuid onSuccess:(SenderBlock)successBlock onErrof:(SenderBlock)errorBlock;
-- (void)setOfferStatus:(NSString *)offerGuid status:(NSString *)newStatus onSuccess:(SenderBlock)successBlock onErrof:(SenderBlock)errorBlock;
+- (void)setOfferStatus:(NSString *)offerGuid status:(NSString *)newStatus onSuccess:(SenderBlock)successBlock onError:(SenderBlock)errorBlock;
 
 //endregion
 

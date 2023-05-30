@@ -165,7 +165,7 @@
                     PehrSDKConfig.shared.state.secureCredentials.current.deviceGuid       = device.deviceGuid;
                     [PehrSDKConfig.shared.state.secureCredentials persist];
 
-                    [self setFirebaseDeviceToken:_savedFirebaseToken onSuccess:^() {
+                    [self setFirebaseDeviceToken:self->_savedFirebaseToken onSuccess:^() {
                         MPLOG(@"Associated device to Firebase token : SUCCESS");
                         successBlock(call);
                     }                    onError:^() {

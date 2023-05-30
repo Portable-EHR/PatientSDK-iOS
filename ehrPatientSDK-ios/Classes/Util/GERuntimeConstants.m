@@ -386,11 +386,11 @@ void PutUrlInDic(NSURL *theUrl, NSMutableDictionary *dic, NSString *key) {
 
 //region date helpers
 
-NSDate *now() {
+NSDate *now(void) {
     return [NSDate date];
 }
 
-NSDate *forever() {
+NSDate *forever(void) {
     return [NSDate dateWithTimeIntervalSince1970:0];
 }
 
