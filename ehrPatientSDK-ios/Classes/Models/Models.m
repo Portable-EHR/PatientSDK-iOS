@@ -4,7 +4,6 @@
 
 #import <IBConsent.h>
 #import "Models.h"
-#import "ConvoPlacesModel.h"
 #import "EulaModel.h"
 #import "NotificationsModel.h"
 #import "UserModel.h"
@@ -14,7 +13,6 @@
 
 @interface Models () {
     NSInteger          _instanceNumber;
-    ConvoPlacesModel   *_convoPlaces;
     EulaModel          *_eula;
     NotificationsModel *_notifications;
     UserModel          *_userModel;
@@ -25,10 +23,6 @@
 @implementation Models
 
 @synthesize consentsModel = _consentsModel;
-
-- (ConvoPlacesModel *)conversationPlaces {
-    return _convoPlaces;
-}
 
 - (EulaModel *)eula {
     return _eula;
@@ -48,7 +42,6 @@ TRACE_OFF
     if ((self = [super init])) {
         GE_ALLOC();
         GE_ALLOC_ECHO();
-        _convoPlaces   = [[ConvoPlacesModel alloc] init];
         _eula          = [[EulaModel alloc] init];
         _notifications = [NotificationsModel instance];
         _userModel     = [UserModel guest];
@@ -63,7 +56,6 @@ TRACE_OFF
 - (void)dealloc {
     GE_DEALLOC();
     GE_DEALLOC_ECHO();
-    _convoPlaces   = nil;
     _eula          = nil;
     _notifications = nil;
     _userModel     = nil;

@@ -19,7 +19,6 @@
 #import "ConvoWS.h"
 #import "CommandsWS.h"
 #import "Models.h"
-#import "ConvoPlacesModel.h"
 #import "EHRCall.h"
 #import "EHRApiServer.h"
 #import "EHRServerRequest.h"
