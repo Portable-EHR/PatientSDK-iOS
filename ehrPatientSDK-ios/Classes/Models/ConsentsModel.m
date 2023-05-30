@@ -41,12 +41,12 @@
 }
 
 - (void)populateWithConsents:(NSArray<IBConsent *> *)pulledConsents {
-    MPLOG(@"populateWithConsents");
+    TRACE(@"populateWithConsents");
     [_consents removeAllObjects];
     for (IBConsent *consent in pulledConsents) {
         _consents[consent.guid] = consent;
         if (consent.isCCRP) {
-            MPLOG(@"Got CCRP : %@\n", [consent asDictionary]);
+            TRACE(@"Got CCRP : %@\n", [consent asDictionary]);
         }
     }
     [PehrSDKConfig.shared.state.delegate onConsentsUpdate];
