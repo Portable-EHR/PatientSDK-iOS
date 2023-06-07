@@ -9,6 +9,7 @@
 // ref : https://gist.github.com/adamawolf/3048717
 
 
+#import <LocalAuthentication/LocalAuthentication.h>
 #import "GEDeviceHardware.h"
 #import "sys/sysctl.h"
 
@@ -240,17 +241,42 @@
 
 + (BOOL)isCroppingPhone __unused {
 
-    if ([self isSimulator])
-        return YES;
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) return NO;
+    return ! [self isTouchIDAvailable];  // iphones are a moving target
 
-    NSString *platform       = [self platform];
-    NSString *prefixToRemove = @"iPhone";
-    NSString *newString      = [platform copy];
-    if ([platform hasPrefix:prefixToRemove])
-        newString = [platform substringFromIndex:[prefixToRemove length]];
-    newString     = [newString stringByReplacingOccurrencesOfString:@"," withString:@"."];
-    CGFloat version = [newString floatValue];
-    return version > 10.55; // 55 will take care of 10.500000000234 , chaos theory
+//    if ([self isSimulator])
+//        return YES;
+
+//    NSString *platform       = [self platform];
+//    NSString *prefixToRemove = @"iPhone";
+//    NSString *newString      = [platform copy];
+//    if ([platform hasPrefix:prefixToRemove])
+//        newString = [platform substringFromIndex:[prefixToRemove length]];
+//    newString     = [newString stringByReplacingOccurrencesOfString:@"," withString:@"."];
+//    CGFloat version = [newString floatValue];
+//    return version > 10.55; // 55 will take care of 10.500000000234 , chaos theory
+}
+
++ (BOOL) isTouchIDAvailable {
+    if (![LAContext class]) return NO;
+
+    LAContext *myContext = [[LAContext alloc] init];
+    NSError *authError = nil;
+    if (![myContext canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&authError]) {
+        NSLog(@"%@", [authError localizedDescription]);
+        return NO;
+        // if (authError.code == LAErrorTouchIDNotAvailable) {}
+    }
+
+    if (@available(iOS 11.0, *)) {
+        if (myContext.biometryType == LABiometryTypeTouchID){
+            return YES;
+        } else {
+            return NO;
+        }
+    } else {
+        return YES;
+    }
 }
 
 + (BOOL)isCroppingIpad __unused {

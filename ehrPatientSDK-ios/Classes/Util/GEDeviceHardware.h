@@ -20,4 +20,5 @@
 + (BOOL)isIpod;
 + (BOOL)isCroppingPhone;
 + (BOOL)isCroppingIpad;
++ (BOOL) isTouchIDAvailable;
 @end
