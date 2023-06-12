@@ -390,6 +390,7 @@
 		FAD79B2B298462920011388E /* EHRRequests.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79B28298462920011388E /* EHRRequests.h */; };
 		FAD79B2C298462920011388E /* EHRRequests.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79B28298462920011388E /* EHRRequests.h */; };
 		FAD79B3829867EF50011388E /* sdk.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79B3729867EF50011388E /* sdk.h */; };
+		FADB4AB62A31D57F00951BA8 /* UICKeyChainStore.LICENSE in CopyFiles */ = {isa = PBXBuildFile; fileRef = B23001E03561B321FFBE8EEBD2EA5448 /* UICKeyChainStore.LICENSE */; };
 		FC01A1151EF80DA9CEFDBA19847A87A0 /* IBMediaInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 941917E7C50B4DF2ACEE0E328FB4DC7E /* IBMediaInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FC1078C0018662F81AFB1A79B8C7A81D /* IBPractitionerJurisdiction.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA23E880DF3BD1CFC5B5E944905526B /* IBPractitionerJurisdiction.m */; };
 		FC57817200F7714C5B828D9D1F6364AB /* EHRRequestStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = 260DEC11B7626B2EDC78112661BB890A /* EHRRequestStatus.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -401,14 +402,14 @@
 		FA935FF029CB3DD100078A93 /* PBXBuildRule */ = {
 			isa = PBXBuildRule;
 			compilerSpec = com.apple.compilers.proxy.script;
-			filePatterns = "*.md";
+			filePatterns = "*.LICENSE";
 			fileType = pattern.proxy;
 			inputFiles = (
 			);
 			isEditable = 1;
 			outputFiles = (
 			);
-			script = "# Type a script or drag a script file from your workspace to insert its path.\n";
+			script = "# Type a script or drag a script file from your workspace to insert its path.\nexit(0)\n";
 		};
 		FA935FF129CB3E1E00078A93 /* PBXBuildRule */ = {
 			isa = PBXBuildRule;
@@ -447,6 +448,19 @@
 			remoteInfo = EHRPatientSDK;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FADB4AB52A31D56C00951BA8 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+				FADB4AB62A31D57F00951BA8 /* UICKeyChainStore.LICENSE in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		00B88BECDFBCF613E0F979EF0F42D5BF /* NotificationsModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = NotificationsModel.m; sourceTree = "<group>"; };
@@ -1658,6 +1672,7 @@
 				0110063EADBBE7FF431CCBA52F6CFACA /* Sources */,
 				46A7B2220F494DFB886B4FC3A5A54AC6 /* Frameworks */,
 				B00F328F0A31B59BA364DD301D430D14 /* Resources */,
+				FADB4AB52A31D56C00951BA8 /* CopyFiles */,
 			);
 			buildRules = (
 				FA935FF029CB3DD100078A93 /* PBXBuildRule */,
