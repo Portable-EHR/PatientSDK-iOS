@@ -3,11 +3,13 @@
 //
 
 #import "ConversationEntry.h"
+#import "EntryProgressForParticipant.h"
 #import "EntryPartipantPayload.h"
 #import "EntryMovePayload.h"
 #import "EntryStatusChangePayload.h"
 #import "EntrySharePayload.h"
 #import "GERuntimeConstants.h"
+#import "EntryProgressForParticipant.h"
 
 @implementation ConversationEntry
 
@@ -21,6 +23,7 @@ TRACE_OFF
 @synthesize status = _status;
 @synthesize payload;
 @synthesize createdOn = _createdOn;
+@synthesize myProgress = _myProgress;
 
 - (instancetype)init {
     if ((self = [super init])) {
@@ -118,6 +121,7 @@ TRACE_OFF
     _attachmentCount     = 0;
     _messageEntryPayload = nil;
     _status              = nil;
+    _myProgress          = nil;
     GE_DEALLOC();
     GE_DEALLOC_ECHO();
 }

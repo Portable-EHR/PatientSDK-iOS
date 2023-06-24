@@ -13,6 +13,7 @@
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wignored-attributes"
 @class EntryMessagePayload;
+@class EntryProgressForParticipant;
 
 typedef enum : NSInteger {
     EntryTypeMessage,
@@ -33,6 +34,7 @@ typedef enum : NSInteger {
     NSArray<EntryParticipantStatus *> *_status;
     EntryMessagePayload               *_messageEntryPayload;
     NSDate                            *_createdOn;
+    EntryProgressForParticipant       *_myProgress;
 }
 
 @property(nonatomic) NSString                          *id;
@@ -49,6 +51,7 @@ typedef enum : NSInteger {
 @property(nonatomic, readonly) BOOL                    isMoveType;
 @property(nonatomic, readonly) BOOL                    isStatusChangeType;
 @property(nonatomic, readonly) BOOL                    isShareType __unused;
+@property(nonatomic) EntryProgressForParticipant       *myProgress __unused;
 
 @end
 

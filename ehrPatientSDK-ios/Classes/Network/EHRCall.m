@@ -241,7 +241,10 @@ static CFArrayRef certs;
 
     err = SecTrustSetAnchorCertificates(trust, certs);
     if (err == noErr) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
         err = SecTrustEvaluate(trust, &trustResult);
+#pragma clang diagnostic pop
         if (err == noErr) {
             // http://developer.apple.com/library/mac/#qa/qa1360/_index.html
             switch (trustResult) {

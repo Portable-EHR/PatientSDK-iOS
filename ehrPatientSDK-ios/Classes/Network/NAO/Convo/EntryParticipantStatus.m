@@ -13,6 +13,7 @@ TRACE_OFF
 @synthesize entryId = _entryId;
 @synthesize status = _status;
 @synthesize date = _date;
+@dynamic progress;
 
 - (instancetype)init {
     if ((self = [super init])) {
@@ -70,6 +71,34 @@ TRACE_OFF
 }
 
 //region API
+
+-(EntryProgress) progress {
+    if (self.isSent) return EntryProgressSent;
+    if (self.isReceived) return EntryProgressReceived;
+    if (self.isRead) return EntryProgressRead;
+    if (self.isAcknowledged) return EntryProgressAcked;
+    return EntryProgressInvalid;
+}
+
+-(void)setProgress:(EntryProgress)progress {
+    switch( progress) {
+        case EntryProgressSent:
+            _status = @"sent";
+            break;
+        case EntryProgressReceived:
+            _status=@"received";
+            break;
+        case EntryProgressRead:
+            _status=@"read";
+            break;
+        case EntryProgressAcked:
+            _status=@"ack";
+            break;
+        default:
+            _status=@"invalid";
+            break;
+    }
+}
 -(BOOL)isSent {
     return [_status isEqualToString:@"sent"];
 }

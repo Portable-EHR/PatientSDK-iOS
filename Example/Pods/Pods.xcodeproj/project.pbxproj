@@ -96,6 +96,7 @@
 		4B8DD019EE7ABF881E67C52F /* OBNewConvo.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DDF66687CC3C61C63DA36 /* OBNewConvo.h */; };
 		4B8DD050AD4A792B548D990D /* ConvoDispensary.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD039A0185F2A538BEBC9 /* ConvoDispensary.m */; };
 		4B8DD09A15F4FD7D20323B61 /* OBMessageEntryAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DDF8223DB5D046F48DBB0 /* OBMessageEntryAttachment.m */; };
+		4B8DD09BC55AFF65CC6D6A7A /* EntryProgressForParticipant.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD2398F319782D0D5926C /* EntryProgressForParticipant.h */; };
 		4B8DD0CBF0553619720A93C9 /* OBNewConvo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD0027530026FEA916241 /* OBNewConvo.m */; };
 		4B8DD1EF835A96E6C1597B4B /* EHRUserRegistrationManifest.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD60EE5A38B85DDD574E2 /* EHRUserRegistrationManifest.h */; };
 		4B8DD214E01CA720ADD6F134 /* OBNewConvo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD0027530026FEA916241 /* OBNewConvo.m */; };
@@ -108,10 +109,12 @@
 		4B8DD337FFE0E6A571E24BE5 /* ActivationWS.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD66D868E423399FA8D16 /* ActivationWS.m */; };
 		4B8DD3576CA35028C54EE955 /* OBManualActivationSpec.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD944963C6EF1315BECEC /* OBManualActivationSpec.h */; };
 		4B8DD3696246F464D1929664 /* ActivationWS.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD2B6F79ABC1D312620D8 /* ActivationWS.h */; };
+		4B8DD374AF639D8DCEDFB893 /* EntryProgressForParticipant.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD0D91B40EDE8C20C46E8 /* EntryProgressForParticipant.m */; };
 		4B8DD38DE3F75EFC3D1FD7C7 /* OBMessageEntryAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DDF8223DB5D046F48DBB0 /* OBMessageEntryAttachment.m */; };
 		4B8DD394D144C9D9CC2E8AFB /* ConsentsModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DDD0FE1F3E38CC0453006 /* ConsentsModel.h */; };
 		4B8DD3E70BEFAEFD0ABD405D /* OBMessageEntryAttachment.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD93E65FA4D5586F055BF /* OBMessageEntryAttachment.h */; };
 		4B8DD40CE1FD0E377DA1DC1F /* EHRUserRegistrationManifest.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD60EE5A38B85DDD574E2 /* EHRUserRegistrationManifest.h */; };
+		4B8DD4270069E79C4F1DF8FD /* EntryParticipantStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD08578EF4D70B994165B /* EntryParticipantStatus.m */; };
 		4B8DD42C3F14CB8272C3EACE /* EHRLibRuntimeGlobals.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DDE28109D1D2CB68E4449 /* EHRLibRuntimeGlobals.m */; };
 		4B8DD52357A4EC67FA97431B /* EntrySharePayload.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DDF24F5135F5820CAD605 /* EntrySharePayload.m */; };
 		4B8DD58D7CE87F69DA056788 /* EHRPatientSDK.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 5E0F52B7ACC867B4A93D9525CD48A60C /* EHRPatientSDK.podspec */; };
@@ -119,14 +122,17 @@
 		4B8DD6F964077E313D2B7A70 /* IBScannedOffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD56795004DDD6C7A44EA /* IBScannedOffer.m */; };
 		4B8DD6FCD433DCEE6D7914DD /* ConvoDispensary.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD039A0185F2A538BEBC9 /* ConvoDispensary.m */; };
 		4B8DD70AF53B4395894C4B45 /* EHRUserRegistrationManifest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DDC717C524E4D8EDD97F8 /* EHRUserRegistrationManifest.m */; };
+		4B8DD70B79B855986E76DA31 /* EntryParticipantStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DDECE461E1C58FFC84F30 /* EntryParticipantStatus.h */; };
 		4B8DD72A6CB37F3683643DF3 /* OBMessageEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD27CD49855FBE152250A /* OBMessageEntry.m */; };
 		4B8DD75CF34B26C8AADE6BC9 /* EHRLibStateDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD7CAE4B9947169E40D38 /* EHRLibStateDelegate.h */; };
 		4B8DD7A38AD55B8A7A74B6F3 /* EHRState.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD85FBFB1A8B3AF738825 /* EHRState.h */; };
 		4B8DD7AC28153315C8C4DD8F /* ConvoDispensary.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD216B4B6997B980EF05D /* ConvoDispensary.h */; };
+		4B8DD813A84281B9C4DDE7B7 /* EntryParticipantStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD08578EF4D70B994165B /* EntryParticipantStatus.m */; };
 		4B8DD85BDF80C8BE9304609A /* Models.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD8565B9DD59E6A046372 /* Models.m */; };
 		4B8DD870671DA6AED75AAA36 /* EHRLibStateDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD7CAE4B9947169E40D38 /* EHRLibStateDelegate.h */; };
 		4B8DD8DF589ED59F4AEB6619 /* ConvoEntryBundle.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD1F0B3209B22D49E68B8 /* ConvoEntryBundle.h */; };
 		4B8DD9D8F8E9ABD49B794C19 /* OBManualActivationSpec.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD944963C6EF1315BECEC /* OBManualActivationSpec.h */; };
+		4B8DDA3B1432C29F1EE774BB /* EntryParticipantStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DDECE461E1C58FFC84F30 /* EntryParticipantStatus.h */; };
 		4B8DDA59FC5A9A6BF1C67ACA /* ConvoEntryBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DDBB600973D7FCFB0CFE2 /* ConvoEntryBundle.m */; };
 		4B8DDA988EC52F50D3B7E7A4 /* EntrySharePayload.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DDB6A829A63247F0C64F1 /* EntrySharePayload.h */; };
 		4B8DDAB3DDB21C71DDEF55D9 /* IBScannedOffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DDBE688F0AE80619AEBD3 /* IBScannedOffer.h */; };
@@ -134,6 +140,7 @@
 		4B8DDB69844092206DD4B003 /* EntrySharePayload.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DDB6A829A63247F0C64F1 /* EntrySharePayload.h */; };
 		4B8DDBBE8E3DEFB45E4F4DCD /* EHRState.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD85FBFB1A8B3AF738825 /* EHRState.h */; };
 		4B8DDBDBBF74686F7AB711D9 /* EntrySharePayload.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DDF24F5135F5820CAD605 /* EntrySharePayload.m */; };
+		4B8DDC185B09F0FCE1FDE7DD /* EntryProgressForParticipant.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD0D91B40EDE8C20C46E8 /* EntryProgressForParticipant.m */; };
 		4B8DDC288B2C8B69B4310128 /* ActivationWS.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD2B6F79ABC1D312620D8 /* ActivationWS.h */; };
 		4B8DDC83CB179E0745A2367D /* OBMessageEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD27CD49855FBE152250A /* OBMessageEntry.m */; };
 		4B8DDC8F94C2BBC8B04D29E7 /* IBScannedOffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD56795004DDD6C7A44EA /* IBScannedOffer.m */; };
@@ -141,6 +148,7 @@
 		4B8DDCBE65C230CCBB12577D /* ConvoEntryBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DDBB600973D7FCFB0CFE2 /* ConvoEntryBundle.m */; };
 		4B8DDCD026E93E34B80B783E /* EHRPatientSDK.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 5E0F52B7ACC867B4A93D9525CD48A60C /* EHRPatientSDK.podspec */; };
 		4B8DDCE9690DC9506E7B7026 /* OBMessageEntryAttachment.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD93E65FA4D5586F055BF /* OBMessageEntryAttachment.h */; };
+		4B8DDD0D47347F04F71B14A0 /* EntryProgressForParticipant.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD2398F319782D0D5926C /* EntryProgressForParticipant.h */; };
 		4B8DDD3075D90A4A36840ED9 /* IBScannedOffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DDBE688F0AE80619AEBD3 /* IBScannedOffer.h */; };
 		4B8DDE215F9B0FF42EBFFAD5 /* OBMessageEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8DD155889060D44914751E /* OBMessageEntry.h */; };
 		4B8DDE891CBF75E712B90D1C /* ConsentsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B8DD050789639CDD654C9BC /* ConsentsModel.m */; };
@@ -319,8 +327,6 @@
 		FAD79AD129845F580011388E /* ConversationParticipant.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79AAC29845F570011388E /* ConversationParticipant.h */; };
 		FAD79AD229845F580011388E /* Conversation.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79AAD29845F570011388E /* Conversation.m */; };
 		FAD79AD329845F580011388E /* Conversation.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79AAD29845F570011388E /* Conversation.m */; };
-		FAD79AD429845F580011388E /* EntryParticipantStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79AAE29845F570011388E /* EntryParticipantStatus.m */; };
-		FAD79AD529845F580011388E /* EntryParticipantStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79AAE29845F570011388E /* EntryParticipantStatus.m */; };
 		FAD79AD629845F580011388E /* ConversationEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79AAF29845F570011388E /* ConversationEntry.h */; };
 		FAD79AD729845F580011388E /* ConversationEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79AAF29845F570011388E /* ConversationEntry.h */; };
 		FAD79AD829845F580011388E /* ConversationEnvelope.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD79AB029845F570011388E /* ConversationEnvelope.m */; };
@@ -349,8 +355,6 @@
 		FAD79AF129845F580011388E /* OBEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79ABD29845F580011388E /* OBEntry.h */; };
 		FAD79AF229845F580011388E /* OBNewEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79ABE29845F580011388E /* OBNewEntry.h */; };
 		FAD79AF329845F580011388E /* OBNewEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79ABE29845F580011388E /* OBNewEntry.h */; };
-		FAD79AF629845F580011388E /* EntryParticipantStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79AC029845F580011388E /* EntryParticipantStatus.h */; };
-		FAD79AF729845F580011388E /* EntryParticipantStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79AC029845F580011388E /* EntryParticipantStatus.h */; };
 		FAD79AF829845F580011388E /* Conversation.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79AC129845F580011388E /* Conversation.h */; };
 		FAD79AF929845F580011388E /* Conversation.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79AC129845F580011388E /* Conversation.h */; };
 		FAD79AFA29845F580011388E /* EntryMovePayload.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD79AC229845F580011388E /* EntryMovePayload.h */; };
@@ -538,10 +542,13 @@
 		4B8DD0027530026FEA916241 /* OBNewConvo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OBNewConvo.m; sourceTree = "<group>"; };
 		4B8DD039A0185F2A538BEBC9 /* ConvoDispensary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConvoDispensary.m; sourceTree = "<group>"; };
 		4B8DD050789639CDD654C9BC /* ConsentsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConsentsModel.m; path = ../../../Models/ConsentsModel.m; sourceTree = "<group>"; };
+		4B8DD08578EF4D70B994165B /* EntryParticipantStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryParticipantStatus.m; sourceTree = "<group>"; };
+		4B8DD0D91B40EDE8C20C46E8 /* EntryProgressForParticipant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryProgressForParticipant.m; sourceTree = "<group>"; };
 		4B8DD101C8B9AB071B08060C /* EHRLibRuntimeGlobals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EHRLibRuntimeGlobals.h; sourceTree = "<group>"; };
 		4B8DD155889060D44914751E /* OBMessageEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OBMessageEntry.h; sourceTree = "<group>"; };
 		4B8DD1F0B3209B22D49E68B8 /* ConvoEntryBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConvoEntryBundle.h; sourceTree = "<group>"; };
 		4B8DD216B4B6997B980EF05D /* ConvoDispensary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConvoDispensary.h; sourceTree = "<group>"; };
+		4B8DD2398F319782D0D5926C /* EntryProgressForParticipant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryProgressForParticipant.h; sourceTree = "<group>"; };
 		4B8DD27CD49855FBE152250A /* OBMessageEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OBMessageEntry.m; sourceTree = "<group>"; };
 		4B8DD2B6F79ABC1D312620D8 /* ActivationWS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivationWS.h; sourceTree = "<group>"; };
 		4B8DD4A35B1A595389B8822C /* OBManualActivationSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OBManualActivationSpec.m; sourceTree = "<group>"; };
@@ -561,6 +568,7 @@
 		4B8DDCE320CA9CAF1A32D947 /* Models.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Models.h; sourceTree = "<group>"; };
 		4B8DDD0FE1F3E38CC0453006 /* ConsentsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConsentsModel.h; path = ../../../Models/ConsentsModel.h; sourceTree = "<group>"; };
 		4B8DDE28109D1D2CB68E4449 /* EHRLibRuntimeGlobals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EHRLibRuntimeGlobals.m; sourceTree = "<group>"; };
+		4B8DDECE461E1C58FFC84F30 /* EntryParticipantStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryParticipantStatus.h; sourceTree = "<group>"; };
 		4B8DDF24F5135F5820CAD605 /* EntrySharePayload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntrySharePayload.m; sourceTree = "<group>"; };
 		4B8DDF66687CC3C61C63DA36 /* OBNewConvo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OBNewConvo.h; sourceTree = "<group>"; };
 		4B8DDF8223DB5D046F48DBB0 /* OBMessageEntryAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OBMessageEntryAttachment.m; sourceTree = "<group>"; };
@@ -760,7 +768,6 @@
 		FAD79AAB29845F570011388E /* ConversationEntryPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationEntryPoint.m; sourceTree = "<group>"; };
 		FAD79AAC29845F570011388E /* ConversationParticipant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversationParticipant.h; sourceTree = "<group>"; };
 		FAD79AAD29845F570011388E /* Conversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Conversation.m; sourceTree = "<group>"; };
-		FAD79AAE29845F570011388E /* EntryParticipantStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryParticipantStatus.m; sourceTree = "<group>"; };
 		FAD79AAF29845F570011388E /* ConversationEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversationEntry.h; sourceTree = "<group>"; };
 		FAD79AB029845F570011388E /* ConversationEnvelope.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationEnvelope.m; sourceTree = "<group>"; };
 		FAD79AB129845F570011388E /* EntryAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryAttachment.m; sourceTree = "<group>"; };
@@ -775,7 +782,6 @@
 		FAD79ABB29845F580011388E /* OBNewEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OBNewEntry.m; sourceTree = "<group>"; };
 		FAD79ABD29845F580011388E /* OBEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OBEntry.h; sourceTree = "<group>"; };
 		FAD79ABE29845F580011388E /* OBNewEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OBNewEntry.h; sourceTree = "<group>"; };
-		FAD79AC029845F580011388E /* EntryParticipantStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryParticipantStatus.h; sourceTree = "<group>"; };
 		FAD79AC129845F580011388E /* Conversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Conversation.h; sourceTree = "<group>"; };
 		FAD79AC229845F580011388E /* EntryMovePayload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryMovePayload.h; sourceTree = "<group>"; };
 		FAD79AC329845F580011388E /* EntryAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryAttachment.h; sourceTree = "<group>"; };
@@ -1224,7 +1230,6 @@
 				FAD79AAC29845F570011388E /* ConversationParticipant.h */,
 				FAD79AC129845F580011388E /* Conversation.h */,
 				FAD79AAD29845F570011388E /* Conversation.m */,
-				FAD79AAE29845F570011388E /* EntryParticipantStatus.m */,
 				FAD79AAF29845F570011388E /* ConversationEntry.h */,
 				FAD79AB029845F570011388E /* ConversationEnvelope.m */,
 				FAD79AB129845F570011388E /* EntryAttachment.m */,
@@ -1236,7 +1241,6 @@
 				FAD79AB729845F580011388E /* ConversationEntryPoint.h */,
 				FAD79AB829845F580011388E /* EntryPartipantPayload.m */,
 				FAD79AB929845F580011388E /* Outbound */,
-				FAD79AC029845F580011388E /* EntryParticipantStatus.h */,
 				FAD79AC229845F580011388E /* EntryMovePayload.h */,
 				FAD79AC329845F580011388E /* EntryAttachment.h */,
 				FAD79AC429845F580011388E /* ConversationEntry.m */,
@@ -1245,6 +1249,10 @@
 				4B8DD216B4B6997B980EF05D /* ConvoDispensary.h */,
 				4B8DDF24F5135F5820CAD605 /* EntrySharePayload.m */,
 				4B8DDB6A829A63247F0C64F1 /* EntrySharePayload.h */,
+				4B8DD08578EF4D70B994165B /* EntryParticipantStatus.m */,
+				4B8DDECE461E1C58FFC84F30 /* EntryParticipantStatus.h */,
+				4B8DD0D91B40EDE8C20C46E8 /* EntryProgressForParticipant.m */,
+				4B8DD2398F319782D0D5926C /* EntryProgressForParticipant.h */,
 			);
 			path = Convo;
 			sourceTree = "<group>";
@@ -1449,7 +1457,6 @@
 				09C12646EA60E35C149C3391C15AED81 /* AppSignature.h in Headers */,
 				1CBD19B1EA5179BBD610E2CB4F701138 /* AppState.h in Headers */,
 				FA17E24F29D33D5A007D3900 /* EHRLibRuntimeGlobals.h in Headers */,
-				FAD79AF629845F580011388E /* EntryParticipantStatus.h in Headers */,
 				D7D3C745BE2D474F9202A767C1EE96AD /* AuthSequencer.h in Headers */,
 				9B547DB4823FEA13E5BD1546300D8946 /* ContactsModel.h in Headers */,
 				1649E9A7F289061E2CE7ED536203CF53 /* DateUtil.h in Headers */,
@@ -1576,6 +1583,8 @@
 				4B8DDD3075D90A4A36840ED9 /* IBScannedOffer.h in Headers */,
 				4B8DDCB3101A77F851CD165C /* ConsentsModel.h in Headers */,
 				4B8DD2BB26B0F0E06D332660 /* ConvoEntryBundle.h in Headers */,
+				4B8DDA3B1432C29F1EE774BB /* EntryParticipantStatus.h in Headers */,
+				4B8DD09BC55AFF65CC6D6A7A /* EntryProgressForParticipant.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1583,7 +1592,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAD79AF729845F580011388E /* EntryParticipantStatus.h in Headers */,
 				FAD79B2C298462920011388E /* EHRRequests.h in Headers */,
 				FAD79B222984623E0011388E /* WebServices.h in Headers */,
 				FAD79AFB29845F580011388E /* EntryMovePayload.h in Headers */,
@@ -1619,6 +1627,8 @@
 				4B8DDAB3DDB21C71DDEF55D9 /* IBScannedOffer.h in Headers */,
 				4B8DD394D144C9D9CC2E8AFB /* ConsentsModel.h in Headers */,
 				4B8DD8DF589ED59F4AEB6619 /* ConvoEntryBundle.h in Headers */,
+				4B8DD70B79B855986E76DA31 /* EntryParticipantStatus.h in Headers */,
+				4B8DDD0D47347F04F71B14A0 /* EntryProgressForParticipant.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1814,7 +1824,6 @@
 				FC1078C0018662F81AFB1A79B8C7A81D /* IBPractitionerJurisdiction.m in Sources */,
 				19C2699CE174A31304235E603568AAE8 /* IBPractitionerPractice.m in Sources */,
 				FAD79AE429845F580011388E /* ConversationParticipant.m in Sources */,
-				FAD79AD429845F580011388E /* EntryParticipantStatus.m in Sources */,
 				FAD79B062984616F0011388E /* NSDate+Compare.m in Sources */,
 				86B943942E9307AB4A8EBB6758DF7A6E /* IBService.m in Sources */,
 				68B1C6A50A02E37156B5B6E3205294D1 /* IBTelex.m in Sources */,
@@ -1871,6 +1880,8 @@
 				4B8DD6F964077E313D2B7A70 /* IBScannedOffer.m in Sources */,
 				4B8DD25B7303EB84B20A451E /* ConsentsModel.m in Sources */,
 				4B8DDCBE65C230CCBB12577D /* ConvoEntryBundle.m in Sources */,
+				4B8DD813A84281B9C4DDE7B7 /* EntryParticipantStatus.m in Sources */,
+				4B8DD374AF639D8DCEDFB893 /* EntryProgressForParticipant.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1907,7 +1918,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAD79ADD29845F580011388E /* EntryMovePayload.m in Sources */,
-				FAD79AD529845F580011388E /* EntryParticipantStatus.m in Sources */,
 				FAD79AD329845F580011388E /* Conversation.m in Sources */,
 				FAD79B2A298462920011388E /* EHRRequests.m in Sources */,
 				FAD79AED29845F580011388E /* OBNewEntry.m in Sources */,
@@ -1942,6 +1952,8 @@
 				4B8DDC8F94C2BBC8B04D29E7 /* IBScannedOffer.m in Sources */,
 				4B8DDE891CBF75E712B90D1C /* ConsentsModel.m in Sources */,
 				4B8DDA59FC5A9A6BF1C67ACA /* ConvoEntryBundle.m in Sources */,
+				4B8DD4270069E79C4F1DF8FD /* EntryParticipantStatus.m in Sources */,
+				4B8DDC185B09F0FCE1FDE7DD /* EntryProgressForParticipant.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
