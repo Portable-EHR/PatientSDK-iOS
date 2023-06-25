@@ -2,6 +2,7 @@
 // Created by Yves Le Borgne on 2022-12-28.
 //
 
+#import <AppKit/AppKit.h>
 #import "ConvoWS.h"
 #import "EHRRequests.h"
 #import "OBEntry.h"
@@ -150,6 +151,24 @@ TRACE_OFF
     return [EHRCall callWithRequest:request onSuccess:successBlock onError:errorBlock];
 }
 
+- (EHRCall *)__unused getSetEntriesStatusCall:(NSString *)convoGuid
+                                  statusLines:(NSArray<EntryParticipantStatus *> *)statusLines
+                                    onSuccess:(SenderBlock)successBlock
+                                      onError:(SenderBlock)errorBlock {
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"convo"]  = convoGuid;
+    params[@"status"] = [NSMutableArray array];
+    for (int         i        = 0; i < statusLines.count; ++i) {
+        EntryParticipantStatus *line = statusLines[i];
+        [params[@"status"] addObject:[line asDictionary]];
+    }
+    EHRServerRequest *request = [EHRRequests requestWithRoute:@"/app/patient/convo"
+                                                      command:@"setEntriesStatus"
+                                                   parameters:params
+    ];
+    return [EHRCall callWithRequest:request onSuccess:successBlock onError:errorBlock];
+}
+
 - (EHRCall *)__unused  getSharedPMCall:(SenderBlock)successBlock onError:(SenderBlock)errorBlock withParameters:(NSMutableDictionary *)parameters {
 
     EHRServerRequest *request = [EHRRequests requestWithRoute:@"/app/privateMessage" command:@"getShared" parameters:parameters];
@@ -176,6 +195,36 @@ TRACE_OFF
 //endregion
 
 //region WorkFlows
+
+- (void)    sendEntriesStatus:(NSArray<EntryParticipantStatus *> *)
+        bundle ofConversation:(Conversation *)convo
+                    onSuccess:(VoidBlock)successBlock
+                      onError:(SenderBlock)errorBlock __attribute__((unused)) {
+    EHRCall             *setStatusCall;
+    NSMutableDictionary *entryPoints = [NSMutableDictionary dictionary];
+    SenderBlock         entrySuccess = ^(id someCall) {
+        EHRCall      *theCall = someCall;
+        NSDictionary *results = theCall.serverResponse.responseContent;
+
+        for (NSDictionary *result in results) {
+            ConversationEntryPoint *cep  = [ConversationEntryPoint objectWithContentsOfDictionary:result];
+            NSString               *idee = cep.id;
+            if (!idee) {
+                errorBlock(theCall);
+                return;
+            }
+            entryPoints[idee] = cep;
+        }
+        successBlock();
+    };
+
+    SenderBlock entryError = ^(id someCall) {
+        errorBlock(someCall);
+    };
+
+    setStatusCall = [self getSetEntriesStatusCall:convo.id statusLines:bundle onSuccess:entrySuccess onError:entryError];
+    [setStatusCall start];
+}
 
 - (void)__unused getEntryPointsFor:(NSString *)dispensaryGuid onSuccess:(SenderBlock)successBlock onError:(SenderBlock)errorBlock {
 
@@ -206,15 +255,14 @@ TRACE_OFF
 
 }
 
--(void)createEntry:(OBNewEntry *)entry onSuccess:(SenderBlock)successBlock onError:(SenderBlock)errorBlock {
+- (void)createEntry:(OBNewEntry *)entry onSuccess:(SenderBlock)successBlock onError:(SenderBlock)errorBlock {
 
     EHRCall *theCall = [self addConvoEntryCall:successBlock onError:errorBlock withSpec:entry];
-    theCall.timeOut=15;
-    theCall.maximumAttempts=1;
+    theCall.timeOut         = 15;
+    theCall.maximumAttempts = 1;
     [theCall start];;
 
 }
-
 
 - (void)getSharedPrivateMessageWithConsent:(NSString *)consentGuid
                                        for:(NSString *)participantGuid
@@ -228,8 +276,8 @@ TRACE_OFF
     parameters[@"conversationGuid"] = conversationGuid;
 
     SenderBlock callSuccess = ^(id someCall) {
-        EHRCall *theCall        = someCall;
-        OfferedPrivateMessage *opm = [OfferedPrivateMessage objectWithContentsOfDictionary:theCall.serverResponse.responseContent];
+        EHRCall               *theCall = someCall;
+        OfferedPrivateMessage *opm     = [OfferedPrivateMessage objectWithContentsOfDictionary:theCall.serverResponse.responseContent];
         successBlock(opm);
     };
 

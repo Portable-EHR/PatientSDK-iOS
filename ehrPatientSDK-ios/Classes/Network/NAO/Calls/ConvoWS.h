@@ -28,7 +28,6 @@
                                onError:(SenderBlock)errorBlock
                                   spec:(OBNewConvo *)spec;
 
-
 - (EHRCall *)__unused  getConvoDetailCall:(SenderBlock)successBlock
                                   onError:(SenderBlock)errorBlock
                                  forConvo:(NSString *)guid
@@ -68,11 +67,16 @@
 
 //region business methods
 
+- (void)sendEEntriesStatus:(NSArray<EntryParticipantStatus *> *)
+        bundle      ofConversation:(Conversation *)convo
+                         onSuccess:(VoidBlock)successBlock
+                           onError:(SenderBlock)errorBlock __attribute__((unused));
+
 - (void)__unused createConvo:(OBNewConvo *)spec
                    onSuccess:(SenderBlock)successBlock
                      onError:(SenderBlock)errorBlock;
 
--(void) createEntry:(OBNewEntry*) entry
+- (void)createEntry:(OBNewEntry *)entry
           onSuccess:(SenderBlock)successBlock
             onError:(SenderBlock)errorBlock __attribute__((unused));
 

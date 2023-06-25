@@ -32,6 +32,7 @@ typedef enum : NSInteger {
 @property(nonatomic) NSDate        *date;
 @property(nonatomic) EntryProgress progress;
 
+
 - (BOOL)isSent __unused;
 - (BOOL)isReceived __unused;
 - (BOOL)isRead __unused;
