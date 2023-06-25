@@ -52,7 +52,7 @@
         new.participantId = _participant.guid;
         [self addStatusLine:new];
     } else {
-        MPLOGERROR(@"Attempting to set progress to an earlier stage, ignored !");
+        TRACE(@"Attempting to set progress to an earlier stage, ignored !");
     }
     return new;
 }

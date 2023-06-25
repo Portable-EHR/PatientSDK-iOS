@@ -9,7 +9,6 @@
 #import "EntryStatusChangePayload.h"
 #import "EntrySharePayload.h"
 #import "GERuntimeConstants.h"
-#import "EntryProgressForParticipant.h"
 
 @implementation ConversationEntry
 
@@ -30,6 +29,7 @@ TRACE_OFF
         GE_ALLOC();
         GE_ALLOC_ECHO();
         self.entryType = EntryTypeUnknown;
+        self.isInView = NO;
     } else {
         MPLOG(@"*** super returns nil!");
     }
