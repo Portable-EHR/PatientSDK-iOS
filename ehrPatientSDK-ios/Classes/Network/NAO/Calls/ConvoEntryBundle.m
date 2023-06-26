@@ -47,6 +47,7 @@
                                                                 atOffset:0
                                                             withMaxItems:count
     ];
+    theCall.maximumAttempts = 2;
     [theCall start];
 }
 
@@ -80,6 +81,7 @@
                                                                 atOffset:offset
                                                             withMaxItems:maxItems
     ];
+    theCall.maximumAttempts = 2;
     [theCall start];
 }
 
@@ -113,6 +115,7 @@
                                                                 atOffset:0
                                                             withMaxItems:1
     ];
+    theCall.maximumAttempts = 2;
     [theCall start];
 }
 
