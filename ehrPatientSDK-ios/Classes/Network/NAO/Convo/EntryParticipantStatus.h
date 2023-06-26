@@ -23,7 +23,7 @@ typedef enum : NSInteger {
     NSString  *_entryId;
     NSString  *_status;
     NSDate    *_date;
-
+    BOOL _shouldSendToBackend;
 }
 
 @property(nonatomic) NSString      *participantId;
@@ -31,7 +31,7 @@ typedef enum : NSInteger {
 @property(nonatomic) NSString      *status;
 @property(nonatomic) NSDate        *date;
 @property(nonatomic) EntryProgress progress;
-
+@property(nonatomic) BOOL          shouldSendToBackend;
 
 - (BOOL)isSent __unused;
 - (BOOL)isReceived __unused;

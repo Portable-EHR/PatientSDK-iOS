@@ -10,6 +10,7 @@
 TRACE_OFF
 
 @synthesize participantId = _participantId;
+@synthesize shouldSendToBackend = _shouldSendToBackend;
 @synthesize entryId = _entryId;
 @synthesize status = _status;
 @synthesize date = _date;
@@ -19,6 +20,7 @@ TRACE_OFF
     if ((self = [super init])) {
         GE_ALLOC();
         GE_ALLOC_ECHO();
+        _shouldSendToBackend = NO;
     } else {
         MPLOG(@"*** super returns nil!");
     }
@@ -72,7 +74,7 @@ TRACE_OFF
 
 //region API
 
--(EntryProgress) progress {
+- (EntryProgress)progress {
     if (self.isSent) return EntryProgressSent;
     if (self.isReceived) return EntryProgressReceived;
     if (self.isRead) return EntryProgressRead;
@@ -80,35 +82,34 @@ TRACE_OFF
     return EntryProgressInvalid;
 }
 
--(void)setProgress:(EntryProgress)progress {
-    switch( progress) {
-        case EntryProgressSent:
-            _status = @"sent";
+- (void)setProgress:(EntryProgress)progress {
+    switch (progress) {
+        case EntryProgressSent:_status = @"sent";
             break;
-        case EntryProgressReceived:
-            _status=@"received";
+        case EntryProgressReceived:_status = @"received";
             break;
-        case EntryProgressRead:
-            _status=@"read";
+        case EntryProgressRead:_status = @"read";
             break;
-        case EntryProgressAcked:
-            _status=@"ack";
+        case EntryProgressAcked:_status = @"ack";
             break;
-        default:
-            _status=@"invalid";
+        default:_status = @"invalid";
             break;
     }
 }
--(BOOL)isSent {
+
+- (BOOL)isSent {
     return [_status isEqualToString:@"sent"];
 }
--(BOOL)isReceived {
+
+- (BOOL)isReceived {
     return [_status isEqualToString:@"received"];
 }
--(BOOL)isRead {
+
+- (BOOL)isRead {
     return [_status isEqualToString:@"read"];
 }
--(BOOL)isAcknowledged{
+
+- (BOOL)isAcknowledged {
     return [_status isEqualToString:@"ack"];
 }
 

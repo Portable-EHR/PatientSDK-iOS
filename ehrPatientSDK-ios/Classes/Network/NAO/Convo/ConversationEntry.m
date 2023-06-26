@@ -30,6 +30,7 @@ TRACE_OFF
         GE_ALLOC_ECHO();
         self.entryType = EntryTypeUnknown;
         self.isInView = NO;
+        self.wasSeen = NO;
     } else {
         MPLOG(@"*** super returns nil!");
     }
@@ -88,7 +89,7 @@ TRACE_OFF
             [statii addObject:[EntryParticipantStatus objectWithContentsOfDictionary:element]];
         }
     }
-    ce->_status = [NSArray arrayWithArray:statii];
+    ce->_status = [NSMutableArray arrayWithArray:statii];
 
     return ce;
 }

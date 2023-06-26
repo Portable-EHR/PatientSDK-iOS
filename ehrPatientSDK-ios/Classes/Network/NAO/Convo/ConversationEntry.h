@@ -25,34 +25,35 @@ typedef enum : NSInteger {
 } EntryType;
 
 @interface ConversationEntry : NSObject <EHRInstanceCounterP, EHRNetworkableP> {
-    NSInteger                         _instanceNumber;
-    NSString                          *_id;
-    NSString                          *_from;
-    NSString                          *_type;
-    NSString                          *_audience;
-    NSInteger                         _attachmentCount;
-    NSArray<EntryParticipantStatus *> *_status;
-    EntryMessagePayload               *_messageEntryPayload;
-    NSDate                            *_createdOn;
-    EntryProgressForParticipant       *_myProgress;
+    NSInteger                                _instanceNumber;
+    NSString                                 *_id;
+    NSString                                 *_from;
+    NSString                                 *_type;
+    NSString                                 *_audience;
+    NSInteger                                _attachmentCount;
+    NSMutableArray<EntryParticipantStatus *> *_status;
+    EntryMessagePayload                      *_messageEntryPayload;
+    NSDate                                   *_createdOn;
+    EntryProgressForParticipant              *_myProgress;
 }
 
-@property(nonatomic) NSString                          *id;
-@property(nonatomic) NSString                          *from;
-@property(nonatomic) NSString                          *type;
-@property(nonatomic) NSString                          *audience __unused;
-@property(nonatomic) NSArray<EntryParticipantStatus *> *status;
-@property(nonatomic) NSInteger                         attachmentCount __unused;
-@property(nonatomic) id                                payload __unused;
-@property(nonatomic) NSDate                            *createdOn;
-@property(nonatomic) EntryType                         entryType __unused;
-@property(nonatomic, readonly) BOOL                    isMessageType;
-@property(nonatomic, readonly) BOOL                    isParticipantType;
-@property(nonatomic, readonly) BOOL                    isMoveType;
-@property(nonatomic, readonly) BOOL                    isStatusChangeType;
-@property(nonatomic, readonly) BOOL                    isShareType __unused;
-@property(nonatomic) EntryProgressForParticipant       *myProgress __unused;
-@property(nonatomic) BOOL                              isInView; // utility, not to be persisted, defaults false
+@property(nonatomic) NSString                                 *id;
+@property(nonatomic) NSString                                 *from;
+@property(nonatomic) NSString                                 *type;
+@property(nonatomic) NSString                                 *audience __unused;
+@property(nonatomic) NSMutableArray<EntryParticipantStatus *> *status;
+@property(nonatomic) NSInteger                                attachmentCount __unused;
+@property(nonatomic) id                                       payload __unused;
+@property(nonatomic) NSDate                                   *createdOn;
+@property(nonatomic) EntryType                                entryType __unused;
+@property(nonatomic, readonly) BOOL                           isMessageType;
+@property(nonatomic, readonly) BOOL                           isParticipantType;
+@property(nonatomic, readonly) BOOL                           isMoveType;
+@property(nonatomic, readonly) BOOL                           isStatusChangeType;
+@property(nonatomic, readonly) BOOL                           isShareType __unused;
+@property(nonatomic) EntryProgressForParticipant              *myProgress __unused;
+@property(nonatomic) BOOL                                     isInView; // utility, not to be persisted, defaults false
+@property(nonatomic) BOOL                                     wasSeen;
 
 @end
 

@@ -2,7 +2,7 @@
 // Created by Yves Le Borgne on 2022-12-28.
 //
 
-#import <AppKit/AppKit.h>
+//#import <AppKit/AppKit.h>
 #import "ConvoWS.h"
 #import "EHRRequests.h"
 #import "OBEntry.h"
@@ -160,6 +160,7 @@ TRACE_OFF
     params[@"status"] = [NSMutableArray array];
     for (int         i        = 0; i < statusLines.count; ++i) {
         EntryParticipantStatus *line = statusLines[i];
+        if (!line.shouldSendToBackend) continue;
         [params[@"status"] addObject:[line asDictionary]];
     }
     EHRServerRequest *request = [EHRRequests requestWithRoute:@"/app/patient/convo"
@@ -196,25 +197,18 @@ TRACE_OFF
 
 //region WorkFlows
 
-- (void)    sendEntriesStatus:(NSArray<EntryParticipantStatus *> *)
-        bundle ofConversation:(Conversation *)convo
-                    onSuccess:(VoidBlock)successBlock
-                      onError:(SenderBlock)errorBlock __attribute__((unused)) {
+- (void)sendEntriesStatus:(NSArray<EntryParticipantStatus *> *)bundle
+           ofConversation:(Conversation *)convo
+                onSuccess:(VoidBlock)successBlock
+                  onError:(SenderBlock)errorBlock __attribute__((unused)) {
     EHRCall             *setStatusCall;
-    NSMutableDictionary *entryPoints = [NSMutableDictionary dictionary];
     SenderBlock         entrySuccess = ^(id someCall) {
-        EHRCall      *theCall = someCall;
-        NSDictionary *results = theCall.serverResponse.responseContent;
 
-        for (NSDictionary *result in results) {
-            ConversationEntryPoint *cep  = [ConversationEntryPoint objectWithContentsOfDictionary:result];
-            NSString               *idee = cep.id;
-            if (!idee) {
-                errorBlock(theCall);
-                return;
-            }
-            entryPoints[idee] = cep;
+        for (NSUInteger i = 0; i < bundle.count ; ++i) {
+            EntryParticipantStatus *line = bundle[i];
+            line.shouldSendToBackend = NO;
         }
+
         successBlock();
     };
 

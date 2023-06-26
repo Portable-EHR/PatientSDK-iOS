@@ -171,12 +171,17 @@ TRACE_OFF
 
 
     // get participants , reindex, and check if mySelf is still sane !
+    // Participants can only INCREASE , ie we get new ones in other
 
-    self.participants          = other.participants;
-    self->_indexedParticipants = [NSMutableDictionary dictionary];
-    for (ConversationParticipant *participant in self->_participants) {
+    NSInteger addedParticipants = 0;
+    for (ConversationParticipant *participant in other.participants) {
+        if(self->_indexedParticipants[participant.guid]) continue; // skip the ones we already have
+        addedParticipants++;
+        [self.participants addObject: participant];
         self->_indexedParticipants[participant.guid] = participant;
     }
+
+    MPLOG(@"Added %d participants to convo %@", (int)addedParticipants,self);
 
     if (![other.myself.guid isEqualToString:self.myself.guid]) {
         MPLOGERROR(@"**************************************************************************");
@@ -187,7 +192,7 @@ TRACE_OFF
 
     // update properties with no side effect that could have been updated
 
-    self.location       = other.location;
+    self.location       = other.location ;
     self.hasMoreEntries = other.hasMoreEntries;
     self.status         = other.status;
     self.clientTitle    = other.clientTitle;
@@ -208,7 +213,7 @@ TRACE_OFF
             MPLOGERROR(@"********************************************************************************");
             continue;
         }
-        [_entries addObject:entry];
+        [_entries addObject:entry]; // we will reindex after the loop loops
         addedCount++;
     }
 

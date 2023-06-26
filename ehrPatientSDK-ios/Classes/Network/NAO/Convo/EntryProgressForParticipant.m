@@ -46,10 +46,11 @@
     EntryParticipantStatus *new;
     if (progress > current) {
         new = [[EntryParticipantStatus alloc] init];
-        new.entryId       = _entry.id;
-        new.progress      = progress;
-        new.date          = date;
-        new.participantId = _participant.guid;
+        new.entryId             = _entry.id;
+        new.progress            = progress;
+        new.date                = date;
+        new.participantId       = _participant.guid;
+        new.shouldSendToBackend = YES;
         [self addStatusLine:new];
     } else {
         TRACE(@"Attempting to set progress to an earlier stage, ignored !");
@@ -64,9 +65,9 @@ TRACE_ON
 + (instancetype)forEntry:(ConversationEntry *)entry andParticipant:(ConversationParticipant *)participant inConversation:(Conversation *)conversation {
     EntryProgressForParticipant *eppp = [[self alloc] init];
     if (eppp) {
-        eppp->_entry       = entry;
-        eppp->_participant = participant;
-        eppp->_statusLines = [NSMutableArray array];
+        eppp->_entry        = entry;
+        eppp->_participant  = participant;
+        eppp->_statusLines  = [NSMutableArray array];
         eppp->_conversation = conversation;
 
         for (EntryParticipantStatus *status in entry.status) {

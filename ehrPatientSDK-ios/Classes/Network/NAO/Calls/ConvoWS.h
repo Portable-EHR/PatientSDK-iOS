@@ -67,7 +67,7 @@
 
 //region business methods
 
-- (void)sendEEntriesStatus:(NSArray<EntryParticipantStatus *> *)
+- (void)sendEntriesStatus:(NSArray<EntryParticipantStatus *> *)
         bundle      ofConversation:(Conversation *)convo
                          onSuccess:(VoidBlock)successBlock
                            onError:(SenderBlock)errorBlock __attribute__((unused));
