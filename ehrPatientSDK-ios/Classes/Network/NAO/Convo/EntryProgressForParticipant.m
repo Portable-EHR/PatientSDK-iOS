@@ -29,12 +29,29 @@
     return _statusLines;
 }
 
-- (EntryParticipantStatus *)latestStatusLine {
-    return [_statusLines lastObject];
+/**
+ *
+ * not trusting the time stamps, go at this logically from highest
+ * progress down to lowest. Convo backend is missing some 'sent' entries
+ * so fuckit
+ *
+ * @return EntryProgress
+ */
+- (EntryProgress)currentProgress {
+    if (_statusLines.count==0) return EntryProgressInvalid;
+    if ([self hasLineForProgress:EntryProgressAcked]) return EntryProgressAcked;
+    if ([self hasLineForProgress:EntryProgressRead]) return EntryProgressRead;
+    if ([self hasLineForProgress:EntryProgressReceived]) return EntryProgressReceived;
+    if ([self hasLineForProgress:EntryProgressSent]) return EntryProgressSent;
+    return EntryProgressInvalid;
 }
 
-- (EntryProgress)currentProgress {
-    return self.latestStatusLine.progress;
+-(BOOL) hasLineForProgress:(EntryProgress) strawman {
+    for (NSUInteger i = 0; i < _statusLines.count ; ++i) {
+        EntryParticipantStatus *line = _statusLines[i];
+        if(line.progress==strawman) return YES;
+    }
+    return NO;
 }
 
 - (EntryParticipantStatus *)setProgress:(EntryProgress)progress {
@@ -42,6 +59,11 @@
 }
 
 - (EntryParticipantStatus *)setProgress:(EntryProgress)progress date:(NSDate *)date {
+    if (!_entry) {
+        MPLOGERROR(@"invoked before entry was set !");
+        return nil;
+    }
+
     EntryProgress          current = [self currentProgress];
     EntryParticipantStatus *new;
     if (progress > current) {
@@ -51,6 +73,7 @@
         new.date                = date;
         new.participantId       = _participant.guid;
         new.shouldSendToBackend = YES;
+        [self.entry addStatusLine:new];
         [self addStatusLine:new];
     } else {
         TRACE(@"Attempting to set progress to an earlier stage, ignored !");
@@ -85,6 +108,7 @@ TRACE_ON
 
 - (void)addStatusLine:(EntryParticipantStatus *)statusLine {
 
+    [_entry addStatusLine:statusLine];
     [_statusLines addObject:statusLine];
     [self sortOnStatusDate];
 }

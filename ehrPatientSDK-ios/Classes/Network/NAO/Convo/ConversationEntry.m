@@ -127,7 +127,7 @@ TRACE_OFF
     GE_DEALLOC_ECHO();
 }
 
-// convenience getters
+// convenience API
 
 - (BOOL)isMessageType {
     if (!_type) return false;
@@ -153,5 +153,23 @@ TRACE_OFF
     if (!_type) return false;
     return [_type isEqualToString:@"participant"];
 }
+
+-(void)addStatusLine:(EntryParticipantStatus *)statusLine __attribute__((unused))  __attribute__((unused)) {
+    if ([self hasStatusFor:statusLine]) {
+        MPLOGERROR(@"Attempt to duplicate status line for [%@], ignored",statusLine.status);
+    }
+    [_status addObject:statusLine];
+
+}
+
+-(BOOL) hasStatusFor:(EntryParticipantStatus*) statusLine {
+    for (NSUInteger i = 0; i < _status.count ; ++i) {
+        EntryParticipantStatus *straman = _status[i];
+        if ( ! [straman.participantId isEqualToString:statusLine.participantId]) continue;
+        if ([straman.status isEqualToString:statusLine.status]) return YES;
+    }
+    return NO;
+}
+
 
 @end

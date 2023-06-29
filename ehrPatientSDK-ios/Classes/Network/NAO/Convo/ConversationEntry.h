@@ -52,8 +52,10 @@ typedef enum : NSInteger {
 @property(nonatomic, readonly) BOOL                           isStatusChangeType;
 @property(nonatomic, readonly) BOOL                           isShareType __unused;
 @property(nonatomic) EntryProgressForParticipant              *myProgress __unused;
-@property(nonatomic) BOOL                                     isInView; // utility, not to be persisted, defaults false
-@property(nonatomic) BOOL                                     wasSeen;
+@property(nonatomic) BOOL                                     isInView __unused; // utility, not to be persisted, defaults false
+@property(nonatomic) BOOL                                     wasSeen __unused;  // utility, in support of visibility assessment
+
+-(void) addStatusLine:(EntryParticipantStatus *) statusLine __attribute__((unused));
 
 @end
 
