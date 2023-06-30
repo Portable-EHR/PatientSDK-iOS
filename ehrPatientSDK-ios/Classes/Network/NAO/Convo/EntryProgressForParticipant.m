@@ -73,7 +73,6 @@
         new.date                = date;
         new.participantId       = _participant.guid;
         new.shouldSendToBackend = YES;
-        [self.entry addStatusLine:new];
         [self addStatusLine:new];
     } else {
         TRACE(@"Attempting to set progress to an earlier stage, ignored !");
