@@ -217,6 +217,8 @@ TRACE_OFF
         addedCount++;
     }
 
+    // todo : update entry status !!!
+
     MPLOG(@"Added %ld entries from pull !", addedCount);
     [self sortAndIndexEntries];
 

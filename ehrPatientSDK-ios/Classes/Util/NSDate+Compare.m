@@ -62,6 +62,11 @@
     return result == NSOrderedSame;
 }
 
+-(BOOL)isThisMonth{
+    return [DateUtil isDate:self inSameMonthAs:[NSDate date]];
+}
+
+
 - (BOOL)inPreviousMonthOf:(id)otherDate {
     return [DateUtil isDate:self inPreviousMonthOf:otherDate];
 }

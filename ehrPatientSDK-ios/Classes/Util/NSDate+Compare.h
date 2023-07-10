@@ -11,6 +11,7 @@
 -(BOOL) isEarlierThan:(NSDate*)date __attribute__((unused));
 -(BOOL) isToday __attribute__((unused));
 -(BOOL) isYesterday __attribute__((unused));
+-(BOOL) isThisMonth __attribute__((unused));
 -(NSInteger) daysToNow  __attribute__((unused));
 -(BOOL) sameDayAs:(NSDate*) otherDate  __attribute__((unused));
 -(BOOL) sameMonthAs:(NSDate*) otherDate  __attribute__((unused));

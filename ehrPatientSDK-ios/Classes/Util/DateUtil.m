@@ -215,7 +215,7 @@ static NSString* fr_abbrev_year  = @"a";
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *date1Components = [calendar components:NSCalendarUnitMonth+NSCalendarUnitYear fromDate:firstDate];
     NSDateComponents *date2Components = [calendar components:NSCalendarUnitMonth+NSCalendarUnitYear fromDate:otherDate];
-    if (date1Components.month==12 && date2Components.month==1){
+    if (date1Components.month==12 && date2Components.month==1){ // NSDateComponents are 1-based ! weird, apple mane it natural for humans
         return date1Components.year==(date2Components.year -1);
     }
 
