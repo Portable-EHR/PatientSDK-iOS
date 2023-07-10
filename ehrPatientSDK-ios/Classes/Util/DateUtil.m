@@ -4,6 +4,7 @@
 //
 
 #import "DateUtil.h"
+#import "NSDate+Compare.h"
 
 @implementation DateUtil
 
@@ -175,5 +176,31 @@ static NSString* fr_abbrev_year  = @"a";
 
 }
 
+ +(NSDate*)dateWithoutTime:(NSDate *)dateWithTime {
+     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+     [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+     NSString *dateAsString  = [dateFormatter stringFromDate:dateWithTime];
+     NSDate *dateWithoutTime = [dateFormatter dateFromString:dateAsString];
+     return dateWithoutTime;
+ }
+
++(NSInteger) daysBetween:(NSDate*) date and:(NSDate*) otherDate{
+    NSDate *startDate = [otherDate isEarlierThanOrEqualTo:date] ? otherDate : date;
+    NSDate *endDate = [date isLaterThanOrEqualTo:otherDate] ? date : otherDate;
+
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSCalendarUnit units = NSCalendarUnitDay;
+    NSDateComponents *components = [calendar components:units fromDate:startDate toDate:endDate options:0];
+    NSInteger numberOfDays = components.day;
+    return ABS(numberOfDays);
+}
+
++(BOOL)isDate:(NSDate *)firstDate inSameYearAs:(NSDate *)otherDate {
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *date1Components = [calendar components:NSCalendarUnitYear fromDate:firstDate];
+    NSDateComponents *date2Components = [calendar components:NSCalendarUnitYear fromDate:otherDate];
+    BOOL isSameYear = (date1Components.year == date2Components.year);
+    return isSameYear;
+}
 
 @end

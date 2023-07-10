@@ -216,8 +216,10 @@ TRACE_OFF
         errorBlock(someCall);
     };
 
-    setStatusCall = [self getSetEntriesStatusCall:convo.id statusLines:bundle onSuccess:entrySuccess onError:entryError];
-    [setStatusCall start];
+//    setStatusCall = [self getSetEntriesStatusCall:convo.id statusLines:bundle onSuccess:entrySuccess onError:entryError];
+//    [setStatusCall start];
+    MPLOG(@"Faking succesful send to mama ... ");
+    successBlock();
 }
 
 - (void)__unused getEntryPointsFor:(NSString *)dispensaryGuid onSuccess:(SenderBlock)successBlock onError:(SenderBlock)errorBlock {

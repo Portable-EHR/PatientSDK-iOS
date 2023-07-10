@@ -11,4 +11,7 @@
 -(BOOL) isEarlierThan:(NSDate*)date __attribute__((unused));
 -(BOOL) isToday __attribute__((unused));
 -(BOOL) isYesterday __attribute__((unused));
+-(NSInteger) daysToNow;
+-(BOOL) sameDayAs:(NSDate*) otherDate;
+-(BOOL) isSameYearAs:(NSDate*) otherDate;
 @end
