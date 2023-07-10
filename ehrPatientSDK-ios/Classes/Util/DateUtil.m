@@ -203,4 +203,24 @@ static NSString* fr_abbrev_year  = @"a";
     return isSameYear;
 }
 
++(BOOL)isDate:(NSDate *)firstDate inSameMonthAs:(NSDate *)otherDate {
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *date1Components = [calendar components:NSCalendarUnitMonth+NSCalendarUnitYear fromDate:firstDate];
+    NSDateComponents *date2Components = [calendar components:NSCalendarUnitMonth+NSCalendarUnitYear fromDate:otherDate];
+    BOOL isSameMonth = (date1Components.month == date2Components.month) && (date1Components.year==date2Components.year);
+    return isSameMonth;
+}
+
++(BOOL)isDate:(NSDate *)firstDate inPreviousMonthOf:(NSDate *)otherDate {
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *date1Components = [calendar components:NSCalendarUnitMonth+NSCalendarUnitYear fromDate:firstDate];
+    NSDateComponents *date2Components = [calendar components:NSCalendarUnitMonth+NSCalendarUnitYear fromDate:otherDate];
+    if (date1Components.month==12 && date2Components.month==1){
+        return date1Components.year==(date2Components.year -1);
+    }
+
+    BOOL isSameMonth = (date1Components.month == (date2Components.month-1)) && (date1Components.year==date2Components.year);
+    return isSameMonth;
+}
+
 @end

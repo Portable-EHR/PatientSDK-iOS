@@ -7,60 +7,72 @@
 
 @implementation NSDate (Compare)
 
--(BOOL) isLaterThanOrEqualTo:(NSDate*)date __attribute__((unused)) {
+- (BOOL)isLaterThanOrEqualTo:(NSDate *)date __attribute__((unused)) {
     return !([self compare:date] == NSOrderedAscending);
 }
 
--(BOOL) isEarlierThanOrEqualTo:(NSDate*)date __attribute__((unused)) {
+- (BOOL)isEarlierThanOrEqualTo:(NSDate *)date __attribute__((unused)) {
     return !([self compare:date] == NSOrderedDescending);
 }
--(BOOL) isLaterThan:(NSDate*)date __attribute__((unused)) {
+
+- (BOOL)isLaterThan:(NSDate *)date __attribute__((unused)) {
     return ([self compare:date] == NSOrderedDescending);
 
 }
--(BOOL) isEarlierThan:(NSDate*)date __attribute__((unused)) {
+
+- (BOOL)isEarlierThan:(NSDate *)date __attribute__((unused)) {
     return ([self compare:date] == NSOrderedAscending);
 }
 
--(BOOL)isToday {
+- (BOOL)isToday {
 
     // Get the current date
 
-    NSDate *todayWithoutTime = [DateUtil dateWithoutTime:[NSDate date]];
-    NSDate *selfWithoutTime =[DateUtil dateWithoutTime:self];
-    NSComparisonResult result = [todayWithoutTime compare:selfWithoutTime];
+    NSDate             *todayWithoutTime = [DateUtil dateWithoutTime:[NSDate date]];
+    NSDate             *selfWithoutTime  = [DateUtil dateWithoutTime:self];
+    NSComparisonResult result            = [todayWithoutTime compare:selfWithoutTime];
 
     return result == NSOrderedSame;
 
 }
 
--(BOOL)isYesterday {
+- (BOOL)isYesterday {
     // Create an instance of NSCalendar
     NSCalendar *calendar = [NSCalendar currentCalendar];
 
-    NSDate *todayWithoutTime = [DateUtil dateWithoutTime:[NSDate date]];
-    NSDateComponents *oneDayComponent = [[NSDateComponents alloc] init];
+    NSDate           *todayWithoutTime = [DateUtil dateWithoutTime:[NSDate date]];
+    NSDateComponents *oneDayComponent  = [[NSDateComponents alloc] init];
     [oneDayComponent setDay:-1];
     NSDate *yesterdayDateWithoutTime = [calendar dateByAddingComponents:oneDayComponent toDate:todayWithoutTime options:0];
 
-    NSDate *selfWithoutTime =[DateUtil dateWithoutTime:self];
-    NSComparisonResult result = [selfWithoutTime compare:yesterdayDateWithoutTime];
+    NSDate             *selfWithoutTime = [DateUtil dateWithoutTime:self];
+    NSComparisonResult result           = [selfWithoutTime compare:yesterdayDateWithoutTime];
 
     return result == NSOrderedSame;
 }
 
--(NSInteger)daysToNow {
+- (NSInteger)daysToNow {
     return [DateUtil daysBetween:[NSDate date] and:self];
 }
 
--(BOOL)sameDayAs:(NSDate *)otherDate {
-    NSDate *selfWithoutTime=[DateUtil dateWithoutTime:self];
-    NSDate *otherWithoutTime=[DateUtil dateWithoutTime:otherDate];
-    NSComparisonResult result = [selfWithoutTime compare:otherWithoutTime];
+- (BOOL)sameDayAs:(NSDate *)otherDate {
+    NSDate             *selfWithoutTime  = [DateUtil dateWithoutTime:self];
+    NSDate             *otherWithoutTime = [DateUtil dateWithoutTime:otherDate];
+    NSComparisonResult result            = [selfWithoutTime compare:otherWithoutTime];
     return result == NSOrderedSame;
 }
 
--(BOOL)isSameYearAs:(NSDate *)otherDate {
+- (BOOL)inPreviousMonthOf:(id)otherDate {
+    return [DateUtil isDate:self inPreviousMonthOf:otherDate];
+}
+
+- (BOOL)sameMonthAs:(NSDate *)otherDate {
+
+    return [DateUtil isDate:self inSameMonthAs:otherDate];
+
+}
+
+- (BOOL)sameYearAs:(NSDate *)otherDate {
     return [DateUtil isDate:self inSameYearAs:otherDate];
 }
 
