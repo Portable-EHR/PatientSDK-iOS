@@ -162,6 +162,7 @@ TRACE_OFF
 
 - (BOOL)updateWithConversation:(Conversation *)other {
 
+
     if (![other.id isEqualToString:self.id]) {
         MPLOGERROR(@"**************************************************************************");
         MPLOGERROR(@"***** Attempt to update convo [%@] with other convo data ******", self.id);

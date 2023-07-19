@@ -67,7 +67,7 @@
         bundle.hasMore        = _convo.entries.count >= maxItems ? YES : NO;
         _convo.hasMoreEntries = bundle.hasMore;
         [conversation updateWithConversation:_convo];
-        successBlock(bundle);
+        successBlock(_convo);
     };
 
     SenderBlock callError = ^(id theCall) {
