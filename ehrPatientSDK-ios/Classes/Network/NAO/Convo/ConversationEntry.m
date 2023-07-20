@@ -9,6 +9,7 @@
 #import "EntryStatusChangePayload.h"
 #import "EntrySharePayload.h"
 #import "GERuntimeConstants.h"
+#import "DateUtil.h"
 
 @implementation ConversationEntry
 
@@ -165,11 +166,16 @@ TRACE_OFF
 -(BOOL) hasStatusFor:(EntryParticipantStatus*) statusLine {
     for (NSUInteger i = 0; i < _status.count ; ++i) {
         EntryParticipantStatus *straman = _status[i];
+        if ( ! [straman.entryId isEqualToString:statusLine.entryId]) continue;
         if ( ! [straman.participantId isEqualToString:statusLine.participantId]) continue;
         if ([straman.status isEqualToString:statusLine.status]) return YES;
     }
     return NO;
 }
 
+-(NSString*) description {
+    NSString *format = @"id : %@ , type : %@, created : %@";
+    return [NSString stringWithFormat:format,self.id, self.type,[DateUtil defaultDeviceFormatMedium:self.createdOn] ];
+}
 
 @end
