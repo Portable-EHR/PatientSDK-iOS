@@ -5,15 +5,9 @@
 //#import <AppKit/AppKit.h>
 #import "ConvoWS.h"
 #import "EHRRequests.h"
-#import "OBEntry.h"
 #import "OBNewEntry.h"
-#import "Conversation.h"
-#import "ConversationEntry.h"
 #import "ConversationEntryPoint.h"
-#import "OBNewConvo.h"
-#import "IBTelex.h"
 #import "OfferedPrivateMessage.h"
-#import "ConversationParticipant.h"
 
 @interface ConvoWS () {
     NSInteger _instanceNumber;
@@ -216,9 +210,8 @@ TRACE_OFF
         errorBlock(someCall);
     };
 
-//    setStatusCall = [self getSetEntriesStatusCall:convo.id statusLines:bundle onSuccess:entrySuccess onError:entryError];
-//    [setStatusCall start];
-    MPLOG(@"Faking succesful send to mama ... ");
+    setStatusCall = [self getSetEntriesStatusCall:convo.id statusLines:bundle onSuccess:entrySuccess onError:entryError];
+    [setStatusCall start];
     successBlock();
 }
 
@@ -282,18 +275,24 @@ TRACE_OFF
     [sharedPMcall start];
 }
 
-- (void)getAccessOffer:(NSString *)offerGuid
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-parameter"
+- (void) __unused getAccessOffer:(NSString *)offerGuid
              onSuccess:(SenderBlock)successBlock
                onErrof:(SenderBlock)errorBlock __attribute__((unused)) {
 
 }
+#pragma clang diagnostic pop
 
-- (void)setOfferStatus:(NSString *)offerGuid
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-parameter"
+- (void) __unused setOfferStatus:(NSString *)offerGuid
                 status:(NSString *)newStatus
              onSuccess:(SenderBlock)successBlock
                onError:(SenderBlock)errorBlock  __attribute__((unused)) {
 
 }
+#pragma clang diagnostic pop
 
 
 //endregion
