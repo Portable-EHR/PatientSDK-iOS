@@ -3,16 +3,11 @@
 //
 
 #import "ConvoEntryBundle.h"
-#import "ConversationEntry.h"
-#import "EHRLibRuntimeGlobals.h"
-#import "EHRCall.h"
 #import "PehrSDKConfig.h"
 #import "WebServices.h"
-#import "ConvoWS.h"
 
 @interface ConvoEntryBundle () {
     NSInteger                            _instanceNumber;
-    NSMutableArray <ConversationEntry *> *bundle;
 }
 @end
 
@@ -26,7 +21,7 @@
 + (void)pullConvo:(ConversationEnvelope *)envelope
          maxItems:(NSInteger)count
         onSuccess:(SenderBlock)successBlock
-          onError:(SenderBlock)errorBlock {
+          onError:(SenderBlock)errorBlock __unused {
 
     SenderBlock callSuccess = ^(EHRCall *theCall) {
         MPLOG(@"pulled convo from envelope : SUCCESS");
@@ -55,7 +50,7 @@
                atOffset:(NSInteger)offset
                maxItems:(NSInteger)maxItems
               onSuccess:(SenderBlock)successBlock
-                onError:(SenderBlock)errorBlock {
+                onError:(SenderBlock)errorBlock __unused {
 
     ConvoEntryBundle *bundle = [[self alloc] init];
     bundle.offset   = offset;
@@ -85,39 +80,7 @@
     [theCall start];
 }
 
-+ (void)pullFirstEntry:(Conversation *)conversation
-              atOffset:(NSInteger)offset
-              maxItems:(NSInteger)maxItems
-             onSuccess:(SenderBlock)successBlock
-               onError:(SenderBlock)errorBlock {
 
-    ConvoEntryBundle *bundle = [[self alloc] init];
-    bundle.offset   = offset;
-    bundle.maxItems = maxItems;
-
-    SenderBlock callSuccess = ^(EHRCall *theCall) {
-        EHRServerResponse *resp   = theCall.serverResponse;
-        Conversation      *_convo = [Conversation objectWithContentsOfDictionary:resp.responseContent];
-        [conversation updateWithConversation:_convo];
-        bundle.hasMore        = (bundle.results.count < maxItems) ? NO : YES;
-        _convo.hasMoreEntries = bundle.hasMore;
-        successBlock(bundle);
-    };
-
-    SenderBlock callError = ^(id theCall) {
-        MPLOGERROR(@"pulled convo entries : FAILED");
-        errorBlock(theCall);
-    };
-
-    EHRCall *theCall = [PehrSDKConfig.shared.ws.convo getConvoDetailCall:callSuccess
-                                                                 onError:callError
-                                                                forConvo:conversation.id
-                                                                atOffset:0
-                                                            withMaxItems:1
-    ];
-    theCall.maximumAttempts = 2;
-    [theCall start];
-}
 
 TRACE_ON
 
