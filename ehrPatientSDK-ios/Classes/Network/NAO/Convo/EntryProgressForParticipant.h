@@ -12,16 +12,16 @@
 
 }
 
-+ (instancetype) forEntry:(ConversationEntry *)entry andParticipant:(ConversationParticipant *)participant inConversation:(Conversation *)conversation;
++ (instancetype)forEntry:(ConversationEntry *)entry andParticipant:(ConversationParticipant *)participant inConversation:(Conversation *)conversation;
 
-@property(nonatomic) ConversationEntry                        *entry;
-@property(nonatomic) ConversationParticipant                  *participant;
-@property(nonatomic) Conversation                             *conversation;
-@property(nonatomic) NSMutableArray<EntryParticipantStatus *> *statusLines;
-@property(nonatomic) EntryParticipantStatus                   *latestStatusLine;
-@property(nonatomic) EntryProgress                            currentProgress;
+@property(nonatomic) ConversationEntry                 *entry;
+@property(nonatomic) ConversationParticipant           *participant;
+@property(nonatomic) Conversation                      *conversation;
+@property(nonatomic) NSArray<EntryParticipantStatus *> *statusLines;
+@property(nonatomic) EntryParticipantStatus            *latestStatusLine;
+@property(nonatomic) EntryProgress                     currentProgress;
 
-- (EntryParticipantStatus*)setProgress:(EntryProgress)progress;
-- (EntryParticipantStatus*)setProgress:(EntryProgress)progress date:(NSDate *)date;
+- (EntryParticipantStatus *)setProgress:(EntryProgress)progress;
+- (EntryParticipantStatus *)setProgress:(EntryProgress)progress date:(NSDate *)date;
 
 @end

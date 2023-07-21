@@ -3,7 +3,6 @@
 //
 
 #import "ConversationEntry.h"
-#import "EntryProgressForParticipant.h"
 #import "EntryPartipantPayload.h"
 #import "EntryMovePayload.h"
 #import "EntryStatusChangePayload.h"
@@ -23,7 +22,6 @@ TRACE_OFF
 @synthesize status = _status;
 @synthesize payload;
 @synthesize createdOn = _createdOn;
-@synthesize myProgress = _myProgress;
 
 - (instancetype)init {
     if ((self = [super init])) {
@@ -123,12 +121,15 @@ TRACE_OFF
     _attachmentCount     = 0;
     _messageEntryPayload = nil;
     _status              = nil;
-    _myProgress          = nil;
     GE_DEALLOC();
     GE_DEALLOC_ECHO();
 }
 
 // convenience API
+
+-(EntryProgressForParticipant*)progressForParticipant:(ConversationParticipant *)participant ofConvo:(Conversation*) conversation{
+    return [EntryProgressForParticipant forEntry:self andParticipant:participant inConversation:conversation];
+}
 
 - (BOOL)isMessageType {
     if (!_type) return false;

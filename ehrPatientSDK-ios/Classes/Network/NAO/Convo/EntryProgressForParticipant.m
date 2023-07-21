@@ -25,7 +25,7 @@
 
 //region getters, business
 
-- (NSMutableArray<EntryParticipantStatus *> *)statusLines {
+- (NSArray<EntryParticipantStatus *> *)statusLines {
     return _statusLines;
 }
 
@@ -106,11 +106,15 @@ TRACE_ON
 }
 
 - (void)addStatusLine:(EntryParticipantStatus *)statusLine {
-
+    EntryProgress progress = [EntryParticipantStatus progressFromStatus:statusLine.status];
     [_entry addStatusLine:statusLine];
-    [_statusLines addObject:statusLine];
-    [self sortOnStatusDate];
+    if (![self hasLineForProgress:progress])   {
+        [_statusLines addObject:statusLine];
+        [self sortOnStatusDate];
+    }
 }
+
+
 
 - (void)sortOnStatusDate {
 

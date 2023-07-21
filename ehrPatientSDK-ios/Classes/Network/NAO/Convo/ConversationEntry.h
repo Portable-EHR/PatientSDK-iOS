@@ -9,6 +9,9 @@
 #import "NSDictionary+JSON.h"
 #import "EntryMessagePayload.h"
 #import "EntryParticipantStatus.h"
+#import "EntryProgressForParticipant.h"
+#import "ConversationParticipant.h"
+#import "Conversation.h"
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wignored-attributes"
@@ -34,7 +37,6 @@ typedef enum : NSInteger {
     NSMutableArray<EntryParticipantStatus *> *_status;
     EntryMessagePayload                      *_messageEntryPayload;
     NSDate                                   *_createdOn;
-    EntryProgressForParticipant              *_myProgress;
 }
 
 @property(nonatomic) NSString                                 *id;
@@ -51,12 +53,11 @@ typedef enum : NSInteger {
 @property(nonatomic, readonly) BOOL                           isMoveType;
 @property(nonatomic, readonly) BOOL                           isStatusChangeType;
 @property(nonatomic, readonly) BOOL                           isShareType __unused;
-@property(nonatomic) EntryProgressForParticipant              *myProgress __unused;
 @property(nonatomic) BOOL                                     isInView __unused; // utility, not to be persisted, defaults false
 @property(nonatomic) BOOL                                     wasSeen __unused;  // utility, in support of visibility assessment
 
--(void) addStatusLine:(EntryParticipantStatus *) statusLine __attribute__((unused));
-
+- (void)addStatusLine:(EntryParticipantStatus *)statusLine __attribute__((unused));
+- (EntryProgressForParticipant *)progressForParticipant:(ConversationParticipant *)participant ofConvo:(Conversation*) conversation;
 @end
 
 #pragma clang diagnostic pop

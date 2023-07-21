@@ -33,6 +33,10 @@ typedef enum : NSInteger {
 @property(nonatomic) EntryProgress progress;
 @property(nonatomic) BOOL          shouldSendToBackend;
 
+
++(EntryProgress) progressFromStatus:(NSString*) status;
++(NSString*) statusFromProgress:(EntryProgress) progress;
+
 - (BOOL)isSent __unused;
 - (BOOL)isReceived __unused;
 - (BOOL)isRead __unused;

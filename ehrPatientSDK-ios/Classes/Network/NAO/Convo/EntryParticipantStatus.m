@@ -97,6 +97,36 @@ TRACE_OFF
     }
 }
 
++(EntryProgress) progressFromStatus:(NSString*) status{
+
+    if ([status isEqualToString:@"sent"]) return EntryProgressSent;
+    if ([status isEqualToString:@"read"]) return EntryProgressRead;
+    if ([status isEqualToString:@"received"]) return EntryProgressReceived;
+    if ([status isEqualToString:@"ack"]) return EntryProgressAcked;
+
+    return EntryProgressInvalid;
+
+
+
+}
+
++(NSString*) statusFromProgress:(EntryProgress) progress{
+    NSString *_status;
+    switch (progress) {
+        case EntryProgressSent:_status = @"sent";
+            break;
+        case EntryProgressReceived:_status = @"received";
+            break;
+        case EntryProgressRead:_status = @"read";
+            break;
+        case EntryProgressAcked:_status = @"ack";
+            break;
+        default:_status = @"invalid";
+            break;
+    }
+    return _status;
+}
+
 - (BOOL)isSent {
     return [_status isEqualToString:@"sent"];
 }
