@@ -54,7 +54,8 @@ TRACE_OFF
     _authenticationSuccess = [successBlock copy];
 
     if (_deviceInfo.canAuthenticateWithBiometrics) {
-        [self authenticateWithBiometrics:reason];
+//        [self authenticateWithBiometrics:reason];
+        [self authenticateWithPIN:reason];
     } else if (_deviceInfo.canAuthenticate) {
         [self authenticateWithPIN:reason];
     }
