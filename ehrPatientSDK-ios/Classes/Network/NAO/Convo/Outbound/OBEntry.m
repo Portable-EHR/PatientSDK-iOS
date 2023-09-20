@@ -4,7 +4,7 @@
 
 #import "OBEntry.h"
 #import "OBMessageEntry.h"
-
+#import "OBRepliesToEntry.h"
 @interface OBEntry () {
     NSInteger _instanceNumber;
 }
@@ -62,6 +62,17 @@ TRACE_ON
             MPLOGERROR(@"OBEntry : dont know how to deserialize entry type [%@]", oe.type);
         }
     }
+    
+    
+    NSDictionary *repliesToDic = WantDicFromDic(dic, @"repliesTo");
+    if (repliesToDic) {
+        if ([oe.type isEqualToString:@"message"]) {
+            oe.repliesTo = [OBRepliesToEntry objectWithContentsOfDictionary:repliesToDic];
+        } else {
+            MPLOGERROR(@"OBEntry : dont know how to deserialize entry type [%@]", oe.type);
+        }
+    }
+    
     return oe;
 }
 
@@ -70,6 +81,7 @@ TRACE_ON
     PutStringInDic(self.type, dic, @"type");
     PutStringInDic(self.audience, dic, @"audience");
     PutPersistableInDic(self.payload, dic, @"payload");
+    PutPersistableInDic(self.repliesTo, dic, @"repliesTo");
     return dic;
 }
 

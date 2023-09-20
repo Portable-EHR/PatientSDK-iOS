@@ -13,10 +13,19 @@
 #import "ConversationParticipant.h"
 #import "Conversation.h"
 
+#import "EntryMentionedParticipants.h"
+#import "EntryTMPossibleReplyTypes.h"
+#import "EntryTMChoiceReplyOptions.h"
+
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wignored-attributes"
+
 @class EntryMessagePayload;
 @class EntryProgressForParticipant;
+
+@class EntryMentionedParticipants;
+@class EntryTMPossibleReplyTypes;
+@class EntryTMChoiceReplyOptions;
 
 typedef enum : NSInteger {
     EntryTypeMessage,
@@ -28,15 +37,19 @@ typedef enum : NSInteger {
 } EntryType;
 
 @interface ConversationEntry : NSObject <EHRInstanceCounterP, EHRNetworkableP> {
-    NSInteger                                _instanceNumber;
-    NSString                                 *_id;
-    NSString                                 *_from;
-    NSString                                 *_type;
-    NSString                                 *_audience;
-    NSInteger                                _attachmentCount;
-    NSMutableArray<EntryParticipantStatus *> *_status;
-    EntryMessagePayload                      *_messageEntryPayload;
-    NSDate                                   *_createdOn;
+    NSInteger                                    _instanceNumber;
+    NSString                                     *_id;
+    NSString                                     *_from;
+    NSString                                     *_type;
+    NSString                                     *_audience;
+    NSInteger                                    _attachmentCount;
+    NSMutableArray<EntryParticipantStatus *>     *_status;
+    EntryMessagePayload                          *_messageEntryPayload;
+    NSDate                                       *_createdOn;
+    
+    NSMutableArray<EntryMentionedParticipants *> *_mentionedParticipants;
+    NSMutableArray<EntryTMPossibleReplyTypes *>  *_possibleRepliesTypes;
+    NSMutableArray<EntryTMChoiceReplyOptions *>  *_replyChoiceOptions;
 }
 
 @property(nonatomic) NSString                                 *id;
@@ -55,6 +68,10 @@ typedef enum : NSInteger {
 @property(nonatomic, readonly) BOOL                           isShareType __unused;
 @property(nonatomic) BOOL                                     isInView __unused; // utility, not to be persisted, defaults false
 @property(nonatomic) BOOL                                     wasSeen __unused;  // utility, in support of visibility assessment
+
+@property(nonatomic) NSMutableArray<EntryMentionedParticipants *> *mentionedParticipants;
+@property(nonatomic) NSMutableArray<EntryTMPossibleReplyTypes*>   *possibleRepliesTypes;
+@property(nonatomic) NSMutableArray<EntryTMChoiceReplyOptions *>  *replyChoiceOptions;
 
 - (void)addStatusLine:(EntryParticipantStatus *)statusLine __attribute__((unused));
 - (EntryProgressForParticipant *)progressForParticipant:(ConversationParticipant *)participant ofConvo:(Conversation*) conversation;

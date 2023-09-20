@@ -23,6 +23,10 @@ TRACE_OFF
 @synthesize payload;
 @synthesize createdOn = _createdOn;
 
+@synthesize mentionedParticipants = _mentionedParticipants;
+@synthesize possibleRepliesTypes = _possibleRepliesTypes;
+
+
 - (instancetype)init {
     if ((self = [super init])) {
         GE_ALLOC();
@@ -90,6 +94,34 @@ TRACE_OFF
     }
     ce->_status = [NSMutableArray arrayWithArray:statii];
 
+    NSArray        *mentionedParticipantsAsArray = WantArrayFromDic(dic, @"mentionedParticipants");
+    NSMutableArray  *mpArray       = [NSMutableArray array];
+    if (nil != mentionedParticipantsAsArray) {
+        for (id element in mentionedParticipantsAsArray) {
+            [mpArray addObject:[EntryMentionedParticipants objectWithContentsOfDictionary:element]];
+        }
+    }
+    ce->_mentionedParticipants = [NSMutableArray arrayWithArray:mpArray];
+    
+    NSArray *possibleRepliesAsArray = WantArrayFromDic(dic, @"possibleRepliesTypes");
+    NSMutableArray  *prtArray       = [NSMutableArray array];
+    if (nil != possibleRepliesAsArray) {
+        for (id element in possibleRepliesAsArray) {
+            NSLog(@"Possible reply types: %@", element);
+            [prtArray addObject:element];
+        }
+    }
+     ce->_possibleRepliesTypes = prtArray;
+    
+    NSArray        *choiceReplyOptionsAsArray = WantArrayFromDic(dic, @"replyChoiceOptions");
+    NSMutableArray  *rcArray       = [NSMutableArray array];
+    if (nil != choiceReplyOptionsAsArray) {
+        for (id element in choiceReplyOptionsAsArray) {
+            [rcArray addObject:[EntryTMChoiceReplyOptions objectWithContentsOfDictionary:element]];
+        }
+    }
+    ce->_replyChoiceOptions = [NSMutableArray arrayWithArray:rcArray];
+    
     return ce;
 }
 
@@ -110,6 +142,30 @@ TRACE_OFF
     }
     dic[@"status"] = [NSArray arrayWithArray:statii];
 
+    NSMutableArray *mpArray = [NSMutableArray array];
+    if (nil != _mentionedParticipants && _mentionedParticipants.count > 0) {
+        for (id <EHRNetworkableP> element in _mentionedParticipants) {
+            [mpArray addObject:[element asDictionary]];
+        }
+    }
+    dic[@"mentionedParticipants"] = [NSArray arrayWithArray:mpArray];
+    
+    NSMutableArray *prtArray = [NSMutableArray array];
+    if (nil != _possibleRepliesTypes && _possibleRepliesTypes.count > 0) {
+        for (id <EHRNetworkableP> element in _possibleRepliesTypes) {
+            [prtArray addObject:[element asDictionary]];
+        }
+    }
+    dic[@"possibleRepliesTypes"] = [NSArray arrayWithArray:prtArray];
+    
+    NSMutableArray *rcArray = [NSMutableArray array];
+    if (nil != _replyChoiceOptions && _replyChoiceOptions.count > 0) {
+        for (id <EHRNetworkableP> element in _replyChoiceOptions) {
+            [rcArray addObject:[element asDictionary]];
+        }
+    }
+    dic[@"replyChoiceOptions"] = [NSArray arrayWithArray:rcArray];
+    
     return nil;
 }
 
