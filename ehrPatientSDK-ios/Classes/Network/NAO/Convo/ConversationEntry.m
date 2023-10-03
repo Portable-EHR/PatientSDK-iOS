@@ -66,7 +66,9 @@ TRACE_OFF
     ce->_audience        = WantStringFromDic(dic, @"audience");
     ce->_createdOn       = WantDateFromDic(dic, @"createdOn");
     ce->_attachmentCount = WantIntegerFromDic(dic, @"attachmentCount");
+    
     NSDictionary *payloadAsDic = WantDicFromDic(dic, @"payload");
+   
     if (nil != payloadAsDic) {
         if (ce.isMessageType) {
             ce.entryType = EntryTypeMessage;
@@ -93,7 +95,15 @@ TRACE_OFF
         }
     }
     ce->_status = [NSMutableArray arrayWithArray:statii];
-
+    
+    NSDictionary *repliesToPayload = WantDicFromDic(dic, @"repliesTo");
+    
+    NSDictionary *payload = repliesToPayload[@"payload"];
+    
+    NSLog(@"repliesToPayload *** %@:", payload);
+    
+    ce->_repliesToPayload = [EntryRepliesToPayload objectWithContentsOfDictionary:payload];
+    
     NSArray        *mentionedParticipantsAsArray = WantArrayFromDic(dic, @"mentionedParticipants");
     NSMutableArray  *mpArray       = [NSMutableArray array];
     if (nil != mentionedParticipantsAsArray) {
@@ -134,6 +144,7 @@ TRACE_OFF
     PutDateInDic(_createdOn, dic, @"createdOn");
     PutIntegerInDic(_attachmentCount, dic, @"attachmentCount");
     if (nil != _messageEntryPayload) dic[@"payload"] = [_messageEntryPayload asDictionary];
+    if (nil != _entryReplisToPayload) dic[@"repliesTo"] = [_entryReplisToPayload asDictionary];
     NSMutableArray *statii = [NSMutableArray array];
     if (nil != _status && _status.count > 0) {
         for (id <EHRNetworkableP> element in _status) {

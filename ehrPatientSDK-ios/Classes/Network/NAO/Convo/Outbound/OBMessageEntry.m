@@ -35,7 +35,7 @@
     dic[@"text"] = self.text;
     dic[@"freeTextReply"] = self.freeTextReply;
     dic[@"dateReply"] = self.dateReply;
-    dic[@"dateTimeReply"] = self.dateReply;
+    dic[@"dateTimeReply"] = self.dateTimeReply;
     
     NSMutableArray *attachments = [NSMutableArray array];
 

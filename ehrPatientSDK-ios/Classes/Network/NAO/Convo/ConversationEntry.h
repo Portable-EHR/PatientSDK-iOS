@@ -16,6 +16,7 @@
 #import "EntryMentionedParticipants.h"
 #import "EntryTMPossibleReplyTypes.h"
 #import "EntryTMChoiceReplyOptions.h"
+#import "EntryRepliesToPayload.h"
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wignored-attributes"
@@ -26,6 +27,7 @@
 @class EntryMentionedParticipants;
 @class EntryTMPossibleReplyTypes;
 @class EntryTMChoiceReplyOptions;
+@class EntryRepliesToPayload;
 
 typedef enum : NSInteger {
     EntryTypeMessage,
@@ -50,6 +52,7 @@ typedef enum : NSInteger {
     NSMutableArray<EntryMentionedParticipants *> *_mentionedParticipants;
     NSMutableArray<EntryTMPossibleReplyTypes *>  *_possibleRepliesTypes;
     NSMutableArray<EntryTMChoiceReplyOptions *>  *_replyChoiceOptions;
+    EntryRepliesToPayload                        *_entryReplisToPayload;
 }
 
 @property(nonatomic) NSString                                 *id;
@@ -72,6 +75,7 @@ typedef enum : NSInteger {
 @property(nonatomic) NSMutableArray<EntryMentionedParticipants *> *mentionedParticipants;
 @property(nonatomic) NSMutableArray<EntryTMPossibleReplyTypes*>   *possibleRepliesTypes;
 @property(nonatomic) NSMutableArray<EntryTMChoiceReplyOptions *>  *replyChoiceOptions;
+@property(nonatomic) id                                       repliesToPayload;
 
 - (void)addStatusLine:(EntryParticipantStatus *)statusLine __attribute__((unused));
 - (EntryProgressForParticipant *)progressForParticipant:(ConversationParticipant *)participant ofConvo:(Conversation*) conversation;

@@ -12,10 +12,13 @@
 @interface EntryMessagePayload : NSObject <EHRInstanceCounterP, EHRNetworkableP> {
     NSInteger _instanceNumber;
     NSString  *_text;
+    NSString  *_freeTextReply;
     NSArray   *_attachments;
 }
 
 @property(nonatomic) NSString *text;
 @property(nonatomic) NSArray  *attachments;
-
+@property(nonatomic) NSString *freeTextReply;
+@property(nonatomic) NSString *dateReply;
+@property(nonatomic) NSString *date;
 @end
