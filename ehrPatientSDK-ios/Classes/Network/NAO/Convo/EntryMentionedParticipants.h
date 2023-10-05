@@ -17,9 +17,11 @@
 
 @interface EntryMentionedParticipants : NSObject <EHRInstanceCounterP, EHRNetworkableP> {
     NSString  *_participantId;
+    NSString  *_reminder;
 }
 
 @property(nonatomic) NSString *participantId;
+@property(nonatomic) NSString *reminder;
 @end
 
 #endif /* EntryMentionedParticipants_h */

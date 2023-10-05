@@ -35,12 +35,14 @@
 + (id)objectWithContentsOfDictionary:(NSDictionary *)dic {
     EntryMentionedParticipants *emp = [[EntryMentionedParticipants alloc] init];
     emp->_participantId = WantStringFromDic(dic, @"participantId");
+    emp->_reminder =  WantStringFromDic(dic, @"reminder");
     return emp;
 }
 
 - (NSDictionary *)asDictionary {
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     PutStringInDic(self.participantId, dic, @"participantId");
+    PutStringInDic(self.reminder, dic, @"reminder");
     return dic;
 }
 - (void)dealloc {
