@@ -36,6 +36,7 @@
     EntryMentionedParticipants *emp = [[EntryMentionedParticipants alloc] init];
     emp->_participantId = WantStringFromDic(dic, @"participantId");
     emp->_reminder =  WantStringFromDic(dic, @"reminder");
+    emp->_reminderState =  WantStringFromDic(dic, @"reminderState");
     return emp;
 }
 
@@ -43,6 +44,7 @@
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     PutStringInDic(self.participantId, dic, @"participantId");
     PutStringInDic(self.reminder, dic, @"reminder");
+    PutStringInDic(self.reminderState, dic, @"reminderState");
     return dic;
 }
 - (void)dealloc {

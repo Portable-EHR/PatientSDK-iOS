@@ -53,6 +53,7 @@ typedef enum : NSInteger {
     NSMutableArray<EntryTMPossibleReplyTypes *>  *_possibleRepliesTypes;
     NSMutableArray<EntryTMChoiceReplyOptions *>  *_replyChoiceOptions;
     EntryRepliesToPayload                        *_entryReplisToPayload;
+    NSString                                     *_replyToFrom;
 }
 
 @property(nonatomic) NSString                                 *id;
@@ -71,7 +72,7 @@ typedef enum : NSInteger {
 @property(nonatomic, readonly) BOOL                           isShareType __unused;
 @property(nonatomic) BOOL                                     isInView __unused; // utility, not to be persisted, defaults false
 @property(nonatomic) BOOL                                     wasSeen __unused;  // utility, in support of visibility assessment
-
+@property(nonatomic) NSString                                 *replyToFrom;
 @property(nonatomic) NSMutableArray<EntryMentionedParticipants *> *mentionedParticipants;
 @property(nonatomic) NSMutableArray<EntryTMPossibleReplyTypes*>   *possibleRepliesTypes;
 @property(nonatomic) NSMutableArray<EntryTMChoiceReplyOptions *>  *replyChoiceOptions;

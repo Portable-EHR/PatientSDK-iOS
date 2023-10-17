@@ -53,7 +53,9 @@ TRACE_OFF
     cep->_text = WantStringFromDic(dic, @"text");
     cep->_freeTextReply = WantStringFromDic(dic, @"freeTextReply");
     cep->_dateReply = WantStringFromDic(dic, @"dateReply");
-    cep->_date = WantStringFromDic(dic, @"date");
+    cep->_dateTimeReply = WantStringFromDic(dic, @"dateTimeReply");
+    cep.choiceReply = WantDicFromDic(dic, @"choiceReply");
+    
     NSArray        *attsAsDics = WantArrayFromDic(dic, @"attachments");
     NSMutableArray *atts       = [NSMutableArray array];
     if (nil != attsAsDics) {
@@ -70,7 +72,15 @@ TRACE_OFF
     PutStringInDic(self.text, dic, @"text");
     PutStringInDic(self.freeTextReply, dic, @"freeTextReply");
     PutStringInDic(self.dateReply, dic, @"dateReply");
-    PutStringInDic(self.date, dic, @"date");
+    PutStringInDic(self.dateTimeReply, dic, @"dateTimeReply");
+    
+//    NSMutableArray            *cr = [NSMutableArray array];
+//    for (id <EHRNetworkableP> element in self.choiceReply) {
+//        [cr addObject:[element asDictionary]];
+//    }
+    
+    dic[@"choiceReply"] = self.choiceReply;
+    
     NSMutableArray            *atts = [NSMutableArray array];
     for (id <EHRNetworkableP> element in self.attachments) {
         [atts addObject:[element asDictionary]];

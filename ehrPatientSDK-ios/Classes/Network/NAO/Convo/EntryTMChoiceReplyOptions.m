@@ -12,6 +12,7 @@
 @implementation EntryTMChoiceReplyOptions
 
 @synthesize id = _id;
+@synthesize choiceLabel = _choiceLabel;
 
 + (instancetype)objectWithJSON:(NSString *)jsonString {
     NSDictionary *dic = [NSDictionary dictionaryWithJSON:jsonString];
@@ -34,12 +35,14 @@
 + (id)objectWithContentsOfDictionary:(NSDictionary *)dic {
     EntryTMChoiceReplyOptions *ecro = [[EntryTMChoiceReplyOptions alloc] init];
     ecro->_id = WantStringFromDic(dic, @"id");
+    ecro->_choiceLabel = WantStringFromDic(dic, @"label");
     return ecro;
 }
 
 - (NSDictionary *)asDictionary {
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     PutStringInDic(self.id, dic, @"id");
+    PutStringInDic(self.choiceLabel, dic, @"label");
     return dic;
 }
 - (void)dealloc {

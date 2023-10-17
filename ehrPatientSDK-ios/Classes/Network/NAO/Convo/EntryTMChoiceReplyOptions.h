@@ -16,8 +16,11 @@
 
 @interface EntryTMChoiceReplyOptions : NSObject <EHRInstanceCounterP, EHRNetworkableP> {
     NSString  *_id;
+    NSString  *_choiceLabel;
 }
 @property(nonatomic) NSString *id;
+@property(nonatomic) NSString *choiceLabel;
+
 @end
 
 #endif /* EntryTMChoiceReplyOptions_h */

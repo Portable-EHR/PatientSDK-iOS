@@ -13,6 +13,9 @@
     NSInteger _instanceNumber;
     NSString  *_text;
     NSString  *_freeTextReply;
+    NSString  *_dateReply;
+    NSString  *_dateTimeReply;
+    NSDictionary   *_choiceReply;
     NSArray   *_attachments;
 }
 
@@ -20,5 +23,6 @@
 @property(nonatomic) NSArray  *attachments;
 @property(nonatomic) NSString *freeTextReply;
 @property(nonatomic) NSString *dateReply;
-@property(nonatomic) NSString *date;
+@property(nonatomic) NSString *dateTimeReply;
+@property(nonatomic) NSDictionary  *choiceReply;
 @end

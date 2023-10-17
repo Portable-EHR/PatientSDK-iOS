@@ -22,10 +22,9 @@ TRACE_OFF
 @synthesize status = _status;
 @synthesize payload;
 @synthesize createdOn = _createdOn;
-
 @synthesize mentionedParticipants = _mentionedParticipants;
 @synthesize possibleRepliesTypes = _possibleRepliesTypes;
-
+@synthesize replyToFrom = _replyToFrom;
 
 - (instancetype)init {
     if ((self = [super init])) {
@@ -104,6 +103,12 @@ TRACE_OFF
     
     ce->_repliesToPayload = [EntryRepliesToPayload objectWithContentsOfDictionary:payload];
     
+    NSString *replyToFrom = repliesToPayload[@"from"];
+    if (replyToFrom != nil ){
+        ce->_replyToFrom = replyToFrom;
+        NSLog(@"replyToFrom *** %@:", replyToFrom);
+    }
+    
     NSArray        *mentionedParticipantsAsArray = WantArrayFromDic(dic, @"mentionedParticipants");
     NSMutableArray  *mpArray       = [NSMutableArray array];
     if (nil != mentionedParticipantsAsArray) {
@@ -143,6 +148,7 @@ TRACE_OFF
     PutStringInDic(_audience, dic, @"audience");
     PutDateInDic(_createdOn, dic, @"createdOn");
     PutIntegerInDic(_attachmentCount, dic, @"attachmentCount");
+    PutStringInDic(_replyToFrom, dic, @"from");
     if (nil != _messageEntryPayload) dic[@"payload"] = [_messageEntryPayload asDictionary];
     if (nil != _entryReplisToPayload) dic[@"repliesTo"] = [_entryReplisToPayload asDictionary];
     NSMutableArray *statii = [NSMutableArray array];
@@ -176,6 +182,7 @@ TRACE_OFF
         }
     }
     dic[@"replyChoiceOptions"] = [NSArray arrayWithArray:rcArray];
+    
     
     return nil;
 }
