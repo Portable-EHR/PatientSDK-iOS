@@ -12,6 +12,8 @@
 #import "IBScannedOffer.h"
 #import "IBUserEula.h"
 
+#import "OBPinActivationSpec.h"
+
 typedef enum : NSInteger {
     IdentificationFactorUnknown,
     IdentificationFactorEmail,
@@ -35,9 +37,23 @@ typedef enum : NSInteger {
          onSuccess:(SenderBlock)successBlock
            onError:(SenderBlock)errorBlock;
 
+- (void)scanQRCodeclaimOffer:(NSString *)interimQRcode
+         onSuccess:(SenderBlock)successBlock
+           onError:(SenderBlock)errorBlock;
+
 - (void)registerUserWithSpec:(OBManualActivationSpec *)spec
                    onSuccess:(SenderBlock)successBlock
                      onError:(SenderBlock)errorBlock;
+
+- (void)registerUserWithPinSpec:(OBPinActivationSpec *)spec
+                   onSuccess:(SenderBlock)successBlock
+                     onError:(SenderBlock)errorBlock;
+
+- (void)registerUserWithScanQRSpec:(NSString *)interimCode
+                   onSuccess:(SenderBlock)successBlock
+                     onError:(SenderBlock)errorBlock;
+
+
 
 - (void)deactivateDevice:(NSString *)deviceGuid onSuccess:(VoidBlock)successBlock onError:(SenderBlock)errorBlock;
 

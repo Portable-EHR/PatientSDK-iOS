@@ -33,7 +33,7 @@ static CFArrayRef certs;
     if ((self = [super init])) {
         GE_ALLOC();
         GE_ALLOC_ECHO();
-        self.timeOut         = 60;//kNetworkTimeOut;
+        self.timeOut         = kNetworkTimeOut;
         self.maximumAttempts = kNetworkRetries;
         self->_attemptNumber = 0;
         self->_verbose       = NO;
