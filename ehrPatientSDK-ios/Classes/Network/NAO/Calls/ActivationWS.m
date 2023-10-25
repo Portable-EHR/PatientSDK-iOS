@@ -247,6 +247,221 @@
 
 }
 
+- (void)registerUserWithPinSpec:(OBPinActivationSpec *)spec
+                   onSuccess:
+                           (SenderBlock)successBlock
+                     onError:
+                             (SenderBlock)errorBlock {
+
+    VoidBlock pullSuccess = ^() {
+        MPLOG(@"Pull user data : SUCCESS");
+        successBlock(nil);
+    };
+
+    VoidBlock pullError = ^() {
+        MPLOGERROR(@"Pull user data : FAILED");
+        errorBlock(nil);
+    };
+
+    SenderBlock activateSuccess = ^(EHRCall *call) {
+        [PehrSDKConfig.shared.ws.commands pullUserData:pullSuccess onError:pullError];
+    };
+    SenderBlock activateError   = ^(EHRCall *call) {
+        errorBlock(call);
+    };
+
+    SenderBlock offerSuccess = ^(IBScannedOffer *scannedOffer) {
+        [self claimOffer:scannedOffer onSuccess:activateSuccess onError:activateError];
+    };
+
+    SenderBlock offerFailed = ^(EHRCall *call) {
+        errorBlock(call);
+    };
+
+    [self getOfferForPin:spec onSuccess:offerSuccess onError:offerFailed];
+
+}
+
+- (void)getOfferForPin:(OBPinActivationSpec *)spec
+          onSuccess:(SenderBlock)successBlock
+            onError:(SenderBlock)errorBlock {
+    NSMutableDictionary *params  = (NSMutableDictionary *) [spec asDictionary];
+    EHRServerRequest    *request = [EHRRequests requestWithRoute:@"/app/user/account"
+                                                         command:@"pinActivation"
+                                                      parameters:params];
+
+    SenderBlock offerSuccess = ^(EHRCall *call) {
+        MPLOG(@"Get offer : SUCCESS");
+        IBScannedOffer *offer = [IBScannedOffer objectWithContentsOfDictionary:call.serverResponse.responseContent];
+        successBlock(offer);
+    };
+
+    SenderBlock offerFail = ^(EHRCall *call) {
+        MPLOGERROR(@"Get offer : FAILED");
+        errorBlock(call);
+    };
+    EHRCall     *call     = [EHRCall callWithRequest:request
+                                           onSuccess:offerSuccess
+                                             onError:offerFail];
+    [call startAsGuest];
+}
+
+
+- (void)registerUserWithScanQRSpec:(NSString *)interimCode
+                   onSuccess:
+                           (SenderBlock)successBlock
+                     onError:
+                             (SenderBlock)errorBlock {
+
+    VoidBlock pullSuccess = ^() {
+        MPLOG(@"Pull user data : SUCCESS");
+        successBlock(nil);
+    };
+
+    VoidBlock pullError = ^() {
+        MPLOGERROR(@"Pull user data : FAILED");
+        errorBlock(nil);
+    };
+
+    SenderBlock activateSuccess = ^(EHRCall *call) {
+        [PehrSDKConfig.shared.ws.commands pullUserData:pullSuccess onError:pullError];
+    };
+    SenderBlock activateError   = ^(EHRCall *call) {
+        errorBlock(call);
+    };
+
+    SenderBlock offerSuccess = ^(NSString *interimCode) {
+        [self scanQRCodeclaimOffer:interimCode onSuccess:activateSuccess onError:activateError];
+    };
+
+    SenderBlock offerFailed = ^(EHRCall *call) {
+        errorBlock(call);
+    };
+
+    [self sequenceOfferTokenStatus:interimCode onSuccess:offerSuccess onError:offerFailed];
+
+}
+
+- (void) sequenceOfferTokenStatus: (NSString *)interimCode onSuccess:(SenderBlock)successBlock onError:(SenderBlock)errorBlock {
+    
+    NSMutableDictionary *params  = [@{@"guid": interimCode} mutableCopy];
+    EHRServerRequest    *request = [EHRRequests requestWithRoute:@"/app/user/account"
+                                                         command:@"status"
+                                                      parameters:params];
+    
+    SenderBlock offerSuccess = ^(EHRCall *call) {
+        MPLOG(@"Get offer : SUCCESS");
+        EHRServerResponse *resp = call.serverResponse;
+        MPLOG(@"response is \n%@", [call.serverResponse asDictionary]);
+        if ([[resp requestStatus].status isEqualToString:@"OK"]) {
+            NSString *responseStatus = WantStringFromDic(resp.responseContent, @"status");
+            MPLOG(@"Got status [%@]", responseStatus);
+            if (responseStatus) {
+                if ([responseStatus isEqualToString:@"pendingScan"]) {
+                    successBlock(interimCode);
+//                    errorBlock(call);
+                }
+                else if ([responseStatus isEqualToString:@"cancelled"]) {
+                    errorBlock(call);
+                } else if ([responseStatus isEqualToString:@"expired"]) {
+                    errorBlock(call);
+                }else{
+                    errorBlock(call);
+                }
+            }
+        } else {
+            MPLOG(@"*** Error : response not OK, with requestStatus %@", [resp.requestStatus asDictionary]);
+            errorBlock(call);
+
+        }
+    };
+
+    SenderBlock offerFail = ^(EHRCall *call) {
+        MPLOGERROR(@"Get offer : FAILED");
+        errorBlock(call);
+    };
+    
+    EHRCall     *call     = [EHRCall callWithRequest:request
+                                           onSuccess:offerSuccess
+                                             onError:offerFail];
+    
+    [call startAsGuest];
+}
+
+- (void)scanQRCodeclaimOffer:(NSString *)interimQRcode
+         onSuccess:(SenderBlock)successBlock
+           onError:(SenderBlock)errorBlock {
+
+    SenderBlock claimSuccess = ^(EHRCall *call) {
+        MPLOG(@"Claim offer : SUCCESS");
+        {
+            NSDictionary *content = call.serverResponse.responseContent;
+            NSString     *status  = WantStringFromDic(content, @"status");
+            IBUser       *user    = [IBUser objectWithContentsOfDictionary:WantDicFromDic(content, @"userInfo")];
+            IBDeviceInfo *device  = [IBDeviceInfo objectWithContentsOfDictionary:WantDicFromDic(content, @"deviceInfo")];
+            MPLOG(@"Got status claim status [%@]", status);
+            if (status) {
+                if ([status isEqualToString:@"scanned"]
+                        || [status isEqualToString:@"granted"]
+                        || [status isEqualToString:@"pendingApproval"]) {
+                    MPLOG(@"Claiming offer, activating device.");
+                    [PehrSDKConfig.shared.models.userModel updateUserInfo:user save:NO];
+                    PehrSDKConfig.shared.state.device                                     = device;
+                    PehrSDKConfig.shared.state.secureCredentials.current.userGuid         = user.guid;
+                    PehrSDKConfig.shared.state.secureCredentials.current.userApiKey       = user.apiKey;
+                    PehrSDKConfig.shared.state.secureCredentials.current.hasConsentedEula = NO;
+                    PehrSDKConfig.shared.state.secureCredentials.current.deviceGuid       = device.deviceGuid;
+                    PehrSDKConfig.shared.state.secureCredentials.current.appEula          = [[IBUserEula alloc] init];
+                    PehrSDKConfig.shared.state.secureCredentials.current.deviceGuid       = device.deviceGuid;
+                    [PehrSDKConfig.shared.state.secureCredentials persist];
+
+                    [self setFirebaseDeviceToken:self->_savedFirebaseToken onSuccess:^() {
+                        MPLOG(@"Associated device to Firebase token : SUCCESS");
+                        successBlock(call);
+                    }                    onError:^() {
+                        MPLOGERROR(@"Associated device to Firebase token : FAILED, but will carry on");
+                        // THIS IS RIGHT : firebase tokenization will all be redone every time
+                        // luser starts the App.  This is a last ditch attempt as part of the
+                        // device activation process, to enable APNS immediately if possible.
+                        successBlock(call);
+                    }];
+
+                } else if ([status isEqualToString:@"cancelled"]) {
+                    MPLOGERROR(@"Claimed cancelled offer , bailing out.");
+                    errorBlock(call);
+                } else if ([status isEqualToString:@"expired"]) {
+                    MPLOGERROR(@"Claimed expired offer , bailing out.");
+                    errorBlock(call);
+                } else {
+                    MPLOGERROR(@"Claimed cancelled offer , bailing out.");
+                    errorBlock(call);
+                }
+            } else {
+                MPLOGERROR(@"Claim offer : did not get an offer status !");
+                errorBlock(call);
+            }
+        }
+    };
+    SenderBlock claimError   = ^(EHRCall *call) {
+        MPLOGERROR(@"Claim offer : FAILED with [%@]", call.serverResponse.requestStatus.status);
+        errorBlock(call);
+    };
+
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"guid"]       = interimQRcode;
+    params[@"deviceInfo"] = [PehrSDKConfig.shared.state.device asDictionary];
+
+    EHRServerRequest *request   = [EHRRequests requestWithRoute:@"/app/user/account"
+                                                        command:@"scan"
+                                                     parameters:params];
+    EHRCall          *claimCall = [EHRCall callWithRequest:request
+                                                 onSuccess:claimSuccess
+                                                   onError:claimError];
+
+    [claimCall startAsGuest];
+
+}
+
 - (void)deactivateDevice:(NSString *)deviceGuid onSuccess:(VoidBlock)successBlock onError:(SenderBlock)errorBlock {
 
     SenderBlock callSuccess = ^(EHRCall *theCall) {

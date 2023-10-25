@@ -11,6 +11,7 @@
 #import "OBManualActivationSpec.h"
 #import "IBScannedOffer.h"
 #import "IBUserEula.h"
+#import "OBPinActivationSpec.h"
 
 typedef enum : NSInteger {
     IdentificationFactorUnknown,
@@ -36,6 +37,14 @@ typedef enum : NSInteger {
            onError:(SenderBlock)errorBlock;
 
 - (void)registerUserWithSpec:(OBManualActivationSpec *)spec
+                   onSuccess:(SenderBlock)successBlock
+                     onError:(SenderBlock)errorBlock;
+
+- (void)registerUserWithPinSpec:(OBPinActivationSpec *)spec
+                   onSuccess:(SenderBlock)successBlock
+                     onError:(SenderBlock)errorBlock;
+
+- (void)registerUserWithScanQRSpec:(NSString *)interimCode
                    onSuccess:(SenderBlock)successBlock
                      onError:(SenderBlock)errorBlock;
 

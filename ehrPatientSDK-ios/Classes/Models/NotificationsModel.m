@@ -206,8 +206,8 @@ TRACE_OFF
     TRACE_KILLROY
 
     if ([AppState sharedAppState].isInBackground) {
-        MPLOG(@"App is in background , not reading from server.");
-        return;
+        MPLOG(@"App is in background");
+//        return;
     }
 
     //region Shit happens, we fail the call
