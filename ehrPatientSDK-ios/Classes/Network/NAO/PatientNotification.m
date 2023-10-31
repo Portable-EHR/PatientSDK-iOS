@@ -9,10 +9,8 @@
 #import "IBLabRequest.h"
 #import "IBLabResult.h"
 #import "IBMessageContent.h"
-#import "IBTelexInfo.h"
 #import "IBAppointment.h"
 #import "ConversationEnvelope.h"
-#import "NSDate+Compare.h"
 
 @implementation PatientNotification
 
@@ -70,7 +68,7 @@ TRACE_OFF
                 }
             } else if (self.isPrivateMessage) {
                 if (self.isArchived) return NO;
-                return self.telexInfo.acknowledgedOn == nil;
+                return self.privateMessageInfo.acknowledgedOn == nil;
             } else if (self.isConvoList) {
                 if (self.isArchived) return NO;
             } else {
@@ -89,11 +87,11 @@ TRACE_OFF
     return YES;
 }
 
-- (BOOL)isAcknowledged {
+- (BOOL)isAcknowledged __unused{
     if (self.ackedOn) return YES;
     if ([self.progress isEqualToString:@"acknowledged"]) return YES;
-    if (nil != self.telexInfo) {
-        return self.telexInfo.isAcknowledged;
+    if (nil != self.privateMessageInfo) {
+        return self.privateMessageInfo.isAcknowledged;
     }
     return NO;
 }
@@ -217,7 +215,7 @@ TRACE_OFF
     self.guid              = other.guid;
     self.appointment       = other.appointment;
     self.convo             = other.convo;
-    self.telexInfo         = other.telexInfo;
+    self.privateMessageInfo = other.privateMessageInfo;
     self.capabilityAlias   = other.capabilityAlias;
     self.capabilityGuid    = other.capabilityGuid;
     self.text              = other.text;
@@ -287,9 +285,12 @@ TRACE_OFF
 
         id val;
 
-        if ((val = dic[@"telexInfo"])) {
-            pn.telexInfo = [IBTelexInfo objectWithContentsOfDictionary:val];
+        if ((val = dic[@"privateMessageInfo"])) {
+            pn.privateMessageInfo = [IBPrivateMessageInfo objectWithContentsOfDictionary:val];
+        } else if ((val = dic[@"telexInfo"])){ // todo , temporary alliance with cruft
+            pn.privateMessageInfo = [IBPrivateMessageInfo objectWithContentsOfDictionary:val];
         }
+        
         if ((val = dic[@"message"])) {
             pn.message = [IBMessageContent objectWithContentsOfDictionary:val];
         }
@@ -355,8 +356,8 @@ TRACE_OFF
     PutStringInDic(self.senderName, dic, @"senderName");
     PutStringInDic(self.practitionerGuid, dic, @"practitionerGuid");
 
-    if (self.telexInfo) {
-        dic[@"telexInfo"] = [self.telexInfo asDictionary];
+    if (self.privateMessageInfo) {
+        dic[@"privateMessageInfo"] = [self.privateMessageInfo asDictionary];
     }
 
     if (self.message) {

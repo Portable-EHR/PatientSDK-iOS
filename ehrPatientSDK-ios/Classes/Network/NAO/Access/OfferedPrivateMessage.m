@@ -4,8 +4,6 @@
 //
 
 #import "OfferedPrivateMessage.h"
-#import "IBTelexInfo.h"
-#import "IBTelex.h"
 #import "IBConsent.h"
 
 @implementation OfferedPrivateMessage
@@ -26,10 +24,10 @@ TRACE_OFF
     id                    val = nil;
 
     if ((val = theDictionary[@"privateMessageInfo"])) {
-        ct.privateMessageInfo = [IBTelexInfo objectWithContentsOfDictionary:val];
+        ct.privateMessageInfo = [IBPrivateMessageInfo objectWithContentsOfDictionary:val];
     }
     if ((val = theDictionary[@"privateMessage"])) {
-        ct.privateMessage = [IBTelex objectWithContentsOfDictionary:val];
+        ct.privateMessage = [IBPrivateMessageInfo objectWithContentsOfDictionary:val];
     }
 
     return ct;
