@@ -2,7 +2,7 @@
 //  OBPinActivationSpec.h
 //  EHRPatientSDK
 //
-//  Created by Vinay on 2023-10-25.
+//  Created by Vinay on 2023-10-18.
 //
 
 #ifndef OBPinActivationSpec_h
@@ -20,6 +20,5 @@
 @property(nonatomic) NSString *mobilePhone;
 @property(nonatomic) NSString *activationPin;
 @end
-
 
 #endif /* OBPinActivationSpec_h */

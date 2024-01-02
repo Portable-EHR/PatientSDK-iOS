@@ -18,5 +18,5 @@
 @property(nonatomic) NSString             *type;
 @property(nonatomic) NSString             *audience;
 @property(nonatomic) id <EHRPersistableP> payload;
-
+@property(nonatomic) id <EHRPersistableP> repliesTo;
 @end

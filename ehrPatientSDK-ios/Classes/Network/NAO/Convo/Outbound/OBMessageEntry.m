@@ -16,6 +16,11 @@
     OBMessageEntry *me = [[self alloc] init];
     me.text        = WantStringFromDic(dic, @"text");
     me.attachments = [NSMutableArray array];
+    
+    me.freeTextReply = WantStringFromDic(dic, @"freeTextReply");
+    me.dateReply = WantStringFromDic(dic, @"dateReply");
+    me.dateTimeReply = WantStringFromDic(dic, @"dateTimeReply");
+    
     if (dic[@"attachments"]) {
         for (NSDictionary *attDic in dic[@"attachments"]) {
             OBMessageEntryAttachment *oea = [OBMessageEntryAttachment objectWithContentsOfDictionary:attDic];
@@ -28,6 +33,10 @@
 - (NSDictionary *)asDictionary {
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     dic[@"text"] = self.text;
+    dic[@"freeTextReply"] = self.freeTextReply;
+    dic[@"dateReply"] = self.dateReply;
+    dic[@"dateTimeReply"] = self.dateTimeReply;
+    
     NSMutableArray *attachments = [NSMutableArray array];
 
     for (OBMessageEntryAttachment *oea in self.attachments) {
@@ -35,6 +44,11 @@
         [attachments addObject:oeaDic];
     }
     dic[@"attachments"] = attachments;
+    
+    NSMutableDictionary *obcrDic = [NSMutableDictionary dictionary];
+    [obcrDic setValue:self.choiceReply.id forKey:@"id"];
+    dic[@"choiceReply"] = obcrDic;
+    
     return dic;
 }
 

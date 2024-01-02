@@ -13,6 +13,8 @@
 #import "OBManualActivationSpec.h"
 #import "WebServices.h"
 
+#import "OBPinActivationSpec.h"
+
 @interface ActivationWS () {
     NSInteger _instanceNumber;
     NSString  *_savedFirebaseToken;
@@ -461,6 +463,7 @@
     [claimCall startAsGuest];
 
 }
+
 
 - (void)deactivateDevice:(NSString *)deviceGuid onSuccess:(VoidBlock)successBlock onError:(SenderBlock)errorBlock {
 

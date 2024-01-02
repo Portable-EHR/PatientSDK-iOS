@@ -22,6 +22,9 @@ TRACE_OFF
 @synthesize status = _status;
 @synthesize payload;
 @synthesize createdOn = _createdOn;
+@synthesize mentionedParticipants = _mentionedParticipants;
+@synthesize possibleRepliesTypes = _possibleRepliesTypes;
+@synthesize replyToFrom = _replyToFrom;
 
 - (instancetype)init {
     if ((self = [super init])) {
@@ -62,7 +65,9 @@ TRACE_OFF
     ce->_audience        = WantStringFromDic(dic, @"audience");
     ce->_createdOn       = WantDateFromDic(dic, @"createdOn");
     ce->_attachmentCount = WantIntegerFromDic(dic, @"attachmentCount");
+    
     NSDictionary *payloadAsDic = WantDicFromDic(dic, @"payload");
+   
     if (nil != payloadAsDic) {
         if (ce.isMessageType) {
             ce.entryType = EntryTypeMessage;
@@ -89,7 +94,49 @@ TRACE_OFF
         }
     }
     ce->_status = [NSMutableArray arrayWithArray:statii];
-
+    
+    NSDictionary *repliesToPayload = WantDicFromDic(dic, @"repliesTo");
+    
+    NSDictionary *payload = repliesToPayload[@"payload"];
+    
+    NSLog(@"repliesToPayload *** %@:", payload);
+    
+    ce->_repliesToPayload = [EntryRepliesToPayload objectWithContentsOfDictionary:payload];
+    
+    NSString *replyToFrom = repliesToPayload[@"from"];
+    if (replyToFrom != nil ){
+        ce->_replyToFrom = replyToFrom;
+        NSLog(@"replyToFrom *** %@:", replyToFrom);
+    }
+    
+    NSArray        *mentionedParticipantsAsArray = WantArrayFromDic(dic, @"mentionedParticipants");
+    NSMutableArray  *mpArray       = [NSMutableArray array];
+    if (nil != mentionedParticipantsAsArray) {
+        for (id element in mentionedParticipantsAsArray) {
+            [mpArray addObject:[EntryMentionedParticipants objectWithContentsOfDictionary:element]];
+        }
+    }
+    ce->_mentionedParticipants = [NSMutableArray arrayWithArray:mpArray];
+    
+    NSArray *possibleRepliesAsArray = WantArrayFromDic(dic, @"possibleRepliesTypes");
+    NSMutableArray  *prtArray       = [NSMutableArray array];
+    if (nil != possibleRepliesAsArray) {
+        for (id element in possibleRepliesAsArray) {
+            NSLog(@"Possible reply types: %@", element);
+            [prtArray addObject:element];
+        }
+    }
+     ce->_possibleRepliesTypes = prtArray;
+    
+    NSArray        *choiceReplyOptionsAsArray = WantArrayFromDic(dic, @"replyChoiceOptions");
+    NSMutableArray  *rcArray       = [NSMutableArray array];
+    if (nil != choiceReplyOptionsAsArray) {
+        for (id element in choiceReplyOptionsAsArray) {
+            [rcArray addObject:[EntryTMChoiceReplyOptions objectWithContentsOfDictionary:element]];
+        }
+    }
+    ce->_replyChoiceOptions = [NSMutableArray arrayWithArray:rcArray];
+    
     return ce;
 }
 
@@ -101,7 +148,9 @@ TRACE_OFF
     PutStringInDic(_audience, dic, @"audience");
     PutDateInDic(_createdOn, dic, @"createdOn");
     PutIntegerInDic(_attachmentCount, dic, @"attachmentCount");
+    PutStringInDic(_replyToFrom, dic, @"from");
     if (nil != _messageEntryPayload) dic[@"payload"] = [_messageEntryPayload asDictionary];
+    if (nil != _entryReplisToPayload) dic[@"repliesTo"] = [_entryReplisToPayload asDictionary];
     NSMutableArray *statii = [NSMutableArray array];
     if (nil != _status && _status.count > 0) {
         for (id <EHRNetworkableP> element in _status) {
@@ -110,6 +159,31 @@ TRACE_OFF
     }
     dic[@"status"] = [NSArray arrayWithArray:statii];
 
+    NSMutableArray *mpArray = [NSMutableArray array];
+    if (nil != _mentionedParticipants && _mentionedParticipants.count > 0) {
+        for (id <EHRNetworkableP> element in _mentionedParticipants) {
+            [mpArray addObject:[element asDictionary]];
+        }
+    }
+    dic[@"mentionedParticipants"] = [NSArray arrayWithArray:mpArray];
+    
+    NSMutableArray *prtArray = [NSMutableArray array];
+    if (nil != _possibleRepliesTypes && _possibleRepliesTypes.count > 0) {
+        for (id <EHRNetworkableP> element in _possibleRepliesTypes) {
+            [prtArray addObject:[element asDictionary]];
+        }
+    }
+    dic[@"possibleRepliesTypes"] = [NSArray arrayWithArray:prtArray];
+    
+    NSMutableArray *rcArray = [NSMutableArray array];
+    if (nil != _replyChoiceOptions && _replyChoiceOptions.count > 0) {
+        for (id <EHRNetworkableP> element in _replyChoiceOptions) {
+            [rcArray addObject:[element asDictionary]];
+        }
+    }
+    dic[@"replyChoiceOptions"] = [NSArray arrayWithArray:rcArray];
+    
+    
     return nil;
 }
 
