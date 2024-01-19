@@ -27,7 +27,7 @@ TRACE_OFF
         ct.privateMessageInfo = [IBPrivateMessageInfo objectWithContentsOfDictionary:val];
     }
     if ((val = theDictionary[@"privateMessage"])) {
-        ct.privateMessage = [IBPrivateMessageInfo objectWithContentsOfDictionary:val];
+        ct.privateMessage = [IBPrivateMessage objectWithContentsOfDictionary:val];
     }
 
     return ct;
