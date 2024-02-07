@@ -11,6 +11,7 @@
 #import "IBMessageContent.h"
 #import "IBAppointment.h"
 #import "ConversationEnvelope.h"
+#import "IBDeviceInfo.h"
 
 @implementation PatientNotification
 
@@ -285,6 +286,10 @@ TRACE_OFF
 
         id val;
 
+        if ((val = dic[@"deviceInfo"])) {
+            pn.deviceInfo = [IBDeviceInfo objectWithContentsOfDictionary:val];
+        }
+        
         if ((val = dic[@"privateMessageInfo"])) {
             pn.privateMessageInfo = [IBPrivateMessageInfo objectWithContentsOfDictionary:val];
         } else if ((val = dic[@"telexInfo"])){ // todo , temporary alliance with cruft
@@ -356,6 +361,10 @@ TRACE_OFF
     PutStringInDic(self.senderName, dic, @"senderName");
     PutStringInDic(self.practitionerGuid, dic, @"practitionerGuid");
 
+    if (self.deviceInfo){
+        dic[@"deviceInfo"] = [self.deviceInfo asDictionary];
+    }
+    
     if (self.privateMessageInfo) {
         dic[@"privateMessageInfo"] = [self.privateMessageInfo asDictionary];
     }
