@@ -360,7 +360,9 @@ TRACE_OFF
     PutDateInDic(self.lastSeen, dic, @"lastSeen");
     PutStringInDic(self.senderName, dic, @"senderName");
     PutStringInDic(self.practitionerGuid, dic, @"practitionerGuid");
+
     
+
     if (self.deviceInfo){
         dic[@"deviceInfo"] = [self.deviceInfo asDictionary];
     }
