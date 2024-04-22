@@ -33,10 +33,15 @@ TRACE_ON
     oc.dispensary= WantStringFromDic(dic, @"dispensary");
     oc.entryPoint = WantStringFromDic(dic, @"entryPoint");
     oc.title = WantStringFromDic(dic, @"title");
+   
     NSDictionary *entryAsDic = WantDicFromDic(dic, @"entry");
     if (entryAsDic) {
         oc.entry=[OBEntry objectWithContentsOfDictionary:entryAsDic];
     }
+    
+    oc.title = WantStringFromDic(dic, @"feedId");
+    oc.title = WantStringFromDic(dic, @"patientId");
+    
     return oc;
 }
 
@@ -46,6 +51,10 @@ TRACE_ON
     PutStringInDic(self.entryPoint, dic, @"entryPoint");
     PutStringInDic(self.title, dic, @"title");
     PutPersistableInDic(self.entry, dic, @"entry");
+    
+    PutStringInDic(self.feedId, dic, @"feedId");
+    PutStringInDic(self.patientId, dic, @"patientId");
+    
     return dic;
 }
 

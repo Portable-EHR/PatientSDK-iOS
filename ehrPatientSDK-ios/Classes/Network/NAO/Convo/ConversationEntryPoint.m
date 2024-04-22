@@ -4,6 +4,7 @@
 
 #import "ConversationEntryPoint.h"
 #import "GERuntimeConstants.h"
+#import "EntryPoint.h"
 
 @implementation ConversationEntryPoint
 
@@ -12,6 +13,9 @@ TRACE_OFF
 @synthesize id = _id;
 @synthesize name = _name;
 @synthesize descriptionText = _descriptionText;
+@synthesize dispensaryId = _dispensaryId;
+
+@synthesize entryPoints = _entryPoints;
 
 - (instancetype)init {
     if ((self = [super init])) {
@@ -47,6 +51,23 @@ TRACE_OFF
     cep.id              = WantStringFromDic(dic, @"id");
     cep.name            = WantStringFromDic(dic, @"name");
     cep.descriptionText = WantStringFromDic(dic, @"description");
+    cep.dispensaryId    = WantStringFromDic(dic, @"dispensaryId");
+    
+    NSArray *entryPointsData = WantArrayFromDic(dic, @"entryPoints");
+    NSMutableArray *entryPoints = [NSMutableArray array];
+    
+    for (NSDictionary *entryPointData in entryPointsData) {
+           EntryPoint *entryPoint = [[EntryPoint alloc] init];
+           entryPoint.id = WantStringFromDic(entryPointData, @"id");
+           entryPoint.name = WantStringFromDic(entryPointData, @"name");
+//           entryPoint.description = WantStringFromDic(entryPointData, @"description");
+           entryPoint.feedId = WantStringFromDic(entryPointData, @"feedId");
+           [entryPoints addObject:entryPoint];
+     
+       }
+    
+    cep.entryPoints = entryPoints;
+    
     // ALERT : mapping network property to avoid clash with NSObject.description
 
     return cep;
@@ -57,6 +78,8 @@ TRACE_OFF
     PutStringInDic(self.id, dic, @"id");
     PutStringInDic(self.name, dic, @"name");
     PutStringInDic(self.descriptionText, dic, @"description");
+    PutStringInDic(self.dispensaryId, dic, @"dispensaryId");
+    
     return dic;
 }
 
@@ -64,7 +87,7 @@ TRACE_OFF
     _name            = nil;
     _id              = nil;
     _descriptionText = nil;
-
+    _dispensaryId    = nil;
     GE_DEALLOC();
     GE_DEALLOC_ECHO();
 }
