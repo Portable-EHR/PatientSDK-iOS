@@ -7,6 +7,7 @@
 #import "EntryMovePayload.h"
 #import "EntryStatusChangePayload.h"
 #import "EntrySharePayload.h"
+#import "EntryAnnouncementPayload.h"
 #import "GERuntimeConstants.h"
 #import "DateUtil.h"
 
@@ -25,6 +26,7 @@ TRACE_OFF
 @synthesize mentionedParticipants = _mentionedParticipants;
 @synthesize possibleRepliesTypes = _possibleRepliesTypes;
 @synthesize replyToFrom = _replyToFrom;
+
 
 - (instancetype)init {
     if ((self = [super init])) {
@@ -84,6 +86,9 @@ TRACE_OFF
         } else if (ce.isShareType) {
             ce.entryType = EntryTypeShare;
             ce.payload   = [EntrySharePayload objectWithContentsOfDictionary:payloadAsDic];
+        }else if (ce.isAnnouncementType) {
+            ce.entryType = EntryTypeAnnouncement;
+            ce.payload   = [EntryAnnouncementPayload objectWithContentsOfDictionary:payloadAsDic];
         }
     }
     NSArray        *statusAsArray = WantArrayFromDic(dic, @"status");
@@ -228,6 +233,11 @@ TRACE_OFF
 - (BOOL)isParticipantType {
     if (!_type) return false;
     return [_type isEqualToString:@"participant"];
+}
+
+- (BOOL)isAnnouncementType {
+    if (!_type) return false;
+    return [_type isEqualToString:@"announcement"];
 }
 
 -(void)addStatusLine:(EntryParticipantStatus *)statusLine __attribute__((unused))  __attribute__((unused)) {

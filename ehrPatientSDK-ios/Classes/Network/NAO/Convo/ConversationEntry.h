@@ -35,6 +35,7 @@ typedef enum : NSInteger {
     EntryTypeParticipant,
     EntryTypeMove,
     EntryTypeStatusChange,
+    EntryTypeAnnouncement,
     EntryTypeUnknown
 } EntryType;
 
@@ -48,7 +49,6 @@ typedef enum : NSInteger {
     NSMutableArray<EntryParticipantStatus *>     *_status;
     EntryMessagePayload                          *_messageEntryPayload;
     NSDate                                       *_createdOn;
-    
     NSMutableArray<EntryMentionedParticipants *> *_mentionedParticipants;
     NSMutableArray<EntryTMPossibleReplyTypes *>  *_possibleRepliesTypes;
     NSMutableArray<EntryTMChoiceReplyOptions *>  *_replyChoiceOptions;
@@ -69,6 +69,7 @@ typedef enum : NSInteger {
 @property(nonatomic, readonly) BOOL                           isParticipantType;
 @property(nonatomic, readonly) BOOL                           isMoveType;
 @property(nonatomic, readonly) BOOL                           isStatusChangeType;
+@property(nonatomic, readonly) BOOL                           isAnnouncementType;
 @property(nonatomic, readonly) BOOL                           isShareType __unused;
 @property(nonatomic) BOOL                                     isInView __unused; // utility, not to be persisted, defaults false
 @property(nonatomic) BOOL                                     wasSeen __unused;  // utility, in support of visibility assessment
