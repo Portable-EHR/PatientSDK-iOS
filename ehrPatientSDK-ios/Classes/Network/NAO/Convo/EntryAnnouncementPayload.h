@@ -13,10 +13,11 @@
 
 @interface EntryAnnouncementPayload : NSObject <EHRInstanceCounterP, EHRNetworkableP>   {
     NSString  *_text;
+    NSArray   *_attachments;
 }
 
 @property(nonatomic) NSString *text;
-
+@property(nonatomic) NSArray  *attachments;
 
 @end
 
