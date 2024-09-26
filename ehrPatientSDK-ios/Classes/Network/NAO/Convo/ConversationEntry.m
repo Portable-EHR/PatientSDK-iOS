@@ -11,6 +11,7 @@
 #import "GERuntimeConstants.h"
 #import "DateUtil.h"
 
+
 @implementation ConversationEntry
 
 TRACE_OFF
@@ -142,6 +143,16 @@ TRACE_OFF
     }
     ce->_replyChoiceOptions = [NSMutableArray arrayWithArray:rcArray];
     
+//    NSArray *questionnaireArray = WantArrayFromDic(payloadAsDic, @"questionnaires");
+//    NSMutableArray  *quesArray       = [NSMutableArray array];
+//    if (nil != questionnaireArray) {
+//        for (id element in questionnaireArray) {
+//            [quesArray addObject:[PayloadQuestionnaire objectWithContentsOfDictionary:element]];
+//        }
+//    }
+//    
+//    ce->_payloadQuestionnaires = [NSMutableArray arrayWithArray:quesArray];
+    
     return ce;
 }
 
@@ -188,6 +199,13 @@ TRACE_OFF
     }
     dic[@"replyChoiceOptions"] = [NSArray arrayWithArray:rcArray];
     
+//    NSMutableArray *quesArray = [NSMutableArray array];
+//    if (nil != _payloadQuestionnaires && _payloadQuestionnaires.count > 0) {
+//        for (id <EHRNetworkableP> element in _payloadQuestionnaires) {
+//            [quesArray addObject:[element asDictionary]];
+//        }
+//    }
+//    dic[@"questionnaires"] = [NSArray arrayWithArray:quesArray];
     
     return nil;
 }

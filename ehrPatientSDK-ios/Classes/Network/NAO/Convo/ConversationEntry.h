@@ -18,6 +18,8 @@
 #import "EntryTMChoiceReplyOptions.h"
 #import "EntryRepliesToPayload.h"
 
+#import "PayloadQuestionnaire.h"
+
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wignored-attributes"
 
@@ -54,6 +56,8 @@ typedef enum : NSInteger {
     NSMutableArray<EntryTMChoiceReplyOptions *>  *_replyChoiceOptions;
     EntryRepliesToPayload                        *_entryReplisToPayload;
     NSString                                     *_replyToFrom;
+    
+    NSMutableArray<PayloadQuestionnaire *>       *_payloadQuestionnaires;
 }
 
 @property(nonatomic) NSString                                 *id;
@@ -78,6 +82,8 @@ typedef enum : NSInteger {
 @property(nonatomic) NSMutableArray<EntryTMPossibleReplyTypes*>   *possibleRepliesTypes;
 @property(nonatomic) NSMutableArray<EntryTMChoiceReplyOptions *>  *replyChoiceOptions;
 @property(nonatomic) id                                       repliesToPayload;
+
+@property(nonatomic) NSMutableArray<PayloadQuestionnaire *>  *payloadQuestionnaires;
 
 - (void)addStatusLine:(EntryParticipantStatus *)statusLine __attribute__((unused));
 - (EntryProgressForParticipant *)progressForParticipant:(ConversationParticipant *)participant ofConvo:(Conversation*) conversation;

@@ -21,6 +21,8 @@
     me.dateReply = WantStringFromDic(dic, @"dateReply");
     me.dateTimeReply = WantStringFromDic(dic, @"dateTimeReply");
     
+    me.surveyIdReply = WantStringFromDic(dic, @"surveyIdReply");
+    
     if (dic[@"attachments"]) {
         for (NSDictionary *attDic in dic[@"attachments"]) {
             OBMessageEntryAttachment *oea = [OBMessageEntryAttachment objectWithContentsOfDictionary:attDic];
@@ -36,6 +38,7 @@
     dic[@"freeTextReply"] = self.freeTextReply;
     dic[@"dateReply"] = self.dateReply;
     dic[@"dateTimeReply"] = self.dateTimeReply;
+    dic[@"surveyIdReply"] = self.surveyIdReply;
     
     NSMutableArray *attachments = [NSMutableArray array];
 

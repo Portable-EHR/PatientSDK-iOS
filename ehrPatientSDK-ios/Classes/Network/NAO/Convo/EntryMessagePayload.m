@@ -5,6 +5,7 @@
 #import "EntryMessagePayload.h"
 #import "EntryAttachment.h"
 #import "GERuntimeConstants.h"
+#import "PayloadQuestionnaire.h"
 
 @implementation EntryMessagePayload
 
@@ -55,6 +56,7 @@ TRACE_OFF
     cep->_dateReply = WantStringFromDic(dic, @"dateReply");
     cep->_dateTimeReply = WantStringFromDic(dic, @"dateTimeReply");
     cep.choiceReply = WantDicFromDic(dic, @"choiceReply");
+//    cep->_questionnaires = WantDicFromDic(dic, @"questionnaires");
     
     NSArray        *attsAsDics = WantArrayFromDic(dic, @"attachments");
     NSMutableArray *atts       = [NSMutableArray array];
@@ -64,6 +66,18 @@ TRACE_OFF
         }
     }
     cep.attachments = [NSArray arrayWithArray:atts];
+    
+    NSArray        *questAsDics = WantArrayFromDic(dic, @"questionnaires");
+    NSMutableArray *quest       = [NSMutableArray array];
+    if (nil != questAsDics) {
+        for (id element in questAsDics) {
+            [quest addObject:[PayloadQuestionnaire objectWithContentsOfDictionary:element]];
+        }
+    }
+    cep.questionnaires = [NSArray arrayWithArray:quest];
+    
+    cep.surveyIdReply = WantStringFromDic(dic, @"surveyIdReply");
+    
     return cep;
 }
 
@@ -80,12 +94,21 @@ TRACE_OFF
 //    }
     
     dic[@"choiceReply"] = self.choiceReply;
+//    dic[@"questionnaires"] = self.questionnaires;
     
     NSMutableArray            *atts = [NSMutableArray array];
     for (id <EHRNetworkableP> element in self.attachments) {
         [atts addObject:[element asDictionary]];
     }
     dic[@"attachments"] = [NSArray arrayWithArray:atts];
+    
+    NSMutableArray            *quest = [NSMutableArray array];
+    for (id <EHRNetworkableP> element in self.questionnaires) {
+        [quest addObject:[element asDictionary]];
+    }
+    dic[@"questionnaires"] = [NSArray arrayWithArray:quest];
+    PutStringInDic(self.surveyIdReply, dic, @"surveyIdReply");
+    
     return dic;
 }
 

@@ -18,5 +18,6 @@
 @property(nonatomic) NSString           *dateReply;
 @property(nonatomic) NSString           *dateTimeReply;
 @property(nonatomic) OBChoiceReplyEntry *choiceReply;
-
+// Questionnaire
+@property(nonatomic) NSString           *surveyIdReply;
 @end

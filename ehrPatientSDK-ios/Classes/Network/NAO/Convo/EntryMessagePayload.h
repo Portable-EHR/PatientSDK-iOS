@@ -17,6 +17,8 @@
     NSString  *_dateTimeReply;
     NSDictionary   *_choiceReply;
     NSArray   *_attachments;
+    NSArray *_questionnaires;
+    NSString  *_surveyIdReply;
 }
 
 @property(nonatomic) NSString *text;
@@ -24,5 +26,7 @@
 @property(nonatomic) NSString *freeTextReply;
 @property(nonatomic) NSString *dateReply;
 @property(nonatomic) NSString *dateTimeReply;
-@property(nonatomic) NSDictionary  *choiceReply;
+@property(nonatomic) NSDictionary *choiceReply;
+@property(nonatomic) NSArray *questionnaires;
+@property(nonatomic) NSString *surveyIdReply;
 @end
