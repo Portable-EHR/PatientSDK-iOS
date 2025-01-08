@@ -128,7 +128,7 @@ TRACE_OFF
 }
 
 - (BOOL)isStaffGuest __unused {
-    return [_type isEqualToString:@"staff_guess"]; // dafuk !
+    return [_type isEqualToString:@"staff_guest"];
 }
 
 - (BOOL)isClient __unused {
@@ -136,7 +136,7 @@ TRACE_OFF
 }
 
 - (BOOL)isClientGuest __unused {
-    return [_type isEqualToString:@"client_guess"]; // re-dafuk !
+    return [_type isEqualToString:@"client_guest"];
 }
 
 //endregion
