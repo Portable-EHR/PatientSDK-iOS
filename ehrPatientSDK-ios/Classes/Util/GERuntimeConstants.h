@@ -98,6 +98,7 @@ extern NSArray *WantArrayFromDic(NSDictionary *dic, NSString *key);
 extern NSInteger WantIntegerFromDic(NSDictionary *dic, NSString *key);
 extern BOOL WantBoolFromDic(NSDictionary *dic, NSString *key);
 extern NSURL *WantUrlFromDic(NSDictionary *dic, NSString *key);
+extern void PutDicInDic(NSDictionary *value, NSMutableDictionary *dic, NSString *key);
 extern void PutDateInDic(NSDate *theDate, NSMutableDictionary *dic, NSString *key);
 extern void PutStringInDic(NSString *token, NSMutableDictionary *dic, NSString *key);
 extern void PutIntegerInDic(NSInteger theInt, NSMutableDictionary *dic, NSString *key);

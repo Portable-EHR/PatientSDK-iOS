@@ -111,6 +111,12 @@ TRACE_OFF
 -(BOOL) isCCRP {
     return [_consentableElementType isEqualToString:@"research_notifications"];
 }
+
+-(BOOL) isStudy {
+    return [_consentableElementType isEqualToString:@"research_application_with_pii"];
+}
+
+
 //endregion
 
 @end

@@ -328,6 +328,12 @@ NSURL *WantUrlFromDic(NSDictionary *dic, NSString *key) {
     return [NSURL URLWithString:val];
 }
 
+void PutDicInDic(NSDictionary *value, NSMutableDictionary *dic, NSString *key) {
+    if (value && [value isKindOfClass:[NSDictionary class]]) {
+        [dic setObject:value forKey:key];
+    }
+}
+
 void PutDateInDic(NSDate *theDate, NSMutableDictionary *dic, NSString *key) {
 
     if (!theDate) return;

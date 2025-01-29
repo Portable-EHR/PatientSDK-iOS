@@ -75,6 +75,8 @@
 #import "OBNewConvo.h"
 #import "OBNewEntry.h"
 #import "OBRepliesToEntry.h"
+#import "PayloadQuestionnaire.h"
+#import "QuestionnaireParticipants.h"
 #import "EHRRequests.h"
 #import "IBAddress.h"
 #import "IBAgentInfo.h"

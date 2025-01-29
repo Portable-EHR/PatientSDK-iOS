@@ -354,7 +354,9 @@ didReceiveResponse:(NSURLResponse *)response {
     // we could receive chunks asyn, lets handle all chunks. When the server closes
     // we will receive a 'didReceiveResponse' where we can unpack the whole thing.
 
+   
     [_responseData appendData:data];
+    
 
 }
 
@@ -397,6 +399,7 @@ totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite {
             TRACE(@"Received : \n%@", [[NSString alloc] initWithData:_responseData encoding:NSUTF8StringEncoding]);
         }
         self->_serverResponse = [EHRServerResponse objectWithContentsOfDictionary:dic];
+//        MPLOG(@"Response serverResponse: %@", _serverResponse.responseContent);
         _wasResponseReceived = YES;
 
         if ([_serverResponse.requestStatus.status isEqualToString:@"OK"]) {
@@ -469,6 +472,7 @@ totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite {
     _attemptNumber++;
 
 }
+
 
 - (void)setOnStart:(VoidBlock)onStart {
     if (_onStart) _onStart = nil;

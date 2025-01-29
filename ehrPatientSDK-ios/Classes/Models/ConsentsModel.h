@@ -20,6 +20,7 @@
 - (NSInteger)count;
 - (IBConsent *_Nullable)getEula;
 - (IBConsent *_Nullable)getCCRP;
+- (IBConsent *_Nullable)getStudy;
 
 - (void)populateWithConsents:(NSArray<IBConsent *> * _Nonnull)pulledConsents;
 

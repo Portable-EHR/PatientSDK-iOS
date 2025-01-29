@@ -40,6 +40,13 @@
     return nil;
 }
 
+- (IBConsent *_Nullable)getStudy {
+    for (IBConsent *consent in [_consents allValues]) {
+        if (consent.isStudy) return consent;
+    }
+    return nil;
+}
+
 - (void)populateWithConsents:(NSArray<IBConsent *> *)pulledConsents {
     TRACE(@"populateWithConsents");
     [_consents removeAllObjects];

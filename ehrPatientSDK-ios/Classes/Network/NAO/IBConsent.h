@@ -37,7 +37,7 @@
 @property(nonatomic) BOOL             active;
 @property(nonatomic) BOOL             isEula;
 @property(nonatomic) BOOL             isCCRP;
-
+@property(nonatomic) BOOL             isStudy;
 - (IBConsentGranted *)__unused getGrantedConsent;
 
 @end

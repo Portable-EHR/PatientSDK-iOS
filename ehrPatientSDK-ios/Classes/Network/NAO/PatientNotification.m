@@ -244,6 +244,7 @@ TRACE_OFF
     self.senderName        = other.senderName;
     self.deviceInfo        = other.deviceInfo;
     self.seq               = other.seq;
+    self.study             = other.study;
     [self.appointment updateWith:other.appointment];
 
 }
@@ -320,6 +321,11 @@ TRACE_OFF
             pn.convo = [ConversationEnvelope objectWithContentsOfDictionary:val];
             pn.convo.hasUnseenContent= (pn.lastSeen<pn.lastUpdated);
         }
+        
+        if ((val = dic[@"study"])) {
+            pn.study = [Study objectWithContentsOfDictionary:val];
+
+        }
 
     } @catch (NSException *e) {
         MPLOG(@"Cautht exceltion %@", e.description);
@@ -392,6 +398,10 @@ TRACE_OFF
 
     if (self.convo) {
         dic[@"convo"] = [self.convo asDictionary];
+    }
+    
+    if (self.study) {
+        dic[@"study"] = [self.study asDictionary];
     }
 
     return dic;

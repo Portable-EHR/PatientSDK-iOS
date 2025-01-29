@@ -11,6 +11,8 @@
 #import "EHRNetworkableP.h"
 #import "EHRInstanceCounterP.h"
 #import "IBPrivateMessageInfo.h"
+//#import "IBStudy.h"
+#import "Study.h"
 
 @class EHRCall;
 @class EHRServerRequest;
@@ -64,6 +66,8 @@
 @property IBPrivateMessageInfo *privateMessageInfo;
 @property IBDeviceInfo         *deviceInfo;
 @property IBMessageContent     *message;
+//@property IBStudy              *study;
+@property Study                *study;
 @property NSString             *seq;
 
 @property(nonatomic, readonly) BOOL isDeleted;
