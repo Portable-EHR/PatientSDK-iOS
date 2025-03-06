@@ -8,6 +8,7 @@
 #import "GERuntimeConstants.h"
 #import "EHRNetworkableP.h"
 #import "EHRInstanceCounterP.h"
+#import "IBResponder.h"
 
 @class PatientInfo;
 @class IBContact;
@@ -17,17 +18,21 @@
     NSInteger _instanceNumber;
 }
 
-@property(nonatomic) NSString  *guid;
-@property(nonatomic) NSString  *name;
-@property(nonatomic) NSString  *firstName;
-@property(nonatomic) NSDate    *dateOfBirth;
-@property(nonatomic) NSDate    *dateOfDeath;
-@property(nonatomic) NSString  *gender;
-@property(nonatomic) NSDate    *dateRegistered;
-@property(nonatomic) NSDate    *lastUpdated;
+@property(nonatomic) NSString    *guid;
+@property(nonatomic) NSString    *name;
+@property(nonatomic) NSString    *firstName;
+@property(nonatomic) NSDate      *dateOfBirth;
+@property(nonatomic) NSDate      *dateOfDeath;
+@property(nonatomic) NSString    *gender;
+@property(nonatomic) NSDate      *dateRegistered;
+@property(nonatomic) NSDate      *lastUpdated;
 @property(nonatomic) IBContact   *contact;
-@property(nonatomic) IBAddress *address;
+@property(nonatomic) IBAddress   *address;
+@property(nonatomic) NSMutableArray<IBResponder *> *responders;
+
 
 +(instancetype) YLB;
-
++(instancetype) patientOne;
++(instancetype) patientTwo;
++(instancetype) patientThree;
 @end

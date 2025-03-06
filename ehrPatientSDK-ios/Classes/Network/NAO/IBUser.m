@@ -29,6 +29,7 @@ TRACE_OFF
         self.userCapabilityModel = [NSMutableArray array];
         self.forcePasswordChange = NO;
         self->_isPractitioner    = NO;
+        self.dependants          = [NSMutableArray array];
     } else {
         TRACE(@"*** super returned nil!");
     }
@@ -208,12 +209,26 @@ TRACE_OFF
         }
     }
 
-    if ((val = dic[@"userCapabiityModel"])) {
+    if ((val = dic[@"userCapabilityModel"])) {
         for (NSDictionary *userCapabilityAsDic in  val) {
             IBUserCapability *userCapability = [IBUserCapability objectWithContentsOfDictionary:userCapabilityAsDic];
             [us.userCapabilityModel addObject:userCapability];
         }
     }
+    
+    if ((val = dic[@"dependants"])) {
+        for (NSDictionary *dependantsAsDic in val) {
+            Patient *patient = [Patient objectWithContentsOfDictionary:dependantsAsDic];
+            [us.dependants addObject:patient];
+        }
+    }
+    
+//    Patient *patient1 = [Patient patientOne];
+//    Patient *patient2 = [Patient patientTwo];
+//    Patient *patient3 = [Patient patientThree];
+//    [us->_dependants addObject:patient1];
+//    [us->_dependants addObject:patient2];
+//    [us->_dependants addObject:patient3];
 
     return us;
 }
@@ -284,6 +299,17 @@ TRACE_OFF
             [dick addObject:[hcp asDictionary]];
         }
         dic[@"userCapabilityModel"] = dick;
+    }
+    
+    if (self.dependants.count > 0){
+        NSMutableArray      *dick = [NSMutableArray array];
+        
+        for(Patient *p in self.dependants){
+            [dick addObject:[p asDictionary]];
+        }
+        
+        
+        dic[@"dependants"] = dick;
     }
 
     PutDateInDic(self.createdOn, dic, @"createdOn");

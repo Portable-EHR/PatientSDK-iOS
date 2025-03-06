@@ -49,6 +49,9 @@
 @property(nonatomic) BOOL           isPractitioner;
 @property(nonatomic) BOOL           isGuest;
 
+@property(nonatomic) NSMutableArray<Patient *> *dependants;
+
+
 - (BOOL)hasService:(IBService *)service;
 - (IBUserService *)userServiceOfService:(IBService *)service;
 

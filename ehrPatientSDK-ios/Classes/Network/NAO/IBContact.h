@@ -25,8 +25,6 @@
 @property (nonatomic) NSString *titles;
 @property (nonatomic) NSString *guid;
 @property (nonatomic) NSDate *lastUpdated;
-
-
 @property (nonatomic, readonly) NSString* fullName;
 
 @end
