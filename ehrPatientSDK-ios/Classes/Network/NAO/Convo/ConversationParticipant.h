@@ -8,6 +8,7 @@
 #import "EHRNetworkableP.h"
 #import "GEMacros.h"
 #import "NSDictionary+JSON.h"
+#import "ParticipantResponders.h"
 
 @interface ConversationParticipant : NSObject <EHRInstanceCounterP, EHRNetworkableP> {
     NSInteger _instanceNumber;
@@ -21,6 +22,7 @@
     NSString  *_middleName;
     BOOL      _mySelf;
     BOOL      _isActive;
+    NSMutableArray      *_responders;
 }
 
 @property(nonatomic) NSString           *guid;
@@ -35,6 +37,7 @@
 @property(nonatomic) BOOL               mySelf;
 @property(nonatomic, readonly) NSString *fullName;
 @property(nonatomic, readonly) NSString *shortName;
+@property(nonatomic) NSMutableArray     *responders;
 
 -(BOOL) isAdmin;
 -(BOOL) isParticipant;

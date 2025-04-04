@@ -33,15 +33,15 @@ TRACE_OFF
 
 + (instancetype)patientOne {
     Patient *patient = [[self alloc] init];
-    patient.firstName = @"Alice";
+    patient.firstName = @"Test";
     patient.name = @"Johnson";
-    patient.guid = @"123e4567-e89b-12d3-a456-426614174001";
+    patient.guid = @"12345678-e89b-12d3-a456-426614174001";
     patient.gender = @"F";
     patient.dateOfBirth = [NSDate dateWithTimeIntervalSince1970:315532800]; // 1980-01-01
     patient.lastUpdated = [NSDate date]; // Current date
     
     IBContact *contact = [[IBContact alloc] init];
-    contact.firstName = @"Alice";
+    contact.firstName = @"Test";
     contact.name = @"Johnson";
     contact.guid = @"130d4920-b582-4573-9077-d4355f15980f";
     contact.email = @"alice.johnson@mailinator.com";
@@ -107,7 +107,7 @@ TRACE_OFF
     if ((val = [dic objectForKey:@"address"])) pa.address = [IBAddress objectWithContentsOfDictionary:val];
     pa.dateRegistered = WantDateFromDic(dic, @"dateRegistered");
     pa.lastUpdated    = WantDateFromDic(dic, @"lastUpdated");
-    
+    pa.unreadNotifications = WantIntegerFromDic(dic, @"unreadNotifications");
     
     if ((val = dic[@"responders"])) {
         for (NSDictionary *resAsdIC in val) {
@@ -133,6 +133,7 @@ TRACE_OFF
     PutDateInDic(self.dateOfBirth, dic, @"dateOfBirth");
     PutDateInDic(self.dateRegistered, dic, @"dateRegistered");
     PutDateInDic(self.lastUpdated, dic, @"lastUpdated");
+    PutIntegerInDic(self.unreadNotifications, dic, @"unreadNotifications");
     return dic;
 }
 

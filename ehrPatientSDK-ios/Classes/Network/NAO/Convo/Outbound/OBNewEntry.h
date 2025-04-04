@@ -17,5 +17,6 @@
 
 @property(nonatomic) NSString *id;
 @property(nonatomic) OBEntry  *entry;
+@property(nonatomic) NSString *patientId;
 
 @end

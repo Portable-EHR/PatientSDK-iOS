@@ -28,6 +28,7 @@
 @property(nonatomic) NSDate      *lastUpdated;
 @property(nonatomic) IBContact   *contact;
 @property(nonatomic) IBAddress   *address;
+@property(nonatomic) NSInteger    unreadNotifications;
 @property(nonatomic) NSMutableArray<IBResponder *> *responders;
 
 

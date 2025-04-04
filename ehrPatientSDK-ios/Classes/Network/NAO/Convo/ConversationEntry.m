@@ -27,7 +27,7 @@ TRACE_OFF
 @synthesize mentionedParticipants = _mentionedParticipants;
 @synthesize possibleRepliesTypes = _possibleRepliesTypes;
 @synthesize replyToFrom = _replyToFrom;
-
+@synthesize representedBy = _representedBy;
 
 - (instancetype)init {
     if ((self = [super init])) {
@@ -68,6 +68,7 @@ TRACE_OFF
     ce->_audience        = WantStringFromDic(dic, @"audience");
     ce->_createdOn       = WantDateFromDic(dic, @"createdOn");
     ce->_attachmentCount = WantIntegerFromDic(dic, @"attachmentCount");
+    ce->_representedBy   = WantStringFromDic(dic, @"representedBy");
     
     NSDictionary *payloadAsDic = WantDicFromDic(dic, @"payload");
    
@@ -165,6 +166,8 @@ TRACE_OFF
     PutDateInDic(_createdOn, dic, @"createdOn");
     PutIntegerInDic(_attachmentCount, dic, @"attachmentCount");
     PutStringInDic(_replyToFrom, dic, @"from");
+    PutStringInDic(_replyToFrom, dic, @"representedBy");
+    
     if (nil != _messageEntryPayload) dic[@"payload"] = [_messageEntryPayload asDictionary];
     if (nil != _entryReplisToPayload) dic[@"repliesTo"] = [_entryReplisToPayload asDictionary];
     NSMutableArray *statii = [NSMutableArray array];

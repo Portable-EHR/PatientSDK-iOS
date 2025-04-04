@@ -41,7 +41,7 @@
     ad.dayPhone                = WantStringFromDic(theDictionary, @"dayPhone");
     ad.mobilePhone             = WantStringFromDic(theDictionary, @"mobilePhone");
     ad.salutation              = WantStringFromDic(theDictionary, @"salutation");
-
+    ad.gender                  = WantStringFromDic(theDictionary, @"preferredGender");
     // added after 1.1.031
     ad.lastUpdated = WantDateFromDic(theDictionary, @"lastUpdated");
     if (nil == ad.lastUpdated) ad.lastUpdated = forever();
@@ -69,7 +69,7 @@
     PutStringInDic(self.dayPhone, dic, @"dayPhone");
     PutStringInDic(self.mobilePhone, dic, @"mobilePhone");
     PutDateInDic(self.lastUpdated, dic, @"lastUpdated");
-
+    PutStringInDic(self.gender, dic, @"preferredGender");
     return dic;
 }
 

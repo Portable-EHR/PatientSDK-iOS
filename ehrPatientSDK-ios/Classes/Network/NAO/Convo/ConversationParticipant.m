@@ -29,6 +29,7 @@ TRACE_OFF
 @synthesize middleName = _middleName;
 @synthesize mySelf = _mySelf;
 @synthesize isActive = _isActive;
+@synthesize responders = _responders;
 
 + (instancetype)objectWithJSON:(NSString *)jsonString {
     NSDictionary *dic = [NSDictionary dictionaryWithJSON:jsonString];
@@ -49,6 +50,7 @@ TRACE_OFF
 }
 
 + (id)objectWithContentsOfDictionary:(NSDictionary *)dic {
+
     ConversationParticipant *cp = [[ConversationParticipant alloc] init];
     cp.guid          = WantStringFromDic(dic, @"guid");
     cp.participantId = WantStringFromDic(dic, @"participantId");
@@ -60,6 +62,13 @@ TRACE_OFF
     cp.middleName    = WantStringFromDic(dic, @"middleName");
     cp.mySelf        = WantBoolFromDic(dic, @"mySelf");
     cp.isActive      = WantBoolFromDic(dic, @"active");
+    
+    NSArray        *respondersAsArr = WantArrayFromDic(dic, @"responders");
+    NSMutableArray *responders = [NSMutableArray array];
+    for (id somn in respondersAsArr) {
+        [responders addObject:[ParticipantResponders objectWithContentsOfDictionary:somn]];
+    }
+    cp->_responders = responders;
     return cp;
 }
 

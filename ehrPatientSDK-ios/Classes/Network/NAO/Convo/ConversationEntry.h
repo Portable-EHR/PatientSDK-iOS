@@ -58,6 +58,7 @@ typedef enum : NSInteger {
     NSString                                     *_replyToFrom;
     
     NSMutableArray<PayloadQuestionnaire *>       *_payloadQuestionnaires;
+    NSString                                     *representedBy;
 }
 
 @property(nonatomic) NSString                                 *id;
@@ -84,6 +85,7 @@ typedef enum : NSInteger {
 @property(nonatomic) id                                       repliesToPayload;
 
 @property(nonatomic) NSMutableArray<PayloadQuestionnaire *>  *payloadQuestionnaires;
+@property(nonatomic) NSString                                *representedBy;
 
 - (void)addStatusLine:(EntryParticipantStatus *)statusLine __attribute__((unused));
 - (EntryProgressForParticipant *)progressForParticipant:(ConversationParticipant *)participant ofConvo:(Conversation*) conversation;

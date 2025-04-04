@@ -12,7 +12,7 @@
 
 @implementation OBNewEntry
 
-@synthesize id, entry;
+@synthesize id, entry, patientId;
 
 TRACE_OFF
 
@@ -36,6 +36,7 @@ TRACE_OFF
 - (void)dealloc {
     self.id    = nil;
     self.entry = nil;
+    self.patientId = nil;
     GE_DEALLOC();
     GE_DEALLOC_ECHO();
 }
@@ -48,6 +49,7 @@ TRACE_OFF
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     PutStringInDic(self.id, dic, @"id");
     PutPersistableInDic(self.entry, dic, @"entry");
+    PutStringInDic(self.patientId, dic, @"patientId");
     return dic;
 }
 
