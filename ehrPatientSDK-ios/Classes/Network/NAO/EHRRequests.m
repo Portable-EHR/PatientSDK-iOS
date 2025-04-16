@@ -89,18 +89,18 @@
     return [self requestWithRoute:@"/app/consent" command:@"consent" parameters:parameters];
 }
 
-+ (EHRServerRequest *)getConsentConsentRequestForPatient:(NSString *)patientGuid forConsent:(IBConsent *)consent  __attribute__((unused)) {
++ (EHRServerRequest *)getConsentConsentRequestForPatient:(NSArray<NSString *> *)patientGuid forConsent:(IBConsent *)consent  __attribute__((unused)) {
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"guid"]    = patientGuid;
+    params[@"patients"]    = patientGuid;
     params[@"type"]    = consent.consentableElementType;
     params[@"element"] = consent.guid;
     EHRServerRequest *req = [self requestWithRoute:@"/app/consent" command:@"consent" parameters:params];
     return req;
 }
 
-+ (EHRServerRequest *)getRevokeConsentRequestForConsent:(IBConsent *)consent __attribute__((unused)) {
++ (EHRServerRequest *)getRevokeConsentRequestForConsent:(IBConsent *)consent consentGrantedGuid: (NSString *)consentGrantedGuid __attribute__((unused)) {
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"guid"] = consent.getGrantedConsent.guid;
+    params[@"guid"] = consentGrantedGuid;
     EHRServerRequest *request = [EHRRequests requestWithRoute:@"/app/consent" command:@"revoke" parameters:params];
     return request;
 }

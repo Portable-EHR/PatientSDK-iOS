@@ -904,6 +904,7 @@ static AppState   *_sharedInstance;
 - (void)onConsentsUpdate {
     MPLOG(@"onConsentsUpdate");
     [self setConsents:PehrSDKConfig.shared.models.consentsModel.allConsents];
+    MPLOG(@"Consents %@", _consents);
 }
 
 //endregion

@@ -50,8 +50,8 @@ TRACE_OFF
     return call;
 }
 
-- (EHRCall *)revoke:(IBConsent *)consent onSuccess:(SenderBlock)successBlock onError:(SenderBlock)errorBlock {
-    EHRServerRequest *request = [EHRRequests getRevokeConsentRequestForConsent:consent];
+- (EHRCall *)revoke:(IBConsent *)consent consentGrantedGuid: (NSString *)consentGrantedGuid onSuccess:(SenderBlock)successBlock onError:(SenderBlock)errorBlock {
+    EHRServerRequest *request = [EHRRequests getRevokeConsentRequestForConsent:consent consentGrantedGuid:consentGrantedGuid];
     EHRCall          *call    = [EHRCall callWithRequest:request onSuccess:successBlock onError:errorBlock];
     return call;
 }
@@ -91,9 +91,9 @@ TRACE_OFF
     NSMutableDictionary *params          = [NSMutableDictionary dictionary];
     SenderBlock         deserializeBlock = ^(EHRCall *theCall) {
         NSMutableArray *consents = [NSMutableArray array];
-        NSDictionary   *results  = theCall.serverResponse.responseContent;
-
-        for (NSDictionary *result in results) {
+        NSDictionary   *responseDict  = theCall.serverResponse.responseContent;
+        
+        for (NSDictionary *result in responseDict[@"user"]) {
             IBConsent *cep  = [IBConsent objectWithContentsOfDictionary:result];
             NSString  *idee = cep.guid;
             if (!idee) {
@@ -101,6 +101,20 @@ TRACE_OFF
                 return;
             }
             [consents addObject:cep];
+        }
+        
+        NSDictionary *patientDict = responseDict[@"patients"];
+        if ([patientDict isKindOfClass:[NSDictionary class]]) {
+            NSArray *patientConsents = patientDict[@"all"];
+            if ([patientConsents isKindOfClass:[NSArray class]]) {
+                IBConsent *cep  = [IBConsent objectWithContentsOfDictionary:patientConsents.firstObject];
+                NSString  *idee = cep.guid;
+                if (!idee) {
+                    errorBlock(theCall);
+                    return;
+                }
+                [consents addObject:cep];
+            }
         }
 
         successBlock(consents);
@@ -118,7 +132,8 @@ TRACE_OFF
                     onError:(SenderBlock)errorBlock {
 
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"guid"]           = patientGuid;
+//    NSArray<NSString *> *patientGuid =
+    params[@"patients"]       = @[patientGuid];
     params[@"type"]           = @"share_private_message";
     params[@"element"]        = @"share_pm_on_conversation";
     params[@"privateMessage"] = privateMessageGuid;
@@ -140,7 +155,7 @@ TRACE_OFF
  * @param errorBlock  sender block with EHRCall
  */
 - (void)__unused  consent:(IBConsent *)consent
-              patientGuid:(NSString *)patientGuid
+              patientGuid:(NSArray<NSString *> *)patientGuid
                 onSuccess:(SenderBlock)successBlock
                   onError:(SenderBlock)errorBlock {
     EHRServerRequest *request = [EHRRequests getConsentConsentRequestForPatient:patientGuid forConsent:consent];

@@ -23,6 +23,7 @@
                                     onError:(SenderBlock)errorBlock;
 
 - (EHRCall *)__unused  revoke:(IBConsent *)consent
+consentGrantedGuid: (NSString *)consentGrantedGuid
                     onSuccess:(SenderBlock)successBlock
                       onError:(SenderBlock)errorBlock;
 
@@ -63,7 +64,7 @@
  * @param errorBlock  sender block with EHRCall
  */
 - (void)__unused  consent:(IBConsent *)consent
-                   patientGuid:(NSString *)patientGuid
+                   patientGuid:(NSArray<NSString *> *)patientGuid
                      onSuccess:(SenderBlock)successBlock
                        onError:(SenderBlock)errorBlock;
 

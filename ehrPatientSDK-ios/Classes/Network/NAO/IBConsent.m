@@ -19,6 +19,7 @@
 @synthesize descriptionText = _descriptionText;
 @synthesize consent = _consent;
 @synthesize active = _active;
+@synthesize consentsArr = _consentsArr;
 @dynamic isEula;
 @dynamic isCCRP;
 TRACE_OFF
@@ -27,7 +28,7 @@ TRACE_OFF
     if ((self = [super init])) {
         GE_ALLOC();
         GE_ALLOC_ECHO();
-
+        _consentsArr = [NSMutableArray array];
     } else {
         TRACE(@"*** super returned nil!");
     }
@@ -54,11 +55,24 @@ TRACE_OFF
     pa->_alias                  = WantStringFromDic(dic, @"alias");
     pa->_consentableElementType = WantStringFromDic(dic, @"consentableElementType");
     pa->_activeFrom             = WantStringFromDic(dic, @"activeFrom");
-
     pa->_title           = [IBRenderableText objectWithContentsOfDictionary:dic[@"title"]];
     pa->_descriptionText = [IBRenderableText objectWithContentsOfDictionary:dic[@"description"]];
-    pa->_consent         = [IBConsentGranted objectWithContentsOfDictionary:dic[@"consent"]];
 
+    id consentValue = dic[@"consents"];
+    
+    if ([pa->_consentableElementType isEqualToString:@"research_notifications"]) {
+            // Handle array of consents
+            for (NSDictionary *consentDict in consentValue) {
+                IBConsentGranted *consent = [IBConsentGranted objectWithContentsOfDictionary:consentDict];
+                if (consent) {
+                    [pa->_consentsArr addObject:consent];
+                }
+            }
+    }else{
+        pa->_consent         = [IBConsentGranted objectWithContentsOfDictionary:dic[@"consent"]];
+    }
+    
+    
     pa->_active = WantBoolFromDic(dic, @"active");
 
     return pa;
