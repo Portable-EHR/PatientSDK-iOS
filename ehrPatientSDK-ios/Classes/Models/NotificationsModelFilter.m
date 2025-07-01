@@ -622,6 +622,13 @@ TRACE_OFF
             }
             break;
         case NotificationFilterTypeAll:if (_user.patient) [_patientSelector addObject:_user.patient.guid];
+            
+            if (_user.dependants.count > 0) {
+                for (Patient *patient in _user.dependants) {
+                    [_patientSelector addObject:patient.guid];
+                }
+            }
+            
             for (Patient *patient in [_user.patients allValues]) {
                 [_patientSelector addObject:patient.guid];
             }
