@@ -21,12 +21,14 @@
 
 + (void)pullConvo:(ConversationEnvelope *)envelope
          maxItems:(NSInteger)count
+      patientGuid:(NSString *)patientGuid
         onSuccess:(SenderBlock)successBlock
           onError:(SenderBlock)errorBlock;
 
 + (void)pullMoreEntries:(Conversation *)conversation
                atOffset:(NSInteger)offset
                maxItems:(NSInteger)maxItems
+            patientGuid:(NSString *)patientGuid
               onSuccess:(SenderBlock)successBlock
                 onError:(SenderBlock)errorBlock;
 

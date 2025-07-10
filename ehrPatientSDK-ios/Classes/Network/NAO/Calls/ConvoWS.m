@@ -63,11 +63,13 @@ TRACE_OFF
                                  onError:(SenderBlock)errorBlock
                                 forConvo:(NSString *)guid
                                 atOffset:(NSInteger)offset
-                            withMaxItems:(NSInteger)maxItems {
+                            withMaxItems:(NSInteger)maxItems
+                             patientGuid:(NSString *)patientGuid{
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     PutStringInDic(guid, params, @"id");
     PutIntegerInDic(offset, params, @"offset");
     PutIntegerInDic(maxItems, params, @"maxItems");
+    PutStringInDic(patientGuid, params, @"patientGuid");
     EHRServerRequest *request = [EHRRequests requestWithRoute:@"/app/patient/convo"
                                                       command:@"pullConvo"
                                                    parameters:params];

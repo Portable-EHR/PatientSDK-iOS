@@ -32,7 +32,8 @@
                                   onError:(SenderBlock)errorBlock
                                  forConvo:(NSString *)guid
                                  atOffset:(NSInteger)offset
-                             withMaxItems:(NSInteger)maxItems;
+                             withMaxItems:(NSInteger)maxItems
+                              patientGuid:(NSString *)patientGuid;
 
 - (EHRCall *)__unused listConvosCall:(SenderBlock)successBlock
                              onError:(SenderBlock)errorBlock
