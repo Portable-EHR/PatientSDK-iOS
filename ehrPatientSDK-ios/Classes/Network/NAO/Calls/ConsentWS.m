@@ -93,27 +93,30 @@ TRACE_OFF
         NSMutableArray *consents = [NSMutableArray array];
         NSDictionary   *responseDict  = theCall.serverResponse.responseContent;
         
-        for (NSDictionary *result in responseDict[@"user"]) {
-            IBConsent *cep  = [IBConsent objectWithContentsOfDictionary:result];
-            NSString  *idee = cep.guid;
-            if (!idee) {
-                errorBlock(theCall);
-                return;
-            }
-            [consents addObject:cep];
-        }
-        
-        NSDictionary *patientDict = responseDict[@"patients"];
-        if ([patientDict isKindOfClass:[NSDictionary class]]) {
-            NSArray *patientConsents = patientDict[@"all"];
-            if ([patientConsents isKindOfClass:[NSArray class]]) {
-                IBConsent *cep  = [IBConsent objectWithContentsOfDictionary:patientConsents.firstObject];
+        if (responseDict.count > 0) {
+            
+            for (NSDictionary *result in responseDict[@"user"]) {
+                IBConsent *cep  = [IBConsent objectWithContentsOfDictionary:result];
                 NSString  *idee = cep.guid;
                 if (!idee) {
                     errorBlock(theCall);
                     return;
                 }
                 [consents addObject:cep];
+            }
+            
+            NSDictionary *patientDict = responseDict[@"patients"];
+            if ([patientDict isKindOfClass:[NSDictionary class]]) {
+                NSArray *patientConsents = patientDict[@"all"];
+                if ([patientConsents isKindOfClass:[NSArray class]]) {
+                    IBConsent *cep  = [IBConsent objectWithContentsOfDictionary:patientConsents.firstObject];
+                    NSString  *idee = cep.guid;
+                    if (!idee) {
+                        errorBlock(theCall);
+                        return;
+                    }
+                    [consents addObject:cep];
+                }
             }
         }
 

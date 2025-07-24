@@ -128,6 +128,7 @@ __attribute__((unused)) {
         MPLOG(@"Notifications pulled from forever : SUCCESS");
         [PehrSDKConfig.shared.state.delegate onNotificationsModelUpdate];
         [PehrSDKConfig.shared.ws.consent getConsents:consentsSuccess onError:consentsError];
+        
     };
     VoidBlock notificationsErrorBlock   = ^() {
         MPLOGERROR(@"Notifications pulled from forever : FAILED");
