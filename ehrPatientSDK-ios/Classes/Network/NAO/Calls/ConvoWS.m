@@ -135,14 +135,14 @@ TRACE_OFF
     return nil;
 }
 
-- (EHRCall *)__unused getEntryPointsCallFor:(NSString *)dispensaryGuid
+- (EHRCall *)__unused getEntryPointsCallFor:(NSString *)patientGuid
                                   onSuccess:(SenderBlock)successBlock
                                     onError:(SenderBlock)errorBlock {
-//    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-   // params[@"guid"] = dispensaryGuid;
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+                                        params[@"patientGuid"] = patientGuid;
     EHRServerRequest *request = [EHRRequests requestWithRoute:@"/app/patient/convo"
                                                       command:@"pullEntryPoints"
-                                                   parameters:nil
+                                                   parameters:params
     ];
     return [EHRCall callWithRequest:request onSuccess:successBlock onError:errorBlock];
 }
@@ -217,7 +217,7 @@ TRACE_OFF
     successBlock();
 }
 
-- (void)__unused getEntryPointsFor:(NSString *)dispensaryGuid onSuccess:(SenderBlock)successBlock onError:(SenderBlock)errorBlock {
+- (void)__unused getEntryPointsFor:(NSString *)patientGuid onSuccess:(SenderBlock)successBlock onError:(SenderBlock)errorBlock {
 
     EHRCall             *entryPointsCalls;
     NSMutableDictionary *entryPoints = [NSMutableDictionary dictionary];
@@ -242,7 +242,7 @@ TRACE_OFF
         errorBlock(someCall);
     };
 
-    entryPointsCalls = [self getEntryPointsCallFor:dispensaryGuid onSuccess:entrySuccess onError:dispError];
+    entryPointsCalls = [self getEntryPointsCallFor:patientGuid onSuccess:entrySuccess onError:dispError];
     [entryPointsCalls start];
 
 }

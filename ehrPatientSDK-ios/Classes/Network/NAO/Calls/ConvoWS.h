@@ -40,7 +40,7 @@
                             atOffset:(NSInteger)offset
                         withMaxItems:(NSInteger)maxItems;
 
-- (EHRCall *)__unused getEntryPointsCallFor:(NSString *)dispensaryGuid
+- (EHRCall *)__unused getEntryPointsCallFor:(NSString *)patientGuid
                                   onSuccess:(SenderBlock)successBlock
                                     onError:(SenderBlock)errorBlock;
 
@@ -50,7 +50,7 @@
 - (void)__unused listMyConvoDispensaries:(SenderBlock)successBlock
                                  onError:(SenderBlock)errorBlock;
 
-- (void)__unused getEntryPointsFor:(NSString *)dispensaryGuid onSuccess:(SenderBlock)successBlock
+- (void)__unused getEntryPointsFor:(NSString *)patientGuid onSuccess:(SenderBlock)successBlock
                            onError:(SenderBlock)errorBlock;
 
 - (EHRCall *)__unused  getConvoEntriesCall:(SenderBlock)successBlock onError:(SenderBlock)errorBlock;
