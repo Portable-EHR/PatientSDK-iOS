@@ -120,8 +120,7 @@ TRACE_OFF
     } else if ([kStackKey isEqualToString:@"CA.staging"]) {
         return @"https://oamp.portableehr.net";
     } else if ([kStackKey isEqualToString:@"CA.local"]) {
-        NSString * urlAsString = [NSString stringWithFormat:@"%@://%@:80", self.scheme, self.serverDNSname];
-        return urlAsString;
+        return @"http://oamp.portableehr.local";;
     } else {
         MPLOGERROR(@"**** No OAMP URL available for stack key [%@]", kStackKey);
         return nil;
