@@ -33,6 +33,7 @@ TRACE_ON
     NSMutableDictionary *parameters    = [@{@"status": @"all", @"since": sinceAsString, @"type": @"all"} mutableCopy];
     EHRServerRequest    *request       = [EHRRequests requestWithRoute:@"/app/notification"
                                                                command:@"list" parameters:parameters];
+    request.stackKey    = [[AppState sharedAppState] stackKey];
     return [EHRCall callWithRequest:request onSuccess:successBlock onError:errorBlock];
 }
 

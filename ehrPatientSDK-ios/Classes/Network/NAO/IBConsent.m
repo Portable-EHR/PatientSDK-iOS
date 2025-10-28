@@ -20,6 +20,7 @@
 @synthesize consent = _consent;
 @synthesize active = _active;
 @synthesize consentsArr = _consentsArr;
+@synthesize stackKey = _stackKey;
 @dynamic isEula;
 @dynamic isCCRP;
 TRACE_OFF
@@ -55,6 +56,7 @@ TRACE_OFF
     pa->_alias                  = WantStringFromDic(dic, @"alias");
     pa->_consentableElementType = WantStringFromDic(dic, @"consentableElementType");
     pa->_activeFrom             = WantStringFromDic(dic, @"activeFrom");
+    pa->_stackKey               = WantStringFromDic(dic, @"stackKey");
     pa->_title           = [IBRenderableText objectWithContentsOfDictionary:dic[@"title"]];
     pa->_descriptionText = [IBRenderableText objectWithContentsOfDictionary:dic[@"description"]];
 
@@ -85,7 +87,8 @@ TRACE_OFF
     PutStringInDic(self.alias, dic, @"alias");
     PutStringInDic(self.consentableElementType, dic, @"consentableElementType");
     PutStringInDic(self.activeFrom, dic, @"activeFrom");
-
+    PutStringInDic(self.stackKey, dic, @"stackKey");
+    
     if (self.title) dic[@"title"]                 = [self.title asDictionary];
     if (self.descriptionText) dic[@"description"] = [self.descriptionText asDictionary];
     if (self.consent) dic[@"consent"]             = [self.consent asDictionary];

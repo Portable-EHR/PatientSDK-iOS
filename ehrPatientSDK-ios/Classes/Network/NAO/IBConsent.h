@@ -38,6 +38,7 @@
 @property(nonatomic) BOOL             isEula;
 @property(nonatomic) BOOL             isCCRP;
 @property(nonatomic) BOOL             isStudy;
+@property(nonatomic) NSString         *stackKey;
 @property(nonatomic) NSMutableArray<IBConsentGranted *>   *consentsArr;
 - (IBConsentGranted *)__unused getGrantedConsent;
 

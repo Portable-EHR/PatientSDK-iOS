@@ -59,7 +59,11 @@ TRACE_OFF
     } else if ([host hasSuffix:@"portableehr.dev"]) {
         server.port          = 443;
         server.scheme        = @"https";
-        server.serverDNSname = @"api.portableehr.dev";
+        if ([kStackKey isEqual:@"CA.stackHub"]){
+            server.serverDNSname = @"stackhub.portableehr.dev";
+        }else{
+            server.serverDNSname = @"api.portableehr.dev";
+        }
     } else if ([[PehrSDKConfig.shared getAppStackKey] isEqualToString:@"CA.local"]) {
         server.port          = 8080;
         server.scheme        = @"http";
@@ -121,7 +125,10 @@ TRACE_OFF
         return @"https://oamp.portableehr.net";
     } else if ([kStackKey isEqualToString:@"CA.local"]) {
         return @"http://oamp.portableehr.local";;
-    } else {
+    } else if ([kStackKey isEqualToString:@"CA.stackHub"]) {
+        return @"https://stackhub.portableehr.dev/";
+    }
+    else {
         MPLOGERROR(@"**** No OAMP URL available for stack key [%@]", kStackKey);
         return nil;
     }

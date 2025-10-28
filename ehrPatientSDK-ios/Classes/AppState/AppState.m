@@ -907,6 +907,11 @@ static AppState   *_sharedInstance;
     MPLOG(@"Consents %@", _consents);
 }
 
+- (void)setStackKey:(NSString *)stackKey {
+    _stackKey = stackKey;
+}
+
+
 //endregion
 
 @end

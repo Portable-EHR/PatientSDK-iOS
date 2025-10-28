@@ -50,6 +50,7 @@
     BOOL               _isServerReachable;
     BOOL               _isPrivacyCompromised;
     AuthSequencer      *_authSequencer;
+    NSString           *_stackKey;
 
 }
 
@@ -80,6 +81,8 @@
 @property(nonatomic, readonly) NSInteger        maximumNumberOfDevices;
 @property NSArray<IBConsent *>                  *consents;
 @property IBConsent                             *selectedConsent;
+@property (nonatomic, strong) NSString *stackKey;
+
 
 - (void)signPreferences;
 - (void)unsignPreferences;

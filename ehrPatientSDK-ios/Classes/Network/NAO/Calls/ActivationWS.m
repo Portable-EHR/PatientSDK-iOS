@@ -34,6 +34,7 @@
         NSMutableDictionary *params = [NSMutableDictionary dictionary];
         params[@"token"] = token;
         EHRServerRequest *request = [EHRRequests requestWithRoute:@"/app/user/device" command:@"setNotificationToken" parameters:params];
+        
 
         SenderBlock callSuccess = ^(id theCall) {
             successBlock();
@@ -61,6 +62,7 @@
 
 - (void)confirmPINforIdentificationFactorpin:(IdentificationFactor)factor
                                      withPIN:(NSString *)pin
+                                    stackKey:(NSString *)stackKey
                                    onSuccess:(SenderBlock)successBlock
                                      onError:(SenderBlock)errorBlock {
     NSString *route;
@@ -81,7 +83,8 @@
     EHRServerRequest *confirmationRequest = [EHRRequests requestWithRoute:route
                                                                   command:command
                                                                parameters:params];
-
+    confirmationRequest.stackKey = stackKey;
+    
     EHRCall *confirmationCall =
                     [EHRCall callWithRequest:confirmationRequest
                                    onSuccess:^(EHRCall *call) {
@@ -117,13 +120,15 @@
 }
 
 - (void)getOfferFor:(OBManualActivationSpec *)spec
+           stackKey:(NSString *) stackKey
           onSuccess:(SenderBlock)successBlock
             onError:(SenderBlock)errorBlock {
     NSMutableDictionary *params  = (NSMutableDictionary *) [spec asDictionary];
     EHRServerRequest    *request = [EHRRequests requestWithRoute:@"/app/user/account"
                                                          command:@"manual"
                                                       parameters:params];
-
+    request.stackKey    = stackKey;
+    
     SenderBlock offerSuccess = ^(EHRCall *call) {
         MPLOG(@"Get offer : SUCCESS");
         IBScannedOffer *offer = [IBScannedOffer objectWithContentsOfDictionary:call.serverResponse.responseContent];
@@ -141,6 +146,7 @@
 }
 
 - (void)claimOffer:(IBScannedOffer *)offer
+          stackKey:(NSString *) stackKey
          onSuccess:(SenderBlock)successBlock
            onError:(SenderBlock)errorBlock {
 
@@ -206,6 +212,8 @@
     EHRServerRequest *request   = [EHRRequests requestWithRoute:@"/app/user/account"
                                                         command:@"scan"
                                                      parameters:params];
+    request.stackKey    = stackKey;
+    
     EHRCall          *claimCall = [EHRCall callWithRequest:request
                                                  onSuccess:claimSuccess
                                                    onError:claimError];
@@ -215,6 +223,7 @@
 }
 
 - (void)registerUserWithSpec:(OBManualActivationSpec *)spec
+                    stackKey:(NSString *)stackKey
                    onSuccess:
                            (SenderBlock)successBlock
                      onError:
@@ -238,18 +247,19 @@
     };
 
     SenderBlock offerSuccess = ^(IBScannedOffer *scannedOffer) {
-        [self claimOffer:scannedOffer onSuccess:activateSuccess onError:activateError];
+        [self claimOffer:scannedOffer stackKey:stackKey onSuccess:activateSuccess onError:activateError];
     };
 
     SenderBlock offerFailed = ^(EHRCall *call) {
         errorBlock(call);
     };
 
-    [self getOfferFor:spec onSuccess:offerSuccess onError:offerFailed];
+    [self getOfferFor:spec stackKey:stackKey onSuccess:offerSuccess onError:offerFailed];
 
 }
 
 - (void)registerUserWithPinSpec:(OBPinActivationSpec *)spec
+                       stackKey:(NSString *) stackKey
                    onSuccess:
                            (SenderBlock)successBlock
                      onError:
@@ -273,24 +283,27 @@
     };
 
     SenderBlock offerSuccess = ^(IBScannedOffer *scannedOffer) {
-        [self claimOffer:scannedOffer onSuccess:activateSuccess onError:activateError];
+        [self claimOffer:scannedOffer stackKey:stackKey onSuccess:activateSuccess onError:activateError];
     };
 
     SenderBlock offerFailed = ^(EHRCall *call) {
         errorBlock(call);
     };
 
-    [self getOfferForPin:spec onSuccess:offerSuccess onError:offerFailed];
+    [self getOfferForPin:spec stackKey: stackKey
+               onSuccess:offerSuccess onError:offerFailed];
 
 }
 
 - (void)getOfferForPin:(OBPinActivationSpec *)spec
+              stackKey:(NSString *) stackKey
           onSuccess:(SenderBlock)successBlock
             onError:(SenderBlock)errorBlock {
     NSMutableDictionary *params  = (NSMutableDictionary *) [spec asDictionary];
     EHRServerRequest    *request = [EHRRequests requestWithRoute:@"/app/user/account"
                                                          command:@"pinActivation"
                                                       parameters:params];
+    request.stackKey    = stackKey;
 
     SenderBlock offerSuccess = ^(EHRCall *call) {
         MPLOG(@"Get offer : SUCCESS");
@@ -481,6 +494,8 @@
     EHRServerRequest *request        = [EHRRequests requestWithRoute:@"/app/user/device"
                                                              command:@"deactivate"
                                                           parameters:params];
+    request.stackKey = [[AppState sharedAppState] stackKey];
+    
     EHRCall          *deactivateCall = [EHRCall callWithRequest:request
                                                       onSuccess:callSuccess
                                                         onError:callError];

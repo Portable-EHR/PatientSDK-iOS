@@ -28,6 +28,7 @@
 @property(nonatomic) NSString     *trackingId;
 @property(nonatomic) NSString     *deviceGuid;
 @property(nonatomic) EHRApiServer *server;
+@property(nonatomic) NSString     *stackKey;
 
 + (EHRServerRequest *)serverRequestWithApiKey:(NSString *)apiKey;
 

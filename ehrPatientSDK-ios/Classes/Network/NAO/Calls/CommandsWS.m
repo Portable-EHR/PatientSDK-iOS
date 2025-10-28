@@ -87,7 +87,13 @@ __attribute__((unused)) {
             [[AppState sharedAppState].servicesModel populateWithServices:[val allValues]];
             // todo :: this is obsolete (?)
         }
-
+        
+        NSString *stackKey = theCall.serverResponse.responseContent[@"stackKey"];
+        
+        
+        [[AppState sharedAppState] setStackKey:stackKey];
+        
+        
         val = theCall.serverResponse.responseContent[@"user"];
         if (val) {
             IBUser *new = [IBUser objectWithContentsOfDictionary:val];

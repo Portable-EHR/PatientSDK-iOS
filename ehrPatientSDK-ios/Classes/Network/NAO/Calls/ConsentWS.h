@@ -65,6 +65,7 @@ consentGrantedGuid: (NSString *)consentGrantedGuid
  */
 - (void)__unused  consent:(IBConsent *)consent
                    patientGuid:(NSArray<NSString *> *)patientGuid
+                      stackKey:(NSString *)stackKey
                      onSuccess:(SenderBlock)successBlock
                        onError:(SenderBlock)errorBlock;
 

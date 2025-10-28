@@ -140,6 +140,7 @@ static CFArrayRef certs;
     MPLOGERROR(@"*** Cleaning up , route    %@[%@]", self.serverRequest.route, self.serverRequest.command);
     MPLOGERROR(@"*** Cleaning up , api key  [%@]", self.serverRequest.apiKey);
     MPLOGERROR(@"*** Cleaning up , dev guid [%@]", self.serverRequest.deviceGuid);
+    MPLOGERROR(@"*** Cleaning up , stack key [%@]", self.serverRequest.stackKey);
     if (self.serverRequest.parameters) {
         MPLOGERROR(@"*** Cleaning up , parameters\n%@", [self.serverRequest.parameters asJSON]);
     }
@@ -399,7 +400,7 @@ totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite {
             TRACE(@"Received : \n%@", [[NSString alloc] initWithData:_responseData encoding:NSUTF8StringEncoding]);
         }
         self->_serverResponse = [EHRServerResponse objectWithContentsOfDictionary:dic];
-//        MPLOG(@"Response serverResponse: %@", _serverResponse.responseContent);
+        MPLOG(@"Response serverResponse: %@", _serverResponse.responseContent);
         _wasResponseReceived = YES;
 
         if ([_serverResponse.requestStatus.status isEqualToString:@"OK"]) {
@@ -452,9 +453,14 @@ totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite {
     //NSURLRequestReloadIgnoringLocalCacheData
     //NSURLRequestUseProtocolCachePolicy
     _url            = [self.serverRequest.server urlForRoute:self.serverRequest.route];
+    
+//    _urlRequest     = [NSMutableURLRequest requestWithURL:_url
+//                                              cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
+//                                          timeoutInterval:self.timeOut];
+    //Remove the below code and uncomment the above -> When in CA
     _urlRequest     = [NSMutableURLRequest requestWithURL:_url
-                                              cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
-                                          timeoutInterval:self.timeOut];
+                                              cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
+                                          timeoutInterval:60];
     [_urlRequest setHTTPMethod:@"POST"];
 
     NSString *postString = [self.serverRequest asJSON];

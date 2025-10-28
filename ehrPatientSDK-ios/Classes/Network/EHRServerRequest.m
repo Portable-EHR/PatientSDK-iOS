@@ -54,6 +54,7 @@ TRACE_OFF
     dic[@"route"]      = self.route;
     dic[@"parameters"] = self.parameters;
     dic[@"trackingId"] = self.trackingId;
+    dic[@"stackKey"]   = self.stackKey;
     PutStringInDic(self.deviceGuid, dic, @"deviceGuid");
     PutStringInDic(self.appAlias, dic, @"appAlias");
     PutStringInDic(self.appGuid, dic, @"appGuid");

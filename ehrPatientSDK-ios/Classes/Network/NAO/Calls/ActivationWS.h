@@ -24,17 +24,22 @@ typedef enum : NSInteger {
 @interface ActivationWS : NSObject <EHRInstanceCounterP> {
 }
 
-- (void)setFirebaseDeviceToken:(NSString *)token onSuccess:(VoidBlock)successBlock onError:(VoidBlock)errorBlock;
+- (void)setFirebaseDeviceToken:(NSString *)token
+                     onSuccess:(VoidBlock)successBlock onError:(VoidBlock)errorBlock;
+
 - (void)confirmPINforIdentificationFactorpin:(IdentificationFactor)factor
                                      withPIN:(NSString *)pin
+                                    stackKey:(NSString *)stackKey
                                    onSuccess:(SenderBlock)successBlock
                                      onError:(SenderBlock)errorBlock;
 
 - (void)getOfferFor:(OBManualActivationSpec *)spec
+           stackKey:(NSString *) stackKey
           onSuccess:(SenderBlock)successBlock
             onError:(SenderBlock)errorBlock;
 
 - (void)claimOffer:(IBScannedOffer *)offer
+          stackKey:(NSString *) stackKey
          onSuccess:(SenderBlock)successBlock
            onError:(SenderBlock)errorBlock;
 
@@ -43,10 +48,12 @@ typedef enum : NSInteger {
            onError:(SenderBlock)errorBlock;
 
 - (void)registerUserWithSpec:(OBManualActivationSpec *)spec
+                    stackKey:(NSString *) stackKey
                    onSuccess:(SenderBlock)successBlock
                      onError:(SenderBlock)errorBlock;
 
 - (void)registerUserWithPinSpec:(OBPinActivationSpec *)spec
+                       stackKey:(NSString *) stackKey
                    onSuccess:(SenderBlock)successBlock
                      onError:(SenderBlock)errorBlock;
 

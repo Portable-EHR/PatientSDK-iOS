@@ -159,9 +159,11 @@ TRACE_OFF
  */
 - (void)__unused  consent:(IBConsent *)consent
               patientGuid:(NSArray<NSString *> *)patientGuid
+                 stackKey:(NSString *) stackKey
                 onSuccess:(SenderBlock)successBlock
                   onError:(SenderBlock)errorBlock {
     EHRServerRequest *request = [EHRRequests getConsentConsentRequestForPatient:patientGuid forConsent:consent];
+                      request.stackKey = stackKey;
     EHRCall          *call    = [EHRCall callWithRequest:request onSuccess:successBlock onError:errorBlock];
     [call start];
 
