@@ -13,13 +13,13 @@
     NSString  *_name;
     NSString  *_descriptionText;
     NSString  *_dispensaryId;
-    
     NSArray   *_entryPoints;
+    NSString  *_stackKey;
 }
 @property(nonatomic) NSString *id;
 @property(nonatomic) NSString *name;
 @property(nonatomic) NSString *descriptionText;
 @property(nonatomic) NSString *dispensaryId;
-
 @property(nonatomic) NSArray *entryPoints;
+@property(nonatomic) NSString *stackKey;
 @end

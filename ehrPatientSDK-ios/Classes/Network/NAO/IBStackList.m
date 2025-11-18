@@ -26,6 +26,7 @@
     IBStackList *sl = [[IBStackList alloc] init];
     sl->_key                    = WantStringFromDic(theDictionary, @"key");
     if (theDictionary[@"name"]) sl->_name = [IBStackName objectWithContentsOfDictionary:theDictionary[@"name"]];
+    sl->_oamp_host              = WantStringFromDic(theDictionary, @"oamp_host");
     return sl;
 }
 
@@ -33,6 +34,7 @@
     
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     PutStringInDic(self.key, dic, @"key");
+    PutStringInDic(self.oamp_host, dic, @"oamp_host");
     return dic;
 }
 

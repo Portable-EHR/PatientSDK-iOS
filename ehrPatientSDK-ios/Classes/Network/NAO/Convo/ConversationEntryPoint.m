@@ -14,8 +14,8 @@ TRACE_OFF
 @synthesize name = _name;
 @synthesize descriptionText = _descriptionText;
 @synthesize dispensaryId = _dispensaryId;
-
 @synthesize entryPoints = _entryPoints;
+@synthesize stackKey    = _stackKey;
 
 - (instancetype)init {
     if ((self = [super init])) {
@@ -67,6 +67,7 @@ TRACE_OFF
        }
     
     cep.entryPoints = entryPoints;
+    cep.stackKey            = WantStringFromDic(dic, @"stackKey");
     
     // ALERT : mapping network property to avoid clash with NSObject.description
 
@@ -79,7 +80,7 @@ TRACE_OFF
     PutStringInDic(self.name, dic, @"name");
     PutStringInDic(self.descriptionText, dic, @"description");
     PutStringInDic(self.dispensaryId, dic, @"dispensaryId");
-    
+    PutStringInDic(self.name, dic, @"stackKey");
     return dic;
 }
 

@@ -245,6 +245,7 @@ TRACE_OFF
     self.deviceInfo        = other.deviceInfo;
     self.seq               = other.seq;
     self.study             = other.study;
+    self.stackKey          = other.stackKey;
     [self.appointment updateWith:other.appointment];
 
 }
@@ -284,7 +285,7 @@ TRACE_OFF
         pn.senderName        = WantStringFromDic(dic, @"senderName");
         pn.practitionerGuid  = WantStringFromDic(dic, @"practitionerGuid");
         pn.seq               = WantStringFromDic(dic, @"seq");
-
+        pn.stackKey          = WantStringFromDic(dic, @"stackKey");
         id val;
 
         if ((val = dic[@"deviceInfo"])) {
@@ -366,7 +367,7 @@ TRACE_OFF
     PutDateInDic(self.lastSeen, dic, @"lastSeen");
     PutStringInDic(self.senderName, dic, @"senderName");
     PutStringInDic(self.practitionerGuid, dic, @"practitionerGuid");
-
+    PutStringInDic(self.stackKey, dic, @"stackKey");
     
 
     if (self.deviceInfo){

@@ -69,6 +69,7 @@
 //@property IBStudy              *study;
 @property Study                *study;
 @property NSString             *seq;
+@property NSString             *stackKey;
 
 @property(nonatomic, readonly) BOOL isDeleted;
 @property(nonatomic, readonly) BOOL isExpired;

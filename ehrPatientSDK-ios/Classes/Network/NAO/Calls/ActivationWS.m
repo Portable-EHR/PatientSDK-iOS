@@ -323,6 +323,7 @@
 
 
 - (void)registerUserWithScanQRSpec:(NSString *)interimCode
+                          stackKey:(NSString *) stackKey
                    onSuccess:
                            (SenderBlock)successBlock
                      onError:
@@ -346,23 +347,25 @@
     };
 
     SenderBlock offerSuccess = ^(NSString *interimCode) {
-        [self scanQRCodeclaimOffer:interimCode onSuccess:activateSuccess onError:activateError];
+        [self scanQRCodeclaimOffer:interimCode stackKey: stackKey onSuccess:activateSuccess onError:activateError];
     };
 
     SenderBlock offerFailed = ^(EHRCall *call) {
         errorBlock(call);
     };
 
-    [self sequenceOfferTokenStatus:interimCode onSuccess:offerSuccess onError:offerFailed];
+    [self sequenceOfferTokenStatus:interimCode stackKey: stackKey onSuccess:offerSuccess onError:offerFailed];
 
 }
 
-- (void) sequenceOfferTokenStatus: (NSString *)interimCode onSuccess:(SenderBlock)successBlock onError:(SenderBlock)errorBlock {
+- (void) sequenceOfferTokenStatus: (NSString *)interimCode stackKey: (NSString *) stackKey onSuccess:(SenderBlock)successBlock onError:(SenderBlock)errorBlock {
     
     NSMutableDictionary *params  = [@{@"guid": interimCode} mutableCopy];
     EHRServerRequest    *request = [EHRRequests requestWithRoute:@"/app/user/account"
                                                          command:@"status"
                                                       parameters:params];
+    
+    request.stackKey = stackKey;
     
     SenderBlock offerSuccess = ^(EHRCall *call) {
         MPLOG(@"Get offer : SUCCESS");
@@ -404,6 +407,7 @@
 }
 
 - (void)scanQRCodeclaimOffer:(NSString *)interimQRcode
+                    stackKey:(NSString *) stackKey
          onSuccess:(SenderBlock)successBlock
            onError:(SenderBlock)errorBlock {
 
@@ -469,6 +473,7 @@
     EHRServerRequest *request   = [EHRRequests requestWithRoute:@"/app/user/account"
                                                         command:@"scan"
                                                      parameters:params];
+    request.stackKey = stackKey;
     EHRCall          *claimCall = [EHRCall callWithRequest:request
                                                  onSuccess:claimSuccess
                                                    onError:claimError];
@@ -494,7 +499,7 @@
     EHRServerRequest *request        = [EHRRequests requestWithRoute:@"/app/user/device"
                                                              command:@"deactivate"
                                                           parameters:params];
-    request.stackKey = [[AppState sharedAppState] stackKey];
+//    request.stackKey = [[AppState sharedAppState] stackKey];
     
     EHRCall          *deactivateCall = [EHRCall callWithRequest:request
                                                       onSuccess:callSuccess

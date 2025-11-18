@@ -24,6 +24,7 @@
 
 - (EHRCall *)__unused  revoke:(IBConsent *)consent
 consentGrantedGuid: (NSString *)consentGrantedGuid
+stackKey:(NSString *)stackKey
                     onSuccess:(SenderBlock)successBlock
                       onError:(SenderBlock)errorBlock;
 
@@ -35,6 +36,7 @@ consentGrantedGuid: (NSString *)consentGrantedGuid
                            ofPatient:(NSString *)patientGuid
                       inConversation:(NSString *)conversationGuid
                             withText:(NSString *)shareMessage
+                            stackKey:(NSString *)stackKey
                            onSuccess:(SenderBlock)successBlock
                              onError:(SenderBlock)errorBlock;
 
@@ -77,6 +79,7 @@ consentGrantedGuid: (NSString *)consentGrantedGuid
  */
 - (void)__unused  revokeConsentWithGuid:(NSString *)guid
                          inConversation:(Conversation *)convo
+                               stackKey:(NSString *)stackKey
                      onSuccess:(VoidBlock)successBlock
                        onError:(SenderBlock)errorBlock;
 

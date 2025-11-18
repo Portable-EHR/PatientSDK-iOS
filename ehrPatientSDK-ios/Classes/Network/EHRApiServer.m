@@ -124,11 +124,10 @@ TRACE_OFF
     } else if ([kStackKey isEqualToString:@"CA.staging"]) {
         return @"https://oamp.portableehr.net";
     } else if ([kStackKey isEqualToString:@"CA.local"]) {
-        return @"http://oamp.portableehr.local";;
+        return @"http://oamp.portableehr.local";
     } else if ([kStackKey isEqualToString:@"CA.stackHub"]) {
-        return @"https://stackhub.portableehr.dev/";
-    }
-    else {
+        return @"https://oamp.portableehr.dev";
+    } else {
         MPLOGERROR(@"**** No OAMP URL available for stack key [%@]", kStackKey);
         return nil;
     }

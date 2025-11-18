@@ -14,10 +14,11 @@
     NSInteger _instanceNumber;
     NSString    *_key;
     IBStackName *_name;
-    
+    NSString    *_oamp_host;
 }
 
 @property(nonatomic) NSString *key;
 @property(nonatomic) IBStackName *name;
+@property(nonatomic) NSString *oamp_host;
 @end
 

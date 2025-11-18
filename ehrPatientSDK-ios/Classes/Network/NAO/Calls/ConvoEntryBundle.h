@@ -22,6 +22,7 @@
 + (void)pullConvo:(ConversationEnvelope *)envelope
          maxItems:(NSInteger)count
       patientGuid:(NSString *)patientGuid
+         stackKey:(NSString *)stackKey
         onSuccess:(SenderBlock)successBlock
           onError:(SenderBlock)errorBlock;
 
@@ -29,6 +30,7 @@
                atOffset:(NSInteger)offset
                maxItems:(NSInteger)maxItems
             patientGuid:(NSString *)patientGuid
+               stackKey:(NSString *)stackKey
               onSuccess:(SenderBlock)successBlock
                 onError:(SenderBlock)errorBlock;
 

@@ -50,8 +50,9 @@ TRACE_OFF
     return call;
 }
 
-- (EHRCall *)revoke:(IBConsent *)consent consentGrantedGuid: (NSString *)consentGrantedGuid onSuccess:(SenderBlock)successBlock onError:(SenderBlock)errorBlock {
+- (EHRCall *)revoke:(IBConsent *)consent consentGrantedGuid: (NSString *)consentGrantedGuid stackKey:(NSString *)stackKey onSuccess:(SenderBlock)successBlock onError:(SenderBlock)errorBlock {
     EHRServerRequest *request = [EHRRequests getRevokeConsentRequestForConsent:consent consentGrantedGuid:consentGrantedGuid];
+    request.stackKey = stackKey;
     EHRCall          *call    = [EHRCall callWithRequest:request onSuccess:successBlock onError:errorBlock];
     return call;
 }
@@ -131,6 +132,7 @@ TRACE_OFF
                   ofPatient:(NSString *)patientGuid
              inConversation:(NSString *)conversationGuid
                    withText:(NSString *)shareMessage
+                   stackKey:(NSString *)stackKey
                   onSuccess:(SenderBlock)successBlock
                     onError:(SenderBlock)errorBlock {
 
@@ -143,6 +145,7 @@ TRACE_OFF
     params[@"conversation"]   = conversationGuid;
     params[@"text"]           = shareMessage;
     EHRServerRequest *request = [EHRRequests putConsentsRequestWith:params];
+    request.stackKey          = stackKey;
     EHRCall          *call    = [EHRCall callWithRequest:request onSuccess:successBlock onError:errorBlock];
     call.maximumAttempts = 1;
     call.timeOut         = 30.0;
@@ -177,6 +180,7 @@ TRACE_OFF
  */
 - (void)__unused  revokeConsentWithGuid:(NSString *)guid
                          inConversation:(Conversation *)convo
+                                stackKey:(NSString *)stackKey
                               onSuccess:(VoidBlock)successBlock
                                 onError:(SenderBlock)errorBlock {
 
@@ -192,6 +196,7 @@ TRACE_OFF
 
     EHRServerRequest *request = [EHRRequests getRevokeConsentRequestForConsentWithGuid:guid];
     request.parameters[@"consentedItemId"] = convo.id;
+    request.stackKey = stackKey;
     EHRCall *call = [EHRCall callWithRequest:request onSuccess:consentCallSuccess onError:consentCallError];
     [call start];
 }

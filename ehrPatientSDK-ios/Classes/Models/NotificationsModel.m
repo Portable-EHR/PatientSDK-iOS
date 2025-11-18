@@ -994,7 +994,7 @@ TRACE_OFF
     _notificationDeletedSuccessBlock = [successBlock copy];
     _notificationDeletedErrorBlock   = [errorBlock copy];
     NSMutableArray *notifications = [@[notification] mutableCopy];
-    [self notificationsWereDeleted:notifications];
+    [self notificationsWereDeleted:notifications stackKey:notification.stackKey];
 }
 
 - (void)notificationsWereDeleted:(NSArray *)notifications onSuccess:(VoidBlock)successBlock onError:(VoidBlock)errorBlock {
@@ -1003,7 +1003,7 @@ TRACE_OFF
     [self notificationsWereDeleted:notifications];
 }
 
-- (void)notificationsWereDeleted:(NSArray *)notifications {
+- (void)notificationsWereDeleted:(NSArray *)notifications stackKey:(NSString *) stackKey{
     if (!_appState.isAppUsable) {
         TRACE(@"Skipping : application not usable on this device.");
         if (_notificationDeletedErrorBlock) {
@@ -1019,7 +1019,7 @@ TRACE_OFF
     req.server  = server;
     req.route   = @"/app/notification";
     req.command = @"deleteNotification";
-
+    req.stackKey = stackKey;
     NSMutableArray           *guids = [NSMutableArray array];
     for (PatientNotification *notification in notifications) {
         [guids addObject:notification.guid];

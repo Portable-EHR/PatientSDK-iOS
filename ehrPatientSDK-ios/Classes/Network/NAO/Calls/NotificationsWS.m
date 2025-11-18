@@ -25,6 +25,7 @@ TRACE_ON
     NSMutableDictionary *params  = [@{@"guids": @[notification.guid]} mutableCopy];
     EHRServerRequest    *request = [EHRRequests requestWithRoute:@"/app/notification"
                                                          command:@"seen" parameters:params];
+                 request.stackKey = notification.stackKey;
     return [EHRCall callWithRequest:request onSuccess:successBlock onError:errorBlock];
 }
 
@@ -74,6 +75,8 @@ TRACE_ON
                                                       command:@"archive"
                                                    parameters:params
     ];
+    
+    request.stackKey = notification.stackKey;
 
     EHRCall *call = [EHRCall callWithRequest:request onSuccess:archiveSuccess onError:archiveError];
     [call start];
@@ -98,6 +101,7 @@ TRACE_ON
                                                    parameters:params
     ];
 
+    request.stackKey = notification.stackKey;
     EHRCall *call = [EHRCall callWithRequest:request onSuccess:unarchiveSuccess onError:unarchiveError];
     [call start];
 }

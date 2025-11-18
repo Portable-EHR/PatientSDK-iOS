@@ -44,6 +44,7 @@ typedef enum : NSInteger {
            onError:(SenderBlock)errorBlock;
 
 - (void)scanQRCodeclaimOffer:(NSString *)interimQRcode
+                    stackKey:(NSString *) stackKey
          onSuccess:(SenderBlock)successBlock
            onError:(SenderBlock)errorBlock;
 
@@ -58,6 +59,7 @@ typedef enum : NSInteger {
                      onError:(SenderBlock)errorBlock;
 
 - (void)registerUserWithScanQRSpec:(NSString *)interimCode
+                          stackKey:(NSString *) stackKey
                    onSuccess:(SenderBlock)successBlock
                      onError:(SenderBlock)errorBlock;
 

@@ -21,6 +21,7 @@
 + (void)pullConvo:(ConversationEnvelope *)envelope
          maxItems:(NSInteger)count
       patientGuid:(NSString *)patientGuid
+         stackKey:(NSString *)stackKey
         onSuccess:(SenderBlock)successBlock
           onError:(SenderBlock)errorBlock __unused {
 
@@ -43,6 +44,7 @@
                                                                 atOffset:0
                                                             withMaxItems:count
                                                              patientGuid:patientGuid
+                                                                stackKey:stackKey
     ];
     theCall.maximumAttempts = 5;
     [theCall start];
@@ -52,6 +54,7 @@
                atOffset:(NSInteger)offset
                maxItems:(NSInteger)maxItems
             patientGuid:(NSString *)patientGuid
+               stackKey:(NSString *)stackKey
               onSuccess:(SenderBlock)successBlock
                 onError:(SenderBlock)errorBlock __unused {
 
@@ -79,6 +82,7 @@
                                                                 atOffset:offset
                                                             withMaxItems:maxItems
                                                              patientGuid:patientGuid
+                                                                stackKey:stackKey
     ];
     theCall.maximumAttempts = 2;
     [theCall start];

@@ -30,21 +30,24 @@ TRACE_OFF
 
 //region calls
 
-- (EHRCall *)__unused  addConvoEntryCall:(SenderBlock)successBlock onError:(SenderBlock)errorBlock withSpec:(OBNewEntry *)spec {
+- (EHRCall *)__unused  addConvoEntryCall:(SenderBlock)successBlock onError:(SenderBlock)errorBlock withSpec:(OBNewEntry *)spec stackKey:(NSString *)stackKey {
 
     NSMutableDictionary *params  = [NSMutableDictionary dictionaryWithDictionary:[spec asDictionary]];
     EHRServerRequest    *request = [EHRRequests requestWithRoute:@"/app/patient/convo" command:@"addEntry" parameters:params];
+    request.stackKey = stackKey;
     return [EHRCall callWithRequest:request onSuccess:successBlock onError:errorBlock];
 }
 
-- (EHRCall *)__unused  createConvoCall:(SenderBlock)successBlock onError:(SenderBlock)errorBlock spec:(OBNewConvo *)spec {
+- (EHRCall *)__unused  createConvoCall:(SenderBlock)successBlock onError:(SenderBlock)errorBlock spec:(OBNewConvo *)spec stackKey:(NSString *)stackKey{
     NSMutableDictionary *params  = [NSMutableDictionary dictionaryWithDictionary:[spec asDictionary]];
     EHRServerRequest    *request = [EHRRequests requestWithRoute:@"/app/patient/convo" command:@"create" parameters:params];
+                request.stackKey = stackKey;
     EHRCall             *theCall = [EHRCall callWithRequest:request onSuccess:successBlock onError:errorBlock];
     return theCall;
 }
 
 - (void)__unused createConvo:(OBNewConvo *)spec
+                    stackKey:(NSString *)stackKey
                    onSuccess:(SenderBlock)successBlock
                      onError:(SenderBlock)errorBlock {
 
@@ -54,7 +57,7 @@ TRACE_OFF
         successBlock(convo);
     };
 
-    EHRCall *theCall = [self createConvoCall:callSuccess onError:errorBlock spec:spec];
+    EHRCall *theCall = [self createConvoCall:callSuccess onError:errorBlock spec:spec stackKey:stackKey];
     [theCall start];
 
 }
@@ -64,7 +67,8 @@ TRACE_OFF
                                 forConvo:(NSString *)guid
                                 atOffset:(NSInteger)offset
                             withMaxItems:(NSInteger)maxItems
-                             patientGuid:(NSString *)patientGuid{
+                             patientGuid:(NSString *)patientGuid
+                                stackKey:(NSString *)stackKey{
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     PutStringInDic(guid, params, @"id");
     PutIntegerInDic(offset, params, @"offset");
@@ -73,6 +77,7 @@ TRACE_OFF
     EHRServerRequest *request = [EHRRequests requestWithRoute:@"/app/patient/convo"
                                                       command:@"pullConvo"
                                                    parameters:params];
+            request.stackKey = stackKey;
     return [EHRCall callWithRequest:request onSuccess:successBlock onError:errorBlock];
 }
 
@@ -119,7 +124,8 @@ TRACE_OFF
                                       onError:(SenderBlock)errorBlock
                               forConversation:(Conversation *)conversation
                                         entry:(ConversationEntry *)entry
-                                   attachment:(NSString *)guid {
+                                   attachment:(NSString *)guid
+                                     stackKey:(NSString *)stackKey{
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     PutStringInDic(conversation.id, params, @"convo");
     PutStringInDic(entry.id, params, @"entry");
@@ -128,6 +134,7 @@ TRACE_OFF
                              [EHRRequests requestWithRoute:@"/app/patient/convo"
                                                    command:@"pullAttachment" parameters:params
                              ];
+                                         request.stackKey = stackKey;
     return [EHRCall callWithRequest:request onSuccess:successBlock onError:errorBlock];
 }
 
@@ -166,9 +173,10 @@ TRACE_OFF
     return [EHRCall callWithRequest:request onSuccess:successBlock onError:errorBlock];
 }
 
-- (EHRCall *)__unused  getSharedPMCall:(SenderBlock)successBlock onError:(SenderBlock)errorBlock withParameters:(NSMutableDictionary *)parameters {
+- (EHRCall *)__unused  getSharedPMCall:(SenderBlock)successBlock onError:(SenderBlock)errorBlock withParameters:(NSMutableDictionary *)parameters stackKey:(NSString *) stackKey{
 
     EHRServerRequest *request = [EHRRequests requestWithRoute:@"/app/privateMessage" command:@"getShared" parameters:parameters];
+    request.stackKey = stackKey;
     return [EHRCall callWithRequest:request onSuccess:successBlock onError:errorBlock];
 }
 
@@ -247,10 +255,10 @@ TRACE_OFF
 
 }
 
-- (void)createEntry:(OBNewEntry *)entry onSuccess:(SenderBlock)successBlock onError:(SenderBlock)errorBlock {
+- (void)createEntry:(OBNewEntry *)entry stackKey:(NSString *)stackKey onSuccess:(SenderBlock)successBlock onError:(SenderBlock)errorBlock {
 
-    EHRCall *theCall = [self addConvoEntryCall:successBlock onError:errorBlock withSpec:entry];
-    theCall.timeOut         = 15;
+    EHRCall *theCall = [self addConvoEntryCall:successBlock onError:errorBlock withSpec:entry stackKey:stackKey];
+    theCall.timeOut         = 60;
     theCall.maximumAttempts = 1;
     [theCall start];;
 
@@ -259,6 +267,7 @@ TRACE_OFF
 - (void)getSharedPrivateMessageWithConsent:(NSString *)consentGuid
                                        for:(NSString *)participantGuid
                                    inConvo:(NSString *)conversationGuid
+                                  stackKey:(NSString *)stackKey
                                  onSuccess:(SenderBlock)successBlock
                                    onError:(SenderBlock)errorBlock __attribute__((unused)) {
     EHRCall             *sharedPMcall;
@@ -273,7 +282,7 @@ TRACE_OFF
         successBlock(opm);
     };
 
-    sharedPMcall = [self getSharedPMCall:callSuccess onError:errorBlock withParameters:parameters];
+                                       sharedPMcall = [self getSharedPMCall:callSuccess onError:errorBlock withParameters:parameters stackKey:stackKey];
     sharedPMcall.timeOut = 30;
     [sharedPMcall start];
 }

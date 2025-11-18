@@ -22,18 +22,21 @@
 
 - (EHRCall *)__unused  addConvoEntryCall:(SenderBlock)successBlock
                                  onError:(SenderBlock)errorBlock
-                                withSpec:(OBNewEntry *)spec;
+                                withSpec:(OBNewEntry *)spec
+                                stackKey:(NSString *)stackKey;
 
 - (EHRCall *)__unused  createConvoCall:(SenderBlock)successBlock
                                onError:(SenderBlock)errorBlock
-                                  spec:(OBNewConvo *)spec;
+                                  spec:(OBNewConvo *)spec
+                              stackKey:(NSString *)stackKey;
 
 - (EHRCall *)__unused  getConvoDetailCall:(SenderBlock)successBlock
                                   onError:(SenderBlock)errorBlock
                                  forConvo:(NSString *)guid
                                  atOffset:(NSInteger)offset
                              withMaxItems:(NSInteger)maxItems
-                              patientGuid:(NSString *)patientGuid;
+                              patientGuid:(NSString *)patientGuid
+                                 stackKey:(NSString *)stackKey;
 
 - (EHRCall *)__unused listConvosCall:(SenderBlock)successBlock
                              onError:(SenderBlock)errorBlock
@@ -64,7 +67,8 @@
                                       onError:(SenderBlock)errorBlock
                               forConversation:(Conversation *)conversation
                                         entry:(ConversationEntry *)entry
-                                   attachment:(NSString *)guid;
+                                   attachment:(NSString *)guid
+                                    stackKey:(NSString *)stackKey;
 
 //region business methods
 
@@ -74,16 +78,19 @@
                            onError:(SenderBlock)errorBlock __attribute__((unused));
 
 - (void)__unused createConvo:(OBNewConvo *)spec
+                    stackKey:(NSString *)stackKey
                    onSuccess:(SenderBlock)successBlock
                      onError:(SenderBlock)errorBlock;
 
 - (void)createEntry:(OBNewEntry *)entry
+           stackKey:(NSString *)stackKey
           onSuccess:(SenderBlock)successBlock
             onError:(SenderBlock)errorBlock __attribute__((unused));
 
 - (void)getSharedPrivateMessageWithConsent:(NSString *)consentGuid
                                        for:(NSString *)participantGuid
                                    inConvo:(NSString *)conversationGuid
+                                  stackKey:(NSString *)stackKey
                                  onSuccess:(SenderBlock)successBlock
                                    onError:(SenderBlock)errorBlock __attribute__((unused));
 
