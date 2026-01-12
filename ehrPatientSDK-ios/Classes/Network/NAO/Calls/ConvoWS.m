@@ -156,6 +156,7 @@ TRACE_OFF
 
 - (EHRCall *)__unused getSetEntriesStatusCall:(NSString *)convoGuid
                                   statusLines:(NSArray<EntryParticipantStatus *> *)statusLines
+                                     stackKey:(NSString *)stackKey
                                     onSuccess:(SenderBlock)successBlock
                                       onError:(SenderBlock)errorBlock {
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
@@ -170,6 +171,7 @@ TRACE_OFF
                                                       command:@"setEntriesStatus"
                                                    parameters:params
     ];
+                                          request.stackKey = stackKey;
     return [EHRCall callWithRequest:request onSuccess:successBlock onError:errorBlock];
 }
 
@@ -203,6 +205,7 @@ TRACE_OFF
 
 - (void)sendEntriesStatus:(NSArray<EntryParticipantStatus *> *)bundle
            ofConversation:(Conversation *)convo
+                 stackKey: (NSString *)stackKey
                 onSuccess:(VoidBlock)successBlock
                   onError:(SenderBlock)errorBlock __attribute__((unused)) {
     EHRCall             *setStatusCall;
@@ -220,7 +223,7 @@ TRACE_OFF
         errorBlock(someCall);
     };
 
-    setStatusCall = [self getSetEntriesStatusCall:convo.id statusLines:bundle onSuccess:entrySuccess onError:entryError];
+    setStatusCall = [self getSetEntriesStatusCall:convo.id statusLines:bundle stackKey:stackKey onSuccess:entrySuccess onError:entryError];
     [setStatusCall start];
     successBlock();
 }

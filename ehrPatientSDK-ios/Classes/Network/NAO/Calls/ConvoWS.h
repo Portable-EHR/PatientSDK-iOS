@@ -74,6 +74,7 @@
 
 - (void)sendEntriesStatus:(NSArray<EntryParticipantStatus *> *)
         bundle      ofConversation:(Conversation *)convo
+                 stackKey: (NSString *)stackKey
                          onSuccess:(VoidBlock)successBlock
                            onError:(SenderBlock)errorBlock __attribute__((unused));
 
