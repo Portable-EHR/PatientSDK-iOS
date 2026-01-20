@@ -13,6 +13,7 @@
 #import "IBUser.h"
 #import "Patient.h"
 #import "Models.h"
+#import "IBStackList.h"
 
 @class EHRApiServer;
 @class IBDeviceInfo;
@@ -24,6 +25,7 @@
 @class EulaModel;
 @class IBUserEula;
 @class IBConsent;
+@class IBStackList;
 
 @interface AppState : NSObject <EHRPersistableP, EHRLibStateDelegate> {
 
@@ -81,8 +83,8 @@
 @property(nonatomic, readonly) NSInteger        maximumNumberOfDevices;
 @property NSArray<IBConsent *>                  *consents;
 @property IBConsent                             *selectedConsent;
-@property (nonatomic, strong) NSString *stackKey;
-
+@property (nonatomic, strong) NSString          *stackKey;
+@property (nonatomic, strong) NSArray<IBStackList *> *stackLists;
 
 - (void)signPreferences;
 - (void)unsignPreferences;

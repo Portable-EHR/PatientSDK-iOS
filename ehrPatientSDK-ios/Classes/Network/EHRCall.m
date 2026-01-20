@@ -454,13 +454,13 @@ totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite {
     //NSURLRequestUseProtocolCachePolicy
     _url            = [self.serverRequest.server urlForRoute:self.serverRequest.route];
     
-    _urlRequest     = [NSMutableURLRequest requestWithURL:_url
-                                              cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
-                                          timeoutInterval:self.timeOut];
-    //Remove the below code and uncomment the above -> When in CA
 //    _urlRequest     = [NSMutableURLRequest requestWithURL:_url
-//                                              cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
-//                                          timeoutInterval:60];
+//                                              cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
+//                                          timeoutInterval:self.timeOut];
+    //Remove the below code and uncomment the above -> When in CA
+    _urlRequest     = [NSMutableURLRequest requestWithURL:_url
+                                              cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
+                                          timeoutInterval:60];
     [_urlRequest setHTTPMethod:@"POST"];
 
     NSString *postString = [self.serverRequest asJSON];

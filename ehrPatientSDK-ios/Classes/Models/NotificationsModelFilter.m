@@ -481,6 +481,7 @@ TRACE_OFF
         [_sortedKeys addObject:not.seq];
     }
 
+
     if (oldCursor) {
         if ([ar containsObject:oldCursor]) {
             // lets locate the new (possibly) index of our cursor

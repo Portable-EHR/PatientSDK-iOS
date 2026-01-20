@@ -26,7 +26,9 @@
     IBStackList *sl = [[IBStackList alloc] init];
     sl->_key                    = WantStringFromDic(theDictionary, @"key");
     if (theDictionary[@"name"]) sl->_name = [IBStackName objectWithContentsOfDictionary:theDictionary[@"name"]];
+    sl->_oamp_scheme            = WantStringFromDic(theDictionary, @"oamp_scheme");
     sl->_oamp_host              = WantStringFromDic(theDictionary, @"oamp_host");
+    sl->_oamp_port              = WantIntegerFromDic(theDictionary, @"oamp_port");
     return sl;
 }
 
@@ -34,7 +36,9 @@
     
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     PutStringInDic(self.key, dic, @"key");
+    PutStringInDic(self.oamp_scheme, dic, @"oamp_scheme");
     PutStringInDic(self.oamp_host, dic, @"oamp_host");
+    PutIntegerInDic(self.oamp_port, dic, @"oamp_port");
     return dic;
 }
 
