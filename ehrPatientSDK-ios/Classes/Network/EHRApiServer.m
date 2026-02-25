@@ -60,11 +60,7 @@ TRACE_OFF
     } else if ([host hasSuffix:@"portableehr.dev"]) {
         server.port          = 443;
         server.scheme        = @"https";
-        if ([kStackKey isEqual:@"CA.stackHub"]){
-            server.serverDNSname = @"stackhub.portableehr.dev";
-        }else{
-            server.serverDNSname = @"api.portableehr.dev";
-        }
+        server.serverDNSname = @"stackhub.portableehr.dev";
     } else if ([[PehrSDKConfig.shared getAppStackKey] isEqualToString:@"CA.local"]) {
         server.port          = 8080;
         server.scheme        = @"http";

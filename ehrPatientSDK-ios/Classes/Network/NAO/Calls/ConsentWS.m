@@ -108,6 +108,7 @@ TRACE_OFF
             
             NSDictionary *patientDict = responseDict[@"patients"];
             if ([patientDict isKindOfClass:[NSDictionary class]]) {
+                
                 NSArray *patientConsents = patientDict[@"all"];
                 if ([patientConsents isKindOfClass:[NSArray class]]) {
                     IBConsent *cep  = [IBConsent objectWithContentsOfDictionary:patientConsents.firstObject];
@@ -118,6 +119,37 @@ TRACE_OFF
                     }
                     [consents addObject:cep];
                 }
+                
+                for (NSString *patientKey in patientDict.allKeys) {
+                    
+                    NSArray *patientConsentArray = patientDict[patientKey];
+                    
+                    if (![patientConsentArray isKindOfClass:[NSArray class]]) {
+                        continue;
+                    }
+                    
+                    for (NSDictionary *consentDict in patientConsentArray) {
+                        if (![consentDict isKindOfClass:[NSDictionary class]]) {
+                            continue;
+                        }
+                        
+                        NSString *elementType = consentDict[@"consentableElementType"];
+                        
+                        if ([elementType isEqualToString:@"research_application_with_pii"]) {
+                            IBConsent *cep  = [IBConsent objectWithContentsOfDictionary:consentDict];
+                            NSString  *idee = cep.guid;
+                            if (!idee) {
+                                errorBlock(theCall);
+                                return;
+                            }
+                            [consents addObject:cep];
+                        }
+                        
+                    }
+                    
+                }
+                
+                
             }
         }
 
