@@ -11,9 +11,6 @@
 
 @implementation CompensationEvents
 
-//@synthesize description = _description;
-//@synthesize token = _token;
-//@synthesize status = _status;
 
 + (instancetype)objectWithJSON:(NSString *)jsonString {
     NSDictionary *dic = [NSDictionary dictionaryWithJSON:jsonString];
@@ -35,7 +32,9 @@
 
 + (id)objectWithContentsOfDictionary:(NSDictionary *)dic {
     CompensationEvents *ce= [[CompensationEvents alloc] init];
-    ce.amount = WantIntegerFromDic(dic, @"amount");
+//    ce.amount = WantIntegerFromDic(dic, @"amount");
+    id val = dic[@"amount"];
+    ce.amount = [val floatValue];
     ce.guid = WantStringFromDic(dic, @"guid");
     ce.eventDescription = WantDicFromDic(dic, @"description");
     return ce;

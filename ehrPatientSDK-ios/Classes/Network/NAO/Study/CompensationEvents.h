@@ -19,7 +19,7 @@
     
 }
 
-@property(nonatomic) NSInteger amount;
+@property(nonatomic) float amount;
 @property(nonatomic) NSString *guid;
 @property(nonatomic) NSDictionary *eventDescription;
 
