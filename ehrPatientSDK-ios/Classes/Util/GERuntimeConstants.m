@@ -283,7 +283,7 @@ NSDate *WantDateFromDic(NSDictionary *dic, NSString *key) {
     if ((val = dic[key])) {
         NSString        *dateAsString = val;
         NSDateFormatter *df           = [[NSDateFormatter alloc] init];
-        [df setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZ"];
+        [df setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
 //        NSLocale *posix = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
 //        [df setLocale:posix];
         [df setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"GMT"]];
@@ -405,7 +405,7 @@ NSDate *forever(void) {
 NSString *NetworkDateFromDate(NSDate *theDate) {
     if (!theDate) theDate          = [NSDate dateWithTimeIntervalSince1970:0];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZ"];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
     [dateFormatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"GMT"]];
 //    [dateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en"]];
     NSString *stringFromDate = [dateFormatter stringFromDate:theDate];
