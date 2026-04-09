@@ -258,8 +258,13 @@ localIPaddress:(NSString *)address
     };
 
     EHRCall *aic = [self.ws.commands getAppInfoCallWithSuccessBlock:aisb onError:aieb];
-    [aic startAsGuest];
-
+    
+    if ([aic.serverRequest.apiKey isEqual:@"K7ICfFOwS3ELdHfAzWBhPt"]){
+        [aic startAsGuest];
+    }else{
+        [aic start];
+    }
+    
 }
 -(void) echoOnInitialize {
     CGSize sz = [UIScreen mainScreen].bounds.size;

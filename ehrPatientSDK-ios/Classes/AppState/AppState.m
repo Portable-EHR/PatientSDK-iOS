@@ -230,7 +230,9 @@ static AppState   *_sharedInstance;
     appInfoRequest.command    = @"appinfo";
     appInfoRequest.apiKey     = [UserModel guest].user.apiKey;
     appInfoRequest.parameters = [NSMutableDictionary dictionary];
-
+    appInfoRequest.deviceGuid = nil;
+    
+    
     appInfoCall = [EHRCall callWithRequest:appInfoRequest
                                  onSuccess:^(EHRCall *call) {
                                      EHRServerResponse *resp = call.serverResponse;

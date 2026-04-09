@@ -8,6 +8,7 @@
 
 @interface ConsentsModel () {
     NSMutableDictionary *_consents;
+    NSMutableArray<IBConsent *> *_getAllConsents;
 }
 @end
 
@@ -15,7 +16,8 @@
 
 //region API
 - (NSArray <IBConsent *> *)allConsents {
-    return [_consents allValues];
+//    return [_consents allValues];
+    return _getAllConsents;
 }
 
 - (IBConsent *_Nullable)consentWithGuid:(NSString *)guid {
@@ -23,25 +25,25 @@
 }
 
 - (NSInteger)count {
-    return [_consents count];
+    return [_getAllConsents count];
 }
 
 - (IBConsent *_Nullable)getEula {
-    for (IBConsent *consent in [_consents allValues]) {
+    for (IBConsent *consent in _getAllConsents) {
         if (consent.isEula) return consent;
     }
     return nil;
 }
 
 - (IBConsent *_Nullable)getCCRP {
-    for (IBConsent *consent in [_consents allValues]) {
+    for (IBConsent *consent in _getAllConsents) {
         if (consent.isCCRP) return consent;
     }
     return nil;
 }
 
 - (IBConsent *_Nullable)getStudy {
-    for (IBConsent *consent in [_consents allValues]) {
+    for (IBConsent *consent in _getAllConsents) {
         if (consent.isStudy) return consent;
     }
     return nil;
@@ -50,8 +52,11 @@
 - (void)populateWithConsents:(NSArray<IBConsent *> *)pulledConsents {
     TRACE(@"populateWithConsents");
     [_consents removeAllObjects];
+    _getAllConsents = [NSMutableArray array];
+    
     for (IBConsent *consent in pulledConsents) {
         _consents[consent.guid] = consent;
+        [_getAllConsents addObject:consent];
         if (consent.isCCRP) {
             TRACE(@"Got CCRP : %@\n", [consent asDictionary]);
         }
@@ -59,6 +64,7 @@
     [PehrSDKConfig.shared.state.delegate onConsentsUpdate];
 
 }
+
 
 //endregion
 

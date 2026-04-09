@@ -15,8 +15,8 @@
 
 }
 
-@property(nonatomic) NSDate   *dateSeen;
-@property(nonatomic) NSDate   *dateConsented;
+@property(nonatomic) NSString *dateSeen;
+@property(nonatomic) NSString *dateConsented;
 @property(nonatomic) NSString *userGuid;
 @property(nonatomic) NSString *eulaGuid;
 @property(nonatomic) NSString *patientGuid;

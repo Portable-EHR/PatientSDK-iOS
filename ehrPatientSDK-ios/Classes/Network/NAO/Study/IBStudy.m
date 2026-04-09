@@ -34,7 +34,7 @@ TRACE_OFF
     study.plannedVisits              = WantIntegerFromDic(theDictionary, @"plannedVisits");
     study.title                      = WantStringFromDic(theDictionary, @"title");
     study.progress                   = WantStringFromDic(theDictionary, @"progress");
-    study.guid  = WantStringFromDic(theDictionary, @"guid");
+    study.guid                       = WantStringFromDic(theDictionary, @"guid");
     
 //    NSArray        *cohortsAsDics = WantArrayFromDic(theDictionary, @"cohorts");
 //    NSMutableArray *cohorts       = [NSMutableArray array];

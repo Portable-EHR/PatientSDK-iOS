@@ -97,6 +97,7 @@ static CFArrayRef certs;
     if (self.verbose) {
         MPLOG(@"Will initiate call with request: \n %@", [_serverRequest asJSON] );
     }
+    
     [self performSelector:@selector(fireUrlConnection) withObject:nil afterDelay:.001f];
     TRACE(@"just performed selector fireUrlConnection");
 
