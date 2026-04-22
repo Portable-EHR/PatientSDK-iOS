@@ -4,6 +4,7 @@
 //
 
 #import "IBPractitionerJurisdiction.h"
+#import "GERuntimeConstants.h"
 
 @implementation IBPractitionerJurisdiction
 TRACE_OFF

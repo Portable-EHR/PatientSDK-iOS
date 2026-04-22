@@ -5,6 +5,7 @@
 
 #import "EHRPersistableP.h"
 #import "IBMediaInfo.h"
+#import "GERuntimeConstants.h"
 
 @implementation IBMediaInfo
 

@@ -4,50 +4,55 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "EHRPersistableP.h"
 #import "GERuntimeConstants.h"
+#import "EHRLibStateDelegate.h"
 #import "IBConsent.h"
+#import "UserModel.h"
+#import "IBUser.h"
+#import "Patient.h"
+#import "Models.h"
+#import "IBStackList.h"
 
-@class IBUser;
-@class Patient;
-@class UserModel;
 @class EHRApiServer;
 @class IBDeviceInfo;
 @class UserDeviceSettings;
 @class PatientModel;
-@class Console;
-@protocol ConsoleProvider;
 @class AuthSequencer;
 @class ServicesModel;
 @class IBAppInfo;
 @class EulaModel;
 @class IBUserEula;
 @class IBConsent;
+@class IBStackList;
 
-@interface AppState : NSObject <EHRPersistableP> {
+@interface AppState : NSObject <EHRPersistableP, EHRLibStateDelegate> {
 
-    NSInteger            _instanceNumber;
-    NSInteger            _appBadgeNumber;
-    NSInteger            _appBadgeNumberAtStart;
-    UserModel            *_userModel;
-    ServicesModel        *_servicesModel;
-    PatientModel         *_patientModel;
-    EulaModel            *_eulaModel;
-    Patient              *_patient;
-    NSString             *_deviceLanguage;
-    SenderBlock          _resetDeviceSuccess,
-                         _resetDeviceError,
-                         _initializeUserSuccessBlock,
-                         _initializeUserErrorBlock;
-    VoidBlock            _setUserSuccess,
-                         _setUserError;
-    EHRApiServer         *_server;
-    BOOL                 _isForegroundRefreshActivated, _isBackgroundRefreshActivated, _isInBackground, _isDoingOneRefresh;
-    NSTimer              *_autoRefreshTimer;
-    VoidBlock            _refreshCompletionBlock;
-    BOOL                 _isServerReachable;
-    BOOL                 _isPrivacyCompromised;
-    AuthSequencer        *_authSequencer;
+    NSInteger          _instanceNumber;
+    NSInteger          _appBadgeNumber;
+    NSInteger          _appBadgeNumberAtStart;
+    UserModel          *_userModel;
+    NotificationsModel *_notificationsModel;
+    ServicesModel      *_servicesModel;
+    PatientModel       *_patientModel;
+    EulaModel          *_eulaModel;
+    Patient            *_patient;
+    NSString           *_deviceLanguage;
+    SenderBlock        _resetDeviceSuccess,
+                       _resetDeviceError,
+                       _initializeUserSuccessBlock,
+                       _initializeUserErrorBlock;
+    VoidBlock          _setUserSuccess,
+                       _setUserError;
+    EHRApiServer       *_server;
+    BOOL               _isForegroundRefreshActivated, _isBackgroundRefreshActivated, _isInBackground, _isDoingOneRefresh;
+    NSTimer            *_autoRefreshTimer;
+    VoidBlock          _refreshCompletionBlock;
+    BOOL               _isServerReachable;
+    BOOL               _isPrivacyCompromised;
+    AuthSequencer      *_authSequencer;
+    NSString           *_stackKey;
 
 }
 
@@ -56,6 +61,7 @@
 @property(nonatomic) NSInteger                  appBadgeNumber;
 @property(nonatomic) NSInteger                  appBadgeNumberAtStart;
 @property(nonatomic, readonly) UserModel        *userModel;
+@property(nonatomic) NotificationsModel         *notificationsModel;
 @property(nonatomic, readonly) ServicesModel    *servicesModel;
 @property(nonatomic, readonly) EulaModel        *eulaModel;
 @property(nonatomic, readonly) IBUser           *user;
@@ -68,7 +74,6 @@
 @property NSDate                                *timeOfLastSync;
 @property(nonatomic, readonly) BOOL             isAppUsable;
 @property(nonatomic, readonly) BOOL             isServerReachable;
-@property(nonatomic, readonly) BOOL             isActivityIndicatorVisible;
 @property(nonatomic, readonly) BOOL             isForegroundRefreshActivated;
 @property(nonatomic, readonly) BOOL             isInBackground;
 @property(nonatomic) NSString                   *deviceLanguage;
@@ -78,6 +83,8 @@
 @property(nonatomic, readonly) NSInteger        maximumNumberOfDevices;
 @property NSArray<IBConsent *>                  *consents;
 @property IBConsent                             *selectedConsent;
+@property (nonatomic, strong) NSString          *stackKey;
+@property (nonatomic, strong) NSArray<IBStackList *> *stackLists;
 
 - (void)signPreferences;
 - (void)unsignPreferences;
@@ -112,10 +119,7 @@
 
 // some dohickies we will need everywhere in the app
 
-- (void)setNetworkActivityIndicatorVisible:(BOOL)setVisible;
 - (void)setApplicationIconBadgeNumber:(NSInteger)number;
 - (void)resetApplicationBadgeNumber;
-
-- (BOOL)saveOnDevice;
 
 @end

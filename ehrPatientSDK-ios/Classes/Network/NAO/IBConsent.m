@@ -4,13 +4,11 @@
 //
 //
 
-#import <Foundation/Foundation.h>
-#import "GEDeviceHardware.h"
-#import "IBAppSummary.h"
 #import "IBConsent.h"
-
+#import "GERuntimeConstants.h"
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
+
 @implementation IBConsent
 
 @synthesize guid = _guid;
@@ -18,16 +16,20 @@
 @synthesize consentableElementType = _consentableElementType;
 @synthesize activeFrom = _activeFrom;
 @synthesize title = _title;
-@synthesize description = _description;
+@synthesize descriptionText = _descriptionText;
 @synthesize consent = _consent;
 @synthesize active = _active;
+@synthesize consentsArr = _consentsArr;
+@synthesize stackKey = _stackKey;
+@dynamic isEula;
+@dynamic isCCRP;
 TRACE_OFF
 
 - (instancetype)init {
     if ((self = [super init])) {
         GE_ALLOC();
         GE_ALLOC_ECHO();
-
+        _consentsArr = [NSMutableArray array];
     } else {
         TRACE(@"*** super returned nil!");
     }
@@ -37,29 +39,43 @@ TRACE_OFF
 - (void)dealloc {
     GE_DEALLOC();
     GE_DEALLOC_ECHO();
-    _guid   = nil;
-    _alias    = nil;
+    _guid                   = nil;
+    _alias                  = nil;
     _consentableElementType = nil;
-    _activeFrom    = nil;
-    _title       = nil;
-    _description    = nil;
-    _consent   = nil;
-    _active   = false;
+    _activeFrom             = nil;
+    _title                  = nil;
+    _descriptionText        = nil;
+    _consent                = nil;
+    _active                 = false;
 }
 
 + (instancetype)objectWithContentsOfDictionary:(NSDictionary *)dic {
 
     IBConsent *pa = [[self alloc] init];
-    pa->_guid                                           = WantStringFromDic(dic, @"guid");
-    pa->_alias                                          = WantStringFromDic(dic, @"alias");
-    pa->_consentableElementType                         = WantStringFromDic(dic, @"consentableElementType");
-    pa->_activeFrom                                     = WantStringFromDic(dic, @"activeFrom");
+    pa->_guid                   = WantStringFromDic(dic, @"guid");
+    pa->_alias                  = WantStringFromDic(dic, @"alias");
+    pa->_consentableElementType = WantStringFromDic(dic, @"consentableElementType");
+    pa->_activeFrom             = WantStringFromDic(dic, @"activeFrom");
+    pa->_stackKey               = WantStringFromDic(dic, @"stackKey");
+    pa->_title           = [IBRenderableText objectWithContentsOfDictionary:dic[@"title"]];
+    pa->_descriptionText = [IBRenderableText objectWithContentsOfDictionary:dic[@"description"]];
+
+    id consentValue = dic[@"consents"];
     
-    pa->_title                                          = [IBConsentInfo objectWithContentsOfDictionary:[dic objectForKey:@"title"]];
-    pa->_description                                    = [IBConsentInfo objectWithContentsOfDictionary:[dic objectForKey:@"description"]];
-    pa->_consent                                        = [IBConsentGranted objectWithContentsOfDictionary:[dic objectForKey:@"consent"]];
+    if ([pa->_consentableElementType isEqualToString:@"research_notifications"]) {
+            // Handle array of consents
+            for (NSDictionary *consentDict in consentValue) {
+                IBConsentGranted *consent = [IBConsentGranted objectWithContentsOfDictionary:consentDict];
+                if (consent) {
+                    [pa->_consentsArr addObject:consent];
+                }
+            }
+    }else{
+        pa->_consent         = [IBConsentGranted objectWithContentsOfDictionary:dic[@"consent"]];
+    }
     
-    pa->_active                                         = WantBoolFromDic(dic, @"active");
+    
+    pa->_active = WantBoolFromDic(dic, @"active");
 
     return pa;
 }
@@ -71,11 +87,12 @@ TRACE_OFF
     PutStringInDic(self.alias, dic, @"alias");
     PutStringInDic(self.consentableElementType, dic, @"consentableElementType");
     PutStringInDic(self.activeFrom, dic, @"activeFrom");
+    PutStringInDic(self.stackKey, dic, @"stackKey");
     
-    if (self.title) [dic setObject:[self.title asDictionary] forKey:@"title"];
-    if (self.description) [dic setObject:[self.description asDictionary] forKey:@"description"];
-    if (self.consent) [dic setObject:[self.consent asDictionary] forKey:@"consent"];
-    
+    if (self.title) dic[@"title"]                 = [self.title asDictionary];
+    if (self.descriptionText) dic[@"description"] = [self.descriptionText asDictionary];
+    if (self.consent) dic[@"consent"]             = [self.consent asDictionary];
+
     PutBoolInDic(self.active, dic, @"active");
     return dic;
 
@@ -103,5 +120,22 @@ TRACE_OFF
     return _consent;
 }
 
+//region API
+-(BOOL)isEula {
+    return [_consentableElementType isEqualToString:@"eula"];
+}
+
+-(BOOL) isCCRP {
+    return [_consentableElementType isEqualToString:@"research_notifications"];
+}
+
+-(BOOL) isStudy {
+    return [_consentableElementType isEqualToString:@"research_application_with_pii"];
+}
+
+
+//endregion
+
 @end
+
 #pragma clang diagnostic pop

@@ -4,6 +4,7 @@
 //
 
 #import "GEMacros.h"
+#import "GERuntimeConstants.h"
 
 @implementation NSDictionary (JSON)
 + (id)dictionaryWithJSONdata:(NSData *)jsonData {
@@ -24,15 +25,25 @@
 
 - (NSData *)asJSONdata {
     NSError *error;
-    NSData  *jsonData = [NSJSONSerialization dataWithJSONObject:self
-                                                        options:NSJSONWritingPrettyPrinted
-                                                          error:&error];
+    NSData *jsonData;
+    if (@available(iOS 13.0, *)) {
+        jsonData = [NSJSONSerialization dataWithJSONObject:self
+                                                            options:NSJSONWritingPrettyPrinted+ NSJSONWritingWithoutEscapingSlashes
+                                                              error:&error];
+        
 
+    } else {
+        // Fallback on earlier versions
+        
+        jsonData = [NSJSONSerialization dataWithJSONObject:self
+                                                            options:NSJSONWritingPrettyPrinted
+                                                              error:&error];
+    }
     if (error) {
         MPLOG(@"*** Error while converting to JSON data : %@", error.localizedDescription);
         return nil;
     } else {
-
+        
         return jsonData;
     }
 }

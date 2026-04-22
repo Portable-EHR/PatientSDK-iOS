@@ -20,6 +20,7 @@
 
 + (EHRApiServer *)defaultApiServer;
 + (EHRApiServer *)serverForHost:(NSString *)host;
++ (EHRApiServer *) serverForRoute:(NSString *) route andCommand:(NSString*) command;
 +(EHRApiServer *) serverForStackKey:(NSString *) stackKey;
 
 - (NSURL *)urlForRoute:(NSString *)route;

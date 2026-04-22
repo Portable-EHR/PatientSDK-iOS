@@ -18,7 +18,7 @@
 + (BOOL)isPhone;
 + (BOOL)isTablet;
 + (BOOL)isIpod;
-+ (BOOL)isDumbAssPhone;
-+ (BOOL)isDumbAssIpad;
-+(CGBounds) windowCrop;
++ (BOOL)isCroppingPhone;
++ (BOOL)isCroppingIpad;
++ (BOOL) isTouchIDAvailable;
 @end

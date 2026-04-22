@@ -5,6 +5,7 @@
 
 #import "IBUserEula.h"
 #import "Version.h"
+#import "GERuntimeConstants.h"
 
 @implementation IBUserEula
 
@@ -33,8 +34,8 @@ TRACE_OFF
 
 + (instancetype)objectWithContentsOfDictionary:(NSDictionary *)dic {
     IBUserEula *pa = [[self alloc] init];
-    pa.dateSeen      = WantDateFromDic(dic, @"dateSeen");
-    pa.dateConsented = WantDateFromDic(dic, @"dateConsented");
+    pa.dateSeen      = WantStringFromDic(dic, @"dateSeen");
+    pa.dateConsented = WantStringFromDic(dic, @"dateConsented");
     pa.userGuid      = WantStringFromDic(dic, @"userGuid");
     pa.patientGuid   = WantStringFromDic(dic, @"patientGuid");
     pa.scope         = WantStringFromDic(dic, @"scope");
@@ -48,8 +49,8 @@ TRACE_OFF
 
 - (NSDictionary *)asDictionary {
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-    PutDateInDic(self.dateConsented, dic, @"dateConsented");
-    PutDateInDic(self.dateSeen, dic, @"dateSeen");
+    PutStringInDic(self.dateConsented, dic, @"dateConsented");
+    PutStringInDic(self.dateSeen, dic, @"dateSeen");
     PutStringInDic(self.userGuid, dic, @"userGuid");
     PutStringInDic(self.eulaGuid, dic, @"eulaGuid");
     PutStringInDic(self.patientGuid, dic, @"patientGuid");

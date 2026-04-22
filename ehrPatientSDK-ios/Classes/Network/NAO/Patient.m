@@ -15,6 +15,7 @@ TRACE_OFF
     if ((self = [super init])) {
         GE_ALLOC();
         GE_ALLOC_ECHO();
+        self.responders          = [NSMutableArray array];
     } else {
         TRACE(@"*** super returned nil!");
     }
@@ -30,6 +31,68 @@ TRACE_OFF
     return ylb;
 }
 
++ (instancetype)patientOne {
+    Patient *patient = [[self alloc] init];
+    patient.firstName = @"Test";
+    patient.name = @"Johnson";
+    patient.guid = @"12345678-e89b-12d3-a456-426614174001";
+    patient.gender = @"F";
+    patient.dateOfBirth = [NSDate dateWithTimeIntervalSince1970:315532800]; // 1980-01-01
+    patient.lastUpdated = [NSDate date]; // Current date
+    
+    IBContact *contact = [[IBContact alloc] init];
+    contact.firstName = @"Test";
+    contact.name = @"Johnson";
+    contact.guid = @"130d4920-b582-4573-9077-d4355f15980f";
+    contact.email = @"alice.johnson@mailinator.com";
+    contact.mobilePhone = @"+1 514-219-1111";
+    patient.contact = contact;
+    
+    return patient;
+}
+
++ (instancetype)patientTwo {
+    Patient *patient = [[self alloc] init];
+    patient.firstName = @"Bob";
+    patient.name = @"Smith";
+    patient.guid = @"123e4567-e89b-12d3-a456-426614174002";
+    patient.gender = @"M";
+    patient.dateOfBirth = [NSDate dateWithTimeIntervalSince1970:631152000]; // 1990-01-01
+    patient.lastUpdated = [NSDate date]; // Current date
+    
+    IBContact *contact = [[IBContact alloc] init];
+    contact.firstName = @"Bob";
+    contact.name = @"Smith";
+    contact.guid = @"230d4920-b582-4573-9077-d4355f15980f";
+    contact.email = @"bob.smith@mailinator.com";
+    contact.mobilePhone = @"+1 514-219-2222";
+    patient.contact = contact;
+    
+    return patient;
+}
+
++ (instancetype)patientThree {
+    Patient *patient = [[self alloc] init];
+    patient.firstName = @"Charlie";
+    patient.name = @"Davis";
+    patient.guid = @"123e4567-e89b-12d3-a456-426614174003";
+    patient.gender = @"M";
+    patient.dateOfBirth = [NSDate dateWithTimeIntervalSince1970:946684800]; // 2000-01-01
+    patient.lastUpdated = [NSDate date]; // Current date
+    
+    IBContact *contact = [[IBContact alloc] init];
+    contact.firstName = @"Charlie";
+    contact.name = @"Davis";
+    contact.guid = @"330d4920-b582-4573-9077-d4355f15980f";
+    contact.email = @"charlie.davis@mailinator.com";
+    contact.mobilePhone = @"+1 514-219-3333";
+    patient.contact = contact;
+    
+    
+    return patient;
+}
+
+
 
 + (instancetype)objectWithContentsOfDictionary:(NSDictionary *)dic {
     id      val = nil;
@@ -44,6 +107,17 @@ TRACE_OFF
     if ((val = [dic objectForKey:@"address"])) pa.address = [IBAddress objectWithContentsOfDictionary:val];
     pa.dateRegistered = WantDateFromDic(dic, @"dateRegistered");
     pa.lastUpdated    = WantDateFromDic(dic, @"lastUpdated");
+    pa.unreadNotifications = WantIntegerFromDic(dic, @"unreadNotifications");
+    
+    if ((val = dic[@"responders"])) {
+        for (NSDictionary *resAsdIC in val) {
+            IBResponder *res = [IBResponder objectWithContentsOfDictionary:resAsdIC];
+            [pa.responders addObject:res];
+        }
+    }
+    
+//    if ((val = [dic objectForKey:@"responders"])) pa.responder = [IBResponder objectWithContentsOfDictionary:val];
+    
     return pa;
 }
 
@@ -59,6 +133,7 @@ TRACE_OFF
     PutDateInDic(self.dateOfBirth, dic, @"dateOfBirth");
     PutDateInDic(self.dateRegistered, dic, @"dateRegistered");
     PutDateInDic(self.lastUpdated, dic, @"lastUpdated");
+    PutIntegerInDic(self.unreadNotifications, dic, @"unreadNotifications");
     return dic;
 }
 

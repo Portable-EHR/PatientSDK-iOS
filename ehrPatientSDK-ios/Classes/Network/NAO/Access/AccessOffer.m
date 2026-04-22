@@ -5,7 +5,7 @@
 
 #import "AccessOffer.h"
 #import "IBUserInfo.h"
-#import "GEMacros.h"
+#import "GERuntimeConstants.h"
 
 @implementation AccessOffer
 

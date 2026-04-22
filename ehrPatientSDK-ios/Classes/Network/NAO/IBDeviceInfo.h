@@ -8,10 +8,7 @@
 #import "EHRNetworkableP.h"
 #import "GEMacros.h"
 #import "NSDictionary+JSON.h"
-
-@class NotificationsModelFilter;
-@class PatientModel;
-@class IBAppSummary;
+#import "IBAppSummary.h"
 
 @interface IBDeviceInfo : NSObject <EHRInstanceCounterP, EHRNetworkableP, EHRPersistableP> {
     NSInteger    _instanceNumber;

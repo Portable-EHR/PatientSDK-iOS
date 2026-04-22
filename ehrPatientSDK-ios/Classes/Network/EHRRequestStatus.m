@@ -4,7 +4,7 @@
 //
 
 #import "EHRRequestStatus.h"
-#import "GEMacros.h"
+#import "GERuntimeConstants.h"
 
 @implementation EHRRequestStatus
 

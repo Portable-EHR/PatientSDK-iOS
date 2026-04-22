@@ -3,7 +3,14 @@
 // Copyright (c) 2015-2019 Portable EHR inc. All rights reserved.
 //
 
-#import "Version.h"
+#include "Version.h"
+#include "GERuntimeConstants.h"
+
+@interface Version() {
+    NSInteger _instanceNumber;
+}
+
+@end
 
 @implementation Version
 

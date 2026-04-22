@@ -10,8 +10,8 @@
 #import "NotificationsModel.h"
 #import "PatientModel.h"
 #import "UserDeviceSettings.h"
-#import "MessagesModel.h"
 #import "ServicesModel.h"
+#import "PehrSDKConfig.h"
 
 @implementation UserModel
 
@@ -20,13 +20,13 @@ static NSString   *_usersDirectory;
 static GEFileUtil *_fileUtils;
 
 @synthesize user = _user;
-@synthesize notificationsModel = _notificationsModel;
 @synthesize servicesModel = _servicesModel;
-@synthesize messagesModel = _messagesModel;
 @synthesize patientModels = _patientModels;
 @synthesize deviceSettings = _deviceSettings;
 @dynamic isGuest;
-TRACE_OFF
+@dynamic isSDKuserUsable;
+
+TRACE_ON
 
 + (void)initialize {
     _fileUtils      = [GEFileUtil sharedFileUtil];
@@ -40,9 +40,7 @@ TRACE_OFF
         GE_ALLOC();
         GE_ALLOC_ECHO();
         _lastRefreshed      = [NSDate dateWithTimeIntervalSince1970:0];
-        _notificationsModel = [[NotificationsModel alloc] init];
         _servicesModel      = [[ServicesModel alloc] init];
-        _messagesModel      = [[MessagesModel alloc] init];
         _patientModels      = [NSMutableDictionary dictionary];
         _deviceSettings     = [[UserDeviceSettings alloc] init];
     } else {
@@ -66,20 +64,20 @@ TRACE_OFF
 
     if (user.patient) {
         PatientModel *pm = [PatientModel patientModelFor:user.patient];
-        [us->_patientModels setObject:pm forKey:user.patient.guid];
+        us->_patientModels[user.patient.guid] = pm;
     }
 
     if (user.proxies.count > 0) {
         for (Patient *pa in [user.proxies allValues]) {
             PatientModel *pm = [PatientModel patientModelFor:pa];
-            [us->_patientModels setObject:pm forKey:pa.guid];
+            us->_patientModels[pa.guid] = pm;
         }
     }
 
     if (user.visits.count > 0) {
         for (Patient *pa in [user.visits allValues]) {
             PatientModel *pm = [PatientModel patientModelFor:pa];
-            [us->_patientModels setObject:pm forKey:pa.guid];
+            us->_patientModels[pa.guid] = pm;
         }
     }
 
@@ -91,6 +89,12 @@ TRACE_OFF
 }
 
 #pragma mark - model stuff
+
+-(BOOL)isSDKuserUsable {
+    if (!self.user) return NO;
+    if (self.isGuest) return NO;
+    return [self.user.status isEqualToString:@"active"];
+}
 
 - (BOOL)isGuest {
     return [self.user.role isEqualToString:@"guest"];
@@ -128,6 +132,18 @@ TRACE_OFF
     return NO;
 }
 
+- (void)setDeviceMobileVerified:(BOOL)isIt {
+    self.user.mobileVerified=isIt;
+    self.user.deviceMobileVerified = isIt;
+    [PehrSDKConfig .shared.state.delegate onUserInfoUpdate];
+}
+
+- (void)setDeviceEmailVerified:(BOOL)isIt {
+    self.user.emailVerified=isIt;
+    self.user.deviceEmailVerified = isIt;
+    [PehrSDKConfig .shared.state.delegate onUserInfoUpdate];
+}
+
 #pragma mark - EHRPersistableP
 
 + (UserModel *)objectWithJSON:(NSString *)jsonString {
@@ -152,19 +168,19 @@ TRACE_OFF
 
 - (NSDictionary *)asDictionary {
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-    [dic setObject:[_user asDictionary] forKey:@"user"];
+    dic[@"user"] = [_user asDictionary];
     PutDateInDic(_lastRefreshed, dic, @"lastRefreshed");
-    if (self.deviceSettings) [dic setObject:[self.deviceSettings asDictionary] forKey:@"deviceSettings"];
+    if (self.deviceSettings) dic[@"deviceSettings"] = [self.deviceSettings asDictionary];
     return dic;
 }
 
 + (instancetype)objectWithContentsOfDictionary:(NSDictionary *)dic {
     UserModel *nm = [[self alloc] init];
-    nm->_user          = [IBUser objectWithContentsOfDictionary:[dic objectForKey:@"user"]];
+    nm->_user          = [IBUser objectWithContentsOfDictionary:dic[@"user"]];
     nm->_lastRefreshed = WantDateFromDic(dic, @"lastRefreshed");
 
     id val;
-    if ((val = [dic objectForKey:@"deviceSettings"])) {
+    if ((val = dic[@"deviceSettings"])) {
         nm.deviceSettings = [UserDeviceSettings objectWithContentsOfDictionary:val];
     } else {
         nm.deviceSettings = [[UserDeviceSettings alloc] init];
@@ -233,51 +249,9 @@ TRACE_OFF
     NSDictionary *dic      = [NSDictionary dictionaryWithContentsOfFile:fileName];
     UserModel    *um       = [self objectWithContentsOfDictionary:dic];
 
-    if (doCascade) {
-        um->_notificationsModel = [NotificationsModel readFromDevice];
-        if (um.user.patient) {
-            PatientModel *pm = [PatientModel patientModelFor:um.user.patient];
-            [pm readFromDevice:doCascade];
-            [um->_patientModels setObject:pm forKey:um.user.patient.guid];
-        }
 
-        if (um.user.proxies.count > 0) {
-            for (Patient *pa in [um.user.proxies allValues]) {
-                PatientModel *pm = [PatientModel patientModelFor:pa];
-                [pm readFromDevice:doCascade];
-                [um->_patientModels setObject:pm forKey:pa.guid];
-            }
-        }
-
-        if (um.user.visits.count > 0) {
-            for (Patient *pa in [um.user.proxies allValues]) {
-                PatientModel *pm = [PatientModel patientModelFor:pa];
-                [pm readFromDevice:doCascade];
-                [um->_patientModels setObject:pm forKey:pa.guid];
-            }
-        }
-
-    }
 
     return um;
-}
-
-- (void)readNotificationsModelFromDevice {
-    self->_notificationsModel = [NotificationsModel readFromDevice];
-    [_notificationsModel refreshFilters];
-}
-
-- (BOOL)eraseFromDevice:(BOOL)cascade {
-    if (cascade) {
-        [self.notificationsModel eraseFromDevice:NO]; // dont propagate, we will do brutal delete below
-        self->_notificationsModel = [[NotificationsModel alloc] init];
-        [self->_patientModels removeAllObjects];
-        [[GEFileUtil sharedFileUtil] eraseItemWithFQN:[[GEFileUtil sharedFileUtil] getUserResourcesPath]];
-        [[GEFileUtil sharedFileUtil] eraseItemWithFQN:[[GEFileUtil sharedFileUtil] getUserPatientsPath]];
-    }
-    // clanout patients
-
-    return [[GEFileUtil sharedFileUtil] eraseItemWithFQN:_usersDirectory];
 }
 
 - (void)updateUserInfo:(IBUser *)newInfo {
@@ -308,17 +282,19 @@ TRACE_OFF
     if (newInfo.proxies) old.proxies                        = newInfo.proxies;
     if (newInfo.userServiceModel) old.userServiceModel      = newInfo.userServiceModel;
     if (newInfo.visits) old.visits                          = newInfo.visits;
-    old.emailVerified  = newInfo.emailVerified;
-    old.mobileVerified = newInfo.mobileVerified;
-    old.deviceEmailVerified = newInfo.deviceEmailVerified;
+    old.emailVerified        = newInfo.emailVerified;
+    old.mobileVerified       = newInfo.mobileVerified;
+    old.deviceEmailVerified  = newInfo.deviceEmailVerified;
     old.deviceMobileVerified = newInfo.deviceMobileVerified;
-    old.forcePasswordChange = newInfo.forcePasswordChange;
-    old.identityVerified = newInfo.identityVerified;
+    old.forcePasswordChange  = newInfo.forcePasswordChange;
+    old.identityVerified     = newInfo.identityVerified;
+    old.dependants           = newInfo.dependants;
 
     if (saveIt) {
         BOOL result = self.saveOnDevice;
         MPLOG(@"Saved user model with result %@", NSStringFromBool(result));
     }
+
 }
 
 /**
@@ -348,8 +324,6 @@ TRACE_OFF
 
     _deviceSettings     = nil;
     _user               = nil;
-    _notificationsModel = nil;
-    _messagesModel      = nil;
     _lastRefreshed      = nil;
     [_patientModels removeAllObjects];
     _patientModels = nil;

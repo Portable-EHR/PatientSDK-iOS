@@ -11,6 +11,7 @@
 #import "AppState.h"
 #import "SecureCredentials.h"
 #import "UserCredentials.h"
+#import "IBUser.h"
 #import <TrustKit/TrustKit.h>
 
 @implementation EHRCall
@@ -26,27 +27,6 @@ static CFArrayRef certs;
 @dynamic isCallInProgress;
 
 + (void)initialize {
-
-    // for self signed certificate, for xip.io
-    // from http://stackoverflow.com/questions/11615237/nsurlconnection-sendasynchronousrequest-and-self-signed-certificates
-
-    // I had a crt certificate, needed a der one, so found this site:
-    // http://fixunix.com/openssl/537621-re-der-crt-file-conversion.html
-    // and did this from Terminal: openssl x509 -in crt.crt -outform der -out crt.der
-
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"xip.io" ofType:@"der"];
-    assert(path);
-    NSData *data = [NSData dataWithContentsOfFile:path];
-    assert(data);
-
-    SecCertificateRef rootcert = SecCertificateCreateWithData(NULL, (__bridge CFDataRef) data);
-    if (rootcert) {
-        const void *array[1] = {rootcert};
-        certs = CFArrayCreate(NULL, array, 1, &kCFTypeArrayCallBacks);
-        CFRelease(rootcert);    // for completeness, really does not matter
-    } else {
-        MPLOG(@"BIG TROUBLE - ROOT CERTIFICATE FAILED!");
-    }
 }
 
 - (id)init {
@@ -82,11 +62,16 @@ static CFArrayRef certs;
     MPLOGERROR(@"The creds : \n%@", [[[SecureCredentials sharedCredentials] asDictionary] asJSON]);
 }
 
-- (BOOL)start {
+-(void)startAsGuest {
+    self.serverRequest.apiKey=[IBUser guest].apiKey;
+    [self start];
+}
+
+- (void)start {
 
     if (_isCallingServer) {
         MPLOG(@"*** Attempt to call while a call is already in progress.");
-        return NO;
+        return;
     }
 
     if (nil == self.serverRequest
@@ -109,13 +94,15 @@ static CFArrayRef certs;
     [self cleanupForNextCall];
 
     [self makeFreshURLconnection];
+    if (self.verbose) {
+        MPLOG(@"Will initiate call with request: \n %@", [_serverRequest asJSON] );
+    }
+    
     [self performSelector:@selector(fireUrlConnection) withObject:nil afterDelay:.001f];
     TRACE(@"just performed selector fireUrlConnection");
 
     _isCallingServer     = YES;
     _wasResponseReceived = NO;
-    [[AppState sharedAppState] setNetworkActivityIndicatorVisible:YES];
-    return YES;
 }
 
 - (BOOL)isCallInProgress {
@@ -154,8 +141,9 @@ static CFArrayRef certs;
     MPLOGERROR(@"*** Cleaning up , route    %@[%@]", self.serverRequest.route, self.serverRequest.command);
     MPLOGERROR(@"*** Cleaning up , api key  [%@]", self.serverRequest.apiKey);
     MPLOGERROR(@"*** Cleaning up , dev guid [%@]", self.serverRequest.deviceGuid);
+    MPLOGERROR(@"*** Cleaning up , stack key [%@]", self.serverRequest.stackKey);
     if (self.serverRequest.parameters) {
-        MPLOGERROR(@"*** Cleaning up , parameters\n[%@]", [self.serverRequest.parameters asJSON]);
+        MPLOGERROR(@"*** Cleaning up , parameters\n%@", [self.serverRequest.parameters asJSON]);
     }
     if (_onEnd) _onEnd();
     if (!_wasResponseReceived) {
@@ -173,7 +161,6 @@ static CFArrayRef certs;
         _onError(self);
     }
     [self cleanupForNextCall];
-    [[AppState sharedAppState] setNetworkActivityIndicatorVisible:NO];
 
 }
 
@@ -186,7 +173,6 @@ static CFArrayRef certs;
     }
 
     [self cleanupForNextCall];
-    [[AppState sharedAppState] setNetworkActivityIndicatorVisible:NO];
 
 }
 
@@ -257,7 +243,10 @@ static CFArrayRef certs;
 
     err = SecTrustSetAnchorCertificates(trust, certs);
     if (err == noErr) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
         err = SecTrustEvaluate(trust, &trustResult);
+#pragma clang diagnostic pop
         if (err == noErr) {
             // http://developer.apple.com/library/mac/#qa/qa1360/_index.html
             switch (trustResult) {
@@ -367,7 +356,9 @@ didReceiveResponse:(NSURLResponse *)response {
     // we could receive chunks asyn, lets handle all chunks. When the server closes
     // we will receive a 'didReceiveResponse' where we can unpack the whole thing.
 
+   
     [_responseData appendData:data];
+    
 
 }
 
@@ -410,6 +401,7 @@ totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite {
             TRACE(@"Received : \n%@", [[NSString alloc] initWithData:_responseData encoding:NSUTF8StringEncoding]);
         }
         self->_serverResponse = [EHRServerResponse objectWithContentsOfDictionary:dic];
+//        MPLOG(@"Response serverResponse: %@", _serverResponse.responseContent);
         _wasResponseReceived = YES;
 
         if ([_serverResponse.requestStatus.status isEqualToString:@"OK"]) {
@@ -462,9 +454,14 @@ totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite {
     //NSURLRequestReloadIgnoringLocalCacheData
     //NSURLRequestUseProtocolCachePolicy
     _url            = [self.serverRequest.server urlForRoute:self.serverRequest.route];
+    
+//    _urlRequest     = [NSMutableURLRequest requestWithURL:_url
+//                                              cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
+//                                          timeoutInterval:self.timeOut];
+    //Remove the below code and uncomment the above -> When in CA
     _urlRequest     = [NSMutableURLRequest requestWithURL:_url
-                                              cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
-                                          timeoutInterval:self.timeOut];
+                                              cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
+                                          timeoutInterval:60];
     [_urlRequest setHTTPMethod:@"POST"];
 
     NSString *postString = [self.serverRequest asJSON];
@@ -482,6 +479,7 @@ totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite {
     _attemptNumber++;
 
 }
+
 
 - (void)setOnStart:(VoidBlock)onStart {
     if (_onStart) _onStart = nil;

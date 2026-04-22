@@ -7,6 +7,7 @@
 #import "IBVersion.h"
 #import "IBAgentInfo.h"
 #import "IBCapability.h"
+#import "GERuntimeConstants.h"
 
 @implementation IBService
 

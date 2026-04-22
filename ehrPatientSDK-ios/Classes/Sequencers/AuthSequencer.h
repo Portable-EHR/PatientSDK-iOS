@@ -5,13 +5,12 @@
 
 #import <Foundation/Foundation.h>
 #import "EHRInstanceCounterP.h"
-//#import "MenuButton.h"
+#import "EHRLibRuntimeGlobals.h"
 
 @class AppState;
 @class EHRApiServer;
-@class Console;
-@class MenuButton;
 @class IBDeviceInfo;
+@class LAContext;
 
 @interface AuthSequencer : NSObject <EHRInstanceCounterP> {
     NSInteger _instanceNumber;

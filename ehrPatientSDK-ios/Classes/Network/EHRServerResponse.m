@@ -3,6 +3,7 @@
 // Copyright (c) 2015-2019 Portable EHR inc. All rights reserved.
 //
 
+#import "GERuntimeConstants.h"
 #import "EHRServerResponse.h"
 #import "EHRRequestStatus.h"
 #import "GEMacros.h"

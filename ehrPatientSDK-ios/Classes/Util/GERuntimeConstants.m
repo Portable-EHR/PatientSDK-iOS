@@ -6,12 +6,8 @@
 //  // Copyright (c) 2015-2019 Portable EHR inc. All rights reserved.
 //
 
-
-#import "EHRInstanceCounterP.h"
 #import "GEDeviceHardware.h"
-#import "Version.h"
-#import "EHRPersistableP.h"
-#import "GEMacros.h"
+#import "PehrSDKConfig.h"
 
 #pragma clang diagnostic push
 #pragma ide diagnostic ignored "OCUnusedMethodInspection"
@@ -22,43 +18,22 @@ NSString *kAppGuid;
 
 NSString *kSystemVersion = @"000000";
 
-NSString     *kNotificationsModelRefreshNotification = @"kNotificationsModelRefreshNotification";
-NSString     *kEulaModelRefreshNotification          = @"kEulaModelRefreshNotification";
-NSString     *kPatientModelRefreshNotification       = @"kPatientModelRefreshNotification";
-NSString     *kUserModelRefreshNotification          = @"kUserModelRefreshNotification";
-NSString     *kUserDeactivatedNotification           = @"kUserDeactivatedNotification";
-NSString     *kAppWillResumeForeground               = @"kAppWillResumeForeground";
-NSString     *kAuthenticationFailure                 = @"kAuthenticationFailure";
-NSString     *kServerMaintenance                     = @"kServerMaintenance";
-NSString     *kAppMustUpdate                         = @"kAppMustUpdate";
-NSDictionary *kHostNames;
-NSString     *kHostName                              = @"portableehr.ca";
-NSString     *kStackKey                              = @"CA.prod";
-NSInteger    kBuildNumber                            = 10;
+NSString            *kNotificationUpdated                   = @"kNotificationUpdated";
+NSString            *kNewNotification                       = @"kNewNotification";
+NSString            *kNotificationsModelRefreshNotification = @"kNotificationsModelRefreshNotification";
+NSString            *kEulaModelRefreshNotification          = @"kEulaModelRefreshNotification";
+NSString            *kPatientModelRefreshNotification       = @"kPatientModelRefreshNotification";
+NSString            *kUserModelRefreshNotification          = @"kUserModelRefreshNotification";
+NSString            *kUserDeactivatedNotification           = @"kUserDeactivatedNotification";
+NSString            *kAppWillResumeForeground               = @"kAppWillResumeForeground";
+NSString            *kAuthenticationFailure                 = @"kAuthenticationFailure";
+NSString            *kServerMaintenance                     = @"kServerMaintenance";
+NSString            *kAppMustUpdate                         = @"kAppMustUpdate";
+NSMutableDictionary *kHostNames;
+NSString            *kHostName                              = @"portableehr.dev";
+NSString            *kStackKey                              = @"CA.dev";
+NSString            *kLocalIPAddress                        = @"127.0.0.1";
 
-UIColor *kColorBackgroundHighlight;
-UIColor *kColorDarkening10;
-UIColor *kColorDarkening20;
-UIColor *kColorDarkening30;
-UIColor *kColorDarkening40;
-UIColor *kColorDarkening60;
-UIColor *kColorBackground;
-UIColor *kColorSelectable;
-UIColor *kColorSelected;
-UIColor *kColorText;
-UIColor *kColorErrorText;
-UIColor *kColorCyan;
-UIColor *kColorTransparent;
-UIColor *kColorArchive;
-UIColor *kColorHide;
-UIFont  *kBandTitleFont;
-UIFont  *kWarningFont;
-UIFont  *kBandContentFont;
-UIFont  *kMenuButtonFont;
-UIFont  *kEulaContentFont;
-
-CGFloat kToolbarHeight   = 40.0;
-CGFloat kToolbarItemSize = 24.0;
 
 // network stuff
 #ifndef MP_DEBUG
@@ -78,13 +53,6 @@ float     kNetworkForegroundRefreshInSecs = 15;     // 15 seconds
 float     kNetworkBackgroundRefreshInSecs = 15 * 60;  // 15 minutes
 #endif
 
-int const K_LAST_SCENE         = 40;
-BOOL      kIsIpad              = NO;
-BOOL      kIsIphoneIpod        = YES;
-BOOL      kIsIphoneIpodTall    = NO;
-BOOL      kIsRetina            = NO;
-int       kMapRightMenuWidth   = 0;
-int       kMapBottomMenuHeight = 0;
 
 // confidential statics
 
@@ -102,57 +70,22 @@ NSString *remainingClassInstances(NSString *theClass);
 static __strong NSMutableArray *allocatedClasses;
 
 + (void)initialize {
-
-    kAppVersion  = [[PehrSDKConfig shared] getAppVersion];
-    kBuildNumber = 10;
-    kAppAlias    = [[PehrSDKConfig shared] getAppAlias];
-    kAppGuid     = [[PehrSDKConfig shared] getAppGuid];
-
-    MPLOG(@"Initializing Run time constants %@", NSStringFromBool(YES));
     kSystemVersion = NormalizedVersionString([[UIDevice currentDevice] systemVersion]);
-    MPLOG(@"Running iOS version : %@", kSystemVersion);
-    MPLOG(@"Running on          : %@", [GEDeviceHardware platformString]);
-    CGSize sz = [UIScreen mainScreen].bounds.size;
-    MPLOG(@"Screen dimensions   : %@", NSStringFromCGSize(sz));
-    MPLOG(@"App alias           : %@", kAppAlias);
-    MPLOG(@"App version         : %@", [kAppVersion toString]);
-    MPLOG(@"App build number    : %lu", (long) kBuildNumber);
+
     allocatedClasses = [NSMutableArray array];
     _isDeviceTypeSet = NO;
 
-    kColorDarkening10         = [UIColor colorWithRed:0.f / 255.f green:0.f / 255.f blue:0.f / 255.f alpha:0.1f]; // 33586B
-    kColorDarkening20         = [UIColor colorWithRed:0.f / 255.f green:0.f / 255.f blue:0.f / 255.f alpha:0.2f]; // 33586B
-    kColorDarkening30         = [UIColor colorWithRed:0.f / 255.f green:0.f / 255.f blue:0.f / 255.f alpha:0.3f]; // 33586B
-    kColorDarkening40         = [UIColor colorWithRed:0.f / 255.f green:0.f / 255.f blue:0.f / 255.f alpha:0.4f]; // 33586B
-    kColorDarkening60         = [UIColor colorWithRed:0.f / 255.f green:0.f / 255.f blue:0.f / 255.f alpha:0.6f]; // 33586B
-    kColorBackgroundHighlight = [UIColor colorWithRed:51.f / 255.f green:88.f / 255.f blue:107.f / 255.f alpha:1.f]; // 33586B
-    kColorBackground          = [UIColor colorWithRed:34.f / 255.f green:91.f / 255.f blue:120.f / 255.f alpha:1.f]; // 225B78
-    kColorText                = [UIColor whiteColor];
-    kColorErrorText           = [UIColor colorWithRed:254.f / 255.f green:176.f / 255.f blue:26.f / 255.f alpha:1.f];
-    kColorSelectable          = [UIColor colorWithRed:177.f / 255.f green:240.f / 255.f blue:230.f / 255.f alpha:1.f];
-    kColorSelected            = [UIColor colorWithRed:177.f / 255.f green:240.f / 255.f blue:230.f / 255.f alpha:.41];
-    kColorArchive             = [UIColor colorWithRed:171.0f / 255.0f green:31.0f / 255.0f blue:32.0f / 255.0f alpha:1.0f];
-    kColorHide                = [UIColor colorWithRed:50.0f / 255.0f green:153.0f / 255.0f blue:187.0f / 255.0f alpha:1.0f];
-    kColorTransparent         = [UIColor colorWithRed:0 green:0 blue:0 alpha:0];
-    kColorCyan                = [UIColor cyanColor];
-
-    kBandTitleFont   = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16];
-    kBandContentFont = [UIFont fontWithName:@"CourierNewPS-BoldMT" size:16];
-    kMenuButtonFont  = [UIFont fontWithName:@"HelveticaNeue-Bold" size:14];
-    kEulaContentFont = [UIFont fontWithName:@"HelveticaNeue" size:14];
-    kWarningFont     = [UIFont fontWithName:@"HelveticaNeue-Bold" size:18];
-
     NSMutableDictionary *kvps = [NSMutableDictionary dictionary];
-    kvps[@"CA.prod"]      = @"portableehr.ca";
-    kvps[@"CA.staging"]   = @"portableehr.net";
-    kvps[@"CA.dev"]       = @"portableehr.dev";
-    kvps[@"CA.devhome"]   = @"10.0.1.21";
-    kvps[@"CA.devoffice"] = @"192.168.32.32";
-    kvps[@"CA.partner"]   = @"api.portableehr.io";
+    kvps[@"CA.prod"]    = @"portableehr.ca";
+    kvps[@"CA.staging"] = @"portableehr.net";
+    kvps[@"CA.dev"]     = @"portableehr.dev";
+    kvps[@"CA.local"]   = [[PehrSDKConfig shared] getLocalIPaddress];
+    kvps[@"CA.partner"] = @"portableehr.io";
+//    kvps[@"CA.partner"] = @"portableehr.io";
+    kvps[@"CA.stackHub"]= @"portableehr.dev";
     kHostNames = kvps;
     kStackKey  = [[PehrSDKConfig shared] getAppStackKey];
     kHostName  = kHostNames[kStackKey];
-    kIsIpad    = [GEDeviceHardware isTablet];
 
     if (@available(iOS 12.0, *)) {
 
@@ -171,42 +104,8 @@ static __strong NSMutableArray *allocatedClasses;
 
 }
 
-const CGBounds CGBoundsZero;
+//endregion
 
-CGBounds getWindowCrop() {
-    CGBounds crop = [GEDeviceHardware windowCrop];
-    return crop;
-}
-
-BOOL isDarkMode() {
-    BOOL result = NO;
-    if (@available(iOS 12.0, *)) {
-        switch (UIScreen.mainScreen.traitCollection.userInterfaceStyle) {
-            case UIUserInterfaceStyleDark:
-                // https://stackoverflow.com/a/19128558/915467
-                result = YES;
-                break;
-            case UIUserInterfaceStyleLight:
-            case UIUserInterfaceStyleUnspecified:break;
-            default:break;
-        }
-    }
-    return result;
-}
-
-CGBounds CGBoundsMake(CGFloat start, CGFloat top, CGFloat end, CGFloat bottom) {
-    CGBounds bounds;
-    bounds.start  = start;
-    bounds.top    = top;
-    bounds.end    = end;
-    bounds.bottom = bottom;
-    return bounds;
-}
-
-NSString *NSStringFromCGBounds(CGBounds a) {
-    NSString *ret = @"(s: %f, t: %f, e: %f, b: %f)";
-    return [NSString stringWithFormat:ret, a.start, a.top, a.end, a.bottom];
-}
 
 + (void)setStackKey:(NSString *)serverKey {
     MPLOG(@"Setting server key to [%@]", serverKey);
@@ -250,16 +149,16 @@ NSString *NSStringFromCGBounds(CGBounds a) {
     kAppAlias = appAlias;
 }
 
++ (void)setLocalIPaddress:(NSString *)address {
+    kLocalIPAddress = address;
+}
+
 + (void)setAppGuid:(NSString *)appGuid {
     kAppGuid = appGuid;
 }
 
 + (void)setAppVersion:(NSString *)appVersionAsString {
     kAppVersion = [Version versionWithString:appVersionAsString];
-}
-
-+ (void)setBuildNumber:(NSInteger)buildNumber {
-    kBuildNumber = buildNumber;
 }
 
 + (NSArray *)allocatedClasses __unused {
@@ -336,24 +235,6 @@ NSString *remainingClassInstances(NSString *theClass) {
 
 }
 
-+ (void)setMenuWidth:(int)inMenuWidth {
-
-    kMapRightMenuWidth = inMenuWidth;
-}
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-
-CGRect currentWindowSize() {
-    UIView *rootView     = [[[UIApplication sharedApplication] keyWindow]
-            rootViewController].view;
-    CGRect originalFrame = [[UIScreen mainScreen] bounds];
-    CGRect adjustedFrame = [rootView convertRect:originalFrame fromView:nil];
-    return adjustedFrame;
-}
-
-#pragma clang diagnostic pop
-
 NSString *NormalizedVersionString(NSString *versionString) {
 
     int
@@ -370,36 +251,6 @@ NSString *NormalizedVersionString(NSString *versionString) {
 
     return [NSString stringWithFormat:@"%02i%02i%02i", maj, min, subMin];
 
-}
-
-BOOL systemVersionEqualTo(NSString *dotVersionAsString) {
-
-    NSString *normalizedVersion = NormalizedVersionString(dotVersionAsString);
-    return ([kSystemVersion compare:normalizedVersion options:NSNumericSearch] == NSOrderedSame);
-}
-
-BOOL systemVersionGreaterThan(NSString *dotVersionAsString) {
-
-    NSString *normalizedVersion = NormalizedVersionString(dotVersionAsString);
-    return ([kSystemVersion compare:normalizedVersion options:NSNumericSearch] == NSOrderedDescending);
-}
-
-BOOL systemVersionGreaterThanOrEqualTo(NSString *dotVersionAsString) {
-
-    NSString *normalizedVersion = NormalizedVersionString(dotVersionAsString);
-    return ([kSystemVersion compare:normalizedVersion options:NSNumericSearch] == NSOrderedAscending);
-}
-
-BOOL systemVersionLessThan(NSString *dotVersionAsString) {
-
-    NSString *normalizedVersion = NormalizedVersionString(dotVersionAsString);
-    return ([kSystemVersion compare:normalizedVersion options:NSNumericSearch] == NSOrderedAscending);
-}
-
-BOOL systemVersionLessThanOrEqualTo(NSString *dotVersionAsString) {
-
-    NSString *normalizedVersion = NormalizedVersionString(dotVersionAsString);
-    return ([kSystemVersion compare:normalizedVersion options:NSNumericSearch] == NSOrderedDescending);
 }
 
 #pragma clang diagnostic push
@@ -432,7 +283,7 @@ NSDate *WantDateFromDic(NSDictionary *dic, NSString *key) {
     if ((val = dic[key])) {
         NSString        *dateAsString = val;
         NSDateFormatter *df           = [[NSDateFormatter alloc] init];
-        [df setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZ"];
+        [df setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
 //        NSLocale *posix = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
 //        [df setLocale:posix];
         [df setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"GMT"]];
@@ -450,6 +301,11 @@ NSString *WantStringFromDic(NSDictionary *dic, NSString *key) {
 }
 
 NSDictionary *WantDicFromDic(NSDictionary *dic, NSString *key) {
+    if (!key) return nil;
+    return dic[key];
+}
+
+NSArray *WantArrayFromDic(NSDictionary *dic, NSString *key) {
     if (!key) return nil;
     return dic[key];
 }
@@ -472,6 +328,12 @@ NSURL *WantUrlFromDic(NSDictionary *dic, NSString *key) {
     id val = dic[key];
     if (!val) return nil;
     return [NSURL URLWithString:val];
+}
+
+void PutDicInDic(NSDictionary *value, NSMutableDictionary *dic, NSString *key) {
+    if (value && [value isKindOfClass:[NSDictionary class]]) {
+        [dic setObject:value forKey:key];
+    }
 }
 
 void PutDateInDic(NSDate *theDate, NSMutableDictionary *dic, NSString *key) {
@@ -508,7 +370,7 @@ void PutIntegerInDic(NSInteger theInt, NSMutableDictionary *dic, NSString *key) 
     if (theInt == 0) return; // save space
     if (!dic) return;
     if (!key) return;
-    [dic setObject:[NSNumber numberWithInt:(int) theInt] forKey:key];
+    dic[key] = @((int) theInt);
 }
 
 void PutBoolInDic(BOOL theBool, NSMutableDictionary *dic, NSString *key) {
@@ -516,7 +378,7 @@ void PutBoolInDic(BOOL theBool, NSMutableDictionary *dic, NSString *key) {
     if (!theBool) return;                                    // not writing 'NO'
     if (!dic) return;
     if (!key) return;
-    [dic setObject:NSStringFromBool(theBool) forKey:key];   // human readable
+    dic[key] = NSStringFromBool(theBool);   // human readable
 }
 
 void PutUrlInDic(NSURL *theUrl, NSMutableDictionary *dic, NSString *key) {
@@ -525,25 +387,25 @@ void PutUrlInDic(NSURL *theUrl, NSMutableDictionary *dic, NSString *key) {
     if (!theUrl) return;                                    // not writing 'NO'
     if (!dic) return;
     if (!key) return;
-    [dic setObject:theUrl.absoluteString forKey:key];      // human readable
+    dic[key] = theUrl.absoluteString;      // human readable
 }
 
 //endregion
 
 //region date helpers
 
-NSDate *now() {
+NSDate *now(void) {
     return [NSDate date];
 }
 
-NSDate *forever() {
+NSDate *forever(void) {
     return [NSDate dateWithTimeIntervalSince1970:0];
 }
 
 NSString *NetworkDateFromDate(NSDate *theDate) {
     if (!theDate) theDate          = [NSDate dateWithTimeIntervalSince1970:0];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZ"];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
     [dateFormatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"GMT"]];
 //    [dateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en"]];
     NSString *stringFromDate = [dateFormatter stringFromDate:theDate];

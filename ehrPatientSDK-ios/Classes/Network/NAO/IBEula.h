@@ -5,6 +5,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EHRInstanceCounterP.h"
+#import "GERuntimeConstants.h"
 
 static NSString *PATIENT_IOS_1_0_0_GUID = @"dc7507b4-53a3-4a05-bc63-4a36f90acab3";
 

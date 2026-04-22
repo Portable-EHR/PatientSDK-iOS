@@ -4,7 +4,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GERuntimeConstants.h"
+#import "EHRLibRuntimeGlobals.h"
 #import "EHRInstanceCounterP.h"
+#import "EHRPersistableP.h"
+#import "Version.h"
 
 @class FactorsRequired;
 

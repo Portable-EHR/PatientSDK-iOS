@@ -7,6 +7,7 @@
 #import "EHRPersistableP.h"
 #import "IBLabRequestPDFDocument.h"
 #import "IBMedia.h"
+#import "GERuntimeConstants.h"
 
 @implementation IBLabRequestPDFDocument
 

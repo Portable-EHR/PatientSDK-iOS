@@ -31,10 +31,9 @@ typedef NS_ENUM(NSInteger, ServicesFilterType) {
                        _showRequireEulaServices;
     ServicesFilterType _filterType;
     NSMutableArray     *_sortedKeys;
-    NSMutableArray     *_patientSelector;
+    NSMutableArray *_patientSelector;
 //    UserModel              *_userModel;
 //    IBUser                   *_user;
-    AppState           *_appState;
 
 }
 

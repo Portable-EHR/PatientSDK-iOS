@@ -4,6 +4,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "EHRLibRuntimeGlobals.h"
 #import "EHRInstanceCounterP.h"
 #import "GEMacros.h"
 #import "NSDictionary+JSON.h"
@@ -20,10 +21,10 @@
     NSMutableDictionary *_allUserEulas;
     EulaModelFilter     *_allEulasFilter;
     EulaModelFilter     *_consentedEulasFilter;
-    EulaModelFilter     *_pendingEulasFilter;
-    AppState            *_appState;
-    VoidBlock           _refreshSuccessBlock,
-                        _refreshFailedBlock;
+    EulaModelFilter *_pendingEulasFilter;
+    AppState        *_appState;
+    VoidBlock       _refreshSuccessBlock,
+                    _refreshFailedBlock;
     BOOL                _isRefreshing;
 
 }

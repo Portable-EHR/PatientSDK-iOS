@@ -6,7 +6,7 @@
 #import "EHRPersistableP.h"
 #import "IBPractitionerPractice.h"
 #import "IBPractitionerJurisdiction.h"
-
+#import "GERuntimeConstants.h"
 @implementation IBPractitionerPractice
 
 TRACE_OFF

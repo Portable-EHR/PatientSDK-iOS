@@ -16,7 +16,7 @@
 
 @implementation IBAppInfo
 
-TRACE_OFF
+TRACE_ON
 
 - (instancetype)init {
     if ((self = [super init])) {
