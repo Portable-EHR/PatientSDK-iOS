@@ -4,6 +4,7 @@
 //
 
 #import "DateUtil.h"
+#import "NSDate+Compare.h"
 
 @implementation DateUtil
 
@@ -163,5 +164,63 @@ static NSString* fr_abbrev_year  = @"a";
     return dateAsString;
 }
 
+
++(NSString *) defaultDeviceFormatMedium:(NSDate*) date{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateStyle=NSDateFormatterMediumStyle;
+    formatter.timeStyle=NSDateFormatterShortStyle;
+    formatter.formatterBehavior=NSDateFormatterBehaviorDefault;
+
+
+    return [formatter stringFromDate:date];
+
+}
+
+ +(NSDate*)dateWithoutTime:(NSDate *)dateWithTime {
+     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+     [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+     NSString *dateAsString  = [dateFormatter stringFromDate:dateWithTime];
+     NSDate *dateWithoutTime = [dateFormatter dateFromString:dateAsString];
+     return dateWithoutTime;
+ }
+
++(NSInteger) daysBetween:(NSDate*) date and:(NSDate*) otherDate{
+    NSDate *startDate = [otherDate isEarlierThanOrEqualTo:date] ? otherDate : date;
+    NSDate *endDate = [date isLaterThanOrEqualTo:otherDate] ? date : otherDate;
+
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSCalendarUnit units = NSCalendarUnitDay;
+    NSDateComponents *components = [calendar components:units fromDate:startDate toDate:endDate options:0];
+    NSInteger numberOfDays = components.day;
+    return ABS(numberOfDays);
+}
+
++(BOOL)isDate:(NSDate *)firstDate inSameYearAs:(NSDate *)otherDate {
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *date1Components = [calendar components:NSCalendarUnitYear fromDate:firstDate];
+    NSDateComponents *date2Components = [calendar components:NSCalendarUnitYear fromDate:otherDate];
+    BOOL isSameYear = (date1Components.year == date2Components.year);
+    return isSameYear;
+}
+
++(BOOL)isDate:(NSDate *)firstDate inSameMonthAs:(NSDate *)otherDate {
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *date1Components = [calendar components:NSCalendarUnitMonth+NSCalendarUnitYear fromDate:firstDate];
+    NSDateComponents *date2Components = [calendar components:NSCalendarUnitMonth+NSCalendarUnitYear fromDate:otherDate];
+    BOOL isSameMonth = (date1Components.month == date2Components.month) && (date1Components.year==date2Components.year);
+    return isSameMonth;
+}
+
++(BOOL)isDate:(NSDate *)firstDate inPreviousMonthOf:(NSDate *)otherDate {
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *date1Components = [calendar components:NSCalendarUnitMonth+NSCalendarUnitYear fromDate:firstDate];
+    NSDateComponents *date2Components = [calendar components:NSCalendarUnitMonth+NSCalendarUnitYear fromDate:otherDate];
+    if (date1Components.month==12 && date2Components.month==1){ // NSDateComponents are 1-based ! weird, apple mane it natural for humans
+        return date1Components.year==(date2Components.year -1);
+    }
+
+    BOOL isSameMonth = (date1Components.month == (date2Components.month-1)) && (date1Components.year==date2Components.year);
+    return isSameMonth;
+}
 
 @end

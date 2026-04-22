@@ -9,12 +9,13 @@
 #import "IBLabRequest.h"
 #import "IBLabResult.h"
 #import "IBMessageContent.h"
-#import "IBTelexInfo.h"
 #import "IBAppointment.h"
+#import "ConversationEnvelope.h"
+#import "IBDeviceInfo.h"
 
 @implementation PatientNotification
 
-@dynamic isExpired, isPatient, isSponsor, isMessage, isPrivateMessage, isAppointment, isInfo, isAlert, isSeen, isArchived, isDeleted, isAcknowledged, isActionRequired, isPractitioner, hasUnseenContent;
+@dynamic isExpired, isPatient, isSponsor, isMessage, isPrivateMessage, isAppointment, isConvoList, isInfo, isAlert, isSeen, isArchived, isDeleted, isAcknowledged, isActionRequired, isPractitioner, hasUnseenContent;
 
 TRACE_OFF
 
@@ -68,7 +69,9 @@ TRACE_OFF
                 }
             } else if (self.isPrivateMessage) {
                 if (self.isArchived) return NO;
-                return self.telexInfo.acknowledgedOn == nil;
+                return self.privateMessageInfo.acknowledgedOn == nil;
+            } else if (self.isConvoList) {
+                if (self.isArchived) return NO;
             } else {
                 // sponsor and medical notifications , once seen have no further
                 // action required from l'user
@@ -85,11 +88,11 @@ TRACE_OFF
     return YES;
 }
 
-- (BOOL)isAcknowledged {
+- (BOOL)isAcknowledged __unused{
     if (self.ackedOn) return YES;
     if ([self.progress isEqualToString:@"acknowledged"]) return YES;
-    if (nil != self.telexInfo) {
-        return self.telexInfo.isAcknowledged;
+    if (nil != self.privateMessageInfo) {
+        return self.privateMessageInfo.isAcknowledged;
     }
     return NO;
 }
@@ -97,7 +100,6 @@ TRACE_OFF
 - (BOOL)isArchived {
     if (nil != self.archivedOn) return YES;
     if ([self.progress isEqualToString:@"archived"]) return YES;
-
     return NO;
 }
 
@@ -126,6 +128,9 @@ TRACE_OFF
 }
 
 - (BOOL)isInfo {
+    if (self.isConvoList) return NO;
+    if (self.isPrivateMessage) return NO;
+    if (self.isAppointment) return NO;
     if (!_notificationLevel) return NO;
     if ([self isSponsor]) return NO;
     if ([_notificationLevel isEqualToString:@"authorization"]) return YES;
@@ -164,6 +169,10 @@ TRACE_OFF
 
 - (BOOL)isAppointment {
     return [_payloadType isEqualToString:@"appointment"];
+}
+
+- (BOOL)isConvoList {
+    return [_payloadType isEqualToString:@"conversation"];
 }
 
 /*
@@ -206,6 +215,8 @@ TRACE_OFF
 
     self.guid              = other.guid;
     self.appointment       = other.appointment;
+    self.convo             = other.convo;
+    self.privateMessageInfo = other.privateMessageInfo;
     self.capabilityAlias   = other.capabilityAlias;
     self.capabilityGuid    = other.capabilityGuid;
     self.text              = other.text;
@@ -231,9 +242,10 @@ TRACE_OFF
     self.patientGuid       = other.patientGuid;
     self.practitionerGuid  = other.practitionerGuid;
     self.senderName        = other.senderName;
-    self.telexInfo         = other.telexInfo;
     self.deviceInfo        = other.deviceInfo;
     self.seq               = other.seq;
+    self.study             = other.study;
+    self.stackKey          = other.stackKey;
     [self.appointment updateWith:other.appointment];
 
 }
@@ -273,12 +285,19 @@ TRACE_OFF
         pn.senderName        = WantStringFromDic(dic, @"senderName");
         pn.practitionerGuid  = WantStringFromDic(dic, @"practitionerGuid");
         pn.seq               = WantStringFromDic(dic, @"seq");
-
+        pn.stackKey          = WantStringFromDic(dic, @"stackKey");
         id val;
 
-        if ((val = dic[@"telexInfo"])) {
-            pn.telexInfo = [IBTelexInfo objectWithContentsOfDictionary:val];
+        if ((val = dic[@"deviceInfo"])) {
+            pn.deviceInfo = [IBDeviceInfo objectWithContentsOfDictionary:val];
         }
+        
+        if ((val = dic[@"privateMessageInfo"])) {
+            pn.privateMessageInfo = [IBPrivateMessageInfo objectWithContentsOfDictionary:val];
+        } else if ((val = dic[@"telexInfo"])){ // todo , temporary alliance with cruft
+            pn.privateMessageInfo = [IBPrivateMessageInfo objectWithContentsOfDictionary:val];
+        }
+        
         if ((val = dic[@"message"])) {
             pn.message = [IBMessageContent objectWithContentsOfDictionary:val];
         }
@@ -297,6 +316,16 @@ TRACE_OFF
 
         if ((val = dic[@"appointment"])) {
             pn.appointment = [IBAppointment objectWithContentsOfDictionary:val];
+        }
+
+        if ((val = dic[@"convo"])) {
+            pn.convo = [ConversationEnvelope objectWithContentsOfDictionary:val];
+            pn.convo.hasUnseenContent= (pn.lastSeen<pn.lastUpdated);
+        }
+        
+        if ((val = dic[@"study"])) {
+            pn.study = [Study objectWithContentsOfDictionary:val];
+
         }
 
     } @catch (NSException *e) {
@@ -338,9 +367,15 @@ TRACE_OFF
     PutDateInDic(self.lastSeen, dic, @"lastSeen");
     PutStringInDic(self.senderName, dic, @"senderName");
     PutStringInDic(self.practitionerGuid, dic, @"practitionerGuid");
+    PutStringInDic(self.stackKey, dic, @"stackKey");
+    
 
-    if (self.telexInfo) {
-        dic[@"telexInfo"] = [self.telexInfo asDictionary];
+    if (self.deviceInfo){
+        dic[@"deviceInfo"] = [self.deviceInfo asDictionary];
+    }
+    
+    if (self.privateMessageInfo) {
+        dic[@"privateMessageInfo"] = [self.privateMessageInfo asDictionary];
     }
 
     if (self.message) {
@@ -360,6 +395,14 @@ TRACE_OFF
     }
     if (self.appointment) {
         dic[@"appointment"] = [self.appointment asDictionary];
+    }
+
+    if (self.convo) {
+        dic[@"convo"] = [self.convo asDictionary];
+    }
+    
+    if (self.study) {
+        dic[@"study"] = [self.study asDictionary];
     }
 
     return dic;

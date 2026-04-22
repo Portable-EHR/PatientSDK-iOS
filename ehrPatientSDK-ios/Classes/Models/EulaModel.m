@@ -167,22 +167,22 @@ static AppState *_appState;
                                                if (val) {
 //                                                   TRACE(@"Received services \n%@", val);
                                                    TRACE(@"Received services ");
-                                                   [_appState.eulaModel populateWithServices:val];
+                                                   [self->_appState.eulaModel populateWithServices:val];
                                                }
-                                               if (_refreshSuccessBlock) {
-                                                   _refreshSuccessBlock();
+                                               if (self->_refreshSuccessBlock) {
+                                                   self->_refreshSuccessBlock();
                                                }
-                                               _refreshFailedBlock  = nil;
-                                               _refreshSuccessBlock = nil;
+                                               self->_refreshFailedBlock  = nil;
+                                               self->_refreshSuccessBlock = nil;
                                            }
                                              onError:^(EHRCall *call) {
                                                  MPLOGERROR(@"error when refrewhing user info !");
                                                  MPLOGERROR(@"Got requestStatus [%@]", call.serverResponse.requestStatus.asDictionary);
-                                                 if (_refreshFailedBlock) {
-                                                     _refreshFailedBlock();
+                                                 if (self->_refreshFailedBlock) {
+                                                     self->_refreshFailedBlock();
                                                  }
-                                                 _refreshFailedBlock  = nil;
-                                                 _refreshSuccessBlock = nil;
+                                                 self->_refreshFailedBlock  = nil;
+                                                 self->_refreshSuccessBlock = nil;
 
                                              }
     ];
@@ -192,7 +192,7 @@ static AppState *_appState;
     [userInfoCall setOnStart:^() {
     }];
     [userInfoCall setOnEnd:^() {
-        _isRefreshing = NO;
+        self->_isRefreshing = NO;
     }];
     [userInfoCall start];
 

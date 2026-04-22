@@ -6,6 +6,7 @@
 #import "EHRPersistableP.h"
 #import "IBPatientContact.h"
 #import "IBContact.h"
+#import "GERuntimeConstants.h"
 
 @implementation IBPatientContact
 

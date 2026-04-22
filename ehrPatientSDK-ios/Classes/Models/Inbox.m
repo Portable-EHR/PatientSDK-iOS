@@ -4,15 +4,15 @@
 //
 
 #import "Inbox.h"
-#import "AppState.h"
 #import "EHRInstanceCounterP.h"
 #import "NotificationsModel.h"
 #import "UserModel.h"
 #import "PatientNotification.h"
+#import "PehrSDKConfig.h"
 
 @implementation Inbox
 
-static NSString *NOTIFICATION_CAPABILITY    = @"core.notification";
+static NSString *NOTIFICATION_CAPABILITY    = @"core.patientNotification";
 static NSString *PRIVATE_MESSAGE_CAPABILITY = @"core.privateMessage";
 static NSString *APPOINTMENT_CAPABILITY     = @"core.appointment";
 
@@ -79,7 +79,7 @@ TRACE_ON
 
 - (BOOL)seedInbox {
     _inboxNotifications = [NSDictionary dictionary];
-    _allNotifications = [AppState sharedAppState].userModel.notificationsModel.allNotifications;
+    _allNotifications = PehrSDKConfig.shared.models.notifications.allNotifications;
     for (PatientNotification *pn in _allNotifications.allValues) {
         MPLOG(@"seeding PN [%@]", [pn description]);
     }

@@ -6,6 +6,7 @@
 #import "IBPractitioner.h"
 #import "IBContact.h"
 #import "IBPractitionerPractice.h"
+#import "GERuntimeConstants.h"
 
 @implementation IBPractitioner
 TRACE_OFF

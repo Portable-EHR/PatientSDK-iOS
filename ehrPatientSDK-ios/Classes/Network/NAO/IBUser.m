@@ -3,6 +3,7 @@
 // Copyright (c) 2015-2019 Portable EHR inc. All rights reserved.
 //
 
+#import "GERuntimeConstants.h"
 #import "IBUser.h"
 #import "IBContact.h"
 #import "Patient.h"
@@ -28,6 +29,7 @@ TRACE_OFF
         self.userCapabilityModel = [NSMutableArray array];
         self.forcePasswordChange = NO;
         self->_isPractitioner    = NO;
+        self.dependants          = [NSMutableArray array];
     } else {
         TRACE(@"*** super returned nil!");
     }
@@ -41,17 +43,17 @@ TRACE_OFF
 
 + (IBUser *)guest {
     IBUser *user = [[self alloc] init];
-    user.contact           = [[IBContact alloc] init];
-    user.contact.name      = @"Visitor";
-    user.contact.firstName = @"Distinguished";
-    user.apiKey            = @"K7ICfFOwS3ELdHfAzWBhPt";
-    user.guid              = @"67b1c035-9d12-4bd6-9f94-df75182da183";
-    user.emailVerified     = YES;
-    user.deviceMobileVerified    = YES;
-    user.deviceEmailVerified    = YES;
-    user.role              = @"guest";
-    user.status            = @"active";
-    user->_isPractitioner  = NO;
+    user.contact              = [[IBContact alloc] init];
+    user.contact.name         = @"Visitor";
+    user.contact.firstName    = @"Distinguished";
+    user.apiKey               = @"K7ICfFOwS3ELdHfAzWBhPt";
+    user.guid                 = @"67b1c035-9d12-4bd6-9f94-df75182da183";
+    user.emailVerified        = YES;
+    user.deviceMobileVerified = YES;
+    user.deviceEmailVerified  = YES;
+    user.role                 = @"guest";
+    user.status               = @"active";
+    user->_isPractitioner     = NO;
     user.forcePasswordChange  = NO;
 
     return user;
@@ -60,21 +62,21 @@ TRACE_OFF
 + (IBUser *)ylb {
 
     IBUser *user = [[self alloc] init];
-    user.contact           = [[IBContact alloc] init];
-    user.contact.name      = @"Le Borgne";
-    user.contact.firstName = @"Yves";
-    user.apiKey            = @"patientYLBapiKey";
-    user.guid              = @"patientYLBuserGuid";
-    user.emailVerified     = YES;
-    user.identityVerified  = YES;
-    user.mobileVerified    = YES;
+    user.contact              = [[IBContact alloc] init];
+    user.contact.name         = @"Le Borgne";
+    user.contact.firstName    = @"Yves";
+    user.apiKey               = @"patientYLBapiKey";
+    user.guid                 = @"patientYLBuserGuid";
+    user.emailVerified        = YES;
+    user.identityVerified     = YES;
+    user.mobileVerified       = YES;
     user.forcePasswordChange  = NO;
-    user.deviceMobileVerified    = YES;
-    user.deviceEmailVerified    = YES;
-    user.role              = @"patient";
-    user.patient           = [Patient YLB];
-    user->_isPractitioner  = NO;
-    user.status            = @"active";
+    user.deviceMobileVerified = YES;
+    user.deviceEmailVerified  = YES;
+    user.role                 = @"patient";
+    user.patient              = [Patient YLB];
+    user->_isPractitioner     = NO;
+    user.status               = @"active";
 
     return user;
 }
@@ -82,18 +84,18 @@ TRACE_OFF
 + (IBUser *)drB {
 
     IBUser *user = [[self alloc] init];
-    user.contact           = [[IBContact alloc] init];
-    user.contact.name      = @"Bessette";
-    user.contact.firstName = @"Luc";
-    user.apiKey            = @"doctorLB";
-    user.emailVerified     = YES;
-    user.identityVerified  = YES;
+    user.contact              = [[IBContact alloc] init];
+    user.contact.name         = @"Bessette";
+    user.contact.firstName    = @"Luc";
+    user.apiKey               = @"doctorLB";
+    user.emailVerified        = YES;
+    user.identityVerified     = YES;
     user.forcePasswordChange  = NO;
-    user.mobileVerified    = YES;
-    user.deviceMobileVerified    = YES;
-    user.deviceEmailVerified    = YES;
-    user.role              = @"practitioner";
-    user->_isPractitioner  = YES;
+    user.mobileVerified       = YES;
+    user.deviceMobileVerified = YES;
+    user.deviceEmailVerified  = YES;
+    user.role                 = @"practitioner";
+    user->_isPractitioner     = YES;
 
     return user;
 }
@@ -137,17 +139,17 @@ TRACE_OFF
 + (instancetype)objectWithContentsOfDictionary:(NSDictionary *)dic {
     id     val = nil;
     IBUser *us = [[self alloc] init];
-    us.apiKey           = WantStringFromDic(dic, @"apiKey");
-    us.guid             = WantStringFromDic(dic, @"guid");
-    us.status           = WantStringFromDic(dic, @"status");
-    us.role             = WantStringFromDic(dic, @"role");
-    us.createdOn        = WantDateFromDic(dic, @"createdOn");
-    us.emailVerified    = WantBoolFromDic(dic, @"emailVerified");
-    us.mobileVerified   = WantBoolFromDic(dic, @"mobileVerified");
-    us.deviceEmailVerified   = WantBoolFromDic(dic, @"deviceEmailVerified");
-    us.deviceMobileVerified   = WantBoolFromDic(dic, @"deviceMobileVerified");
-    us.identityVerified = WantBoolFromDic(dic, @"identityVerified");
-    us.forcePasswordChange = WantBoolFromDic(dic, @"forcePasswordChange");
+    us.apiKey               = WantStringFromDic(dic, @"apiKey");
+    us.guid                 = WantStringFromDic(dic, @"guid");
+    us.status               = WantStringFromDic(dic, @"status");
+    us.role                 = WantStringFromDic(dic, @"role");
+    us.createdOn            = WantDateFromDic(dic, @"createdOn");
+    us.emailVerified        = WantBoolFromDic(dic, @"emailVerified");
+    us.mobileVerified       = WantBoolFromDic(dic, @"mobileVerified");
+    us.deviceEmailVerified  = WantBoolFromDic(dic, @"deviceEmailVerified");
+    us.deviceMobileVerified = WantBoolFromDic(dic, @"deviceMobileVerified");
+    us.identityVerified     = WantBoolFromDic(dic, @"identityVerified");
+    us.forcePasswordChange  = WantBoolFromDic(dic, @"forcePasswordChange");
 
     if ((val = dic[@"contact"])) us.contact = [IBContact objectWithContentsOfDictionary:val];
     if ((val = dic[@"patient"])) us.patient = [Patient objectWithContentsOfDictionary:val];
@@ -207,12 +209,26 @@ TRACE_OFF
         }
     }
 
-    if ((val = dic[@"userCapabiityModel"])) {
+    if ((val = dic[@"userCapabilityModel"])) {
         for (NSDictionary *userCapabilityAsDic in  val) {
             IBUserCapability *userCapability = [IBUserCapability objectWithContentsOfDictionary:userCapabilityAsDic];
             [us.userCapabilityModel addObject:userCapability];
         }
     }
+    
+    if ((val = dic[@"dependants"])) {
+        for (NSDictionary *dependantsAsDic in val) {
+            Patient *patient = [Patient objectWithContentsOfDictionary:dependantsAsDic];
+            [us.dependants addObject:patient];
+        }
+    }
+    
+//    Patient *patient1 = [Patient patientOne];
+//    Patient *patient2 = [Patient patientTwo];
+//    Patient *patient3 = [Patient patientThree];
+//    [us->_dependants addObject:patient1];
+//    [us->_dependants addObject:patient2];
+//    [us->_dependants addObject:patient3];
 
     return us;
 }
@@ -283,6 +299,17 @@ TRACE_OFF
             [dick addObject:[hcp asDictionary]];
         }
         dic[@"userCapabilityModel"] = dick;
+    }
+    
+    if (self.dependants.count > 0){
+        NSMutableArray      *dick = [NSMutableArray array];
+        
+        for(Patient *p in self.dependants){
+            [dick addObject:[p asDictionary]];
+        }
+        
+        
+        dic[@"dependants"] = dick;
     }
 
     PutDateInDic(self.createdOn, dic, @"createdOn");

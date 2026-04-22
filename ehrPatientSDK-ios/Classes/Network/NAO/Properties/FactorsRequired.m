@@ -6,6 +6,7 @@
 #import "EHRPersistableP.h"
 #import "FactorsRequired.h"
 #import "GEMacros.h"
+#import "GERuntimeConstants.h"
 
 @implementation FactorsRequired
 

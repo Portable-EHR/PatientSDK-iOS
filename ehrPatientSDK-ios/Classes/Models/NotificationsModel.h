@@ -4,6 +4,9 @@
 //
 
 #import <Foundation/Foundation.h>
+//#import "PehrSDKConfig.h"
+#import "EHRLibRuntimeGlobals.h"
+#import "GERuntimeConstants.h"
 #import "EHRNetworkableP.h"
 
 #pragma clang diagnostic push
@@ -17,9 +20,9 @@
 
 @interface NotificationsModel : NSObject <EHRNetworkableP, EHRInstanceCounterP> {
 
-    NSInteger                _instanceNumber;
-    AppState                 *_appState;
-    NSMutableDictionary      *_allNotifications;
+    NSInteger           _instanceNumber;
+    AppState            *_appState;
+    NSMutableDictionary *_allNotifications;
     NSDate                   *_lastRefreshed,
                              *_lastPurgedExpired;
     VoidBlock                _refreshSuccessBlock,
@@ -30,6 +33,7 @@
     NotificationsModelFilter *_alertNotificationFilter;
     NotificationsModelFilter *_practitionerNotificationFilter;
     NotificationsModelFilter *_privateMessageNotificationFilter;
+    NotificationsModelFilter *_conversationNotificationFilter;
     NotificationsModelFilter *_appointmentNotificationFilter;
     VoidBlock                _stackedNotificationChangesSuccessBlock,
                              _stackedNotificationChangesErrorBlock;
@@ -40,8 +44,6 @@
     BOOL                     _isRefreshEnabled;
     VoidBlock                _notificationSeenSuccessBlock,
                              _notificationSeenErrorBlock;
-    VoidBlock                _notificationArchivedSuccessBlock,
-                             _notificationArchivedErrorBlock;
     VoidBlock                _notificationDeletedSuccessBlock,
                              _notificationDeletedErrorBlock;
     NSMutableArray           *_stackedNotificationStateChanges,             // being sent
@@ -60,9 +62,13 @@
 @property(nonatomic, readonly) NotificationsModelFilter *practitionerNotificationFilter;
 @property(nonatomic, readonly) NotificationsModelFilter *appointmentNotificationsFilter;
 @property(nonatomic, readonly) NotificationsModelFilter *privateMessageNotificationFilter;
+@property(nonatomic, readonly) NotificationsModelFilter *conversationNotificationFilter;
 @property(nonatomic, readonly) NotificationsModelFilter *infoNotificationFilter;
 @property(nonatomic, readonly) NotificationsModelFilter *alertNotificationFilter;
 @property(nonatomic, getter=isRefreshEnabled) BOOL      refreshEnabled;
+
+- (id)init  NS_UNAVAILABLE  __attribute__((unavailable("init not available")));
++(NotificationsModel *) instance;
 
 - (void)setRefreshEnabled:(BOOL)isit;
 
@@ -77,12 +83,13 @@
 
 - (void)readFromServer;
 - (void)readFromServerWithSuccess:(VoidBlock)successBlock andError:(VoidBlock)errorBlock;
-- (void)updateWithSinglePatientNotification:(PatientNotification *)pn ;
+- (void)updateWithSinglePatientNotification:(PatientNotification *)pn;
 
 - (void)notificationWasSeen:(PatientNotification *)notification;
 - (void)notificationWasSeen:(PatientNotification *)notification onSuccess:(VoidBlock)successBlock onError:(VoidBlock)errorBlock;
 - (void)notificationWasDeleted:(PatientNotification *)notification onSuccess:(VoidBlock)successBlock onError:(VoidBlock)errorBlock;
 - (void)notificationWasArchived:(PatientNotification *)notification onSuccess:(VoidBlock)successBlock onError:(VoidBlock)errorBlock;
+- (void)notificationWasUnArchived:(PatientNotification *)notification onSuccess:(VoidBlock)successBlock onError:(VoidBlock)errorBlock;
 - (void)notificationsWereDeleted:(NSArray *)notifications;
 - (void)notificationsWereDeleted:(NSArray *)notifications onSuccess:(VoidBlock)successBlock onError:(VoidBlock)errorBlock;
 
@@ -109,4 +116,5 @@
 - (void)setAppointmentFilter:(NotificationsModelFilter *)appointmentFilter;
 
 @end
+
 #pragma clang diagnostic pop

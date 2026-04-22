@@ -4,13 +4,13 @@
 //
 
 #import "ServicesModelFilter.h"
-#import "AppState.h"
 #import "UserModel.h"
 #import "IBUser.h"
 #import "Patient.h"
 #import "IBService.h"
 #import "ServicesModel.h"
 #import "IBUserService.h"
+#import "AppState.h"
 
 @implementation ServicesModelFilter
 
@@ -37,7 +37,6 @@ TRACE_OFF
         _sortedKeys              = [NSMutableArray array];
         _patientSelector         = [NSMutableArray array];
         _cursorIndex             = 0;
-        _appState                = [AppState sharedAppState];
 
         [[NSNotificationCenter defaultCenter]
                 addObserver:self selector:@selector(refreshFilter)
@@ -262,7 +261,7 @@ TRACE_OFF
 - (NSMutableArray *)availableOnly:(NSArray *)in {
     NSMutableArray *keepers = [NSMutableArray array];
     for (IBService *service in in) {
-        if (![_appState.userModel.user hasService:service]) {
+        if (![AppState.sharedAppState.userModel.user hasService:service]) {
             [keepers addObject:service];
         }
     }
@@ -272,7 +271,7 @@ TRACE_OFF
 - (NSMutableArray *)subscribedOnly:(NSArray *)in {
     NSMutableArray *keepers = [NSMutableArray array];
     for (IBService *service in in) {
-        if ([_appState.userModel.user hasService:service]) {
+        if ([AppState.sharedAppState.userModel.user hasService:service]) {
             [keepers addObject:service];
         }
     }
@@ -283,7 +282,7 @@ TRACE_OFF
     NSMutableArray *keepers = [NSMutableArray array];
     NSArray        *subs    = [self subscribedOnly:in];
     for (IBService *service in subs) {
-        IBUserService *userService = [_appState.userModel.user userServiceOfService:service];
+        IBUserService *userService = [AppState.sharedAppState.userModel.user userServiceOfService:service];
         if (userService && !userService.isEulaAccepted) {
             [keepers addObject:service];
         }
@@ -385,7 +384,7 @@ TRACE_OFF
     if (_notif) {
         return _notif;
     } else {
-        MPLOG(@"*** sortedKeys holds key[%@] for a notification not present in  notifications model!",key);
+        MPLOG(@"*** sortedKeys holds key[%@] for a patientNotification not present in  notifications model!",key);
         return nil;
     }
 

@@ -4,7 +4,7 @@
 //
 
 #import "IBTelex.h"
-
+#import "GERuntimeConstants.h"
 @implementation IBTelex
 TRACE_OFF
 

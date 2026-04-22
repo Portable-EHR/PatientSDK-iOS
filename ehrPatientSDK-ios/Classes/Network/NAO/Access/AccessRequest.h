@@ -4,10 +4,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "EHRInstanceCounterP.h"
+#import "EHRNetworkableP.h"
+#import "IBUserInfo.h"
 
-@protocol EHRNetworkableP;
-@protocol EHRInstanceCounterP;
-@class IBUserInfo;
 
 @interface AccessRequest : NSObject <EHRInstanceCounterP, EHRNetworkableP> {
     NSInteger _instanceNumber;

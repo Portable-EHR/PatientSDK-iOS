@@ -6,6 +6,7 @@
 #import <Foundation/Foundation.h>
 #import "EHRNetworkableP.h"
 #import "EHRInstanceCounterP.h"
+#import "Version.h"
 
 @class IBEula;
 
@@ -14,8 +15,8 @@
 
 }
 
-@property(nonatomic) NSDate   *dateSeen;
-@property(nonatomic) NSDate   *dateConsented;
+@property(nonatomic) NSString *dateSeen;
+@property(nonatomic) NSString *dateConsented;
 @property(nonatomic) NSString *userGuid;
 @property(nonatomic) NSString *eulaGuid;
 @property(nonatomic) NSString *patientGuid;

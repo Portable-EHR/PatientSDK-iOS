@@ -6,6 +6,7 @@
 #import "UserDeviceSettings.h"
 #import "NotificationsModelFilter.h"
 #import "ServicesModelFilter.h"
+#import "GERuntimeConstants.h"
 
 @implementation UserDeviceSettings
 

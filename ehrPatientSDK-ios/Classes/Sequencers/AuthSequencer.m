@@ -3,6 +3,7 @@
 // Copyright (c) 2015-2019 Portable EHR inc. All rights reserved.
 //
 
+#import <LocalAuthentication/LocalAuthentication.h>
 #import "AuthSequencer.h"
 #import "AppState.h"
 #import "IBDeviceInfo.h"
@@ -53,7 +54,8 @@ TRACE_OFF
     _authenticationSuccess = [successBlock copy];
 
     if (_deviceInfo.canAuthenticateWithBiometrics) {
-        [self authenticateWithBiometrics:reason];
+//        [self authenticateWithBiometrics:reason];
+        [self authenticateWithPIN:reason];
     } else if (_deviceInfo.canAuthenticate) {
         [self authenticateWithPIN:reason];
     }

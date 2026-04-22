@@ -5,7 +5,11 @@
 
 #import <Foundation/Foundation.h>
 #import "GERuntimeConstants.h"
+#import "EHRLibRuntimeGlobals.h"
 #import "EHRInstanceCounterP.h"
+#import "EHRServerRequest.h"
+#import "EHRServerResponse.h"
+#import "EHRRequestStatus.h"
 
 @class EHRServerRequest;
 @class EHRServerResponse;
@@ -37,12 +41,20 @@
 @property(nonatomic, readonly) EHRServerResponse *serverResponse;
 @property(nonatomic) NSInteger                   maximumAttempts;
 @property(nonatomic, readonly) BOOL              isCallInProgress;
-@property (nonatomic) BOOL verbose;
+@property(nonatomic) BOOL                        verbose;
 
 + (id)callWithRequest:(EHRServerRequest *)request onSuccess:(SenderBlock)success onError:(SenderBlock)error;
-- (BOOL)start;
+- (void)startAsGuest ;
+- (void)start;
 - (void)cancel;
--(void) setOnStart:(VoidBlock) onStart;
--(void) setOnEnd:(VoidBlock) onEnd;
+- (void)setOnStart:(VoidBlock)onStart;
+- (void)setOnEnd:(VoidBlock)onEnd;
+
+// deprecated methods being implemented here
+
+- (void)connection:(NSURLConnection *)connection didCancelAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge;
+- (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge;
+- (BOOL)connection:(NSURLConnection *)connection canAuthenticateAgainstProtectionSpace:(NSURLProtectionSpace *)protectionSpace;
+
 
 @end
