@@ -26,6 +26,7 @@
     sn.en                    = WantStringFromDic(theDictionary, @"en");
     sn.es                    = WantStringFromDic(theDictionary, @"es");
     sn.fr                    = WantStringFromDic(theDictionary, @"fr");
+    sn.de                    = WantStringFromDic(theDictionary, @"de");
     return sn;
 }
 
@@ -33,8 +34,9 @@
     
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     PutStringInDic(self.en, dic, @"en");
-    PutStringInDic(self.en, dic, @"es");
-    PutStringInDic(self.en, dic, @"fr");
+    PutStringInDic(self.es, dic, @"es");
+    PutStringInDic(self.fr, dic, @"fr");
+    PutStringInDic(self.de, dic, @"de");
     return dic;
 }
 
