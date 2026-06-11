@@ -375,7 +375,7 @@ static AppState   *_sharedInstance;
 #pragma mark - setters
 
 - (void)setDeviceLanguage:(NSString *)deviceLanguage {
-    if ([deviceLanguage isEqualToString:@"en"] || [deviceLanguage isEqualToString:@"fr"]) {
+    if ([deviceLanguage isEqualToString:@"en"] || [deviceLanguage isEqualToString:@"fr"] || [deviceLanguage isEqualToString:@"es"] || [deviceLanguage isEqualToString:@"de"]) {
         TRACE(@"Device language is [%@]", deviceLanguage);
     } else {
         MPLOGERROR(@"Unsupported device language, defaulting to english.");

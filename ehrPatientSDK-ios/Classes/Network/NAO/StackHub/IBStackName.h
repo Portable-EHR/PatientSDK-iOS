@@ -16,4 +16,5 @@
 @property(nonatomic) NSString *en;
 @property(nonatomic) NSString *es;
 @property(nonatomic) NSString *fr;
+@property(nonatomic) NSString *de;
 @end

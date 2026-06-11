@@ -227,10 +227,19 @@ localIPaddress:(NSString *)address
 
     NSString *credsHost = [SecureCredentials sharedCredentials].current.server.host;
     NSString *desiredHost = [EHRApiServer serverForStackKey:_stackKey].host;
-    if (![credsHost isEqualToString:desiredHost]){
-        MPLOGERROR(@"Hack possible : secure creds point to a different statk.  Reseting to [%@]",_stackKey);
+    
+    NSString *credsServer = [SecureCredentials sharedCredentials].current.server.serverDNSname;
+    NSString *desiredServer = [EHRApiServer serverForStackKey:_stackKey].serverDNSname;
+    
+    if (![credsServer isEqualToString:desiredServer]){
+        MPLOGERROR(@"Hack possible : serverDNSname doesn't match.  Reseting to [%@]",_stackKey);
         [self resetToDesirecStackKey];
     }
+    
+//    if (![credsHost isEqualToString:desiredHost]){
+//        MPLOGERROR(@"Hack possible : secure creds point to a different statk.  Reseting to [%@]",_stackKey);
+//        [self resetToDesirecStackKey];
+//    }
 
 }
 
