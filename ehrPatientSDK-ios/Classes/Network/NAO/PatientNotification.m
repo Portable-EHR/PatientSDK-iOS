@@ -23,7 +23,6 @@ TRACE_OFF
     if ((self = [super init])) {
         GE_ALLOC();
         GE_ALLOC_ECHO();
-
         self.textRenderer = @"text";
         self.summary      = @"";
         self.aboutType    = @"none";
@@ -254,7 +253,7 @@ TRACE_OFF
 
 + (PatientNotification *)objectWithContentsOfDictionary:(NSDictionary *)dic {
     PatientNotification *pn = [[PatientNotification alloc] init];
-
+    
     @try {
 
         pn.guid              = WantStringFromDic(dic, @"guid");

@@ -27,9 +27,7 @@
 @class ConversationEnvelope;
 
 @interface PatientNotification : NSObject <EHRInstanceCounterP, EHRNetworkableP> {
-
     NSInteger _instanceNumber;
-
 }
 
 @property NSString             *guid;
