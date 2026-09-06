@@ -47,7 +47,7 @@ TRACE_OFF
     if ([host hasSuffix:@"portableehr.net"]) {
         server.port          = 443;
         server.scheme        = @"https";
-        server.serverDNSname = @"api.portableehr.net";
+        server.serverDNSname = @"stackhub.portableehr.net";
     } else if ([host hasSuffix:@"portableehr.io"]) {
         server.port          = 443;
         server.scheme        = @"https";

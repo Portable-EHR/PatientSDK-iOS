@@ -28,6 +28,7 @@ TRACE_OFF
 @synthesize possibleRepliesTypes = _possibleRepliesTypes;
 @synthesize replyToFrom = _replyToFrom;
 @synthesize representedBy = _representedBy;
+@synthesize replyToAttachmentCount = _replyToAttachmentCount;
 
 - (instancetype)init {
     if ((self = [super init])) {
@@ -103,7 +104,7 @@ TRACE_OFF
     ce->_status = [NSMutableArray arrayWithArray:statii];
     
     NSDictionary *repliesToPayload = WantDicFromDic(dic, @"repliesTo");
-    
+    ce->_replyToAttachmentCount = WantIntegerFromDic(repliesToPayload, @"attachmentCount");
     NSDictionary *payload = repliesToPayload[@"payload"];
     
     NSLog(@"repliesToPayload *** %@:", payload);

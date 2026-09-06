@@ -15,9 +15,11 @@
 @interface EntryRepliesToPayload : NSObject <EHRInstanceCounterP, EHRNetworkableP> {
     NSInteger _instanceNumber;
     NSString  *_text;
-
+    NSInteger attachmentCount;
+    NSArray *_questionnaires;
 }
 
 @property(nonatomic) NSString *text;
-
+@property(nonatomic) NSInteger attachmentCount;
+@property(nonatomic) NSArray *questionnaires;
 @end
